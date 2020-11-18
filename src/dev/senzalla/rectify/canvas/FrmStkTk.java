@@ -6,8 +6,6 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.canvas.panel.PnlStkTk;
-import java.awt.GridLayout;
 
 /**
  * @author Black Burn Cybernetic
@@ -81,7 +79,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
     private void addPanel() {
 //        if(dao.isEmpty){
-        Access.goToCanvas(this, new FrmStkTkAdd());
+//        Access.goToCanvas(this, new FrmStkTkAdd());
 //        }
 //        pnlStk.setLayout(new GridLayout(StkFull.getStks().size() / 3, 3));
 //        StkFull.getStks().forEach(stk -> pnlStk.add(new pnlStkTk(stk)).setVisible(true));

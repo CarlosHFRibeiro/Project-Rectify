@@ -59,13 +59,16 @@
                   <Component id="btnTranspChargeMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblTranspChargeTitle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                   <Component id="btnTranspChargeAdd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnTranspChargeFilter" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
-              <Component id="rollTranspCharge" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="rollTranspCharge" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -103,7 +106,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Carregamento"/>
+            <Property name="text" type="java.lang.String" value="Estoque"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnTranspChargeAdd">

@@ -32,42 +32,45 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="pnlTranspCharge" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="pnlTank" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="pnlTranspCharge" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-          </Group>
+          <Component id="pnlTank" alignment="1" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pnlTranspCharge">
+    <Container class="javax.swing.JPanel" name="pnlTank">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[596, 438]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[596, 438]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnTranspChargeMain" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTankMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblTranspChargeTitle" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbltankTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                  <Component id="btnTranspChargeAdd" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTankAdd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnTranspChargeFilter" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTankFilter" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="rollTranspCharge" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="rollTank" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -75,22 +78,22 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="btnTranspChargeMain" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTranspChargeTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnTankFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="btnTankMain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbltankTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnTranspChargeFilter" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnTranspChargeAdd" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTankAdd" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="rollTranspCharge" max="-2" attributes="0"/>
+                  <Component id="rollTank" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnTranspChargeMain">
+        <Component class="javax.swing.JButton" name="btnTankMain">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
@@ -98,18 +101,18 @@
             <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTranspChargeMainActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTankMainActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTranspChargeTitle">
+        <Component class="javax.swing.JLabel" name="lbltankTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="20" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Estoque"/>
+            <Property name="text" type="java.lang.String" value="Tanque"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTranspChargeAdd">
+        <Component class="javax.swing.JButton" name="btnTankAdd">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/add_36dp.png"/>
@@ -119,10 +122,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTranspChargeAddActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTankAddActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTranspChargeFilter">
+        <Component class="javax.swing.JButton" name="btnTankFilter">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/filter_24dp.png"/>
@@ -132,10 +135,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTranspChargeFilterActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTankFilterActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="rollTranspCharge">
+        <Container class="javax.swing.JScrollPane" name="rollTank">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -157,28 +160,46 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblTranspCharge">
+            <Component class="javax.swing.JTable" name="tblTank">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="false" title="Cod." type="java.lang.Object"/>
+                    <Column editable="false" title="Data" type="java.lang.Object"/>
+                    <Column editable="false" title="Rea&#xe7;&#xf5;es" type="java.lang.Object"/>
                     <Column editable="false" title="Tanque" type="java.lang.Object"/>
-                    <Column editable="false" title="Produto" type="java.lang.Object"/>
-                    <Column editable="false" title="Quantidade" type="java.lang.Object"/>
+                    <Column editable="false" title="Produzido" type="java.lang.Object"/>
+                    <Column editable="false" title="Residuos" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="30" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>

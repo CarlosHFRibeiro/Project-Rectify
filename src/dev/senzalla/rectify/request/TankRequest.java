@@ -1,10 +1,8 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +13,7 @@ import java.util.Map;
  */
 
 public class TankRequest extends Request<Tank> {
+    
 
     @Override
     public void insert(Tank tank) {

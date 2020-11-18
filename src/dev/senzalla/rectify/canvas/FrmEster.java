@@ -7,12 +7,10 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactEster;
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 
 /**
  * @author Black Burn Cybernetic
@@ -373,7 +371,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
         if (countReact <= 1) {
             pnlReact = new ArrayList<>();
             defineButton(btnReactEsterRmv, true);
-        } else if (countReact>= 6) {
+        } else if (countReact >= 6) {
             defineButton(btnReactEsterAdd, false);
         }
         this.pnlReact.add(panel);
@@ -439,16 +437,9 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }
 
     private void addPanelReact() {
-//        layoutReact = new BoxLayout(pnlReactEster, countReact);
-//        pnlReactEster.setLayout(layoutReact);
-//        pnlReactEster.add(new PnlReactEster()).setVisible(true);
-        addPanel(layoutReact,pnlReactEster, countReact, new PnlReactEster());
-    }
-    private <T> void addPanel(BoxLayout layout, JPanel pnl, int count, T t){
-        System.out.println(t.getClass());
-        layout = new BoxLayout(pnl,count);
-        pnl.setLayout(layout);
-        pnl.add((Component) t).setVisible(true);
+        layoutReact = new BoxLayout(pnlReactEster, countReact);
+        pnlReactEster.setLayout(layoutReact);
+        pnlReactEster.add(new PnlReactEster()).setVisible(true);
     }
 
     private void defineButton(JButton btn, boolean b) {

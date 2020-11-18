@@ -14,7 +14,7 @@ package dev.senzalla.rectify.canvas.panel;
 
 public class PnlCalcOleic extends javax.swing.JPanel {
 
-    /** Creates new form PnlCalc */
+    /** Creates new form PnlReactEster */
     public PnlCalcOleic() {
         initComponents();
     }
@@ -28,57 +28,168 @@ public class PnlCalcOleic extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCalcResultOleicTitle = new javax.swing.JLabel();
-        lblCalcResultOleicValue = new javax.swing.JLabel();
-        lblCalcResultOleicFixed = new javax.swing.JLabel();
+        lblEsterReactDt = new javax.swing.JLabel();
+        lblEsterReactHrStart = new javax.swing.JLabel();
+        txtEsterReactHrStart = new javax.swing.JFormattedTextField();
+        lblEsterReactLabStart = new javax.swing.JLabel();
+        cbxEsterReactLabStart = new javax.swing.JComboBox<>();
+        lblEsterReactSulfuric = new javax.swing.JLabel();
+        txtEsterReactSulfuric = new javax.swing.JFormattedTextField();
+        lblEsterReactPure = new javax.swing.JLabel();
+        txtEsterReactPure = new javax.swing.JFormattedTextField();
+        lblEsterReactRecover = new javax.swing.JLabel();
+        txtEsterReactRecover = new javax.swing.JFormattedTextField();
+        lblEsterReactHrFinal = new javax.swing.JLabel();
+        txtEsterReactHrFinal = new javax.swing.JFormattedTextField();
+        lblEsterReactLabFinal = new javax.swing.JLabel();
+        cbxEsterReactLabFinal = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(550, 174));
         setMinimumSize(new java.awt.Dimension(550, 174));
         setPreferredSize(new java.awt.Dimension(550, 174));
 
-        lblCalcResultOleicTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblCalcResultOleicTitle.setText("ACIDEZ ÁCIDO GRAXO E BIODEISEL ESTEREFICADO");
+        lblEsterReactDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactDt.setText("Data");
 
-        lblCalcResultOleicValue.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblCalcResultOleicValue.setText("Acidez");
+        lblEsterReactHrStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactHrStart.setText("Hora Inicial");
 
-        lblCalcResultOleicFixed.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblCalcResultOleicFixed.setText("% OLÉICO");
+        try {
+            txtEsterReactHrStart.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtEsterReactHrStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEsterReactHrStart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtEsterReactHrStart.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactLabStart.setText("Cod Analise");
+
+        cbxEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxEsterReactLabStart.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactSulfuric.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactSulfuric.setText("Sufurico");
+
+        txtEsterReactSulfuric.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtEsterReactSulfuric.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtEsterReactSulfuric.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactPure.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactPure.setText("Metanol Puro");
+
+        txtEsterReactPure.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtEsterReactPure.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtEsterReactPure.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactRecover.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactRecover.setText("Metanol Recuperado");
+
+        txtEsterReactRecover.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtEsterReactRecover.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtEsterReactRecover.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactHrFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactHrFinal.setText("Hora Final");
+
+        try {
+            txtEsterReactHrFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtEsterReactHrFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEsterReactHrFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtEsterReactHrFinal.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactLabFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactLabFinal.setText("Cod Analise Final");
+
+        cbxEsterReactLabFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxEsterReactLabFinal.setPreferredSize(new java.awt.Dimension(120, 27));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblCalcResultOleicTitle)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEsterReactHrFinal)
+                    .addComponent(lblEsterReactPure)
+                    .addComponent(lblEsterReactLabStart)
+                    .addComponent(lblEsterReactDt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtEsterReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblEsterReactLabFinal))
+                    .addComponent(lblEsterReactHrStart, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cbxEsterReactLabStart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEsterReactPure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEsterReactRecover, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEsterReactSulfuric, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtEsterReactSulfuric, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtEsterReactRecover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxEsterReactLabFinal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
-                .addComponent(lblCalcResultOleicValue)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCalcResultOleicFixed)
-                .addGap(119, 119, 119))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblCalcResultOleicTitle)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEsterReactHrStart)
+                    .addComponent(lblEsterReactDt))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCalcResultOleicValue)
-                    .addComponent(lblCalcResultOleicFixed))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(lblEsterReactLabStart)
+                    .addComponent(cbxEsterReactLabStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEsterReactSulfuric)
+                    .addComponent(txtEsterReactSulfuric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEsterReactPure)
+                    .addComponent(txtEsterReactPure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEsterReactRecover)
+                    .addComponent(txtEsterReactRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEsterReactHrFinal)
+                    .addComponent(txtEsterReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEsterReactLabFinal)
+                    .addComponent(cbxEsterReactLabFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblCalcResultOleicFixed;
-    private javax.swing.JLabel lblCalcResultOleicTitle;
-    private javax.swing.JLabel lblCalcResultOleicValue;
+    private javax.swing.JComboBox<Object> cbxEsterReactLabFinal;
+    private javax.swing.JComboBox<Object> cbxEsterReactLabStart;
+    private javax.swing.JLabel lblEsterReactDt;
+    private javax.swing.JLabel lblEsterReactHrFinal;
+    private javax.swing.JLabel lblEsterReactHrStart;
+    private javax.swing.JLabel lblEsterReactLabFinal;
+    private javax.swing.JLabel lblEsterReactLabStart;
+    private javax.swing.JLabel lblEsterReactPure;
+    private javax.swing.JLabel lblEsterReactRecover;
+    private javax.swing.JLabel lblEsterReactSulfuric;
+    private javax.swing.JFormattedTextField txtEsterReactHrFinal;
+    private javax.swing.JFormattedTextField txtEsterReactHrStart;
+    private javax.swing.JFormattedTextField txtEsterReactPure;
+    private javax.swing.JFormattedTextField txtEsterReactRecover;
+    private javax.swing.JFormattedTextField txtEsterReactSulfuric;
     // End of variables declaration//GEN-END:variables
 
 }

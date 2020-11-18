@@ -15,6 +15,7 @@ import dev.senzalla.rectify.canvas.FrmLabSplitTbl;
 import dev.senzalla.rectify.canvas.FrmLabTqTbl;
 import dev.senzalla.rectify.canvas.FrmSealTbl;
 import dev.senzalla.rectify.canvas.FrmStkTk;
+import dev.senzalla.rectify.canvas.FrmTankTbl;
 import dev.senzalla.rectify.canvas.FrmTransTbl;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -37,7 +38,7 @@ public class FrmRectify extends JFrame {
         initComponents();
         Access.setDktMain(dktMain);
         TreatmentsItem.visiblePanel(pnlMenu);
-        this.goToCanvas(new FrmStkTk());
+//        this.goToCanvas(new FrmStkTk());
     }
 
     /**
@@ -630,7 +631,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void btnCalcAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcAcidActionPerformed
-         this.goToCanvas(new FrmCalcAcid());
+        this.goToCanvas(new FrmCalcAcid());
     }//GEN-LAST:event_btnCalcAcidActionPerformed
 
     private void btnCalcSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcSoapActionPerformed
@@ -650,7 +651,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnProviderActionPerformed
 
     private void btnTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankActionPerformed
-        // TODO add your handling code here:
+        this.goToCanvas(new FrmTankTbl());
     }//GEN-LAST:event_btnTankActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
@@ -689,7 +690,7 @@ public class FrmRectify extends JFrame {
             java.util.logging.Logger.getLogger(FrmRectify.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -766,12 +767,10 @@ public class FrmRectify extends JFrame {
 
     private void goToCanvas(JInternalFrame frame) {
         if (this.frame == null) {
-            this.frame = frame;
-            Access.goToCanvas(this.frame);
+            Access.goToCanvas(frame);
         } else if (this.frame != null) {
-            JInternalFrame frm = frame;
-            Access.goToCanvas(this.frame, frm);
-            this.frame = frm;
+            Access.goToCanvas(this.frame, frame);
         }
+        this.frame = frame;
     }
 }

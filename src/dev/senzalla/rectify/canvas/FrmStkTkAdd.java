@@ -53,7 +53,7 @@ public class FrmStkTkAdd extends javax.swing.JInternalFrame {
         });
 
         lblTranspChargeTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTranspChargeTitle.setText("Carregamento");
+        lblTranspChargeTitle.setText("Estoque");
 
         btnTranspChargeAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
         btnTranspChargeAdd.setPreferredSize(new java.awt.Dimension(46, 40));
@@ -110,12 +110,14 @@ public class FrmStkTkAdd extends javax.swing.JInternalFrame {
                 .addComponent(btnTranspChargeMain)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTranspChargeTitle)
-                .addGap(119, 119, 119)
+                .addGap(152, 152, 152)
                 .addComponent(btnTranspChargeAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTranspChargeFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addComponent(rollTranspCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnlTranspChargeLayout.createSequentialGroup()
+                .addComponent(rollTranspCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlTranspChargeLayout.setVerticalGroup(
             pnlTranspChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

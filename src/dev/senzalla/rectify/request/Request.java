@@ -1,7 +1,6 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.setting.ConectionMySql;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +11,8 @@ import java.util.Map;
  */
 public abstract class Request<T> extends ConectionMySql {
 
-    private List<T> list;
-    private String select = null;
+    protected List<T> list;
+    protected String select = null;
 
     public abstract void insert(T t);
 

@@ -5,10 +5,8 @@
  */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.panel.PnlCalcOleic;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 
 /**
  * @author Black Burn Cybernetic
@@ -106,11 +104,11 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 161, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlCalcAcidLayout = new javax.swing.GroupLayout(pnlCalcAcid);
@@ -147,9 +145,9 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
                         .addGap(25, 25, 25))
                     .addGroup(pnlCalcAcidLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCalcAcidCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCalcAcidCalculate, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlCalcAcidLayout.setVerticalGroup(
@@ -173,9 +171,9 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
                     .addComponent(rbtnCalcAcidOther))
                 .addGap(18, 18, 18)
                 .addComponent(btnCalcAcidCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,15 +191,17 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStkSealMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStkSealMainActionPerformed
-        Access.goToCanvas(this, new FrmSealTbl());
+        this.dispose();
     }//GEN-LAST:event_btnStkSealMainActionPerformed
 
     private void btnCalcAcidCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcAcidCalculateActionPerformed
-        if (btgCalcAcid != null) {
+        if(pnlCalc.getComponents().length>0){
+            pnlCalc.removeAll();
+        }
+        if (btgCalcAcid.getSelection() != null) {
             GridLayout layout = new GridLayout();
             pnlCalc.setLayout(layout);
             if (rbtnCalcAcidBio.isSelected()) {
-                System.out.println("Teste");
                 pnlCalc.add(new PnlCalcOleic()).setVisible(true);
             } else {
                 pnlCalc.add(new PnlCalcOleic()).setVisible(true);
