@@ -1,12 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.canvas.panel.PnlCalcOleic;
-import java.awt.GridLayout;
+import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.exception.EmptyField;
+import dev.senzalla.rectify.request.TankRequest;
+import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TxtTreatment;
 
 /**
  * @author Black Burn Cybernetic
@@ -16,7 +14,7 @@ import java.awt.GridLayout;
 public class FrmTank extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmLabTqTbl
+     * Creates new form FrmTank
      */
     public FrmTank() {
         initComponents();
@@ -31,10 +29,15 @@ public class FrmTank extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btgCalcAcid = new javax.swing.ButtonGroup();
         pnlTank = new javax.swing.JPanel();
-        btnTankMain = new javax.swing.JButton();
-        lblTankTitle = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblCapacity = new javax.swing.JLabel();
+        txtCapacity = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -45,36 +48,105 @@ public class FrmTank extends javax.swing.JInternalFrame {
         pnlTank.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlTank.setPreferredSize(new java.awt.Dimension(596, 438));
 
-        btnTankMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnTankMain.setText("<<");
-        btnTankMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTankMainActionPerformed(evt);
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Cadastrar Tanque");
+
+        lblName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblName.setText("Nome");
+
+        txtName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtName.setPreferredSize(new java.awt.Dimension(200, 27));
+
+        lblCapacity.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCapacity.setText("Capacidade");
+
+        txtCapacity.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCapacity.setPreferredSize(new java.awt.Dimension(200, 27));
+        txtCapacity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCapacityKeyTyped(evt);
             }
         });
 
-        lblTankTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTankTitle.setText("Calculadora Acidez");
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setText("Salvar");
+        btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setText("Cancelar");
+        btnCancel.setMaximumSize(new java.awt.Dimension(78, 37));
+        btnCancel.setMinimumSize(new java.awt.Dimension(78, 37));
+        btnCancel.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setText("Limpar");
+        btnClear.setMaximumSize(new java.awt.Dimension(78, 37));
+        btnClear.setMinimumSize(new java.awt.Dimension(78, 37));
+        btnClear.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTankLayout = new javax.swing.GroupLayout(pnlTank);
         pnlTank.setLayout(pnlTankLayout);
         pnlTankLayout.setHorizontalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnTankMain)
-                .addGap(146, 146, 146)
-                .addComponent(lblTankTitle)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+            .addGroup(pnlTankLayout.createSequentialGroup()
+                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTankLayout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(lblTitle))
+                    .addGroup(pnlTankLayout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(lblName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlTankLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCapacity))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         pnlTankLayout.setVerticalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lblTitle)
+                .addGap(80, 80, 80)
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTankMain)
-                    .addComponent(lblTankTitle))
-                .addContainerGap(392, Short.MAX_VALUE))
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCapacity)
+                    .addComponent(txtCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,16 +163,41 @@ public class FrmTank extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTankMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankMainActionPerformed
+    private void txtCapacityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCapacityKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtCapacityKeyTyped
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if (new TxtTreatment().isTxtVoid(pnlTank)) {
+            Tank tank = new Tank();
+            tank.setNameTank(txtName.getText());
+            tank.setCapacityTank(Integer.parseInt(txtCapacity.getText()));
+            new TankRequest().insert(tank);
+            btnClearActionPerformed(evt);
+        } else {
+            new EmptyField().showMsg();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        new TxtTreatment().cleanTxt(pnlTank);
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnTankMainActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup btgCalcAcid;
-    private javax.swing.JButton btnTankMain;
-    private javax.swing.JLabel lblTankTitle;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JLabel lblCapacity;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlTank;
+    private javax.swing.JTextField txtCapacity;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 
 }

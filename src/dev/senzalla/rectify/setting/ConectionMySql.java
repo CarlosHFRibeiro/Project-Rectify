@@ -13,17 +13,16 @@ import java.sql.SQLException;
  */
 public class ConectionMySql {
 
-    private static final Connection connection = ConnectionMySql.getConnection();
+    private static Connection connection = null;
     public static PreparedStatement stmt = null;
     public static ResultSet rs = null;
 
-    public static Connection connection() {
-        return connection;
+    public static void connection(){
+        connection = ConnectionMySql.getConnection();
     }
 
-    public static PreparedStatement prepareStatement(String sql) throws SQLException {
+    public static void prepareStatement(String sql) throws SQLException {
         stmt = connection.prepareStatement(sql);
-        return stmt;
     }
 
     public static void resultSet() throws SQLException {

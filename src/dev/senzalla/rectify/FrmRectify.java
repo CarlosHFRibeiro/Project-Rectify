@@ -5,7 +5,10 @@
  */
 package dev.senzalla.rectify;
 
+import dev.senzalla.rectify.canvas.FrmAbout;
 import dev.senzalla.rectify.canvas.FrmCalcAcid;
+import dev.senzalla.rectify.canvas.FrmCalcSoap;
+import dev.senzalla.rectify.canvas.FrmCalcTrans;
 import dev.senzalla.rectify.canvas.FrmChargeTbl;
 import dev.senzalla.rectify.canvas.FrmDchargeTbl;
 import dev.senzalla.rectify.canvas.FrmEsterTbl;
@@ -13,9 +16,13 @@ import dev.senzalla.rectify.canvas.FrmLabBioTbl;
 import dev.senzalla.rectify.canvas.FrmLabCarTbl;
 import dev.senzalla.rectify.canvas.FrmLabSplitTbl;
 import dev.senzalla.rectify.canvas.FrmLabTqTbl;
+//import dev.senzalla.rectify.canvas.FrmProductTbl;
+import dev.senzalla.rectify.canvas.FrmProviderTbl;
 import dev.senzalla.rectify.canvas.FrmSealTbl;
+import dev.senzalla.rectify.canvas.FrmSolution;
 import dev.senzalla.rectify.canvas.FrmStkTk;
 import dev.senzalla.rectify.canvas.FrmTankTbl;
+import dev.senzalla.rectify.canvas.FrmTheme;
 import dev.senzalla.rectify.canvas.FrmTransTbl;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -635,11 +642,11 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnCalcAcidActionPerformed
 
     private void btnCalcSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcSoapActionPerformed
-        // TODO add your handling code here:
+        this.goToCanvas(new FrmCalcSoap());
     }//GEN-LAST:event_btnCalcSoapActionPerformed
 
     private void btnCalcTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcTransActionPerformed
-        // TODO add your handling code here:
+       this.goToCanvas(new FrmCalcTrans());
     }//GEN-LAST:event_btnCalcTransActionPerformed
 
     private void btnSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupActionPerformed
@@ -647,7 +654,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnSetupActionPerformed
 
     private void btnProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderActionPerformed
-        // TODO add your handling code here:
+       this.goToCanvas(new FrmProviderTbl());
     }//GEN-LAST:event_btnProviderActionPerformed
 
     private void btnTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankActionPerformed
@@ -655,19 +662,19 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnTankActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
-        // TODO add your handling code here:
+//        this.goToCanvas(new FrmProductTbl());
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolActionPerformed
-        // TODO add your handling code here:
+        this.goToCanvas(new FrmSolution());
     }//GEN-LAST:event_btnSolActionPerformed
 
     private void btnThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemeActionPerformed
-        // TODO add your handling code here:
+        this.goToCanvas(new FrmTheme());
     }//GEN-LAST:event_btnThemeActionPerformed
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
-        // TODO add your handling code here:
+        this.goToCanvas(new FrmAbout());
     }//GEN-LAST:event_btnAboutActionPerformed
 
     /**

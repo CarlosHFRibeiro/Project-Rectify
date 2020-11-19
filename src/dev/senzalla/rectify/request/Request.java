@@ -16,6 +16,8 @@ public abstract class Request<T> extends ConectionMySql {
 
     public abstract void insert(T t);
 
+    public abstract List<T> select();
+
     public abstract List<T> select(T t);
 
     public abstract List<T> select(Map<String, String> clause, T t);

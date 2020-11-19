@@ -4,7 +4,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez
  * @e-mail blackburncyber@gmail.com
  * @github github.com/BlackBurnCybernetic
  */
