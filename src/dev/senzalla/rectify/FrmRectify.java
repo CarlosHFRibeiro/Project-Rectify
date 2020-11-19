@@ -5,25 +5,8 @@
  */
 package dev.senzalla.rectify;
 
-import dev.senzalla.rectify.canvas.FrmAbout;
-import dev.senzalla.rectify.canvas.FrmCalcAcid;
-import dev.senzalla.rectify.canvas.FrmCalcSoap;
-import dev.senzalla.rectify.canvas.FrmCalcTrans;
-import dev.senzalla.rectify.canvas.FrmChargeTbl;
-import dev.senzalla.rectify.canvas.FrmDchargeTbl;
-import dev.senzalla.rectify.canvas.FrmEsterTbl;
-import dev.senzalla.rectify.canvas.FrmLabBioTbl;
-import dev.senzalla.rectify.canvas.FrmLabCarTbl;
-import dev.senzalla.rectify.canvas.FrmLabSplitTbl;
-import dev.senzalla.rectify.canvas.FrmLabTqTbl;
+import dev.senzalla.rectify.canvas.*;
 //import dev.senzalla.rectify.canvas.FrmProductTbl;
-import dev.senzalla.rectify.canvas.FrmProviderTbl;
-import dev.senzalla.rectify.canvas.FrmSealTbl;
-import dev.senzalla.rectify.canvas.FrmSolution;
-import dev.senzalla.rectify.canvas.FrmStkTk;
-import dev.senzalla.rectify.canvas.FrmTankTbl;
-import dev.senzalla.rectify.canvas.FrmTheme;
-import dev.senzalla.rectify.canvas.FrmTransTbl;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,7 +15,7 @@ import dev.senzalla.rectify.treatments.TreatmentsItem;
 import javax.swing.JInternalFrame;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail blackburncyber@gmail.com
  * @github github.com/BlackBurnCybernetic
  */
@@ -662,7 +645,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnTankActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
-//        this.goToCanvas(new FrmProductTbl());
+        this.goToCanvas(new FrmProductTbl());
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnSolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolActionPerformed

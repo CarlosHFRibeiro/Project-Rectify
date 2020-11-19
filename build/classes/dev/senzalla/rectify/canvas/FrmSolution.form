@@ -60,17 +60,18 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
                           <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="251" pref="254" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="pnlSolutionNaoh" min="-2" pref="268" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="pnlSolutionHcl" min="-2" pref="260" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="pnlSolutionHcl" min="-2" pref="268" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="5" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,7 +124,7 @@
                           <Component id="btnSolNaohAdd" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="btnSolNaohDeleteAll" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -251,18 +252,13 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="rollSolHcl" min="-2" pref="124" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btnSolHclChange" alignment="0" pref="108" max="32767" attributes="0"/>
-                                  <Component id="btnSolHclAdd" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btnSolHclDelete" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="btnSolHclDeleteAll" alignment="1" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnSolHclChange" alignment="0" pref="108" max="32767" attributes="0"/>
+                          <Component id="btnSolHclAdd" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnSolHclDelete" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnSolHclDeleteAll" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

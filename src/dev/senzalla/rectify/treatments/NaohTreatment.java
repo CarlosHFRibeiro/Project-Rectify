@@ -6,12 +6,14 @@
 package dev.senzalla.rectify.treatments;
 
 //import dev.senzalla.rectify.request.NaohRequest;
+
+import dev.senzalla.rectify.entitys.Naoh;
+import dev.senzalla.rectify.exception.FieldException;
+import dev.senzalla.rectify.request.NaohRequest;
+
+import javax.swing.*;
 import java.util.HashSet;
 import java.util.Set;
-import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 
 /**
  * @author Bomsalvez
@@ -25,16 +27,59 @@ public class NaohTreatment {
         DefaultListModel model = new DefaultListModel();
         lstSolNaoh.setModel(model);
 
-//        new NaohRequest().select().forEach(naoh -> naohs.add(naoh.toString()));
-        naohs.forEach(naoh -> model.addElement(naoh));
+        new NaohRequest().select().forEach(naoh -> naohs.add(naoh.toString()));
+        naohs.forEach(model::addElement);
     }
 
     public String panelInsert() {
-        return JOptionPane.showInputDialog(
-                new JFrame(),
-                "Insira o valor da solução de Naoh!",
-                "Solução Naoh",
-                JOptionPane.QUESTION_MESSAGE
-        ).replace(",", ".");
+        return PopUp.panelInsert("NaoH");
+    }
+
+    public void addSolutionNaoh() {
+        new NaohRequest().insert(getNaoh());
+    }
+
+    private Naoh getNaoh() {
+        try {
+            String solution = new NaohTreatment().panelInsert();
+            Naoh naoh = new Naoh();
+            naoh.setValueNaoh(Double.parseDouble(solution));
+            return naoh;
+        } catch (NumberFormatException ex) {
+            throw new FieldException();
+        }
+    }
+
+    public void updateSolutionNaoh(JList<String> lstSolNaoh) {
+        Naoh naoh = getNaoh();
+        naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
+        new NaohRequest().update(naoh);
+    }
+
+    public Long getIdNaoh(JList<String> lstSolNaoh) {
+        return new NaohRequest().select().stream().filter(naoh ->
+                naoh.getValueNaoh() == Double.parseDouble(lstSolNaoh.getSelectedValue()))
+                .findFirst().map(Naoh::getIdNaoh)
+                .orElse(null);
+    }
+
+    public void deleteSolutionNaoh(JList<String> lstSolNaoh) {
+        String del = PopUp.panelDelete("");
+        if (del.toUpperCase().equals("S")) {
+            Naoh naoh = new Naoh();
+            naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
+            new NaohRequest().delete(naoh);
+        } else {
+            PopUp.cancelOperation();
+        }
+    }
+
+    public void deleteAllSolutionNaoh() {
+        String del = PopUp.panelDelete("todos ");
+        if (del.toUpperCase().equals("S")) {
+            new NaohRequest().deleteAll();
+        } else {
+            PopUp.cancelOperation();
+        }
     }
 }

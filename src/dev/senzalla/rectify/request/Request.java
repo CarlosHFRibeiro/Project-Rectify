@@ -11,14 +11,11 @@ import java.util.Map;
  */
 public abstract class Request<T> extends ConectionMySql {
 
-    protected List<T> list;
-    protected String select = null;
-
     public abstract void insert(T t);
 
     public abstract List<T> select();
 
     public abstract List<T> select(T t);
 
-    public abstract List<T> select(Map<String, String> clause, T t);
+    public abstract List<T> select(Map<String, T> clause);
 }

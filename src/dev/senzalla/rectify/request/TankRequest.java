@@ -45,7 +45,7 @@ public class TankRequest extends Request<Tank> {
     }
 
     @Override
-    public List<Tank> select(Map<String, String> clause, Tank tank) {
+    public List<Tank> select(Map<String, Tank> clause) {
         return null;
     }
 

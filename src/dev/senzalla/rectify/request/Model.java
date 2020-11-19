@@ -28,43 +28,29 @@ public abstract class Model<T> extends ConectionMySql {
         }
     }
 
-    public List<T> select(T t) {
-        select(t, select);
+    public List<T> select() {
+        selectAll( select);
         return list;
     }
 
-    public List<T> select(Map<String, String> clause, T t) {
+    public List<T> select(Map<String, T> clause) {
         String where = "";
         where = clause.entrySet().stream().map(entry -> 
                 String.format(" %s = %s AND", entry.getKey(), entry.getValue())
         ).reduce(where, String::concat);
 
         select += " WHERE " + where.substring(0, where.length() - 3);
-        select(t, select);
+        selectAll(select);
         return list;
     }
 
-    protected void select(T t, String select) {
-        try {
-            prepareStatement(select);
-            resultSet();
-            while (rs.next()) {
-                list.add(t);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex);
-        } finally {
-            closeConnectionRs();
-        }
-    }
 
     protected List<T> selectAll(String select) {
-        T t = null;
-        select(t, select);
         try {
             prepareStatement(select);
             resultSet();
             while (rs.next()) {
+        T t = null;
                 list.add(t);
             }
         } catch (SQLException ex) {

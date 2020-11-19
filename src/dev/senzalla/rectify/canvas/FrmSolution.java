@@ -6,10 +6,9 @@
 package dev.senzalla.rectify.canvas;
 
 //import dev.senzalla.rectify.request.NaohRequest;
+
 import dev.senzalla.rectify.treatments.NaohTreatment;
-import java.util.HashSet;
-import java.util.Set;
-import javax.swing.DefaultListModel;
+import dev.senzalla.rectify.treatments.PopUp;
 
 /**
  * @author Black Burn Cybernetic
@@ -24,7 +23,6 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     public FrmSolution() {
         initComponents();
         new NaohTreatment().showSolutionNaoh(lstSolNaoh);
-        showSolutionHcl();
     }
 
     /**
@@ -122,7 +120,7 @@ public class FrmSolution extends javax.swing.JInternalFrame {
                     .addComponent(btnSolNaohDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnSolNaohAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnSolNaohDeleteAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         pnlSolutionNaohLayout.setVerticalGroup(
             pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,15 +191,12 @@ public class FrmSolution extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(rollSolHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlSolutionHclLayout.createSequentialGroup()
-                        .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnSolHclChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                            .addComponent(btnSolHclAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnSolHclChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                    .addComponent(btnSolHclAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         pnlSolutionHclLayout.setVerticalGroup(
             pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,12 +224,13 @@ public class FrmSolution extends javax.swing.JInternalFrame {
                 .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSolutionLayout.createSequentialGroup()
                         .addGap(249, 249, 249)
-                        .addComponent(lblTitle))
+                        .addComponent(lblTitle)
+                        .addGap(251, 254, Short.MAX_VALUE))
                     .addGroup(pnlSolutionLayout.createSequentialGroup()
                         .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(5, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))))
         );
         pnlSolutionLayout.setVerticalGroup(
             pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,14 +259,32 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSolNaohAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohAddActionPerformed
-        String sol = new NaohTreatment().panelInsert();
+        new NaohTreatment().addSolutionNaoh();
+        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohAddActionPerformed
 
     private void btnSolNaohChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohChangeActionPerformed
+        if (lstSolNaoh.getSelectedIndex() >= 0) {
+            new NaohTreatment().updateSolutionNaoh(lstSolNaoh);
+        } else {
+            PopUp.selectField();
+        }
+        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohChangeActionPerformed
 
     private void btnSolNaohDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteActionPerformed
+        if (lstSolNaoh.getSelectedIndex() >= 0) {
+            new NaohTreatment().deleteSolutionNaoh(lstSolNaoh);
+        } else {
+            PopUp.selectField();
+        }
+        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteActionPerformed
+
+    private void btnSolNaohDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteAllActionPerformed
+        new NaohTreatment().deleteAllSolutionNaoh();
+        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
+    }//GEN-LAST:event_btnSolNaohDeleteAllActionPerformed
 
     private void btnSolHclAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclAddActionPerformed
     }//GEN-LAST:event_btnSolHclAddActionPerformed
@@ -280,10 +294,6 @@ public class FrmSolution extends javax.swing.JInternalFrame {
 
     private void btnSolHclDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteActionPerformed
     }//GEN-LAST:event_btnSolHclDeleteActionPerformed
-
-    private void btnSolNaohDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteAllActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSolNaohDeleteAllActionPerformed
 
     private void btnSolHclDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteAllActionPerformed
         // TODO add your handling code here:
@@ -308,15 +318,4 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane rollSolHcl;
     private javax.swing.JScrollPane rollSolNaoh;
     // End of variables declaration//GEN-END:variables
-
-
-    private void showSolutionHcl() {
-        Set<String> hcls = new HashSet<>();
-        DefaultListModel model = new DefaultListModel();
-        lstSolHcl.setModel(model);
-
-//        new NaohRequest().select().forEach(hcl -> hcls.add(hcl.toString()));
-        hcls.forEach(hcl -> model.addElement(hcl));
-    }
-
 }

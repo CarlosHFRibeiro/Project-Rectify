@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
+import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.request.TankRequest;
 import javax.swing.table.DefaultTableModel;
 
@@ -9,12 +10,12 @@ import javax.swing.table.DefaultTableModel;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmTankTbl extends javax.swing.JInternalFrame {
+public class FrmProductTbl extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmTankTbl
+     * Creates new form FrmProductTbl
      */
-    public FrmTankTbl() {
+    public FrmProductTbl() {
         initComponents();
         showTable();
     }
@@ -28,7 +29,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlTank = new javax.swing.JPanel();
+        pnlProduct = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         roll = new javax.swing.JScrollPane();
@@ -39,11 +40,11 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(598, 460));
         setPreferredSize(new java.awt.Dimension(598, 460));
 
-        pnlTank.setMaximumSize(new java.awt.Dimension(596, 438));
-        pnlTank.setMinimumSize(new java.awt.Dimension(596, 438));
+        pnlProduct.setMaximumSize(new java.awt.Dimension(596, 438));
+        pnlProduct.setMinimumSize(new java.awt.Dimension(596, 438));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTitle.setText("Tanque");
+        lblTitle.setText("Produto");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
@@ -83,25 +84,25 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(500);
         }
 
-        javax.swing.GroupLayout pnlTankLayout = new javax.swing.GroupLayout(pnlTank);
-        pnlTank.setLayout(pnlTankLayout);
-        pnlTankLayout.setHorizontalGroup(
-            pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTankLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlProductLayout = new javax.swing.GroupLayout(pnlProduct);
+        pnlProduct.setLayout(pnlProductLayout);
+        pnlProductLayout.setHorizontalGroup(
+            pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProductLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(197, 197, 197)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTankLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        pnlTankLayout.setVerticalGroup(
-            pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTankLayout.createSequentialGroup()
+        pnlProductLayout.setVerticalGroup(
+            pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlProductLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTitle)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -114,25 +115,25 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlTank, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this, new FrmTank());
+        Access.goToCanvas(this, new FrmProduct());
     }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPanel pnlTank;
+    private javax.swing.JPanel pnlProduct;
     private javax.swing.JScrollPane roll;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
@@ -141,10 +142,10 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
 
-        new TankRequest().select().forEach(tank
+        new ProductRequest().select().forEach(product
                 -> model.addRow(new Object[]{
-            tank.getNameTank(),
-            tank.getCapacityTank()
+                product.getNameProduct(),
+                product.getDensityProduct()
         }));
     }
 }
