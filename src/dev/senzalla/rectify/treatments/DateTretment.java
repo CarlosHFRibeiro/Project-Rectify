@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -35,5 +36,4 @@ public class DateTretment {
         }
         return null;
     }
-
 }

@@ -18,9 +18,10 @@ public abstract class Model<T> extends ConectionMySql {
     private String where = "";
 
     public  void insert(T t) {
+        connection();
         try {
-            String sql = null;
-            ConectionMySql.prepareStatement(sql);
+            final String sql = null;
+            prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -51,9 +52,7 @@ public abstract class Model<T> extends ConectionMySql {
 
     private void selectAll(String select, T clause) {
         connection();
-        if (list == null) {
             list = new ArrayList<>();
-        }
         try {
             prepareStatement(select);
             if (clause != null) {

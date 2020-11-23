@@ -1,6 +1,10 @@
 package dev.senzalla.rectify.entitys;
 
-import java.time.LocalDateTime;
+import dev.senzalla.rectify.treatments.DateTretment;
+
+import java.sql.Date;
+import java.sql.Time;
+
 
 /**
  * @author Black Burn Cybernetic
@@ -8,13 +12,14 @@ import java.time.LocalDateTime;
  * @github github.com/Bomsalvez
  */
 
-public class LabCar {
+public class LabCar extends DateTretment {
     private Long idCar;
     private int trashCar;
     private double acidCar;
     private double soapCar;
     private double densityCar;
-    private LocalDateTime dtCar;
+    private Date dtCar;
+    private Time hrCar;
     private Collect collect;
 
     public Long getIdCar() {
@@ -57,12 +62,24 @@ public class LabCar {
         this.densityCar = densityCar;
     }
 
-    public LocalDateTime getDtCar() {
+    public Date getDtCar() {
         return dtCar;
     }
 
-    public void setDtCar(LocalDateTime dtCar) {
+    public void setDtCar(Date dtCar) {
         this.dtCar = dtCar;
+    }
+
+    public void setDtCar(java.util.Date dtCar) {
+        this.dtCar = convertDateSql(dtCar);
+    }
+
+    public Time getHrCar() {
+        return hrCar;
+    }
+
+    public void setHrCar(Time hrCar) {
+        this.hrCar = hrCar;
     }
 
     public Collect getCollect() {

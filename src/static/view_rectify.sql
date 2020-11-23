@@ -89,17 +89,17 @@ join tbl_tank tt on tt.idTank = mt.fkTankTrans
 #
 #
 #
-# CREATE OR REPLACE VIEW view_labtank AS
-#     SELECT
-#         idTq,
-#         trashTq,
-#         acidTq,
-#         soapTq,
-#         dtTq,
-#         nameTank
-#     FROM
-#         tbl_labtank
-#         JOIN tbl_tank ON fkTankTq = idTank;
+CREATE OR REPLACE VIEW view_labtank AS
+    SELECT
+        idTq,
+        trashTq,
+        acidTq,
+        soapTq,
+        dtTq,
+        nameTank
+    FROM
+        tbl_labtank
+        JOIN tbl_tank ON fkTankTq = idTank;
 #
 #
 #

@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS `tbl_provider`
 
 CREATE TABLE IF NOT EXISTS `tbl_product`
 (
-    idProduct   INT         NOT NULL AUTO_INCREMENT,
+    idProduct      INT         NOT NULL AUTO_INCREMENT,
     densityProduct DOUBLE      NOT NULL,
-    nameProduct VARCHAR(35) NOT NULL,
+    nameProduct    VARCHAR(35) NOT NULL,
     PRIMARY KEY (idProduct),
     CONSTRAINT `Nome Produto` UNIQUE (nameProduct)
 );
@@ -37,14 +37,15 @@ CREATE TABLE IF NOT EXISTS `tbl_labSplit`
     sludgeSplit   INT  NOT NULL DEFAULT 0,
     glycerinSplit INT  NOT NULL DEFAULT 0,
     trashSplit    INT  NOT NULL DEFAULT 0,
-    dtSplit       DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    dtSplit       DATE NOT NULL DEFAULT (CURRENT_DATE()),
+    hrSplit       TIME NOT NULL DEFAULT (CURRENT_TIME()),
     PRIMARY KEY (idSplit)
 );
 
 CREATE TABLE IF NOT EXISTS `tbl_driver`
 (
-    idDriver   INT         NOT NULL AUTO_INCREMENT,
-    cnhDriver  CHAR(11)    NOT NULL,
+    idDriver   INT          NOT NULL AUTO_INCREMENT,
+    cnhDriver  CHAR(11)     NOT NULL,
     nameDriver VARCHAR(255) NOT NULL,
     PRIMARY KEY (idDriver),
     CONSTRAINT `CNH Motorista` UNIQUE (cnhDriver)
@@ -52,13 +53,14 @@ CREATE TABLE IF NOT EXISTS `tbl_driver`
 
 CREATE TABLE IF NOT EXISTS `tbl_labCar`
 (
-    idCar      INT     NOT NULL AUTO_INCREMENT,
-    trashCar   INT     NOT NULL DEFAULT 0,
-    collectCar CHAR(5) NOT NULL,
-    acidCar    DOUBLE  NOT NULL DEFAULT 0,
-    soapCar    DOUBLE  NOT NULL DEFAULT 0,
-    densityCar    DOUBLE  NOT NULL,
-    dtCar      DATETIME    NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    idCar      INT      NOT NULL AUTO_INCREMENT,
+    trashCar   INT      NOT NULL DEFAULT 0,
+    collectCar CHAR(5)  NOT NULL,
+    acidCar    DOUBLE   NOT NULL DEFAULT 0,
+    soapCar    DOUBLE   NOT NULL DEFAULT 0,
+    densityCar DOUBLE   NOT NULL,
+    dtCar      DATE NOT NULL DEFAULT (CURRENT_DATE()),
+    hrCar      TIME NOT NULL DEFAULT (CURRENT_TIME()),
     PRIMARY KEY (idCar)
 );
 
@@ -76,24 +78,24 @@ CREATE TABLE IF NOT EXISTS `tbl_labCarsplit`
 
 CREATE TABLE IF NOT EXISTS `tbl_labBio`
 (
-    idBio     INT    NOT NULL AUTO_INCREMENT,
-    acidBio   DOUBLE NOT NULL DEFAULT 0,
-    densityBio   DOUBLE NOT NULL,
-    density20Bio DOUBLE NOT NULL,
-    tempBio   DOUBLE NOT NULL,
-    factorBio DOUBLE NOT NULL,
-    dtBio     DATETIME   NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    idBio        INT      NOT NULL AUTO_INCREMENT,
+    acidBio      DOUBLE   NOT NULL DEFAULT 0,
+    densityBio   DOUBLE   NOT NULL,
+    density20Bio DOUBLE   NOT NULL,
+    tempBio      DOUBLE   NOT NULL,
+    factorBio    DOUBLE   NOT NULL,
+    dtBio        DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
     PRIMARY KEY (idBio)
 );
 
 CREATE TABLE IF NOT EXISTS `tbl_labTank`
 (
-    idTq     INT    NOT NULL AUTO_INCREMENT,
-    trashTq  INT    NOT NULL DEFAULT 0,
-    fkTankTq INT    NOT NULL,
-    acidTq   DOUBLE NOT NULL DEFAULT 0,
-    soapTq   DOUBLE NOT NULL DEFAULT 0,
-    dtTq     DATETIME   NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    idTq     INT      NOT NULL AUTO_INCREMENT,
+    trashTq  INT      NOT NULL DEFAULT 0,
+    fkTankTq INT      NOT NULL,
+    acidTq   DOUBLE   NOT NULL DEFAULT 0,
+    soapTq   DOUBLE   NOT NULL DEFAULT 0,
+    dtTq     DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
     PRIMARY KEY (idTq),
     CONSTRAINT `FK_Tanque_Tanque` FOREIGN KEY (fkTankTq)
         REFERENCES `tbl_Tank` (idTank)

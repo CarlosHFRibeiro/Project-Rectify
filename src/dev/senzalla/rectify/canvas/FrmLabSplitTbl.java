@@ -8,6 +8,10 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
+import dev.senzalla.rectify.entitys.LabSplit;
+import dev.senzalla.rectify.request.LabSplitRequest;
+
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Black Burn Cybernetic
@@ -20,7 +24,10 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
     /** Creates new form FrmLabSplitTbl */
     public FrmLabSplitTbl() {
         initComponents();
+//        showTable();
     }
+
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -32,53 +39,44 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlLabSplit = new javax.swing.JPanel();
-        btnLabSplitMain = new javax.swing.JButton();
-        lblLabSplitTitle = new javax.swing.JLabel();
-        btnLabSplitAdd = new javax.swing.JButton();
-        btnLabSplitFilter = new javax.swing.JButton();
-        rollLabSplit = new javax.swing.JScrollPane();
-        tblLabSplit = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnFilter = new javax.swing.JButton();
+        roll = new javax.swing.JScrollPane();
+        tbl = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
         setMinimumSize(new java.awt.Dimension(598, 460));
         setPreferredSize(new java.awt.Dimension(598, 460));
 
-        btnLabSplitMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnLabSplitMain.setText("<<");
-        btnLabSplitMain.addActionListener(new java.awt.event.ActionListener() {
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Analise Cisão");
+
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setToolTipText("");
+        btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabSplitMainActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        lblLabSplitTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblLabSplitTitle.setText("Analise Cisão");
-
-        btnLabSplitAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
-        btnLabSplitAdd.setToolTipText("");
-        btnLabSplitAdd.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabSplitAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabSplitAddActionPerformed(evt);
+                btnFilterActionPerformed(evt);
             }
         });
 
-        btnLabSplitFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
-        btnLabSplitFilter.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabSplitFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabSplitFilterActionPerformed(evt);
-            }
-        });
+        roll.setBorder(null);
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.setMaximumSize(new java.awt.Dimension(596, 385));
+        roll.setMinimumSize(new java.awt.Dimension(596, 385));
+        roll.setPreferredSize(new java.awt.Dimension(596, 385));
 
-        rollLabSplit.setBorder(null);
-        rollLabSplit.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        rollLabSplit.setMaximumSize(new java.awt.Dimension(596, 385));
-        rollLabSplit.setMinimumSize(new java.awt.Dimension(596, 385));
-        rollLabSplit.setPreferredSize(new java.awt.Dimension(596, 385));
-
-        tblLabSplit.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -94,27 +92,25 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblLabSplit.setMaximumSize(new java.awt.Dimension(592, 363));
-        tblLabSplit.setMinimumSize(new java.awt.Dimension(592, 363));
-        tblLabSplit.setPreferredSize(new java.awt.Dimension(592, 363));
-        rollLabSplit.setViewportView(tblLabSplit);
+        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
+        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
+        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlLabSplitLayout = new javax.swing.GroupLayout(pnlLabSplit);
         pnlLabSplit.setLayout(pnlLabSplitLayout);
         pnlLabSplitLayout.setHorizontalGroup(
             pnlLabSplitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabSplitLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLabSplitMain)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLabSplitTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
                 .addGap(130, 130, 130)
-                .addComponent(btnLabSplitAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLabSplitFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(pnlLabSplitLayout.createSequentialGroup()
-                .addComponent(rollLabSplit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlLabSplitLayout.setVerticalGroup(
@@ -122,13 +118,11 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
             .addGroup(pnlLabSplitLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlLabSplitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlLabSplitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLabSplitMain)
-                        .addComponent(lblLabSplitTitle))
-                    .addComponent(btnLabSplitAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLabSplitFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitle)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rollLabSplit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,27 +145,37 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLabSplitMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabSplitMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnLabSplitMainActionPerformed
-
-    private void btnLabSplitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabSplitAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToCanvas(this, new FrmLabSplit());
-    }//GEN-LAST:event_btnLabSplitAddActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnLabSplitFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabSplitFilterActionPerformed
+    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         Access.goToFilter(new FrmFilterLab());
-    }//GEN-LAST:event_btnLabSplitFilterActionPerformed
+    }//GEN-LAST:event_btnFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLabSplitAdd;
-    private javax.swing.JButton btnLabSplitFilter;
-    private javax.swing.JButton btnLabSplitMain;
-    private javax.swing.JLabel lblLabSplitTitle;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnFilter;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlLabSplit;
-    private javax.swing.JScrollPane rollLabSplit;
-    private javax.swing.JTable tblLabSplit;
+    private javax.swing.JScrollPane roll;
+    private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
+    private void showTable() {
+        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
+        model.setNumRows(0);
+
+        for (LabSplit labSplit : new LabSplitRequest().select()) {
+            model.addRow(new Object[]{
+                    labSplit.getIdSplit(),
+                    labSplit.getOilSplit(),
+                    labSplit.getSludgeSplit(),
+                    labSplit.getGlycerinSplit(),
+                    labSplit.getTrashSplit(),
+                    labSplit.getDtSplit()
+            });
+        }
+    }
 }

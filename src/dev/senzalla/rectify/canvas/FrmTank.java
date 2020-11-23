@@ -167,6 +167,7 @@ public class FrmTank extends javax.swing.JInternalFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         new TankTreatment().saveTanque(pnlTank,txtName,txtCapacity);
+        new TxtTreatment().cleanTxt(pnlTank);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

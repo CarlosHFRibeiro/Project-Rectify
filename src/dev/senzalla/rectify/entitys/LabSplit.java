@@ -1,6 +1,10 @@
 package dev.senzalla.rectify.entitys;
 
-import java.time.LocalDateTime;
+
+import dev.senzalla.rectify.treatments.DateTretment;
+
+import java.sql.Date;
+import java.sql.Time;
 
 /**
  * @author Black Burn Cybernetic
@@ -8,13 +12,14 @@ import java.time.LocalDateTime;
  * @github github.com/Bomsalvez
  */
 
-public class LabSplit {
+public class LabSplit extends DateTretment {
     private Long idSplit;
     private int oilSplit;
     private int sludgeSplit;
     private int glycerinSplit;
     private int trashSplit;
-    private LocalDateTime dtSplit;
+    private Date dtSplit;
+    private Time hrSplit;
 
     public Long getIdSplit() {
         return idSplit;
@@ -56,11 +61,28 @@ public class LabSplit {
         this.trashSplit = trashSplit;
     }
 
-    public LocalDateTime getDtSplit() {
+    public Date getDtSplit() {
         return dtSplit;
     }
 
-    public void setDtSplit(LocalDateTime dtSplit) {
+    public void setDtSplit(Date dtSplit) {
         this.dtSplit = dtSplit;
+    }
+
+    public void setDtSplit(java.util.Date dtSplit) {
+        this.dtSplit = convertDateSql(dtSplit);
+    }
+
+    public Time getHrSplit() {
+        return hrSplit;
+    }
+
+    public void setHrSplit(Time hrSplit) {
+        this.hrSplit = hrSplit;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getIdSplit());
     }
 }

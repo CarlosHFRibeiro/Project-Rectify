@@ -8,6 +8,11 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
+import dev.senzalla.rectify.entitys.LabCar;
+import dev.senzalla.rectify.entitys.MakeTrans;
+import dev.senzalla.rectify.request.MakeTransRequest;
+
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Black Burn Cybernetic
@@ -20,6 +25,7 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
     /** Creates new form FrmLabCarTbl */
     public FrmLabCarTbl() {
         initComponents();
+        showTable();
     }
 
     /** This method is called from within the constructor to
@@ -32,12 +38,11 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlLabCar = new javax.swing.JPanel();
-        btnLabCarMain = new javax.swing.JButton();
-        lblLabCarTitle = new javax.swing.JLabel();
-        btnLabCarAdd = new javax.swing.JButton();
-        btnLabCarFilter = new javax.swing.JButton();
-        rollLabCar = new javax.swing.JScrollPane();
-        tblLabCar = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnFilter = new javax.swing.JButton();
+        roll = new javax.swing.JScrollPane();
+        tbl = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -47,42 +52,34 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
         pnlLabCar.setMaximumSize(new java.awt.Dimension(596, 438));
         pnlLabCar.setMinimumSize(new java.awt.Dimension(596, 438));
 
-        btnLabCarMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnLabCarMain.setText("<<");
-        btnLabCarMain.addActionListener(new java.awt.event.ActionListener() {
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Analise Caminhão");
+
+        btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarMainActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        lblLabCarTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblLabCarTitle.setText("Analise Caminhão");
-
-        btnLabCarAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnLabCarAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
-        btnLabCarAdd.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabCarAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarAddActionPerformed(evt);
+                btnFilterActionPerformed(evt);
             }
         });
 
-        btnLabCarFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
-        btnLabCarFilter.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabCarFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarFilterActionPerformed(evt);
-            }
-        });
+        roll.setBorder(null);
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.setToolTipText("");
+        roll.setMaximumSize(new java.awt.Dimension(596, 385));
+        roll.setMinimumSize(new java.awt.Dimension(596, 385));
+        roll.setPreferredSize(new java.awt.Dimension(596, 385));
 
-        rollLabCar.setBorder(null);
-        rollLabCar.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        rollLabCar.setToolTipText("");
-        rollLabCar.setMaximumSize(new java.awt.Dimension(596, 385));
-        rollLabCar.setMinimumSize(new java.awt.Dimension(596, 385));
-        rollLabCar.setPreferredSize(new java.awt.Dimension(596, 385));
-
-        tblLabCar.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,42 +95,38 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblLabCar.setMaximumSize(new java.awt.Dimension(592, 363));
-        tblLabCar.setMinimumSize(new java.awt.Dimension(592, 363));
-        tblLabCar.setPreferredSize(new java.awt.Dimension(592, 363));
-        tblLabCar.setShowGrid(true);
-        rollLabCar.setViewportView(tblLabCar);
+        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
+        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
+        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
+        roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlLabCarLayout = new javax.swing.GroupLayout(pnlLabCar);
         pnlLabCar.setLayout(pnlLabCarLayout);
         pnlLabCarLayout.setHorizontalGroup(
             pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabCarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLabCarMain)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLabCarTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
                 .addGap(101, 101, 101)
-                .addComponent(btnLabCarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLabCarFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabCarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(rollLabCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlLabCarLayout.setVerticalGroup(
             pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabCarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLabCarMain)
-                        .addComponent(lblLabCarTitle))
-                    .addComponent(btnLabCarFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLabCarAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTitle)
+                    .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rollLabCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1))
         );
 
@@ -151,27 +144,38 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLabCarMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnLabCarMainActionPerformed
-
-    private void btnLabCarAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToCanvas(this, new FrmLabCar());
-    }//GEN-LAST:event_btnLabCarAddActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnLabCarFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarFilterActionPerformed
+    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         Access.goToFilter(new FrmFilterLab());
-    }//GEN-LAST:event_btnLabCarFilterActionPerformed
+    }//GEN-LAST:event_btnFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLabCarAdd;
-    private javax.swing.JButton btnLabCarFilter;
-    private javax.swing.JButton btnLabCarMain;
-    private javax.swing.JLabel lblLabCarTitle;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnFilter;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlLabCar;
-    private javax.swing.JScrollPane rollLabCar;
-    private javax.swing.JTable tblLabCar;
+    private javax.swing.JScrollPane roll;
+    private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
+
+    private void showTable() {
+        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
+        model.setNumRows(0);
+
+//        for (LabCar labCar : new MakeTransRequest().select()) {
+//            model.addRow(new Object[]{
+//                    makeTrans.getIdTrans(),
+//                    makeTrans.getReactTranss().getDtRctTrans(),
+//                    makeTrans.getReactTrans(),
+//                    makeTrans.getTank().getNameTank(),
+//                    makeTrans.getProducedTrans(),
+//                    makeTrans.getTrashTrans()
+//            });
+//        }
+    }
 
 }

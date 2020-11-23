@@ -26,6 +26,9 @@ public class PnlMatter extends javax.swing.JPanel {
         initComponents();
     }
 
+    private int count;
+    private boolean send = false;
+
     public PnlMatter(JFormattedTextField txtTransAmount, int count) {
         initComponents();
         new ProductTreatment().addComboBox(cbxMatterProduct);
@@ -102,18 +105,21 @@ public class PnlMatter extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private int count;
-    private boolean send = false;
-
-
-    private void txtMatterLiterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatterLiterFocusLost
-        new PnlMatterTreatment().addLitters(txtTransAmount, txtMatterLiter, send, count);
-        send = true;
-    }//GEN-LAST:event_txtMatterLiterFocusLost
 
     private void txtMatterLiterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatterLiterKeyTyped
         NumberField.txtNumberInt(evt);
     }//GEN-LAST:event_txtMatterLiterKeyTyped
+
+    private void txtMatterLiterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatterLiterFocusLost
+        if (send) {
+            new PnlMatterTreatment().editLitters(Integer.parseInt(txtMatterLiter.getText()), count);
+        } else {
+            new PnlMatterTreatment().sumLitters(Integer.parseInt(txtMatterLiter.getText()));
+        }
+        txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
+        send = true;
+    }//GEN-LAST:event_txtMatterLiterFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Object> cbxMatterProduct;
@@ -123,6 +129,9 @@ public class PnlMatter extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public void minusLitters() {
-        new PnlMatterTreatment().minusLitters(count, txtTransAmount,txtMatterLiter);
+        if (!txtMatterLiter.getText().equals("")) {
+            new PnlMatterTreatment().minusLitters(count);
+            txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
+        }
     }
 }

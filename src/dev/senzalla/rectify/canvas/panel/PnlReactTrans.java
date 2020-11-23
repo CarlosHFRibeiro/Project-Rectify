@@ -17,7 +17,10 @@ public class PnlReactTrans extends javax.swing.JPanel {
     /** Creates new form PnlReactEster */
     public PnlReactTrans() {
         initComponents();
+        showComboBox();
     }
+
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -39,6 +42,7 @@ public class PnlReactTrans extends javax.swing.JPanel {
         txtTransReactPure = new javax.swing.JFormattedTextField();
         lblTransReactHrFinal = new javax.swing.JLabel();
         txtTransReactHrFinal = new javax.swing.JFormattedTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(550, 133));
@@ -87,6 +91,8 @@ public class PnlReactTrans extends javax.swing.JPanel {
         txtTransReactHrFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTransReactHrFinal.setPreferredSize(new java.awt.Dimension(120, 27));
 
+        jDateChooser1.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,14 +112,16 @@ public class PnlReactTrans extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTransReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbxEsterReactLabStart, 0, 130, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblEsterReactHrStart)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbxEsterReactLabStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(123, 123, 123)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblTransReactMethylate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTransReactMethylate, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -127,7 +135,8 @@ public class PnlReactTrans extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEsterReactHrStart)
-                    .addComponent(lblEsterReactDt))
+                    .addComponent(lblEsterReactDt)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEsterReactLabStart)
@@ -148,6 +157,7 @@ public class PnlReactTrans extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Object> cbxEsterReactLabStart;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel lblEsterReactDt;
     private javax.swing.JLabel lblEsterReactHrStart;
     private javax.swing.JLabel lblEsterReactLabStart;
@@ -160,4 +170,7 @@ public class PnlReactTrans extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField txtTransReactPure;
     // End of variables declaration//GEN-END:variables
 
+    private void showComboBox() {
+
+    }
 }

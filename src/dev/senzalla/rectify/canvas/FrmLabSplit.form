@@ -33,18 +33,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="pnlLabSplit" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlSplit" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlLabSplit" alignment="1" max="-2" attributes="0"/>
+          <Component id="pnlSplit" alignment="1" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pnlLabSplit">
+    <Container class="javax.swing.JPanel" name="pnlSplit">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[596, 438]"/>
@@ -60,34 +60,32 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnLabSplitMain" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
-                          <Component id="lblLabSplitTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                          <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblLabSplitSludge" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLabSplitOil" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLabSplitGlycerin" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLabSplitTrash" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSludge" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblOil" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblGlycerin" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTrash" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtLabSplitOil" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLabSplitSludge" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLabSplitGlycerin" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLabSplitTrash" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtOil" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSludge" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtGlycerin" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTrash" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Component id="btnLabSplitSave" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="btnLabSplitClear" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnClear" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="btnLabSplitCancel" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancel" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -98,35 +96,32 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLabSplitMain" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblLabSplitTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblLabSplitOil" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLabSplitOil" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOil" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtOil" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblLabSplitSludge" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLabSplitSludge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSludge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSludge" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblLabSplitGlycerin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLabSplitGlycerin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGlycerin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtGlycerin" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblLabSplitTrash" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLabSplitTrash" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTrash" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTrash" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="66" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLabSplitSave" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLabSplitClear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLabSplitCancel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -134,18 +129,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnLabSplitMain">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabSplitMainActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblLabSplitTitle">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="20" style="1"/>
@@ -153,7 +137,7 @@
             <Property name="text" type="java.lang.String" value="Analise Cis&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLabSplitOil">
+        <Component class="javax.swing.JLabel" name="lblOil">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -161,7 +145,7 @@
             <Property name="text" type="java.lang.String" value="Oleo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtLabSplitOil">
+        <Component class="javax.swing.JFormattedTextField" name="txtOil">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
@@ -173,8 +157,11 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtOilKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLabSplitSludge">
+        <Component class="javax.swing.JLabel" name="lblSludge">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -182,7 +169,7 @@
             <Property name="text" type="java.lang.String" value="Borra"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtLabSplitSludge">
+        <Component class="javax.swing.JFormattedTextField" name="txtSludge">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
@@ -194,8 +181,11 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSludgeKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLabSplitGlycerin">
+        <Component class="javax.swing.JLabel" name="lblGlycerin">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -203,7 +193,7 @@
             <Property name="text" type="java.lang.String" value="Glicerina"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtLabSplitGlycerin">
+        <Component class="javax.swing.JFormattedTextField" name="txtGlycerin">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
@@ -215,8 +205,11 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtGlycerinKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLabSplitTrash">
+        <Component class="javax.swing.JLabel" name="lblTrash">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -224,7 +217,7 @@
             <Property name="text" type="java.lang.String" value="Impureza"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtLabSplitTrash">
+        <Component class="javax.swing.JFormattedTextField" name="txtTrash">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
@@ -236,8 +229,11 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTrashKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLabSplitSave">
+        <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -248,10 +244,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabSplitSaveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLabSplitClear">
+        <Component class="javax.swing.JButton" name="btnClear">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -262,10 +258,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabSplitClearActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLabSplitCancel">
+        <Component class="javax.swing.JButton" name="btnCancel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -276,7 +272,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabSplitCancelActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

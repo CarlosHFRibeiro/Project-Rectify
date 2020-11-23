@@ -1,6 +1,9 @@
 package dev.senzalla.rectify.entitys;
 
-import java.time.LocalDateTime;
+
+import dev.senzalla.rectify.treatments.DateTretment;
+
+import java.sql.Timestamp;
 
 /**
  * @author Black Burn Cybernetic
@@ -8,12 +11,12 @@ import java.time.LocalDateTime;
  * @github github.com/Bomsalvez
  */
 
-public class LabTank {
+public class LabTank extends DateTretment {
     private Long idTq;
     private int trashTq;
     private double acidTq;
     private double soapTq;
-    private LocalDateTime dtTq;
+    private Timestamp dtTq;
     private Tank tank;
 
     public Long getIdTq() {
@@ -48,11 +51,11 @@ public class LabTank {
         this.soapTq = soapTq;
     }
 
-    public LocalDateTime getDtTq() {
+    public Timestamp getDtTq() {
         return dtTq;
     }
 
-    public void setDtTq(LocalDateTime dtTq) {
+    public void setDtTq(Timestamp dtTq) {
         this.dtTq = dtTq;
     }
 

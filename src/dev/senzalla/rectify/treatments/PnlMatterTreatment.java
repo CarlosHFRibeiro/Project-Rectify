@@ -1,6 +1,5 @@
 package dev.senzalla.rectify.treatments;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,25 +20,15 @@ public class PnlMatterTreatment {
         return litters.stream().reduce(0, Integer::sum);
     }
 
-    public  void sumLitters(int litters) {
-        PnlMatterTreatment.litters.add( litters);
+    public void sumLitters(int litters) {
+        PnlMatterTreatment.litters.add(litters);
     }
 
     public void editLitters(int litters, int count) {
         PnlMatterTreatment.litters.set(count, litters);
     }
 
-    public void minusLitters(int count, JFormattedTextField txtMatterLiter, JFormattedTextField txtTransAmount) {
+    public void minusLitters(int count) {
         PnlMatterTreatment.litters.remove(count);
-        txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
-    }
-
-    public void addLitters(JFormattedTextField txtMatterLiter, JFormattedTextField txtTransAmount, boolean send, int count) {
-        if (send) {
-            new PnlMatterTreatment().editLitters(Integer.parseInt(txtMatterLiter.getText()), count);
-        } else {
-            new PnlMatterTreatment().sumLitters(Integer.parseInt(txtMatterLiter.getText()));
-        }
-        txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
     }
 }
