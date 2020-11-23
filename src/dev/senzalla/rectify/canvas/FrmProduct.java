@@ -49,7 +49,7 @@ public class FrmProduct extends javax.swing.JInternalFrame {
         pnlProduct.setPreferredSize(new java.awt.Dimension(596, 438));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTitle.setText("Cadastrar Tanque");
+        lblTitle.setText("Cadastrar Produto");
 
         lblName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblName.setText("Nome");
@@ -171,7 +171,7 @@ public class FrmProduct extends javax.swing.JInternalFrame {
         if (new TxtTreatment().isTxtVoid(pnlProduct)) {
             Product product=new Product();
             product.setNameProduct(txtName.getText());
-            product.setDensityProduct(Double.parseDouble(txtDensity.getText()));
+            product.setDensityProduct(Double.parseDouble(txtDensity.getText().replace(",", ".")));
             new ProductRequest().insert(product);
             btnClearActionPerformed(evt);
         } else {

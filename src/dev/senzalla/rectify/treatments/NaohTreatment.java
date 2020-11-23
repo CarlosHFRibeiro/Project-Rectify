@@ -5,7 +5,6 @@
  */
 package dev.senzalla.rectify.treatments;
 
-//import dev.senzalla.rectify.request.NaohRequest;
 
 import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.exception.FieldException;
@@ -16,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */

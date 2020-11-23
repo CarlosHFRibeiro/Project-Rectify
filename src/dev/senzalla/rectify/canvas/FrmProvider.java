@@ -1,19 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
+import dev.senzalla.rectify.entitys.Provider;
+import dev.senzalla.rectify.exception.EmptyField;
+import dev.senzalla.rectify.request.ProviderRequest;
+import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TxtTreatment;
+
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail blackburncyber@gmail.com
  * @github github.com/BlackBurnCybernetic
  */
 public class FrmProvider extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmLabTqTbl
+     * Creates new form FrmProvider
      */
     public FrmProvider() {
         initComponents();
@@ -28,165 +29,202 @@ public class FrmProvider extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlAddProvider = new javax.swing.JPanel();
-        lblFrmAddProviderTitle = new javax.swing.JLabel();
-        lblFrmAddProviderName = new javax.swing.JLabel();
-        txtFrmAddProviderName = new javax.swing.JTextField();
-        lblFrmAddProviderCnpj = new javax.swing.JLabel();
-        txtFrmAddProviderCnpj = new javax.swing.JTextField();
-        lblFrmAddProviderPhone = new javax.swing.JLabel();
-        txtFrmAddProviderPhone = new javax.swing.JTextField();
-        btnFrmAddProviderSave = new javax.swing.JButton();
-        btnFrmAddProviderClear = new javax.swing.JButton();
-        btnFrmAddProviderCancel = new javax.swing.JButton();
-        btnChargeMain = new javax.swing.JButton();
+        pnlProvider = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblCnpj = new javax.swing.JLabel();
+        txtCnpj = new javax.swing.JTextField();
+        lblPhone = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
         setMinimumSize(new java.awt.Dimension(598, 460));
         setPreferredSize(new java.awt.Dimension(598, 460));
 
-        pnlAddProvider.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlProvider.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblFrmAddProviderTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblFrmAddProviderTitle.setText("Cadastrar Parceiro");
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Cadastrar Parceiro");
 
-        lblFrmAddProviderName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFrmAddProviderName.setText("Nome");
+        lblName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblName.setText("Nome");
 
-        txtFrmAddProviderName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtFrmAddProviderName.setPreferredSize(new java.awt.Dimension(200, 27));
+        txtName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtName.setPreferredSize(new java.awt.Dimension(200, 27));
 
-        lblFrmAddProviderCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFrmAddProviderCnpj.setText("CNPJ");
+        lblCnpj.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCnpj.setText("CNPJ");
 
-        txtFrmAddProviderCnpj.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtFrmAddProviderCnpj.setPreferredSize(new java.awt.Dimension(200, 27));
-
-        lblFrmAddProviderPhone.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFrmAddProviderPhone.setText("Telefone");
-
-        txtFrmAddProviderPhone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtFrmAddProviderPhone.setPreferredSize(new java.awt.Dimension(200, 27));
-
-        btnFrmAddProviderSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnFrmAddProviderSave.setText("Salvar");
-        btnFrmAddProviderSave.setMaximumSize(new java.awt.Dimension(78, 37));
-        btnFrmAddProviderSave.setPreferredSize(new java.awt.Dimension(120, 60));
-
-        btnFrmAddProviderClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnFrmAddProviderClear.setText("Limpar");
-        btnFrmAddProviderClear.setMaximumSize(new java.awt.Dimension(78, 37));
-        btnFrmAddProviderClear.setMinimumSize(new java.awt.Dimension(78, 37));
-        btnFrmAddProviderClear.setPreferredSize(new java.awt.Dimension(120, 60));
-
-        btnFrmAddProviderCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnFrmAddProviderCancel.setText("Cancelar");
-        btnFrmAddProviderCancel.setMaximumSize(new java.awt.Dimension(78, 37));
-        btnFrmAddProviderCancel.setMinimumSize(new java.awt.Dimension(78, 37));
-        btnFrmAddProviderCancel.setPreferredSize(new java.awt.Dimension(120, 60));
-
-        btnChargeMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnChargeMain.setText("<<");
-        btnChargeMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChargeMainActionPerformed(evt);
+        txtCnpj.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCnpj.setPreferredSize(new java.awt.Dimension(200, 27));
+        txtCnpj.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCnpjKeyTyped(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlAddProviderLayout = new javax.swing.GroupLayout(pnlAddProvider);
-        pnlAddProvider.setLayout(pnlAddProviderLayout);
-        pnlAddProviderLayout.setHorizontalGroup(
-            pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddProviderLayout.createSequentialGroup()
-                .addComponent(btnFrmAddProviderClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(btnFrmAddProviderCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
-            .addGroup(pnlAddProviderLayout.createSequentialGroup()
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddProviderLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(btnFrmAddProviderSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlAddProviderLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblFrmAddProviderCnpj)
-                            .addComponent(lblFrmAddProviderName)
-                            .addComponent(lblFrmAddProviderPhone))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFrmAddProviderCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFrmAddProviderName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFrmAddProviderPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlAddProviderLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnChargeMain)
-                        .addGap(155, 155, 155)
-                        .addComponent(lblFrmAddProviderTitle)))
-                .addGap(157, 157, 157))
+        lblPhone.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblPhone.setText("Telefone");
+
+        txtPhone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtPhone.setPreferredSize(new java.awt.Dimension(200, 27));
+        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneKeyTyped(evt);
+            }
+        });
+
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setText("Salvar");
+        btnSave.setMaximumSize(new java.awt.Dimension(78, 37));
+        btnSave.setMinimumSize(new java.awt.Dimension(78, 37));
+        btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setText("Limpar");
+        btnClear.setMaximumSize(new java.awt.Dimension(78, 37));
+        btnClear.setMinimumSize(new java.awt.Dimension(78, 37));
+        btnClear.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setText("Cancelar");
+        btnCancel.setMaximumSize(new java.awt.Dimension(78, 37));
+        btnCancel.setMinimumSize(new java.awt.Dimension(78, 37));
+        btnCancel.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlProviderLayout = new javax.swing.GroupLayout(pnlProvider);
+        pnlProvider.setLayout(pnlProviderLayout);
+        pnlProviderLayout.setHorizontalGroup(
+                pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                .addGap(213, 213, 213)
+                                                .addComponent(lblTitle))
+                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                .addGap(71, 71, 71)
+                                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lblCnpj)
+                                                        .addComponent(lblName)
+                                                        .addComponent(lblPhone))
+                                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                                .addGap(43, 43, 43)
+                                                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(52, 52, 52)
+                                                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(78, 78, 78))
         );
-        pnlAddProviderLayout.setVerticalGroup(
-            pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAddProviderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnChargeMain)
-                    .addComponent(lblFrmAddProviderTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFrmAddProviderName)
-                    .addComponent(txtFrmAddProviderName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFrmAddProviderCnpj)
-                    .addComponent(txtFrmAddProviderCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFrmAddProviderPhone)
-                    .addComponent(txtFrmAddProviderPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(pnlAddProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFrmAddProviderCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFrmAddProviderClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFrmAddProviderSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59))
+        pnlProviderLayout.setVerticalGroup(
+                pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblName)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblCnpj)
+                                        .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblPhone)
+                                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(48, 48, 48)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlAddProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(pnlProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlAddProvider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlProvider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChargeMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChargeMainActionPerformed
+    private void txtCnpjKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCnpjKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtCnpjKeyTyped
+
+    private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtPhoneKeyTyped
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if (new TxtTreatment().isTxtVoid(pnlProvider)) {
+            Provider provider = new Provider();
+            provider.setPhoneProvider(txtPhone.getText());
+            provider.setCnpjProvider(txtCnpj.getText());
+            provider.setNameProvider(txtName.getText());
+            new ProviderRequest().insert(provider);
+            btnClearActionPerformed(evt);
+        } else {
+            new EmptyField().showMsg();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        new TxtTreatment().cleanTxt(pnlProvider);
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnChargeMainActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnChargeMain;
-    private javax.swing.JButton btnFrmAddProviderCancel;
-    private javax.swing.JButton btnFrmAddProviderClear;
-    private javax.swing.JButton btnFrmAddProviderSave;
-    private javax.swing.JLabel lblFrmAddProviderCnpj;
-    private javax.swing.JLabel lblFrmAddProviderName;
-    private javax.swing.JLabel lblFrmAddProviderPhone;
-    private javax.swing.JLabel lblFrmAddProviderTitle;
-    private javax.swing.JPanel pnlAddProvider;
-    private javax.swing.JTextField txtFrmAddProviderCnpj;
-    private javax.swing.JTextField txtFrmAddProviderName;
-    private javax.swing.JTextField txtFrmAddProviderPhone;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JLabel lblCnpj;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlProvider;
+    private javax.swing.JTextField txtCnpj;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 
 }

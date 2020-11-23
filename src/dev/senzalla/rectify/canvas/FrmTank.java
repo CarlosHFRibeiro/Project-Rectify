@@ -1,9 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.TankRequest;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 
 /**
@@ -168,15 +166,7 @@ public class FrmTank extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCapacityKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (new TxtTreatment().isTxtVoid(pnlTank)) {
-            Tank tank = new Tank();
-            tank.setNameTank(txtName.getText());
-            tank.setCapacityTank(Integer.parseInt(txtCapacity.getText()));
-            new TankRequest().insert(tank);
-            btnClearActionPerformed(evt);
-        } else {
-            new EmptyField().showMsg();
-        }
+        new TankTreatment().saveTanque(pnlTank,txtName,txtCapacity);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

@@ -13,10 +13,16 @@ package dev.senzalla.rectify.canvas.panel;
 public class PnlCalcOleic extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlMatterEster
+     * Creates new form PnlCalcOleic
      */
     public PnlCalcOleic() {
         initComponents();
+    }
+
+    public PnlCalcOleic(String soap) {
+        initComponents();
+        jComboBox1.setVisible(false);
+        lblCalcValue.setText(soap);
     }
 
     /**
@@ -31,12 +37,13 @@ public class PnlCalcOleic extends javax.swing.JPanel {
         lblCalcTitle = new javax.swing.JLabel();
         lblCalcValue = new javax.swing.JLabel();
         lblCalcFixed = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(550, 150));
-        setMinimumSize(new java.awt.Dimension(550, 150));
-        setPreferredSize(new java.awt.Dimension(550, 150));
+        setMaximumSize(new java.awt.Dimension(520, 150));
+        setMinimumSize(new java.awt.Dimension(520, 150));
+        setPreferredSize(new java.awt.Dimension(520, 150));
 
         lblCalcTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcTitle.setText("ACIDEZ ÁCIDO GRAXO E BIODEISEL ESTEREFICADO");
@@ -55,27 +62,38 @@ public class PnlCalcOleic extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCalcTitle)
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCalcValue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(lblCalcFixed)
-                        .addGap(85, 85, 85))
-                    .addComponent(lblCalcTitle))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblCalcTitle)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCalcValue)
-                    .addComponent(lblCalcFixed))
-                .addGap(25, 25, 25))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCalcValue)
+                            .addComponent(lblCalcFixed))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblCalcFixed;
     private javax.swing.JLabel lblCalcTitle;
     private javax.swing.JLabel lblCalcValue;

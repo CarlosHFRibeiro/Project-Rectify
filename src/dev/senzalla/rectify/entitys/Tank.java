@@ -34,4 +34,9 @@ public class Tank {
     public void setNameTank(String nameTank) {
         this.nameTank = nameTank;
     }
+
+    @Override
+    public String toString() {
+        return getNameTank();
+    }
 }

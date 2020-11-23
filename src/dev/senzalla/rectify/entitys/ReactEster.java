@@ -1,7 +1,9 @@
 package dev.senzalla.rectify.entitys;
 
+import dev.senzalla.rectify.treatments.DateTretment;
+
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author Black Burn Cybernetic
@@ -9,7 +11,7 @@ import java.util.Date;
  * @github github.com/Bomsalvez
  */
 
-public class ReactEster {
+public class ReactEster extends DateTretment {
     private Long idRctEster;
     private int sulfuricRctEster;
     private int pureRctEster;
@@ -57,8 +59,8 @@ public class ReactEster {
         return dtRctEster;
     }
 
-    public void setDtRctEster(Date dtRctEster) {
-        this.dtRctEster = dtRctEster;
+    public void setDtRctEster(java.util.Date dtRctEster) {
+        this.dtRctEster = convertDateSql(dtRctEster);
     }
 
     public Time getHrStartRctEster() {

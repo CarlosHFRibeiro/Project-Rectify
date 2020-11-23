@@ -14,6 +14,8 @@ public class MakeEster {
     private int trashEster;
     private int producedEster;
     private Tank tank;
+    private MatterEster matterEster;
+    private ReactEster reactEsters;
 
     public Long getIdEster() {
         return idEster;
@@ -70,4 +72,21 @@ public class MakeEster {
     public void setTank(Tank tank) {
         this.tank = tank;
     }
+
+    public MatterEster getMatterEster() {
+        return matterEster;
+    }
+
+    public void setMatterEster(MatterEster matterEster) {
+        this.matterEster = matterEster;
+    }
+
+    public ReactEster getReactEsters() {
+        return reactEsters;
+    }
+
+    public void setReactEsters(ReactEster reactEsters) {
+        this.reactEsters = reactEsters;
+    }
+    
 }

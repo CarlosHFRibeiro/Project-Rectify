@@ -47,7 +47,7 @@ public class ProductRequest extends Request<Product> {
     }
 
     @Override
-    public List<Product> select(Map<String, Product> clause) {
+    public List<Product> select(List<String> clause, Product product) {
         return null;
     }
 

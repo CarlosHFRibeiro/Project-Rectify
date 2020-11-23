@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.request;
 
-import dev.senzalla.rectify.entitys.Naoh;
+import dev.senzalla.rectify.entitys.Hcl;
 import dev.senzalla.rectify.exception.ElementDuplicate;
 
 import java.sql.SQLException;
@@ -13,55 +13,55 @@ import java.util.Map;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class NaohRequest extends Request<Naoh> {
+public class HclRequest extends Request<Hcl> {
 
-    private List<Naoh> naohs;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_naoh;";
+    private List<Hcl> hcls;
+    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_hcl;";
 
     @Override
-    public void insert(Naoh naoh) {
+    public void insert(Hcl hcl) {
         connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_naoh` (`valueNaoh`) VALUES (?);";
+            final String sql = "INSERT INTO `db_retifica`.`tbl_hcl` (`valueHcl`) VALUES (?);";
             prepareStatement(sql);
-            stmt.setDouble(1, naoh.getValueNaoh());
+            stmt.setDouble(1, hcl.getValueHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }
     }
 
     @Override
-    public List<Naoh> select() {
+    public List<Hcl> select() {
         selectAll(SELECT_QUERY);
-        return naohs;
+        return hcls;
     }
 
     @Override
-    public List<Naoh> select(Naoh naoh) {
+    public List<Hcl> select(Hcl hcl) {
         return null;
     }
 
     @Override
-    public List<Naoh> select(List<String> clause, Naoh naoh) {
+    public List<Hcl> select(List<String> clause, Hcl hcl) {
         return null;
     }
 
     private void selectAll(String select) {
         connection();
-        if (naohs == null) {
-            naohs = new ArrayList<>();
+        if (hcls == null) {
+            hcls = new ArrayList<>();
         }
         try {
             prepareStatement(select);
             resultSet();
             while (rs.next()) {
-                Naoh naoh = new Naoh();
-                naoh.setIdNaoh(rs.getLong("idNaoh"));
-                naoh.setValueNaoh(rs.getDouble("valueNaoh"));
-                naohs.add(naoh);
+                Hcl hcl = new Hcl();
+                hcl.setIdHcl(rs.getLong("idHcl"));
+                hcl.setValueHcl(rs.getDouble("valueHcl"));
+                hcls.add(hcl);
             }
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -70,27 +70,27 @@ public class NaohRequest extends Request<Naoh> {
         }
     }
 
-    public void update(Naoh naoh) {
+    public void update(Hcl hcl) {
         connection();
         try {
-            final String sql = "UPDATE `db_retifica`.`tbl_naoh` SET `valueNaoh` = ? WHERE (`idNaoh` = ?);";
+            final String sql = "UPDATE `db_retifica`.`tbl_hcl` SET `valueHcl` = ? WHERE (`idHcl` = ?);";
             prepareStatement(sql);
-            stmt.setDouble(1, naoh.getValueNaoh());
-            stmt.setLong(2, naoh.getIdNaoh());
+            stmt.setDouble(1, hcl.getValueHcl());
+            stmt.setLong(2, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }
     }
 
-    public void delete(Naoh naoh) {
+    public void delete(Hcl hcl) {
         connection();
-        final String sql = "DELETE FROM `db_retifica`.`tbl_naoh` WHERE idNaoh = ?;";
+        final String sql = "DELETE FROM `db_retifica`.`tbl_hcl` WHERE idHcl = ?;";
         try {
             prepareStatement(sql);
-            stmt.setLong(1, naoh.getIdNaoh());
+            stmt.setLong(1, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -98,10 +98,9 @@ public class NaohRequest extends Request<Naoh> {
             closeConnection();
         }
     }
-
     public void deleteAll() {
         connection();
-        final String sql = "TRUNCATE TABLE `db_retifica`.`tbl_naoh`;";
+        final String sql = "TRUNCATE TABLE `db_retifica`.`tbl_hcl`;";
         try {
             prepareStatement(sql);
             stmt.executeUpdate();

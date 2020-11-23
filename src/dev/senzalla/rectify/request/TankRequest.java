@@ -15,7 +15,6 @@ import java.util.Map;
 public class TankRequest extends Request<Tank> {
 
     private List<Tank> tanks;
-    private final String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_tank;";
 
     @Override
     public void insert(Tank tank) {
@@ -35,6 +34,7 @@ public class TankRequest extends Request<Tank> {
 
     @Override
     public List<Tank> select() {
+        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_tank;";
         selectAll(SELECT_QUERY);
         return tanks;
     }
@@ -45,7 +45,7 @@ public class TankRequest extends Request<Tank> {
     }
 
     @Override
-    public List<Tank> select(Map<String, Tank> clause) {
+    public List<Tank> select(List<String> clause, Tank tank) {
         return null;
     }
 

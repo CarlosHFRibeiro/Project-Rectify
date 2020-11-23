@@ -28,7 +28,7 @@ public class Naoh {
 
     @Override
     public String toString() {
-        return Double.toString(getValueNaoh());
+        return String.valueOf(getValueNaoh());
     }
 
 }

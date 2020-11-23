@@ -1,7 +1,9 @@
 package dev.senzalla.rectify.entitys;
 
+import dev.senzalla.rectify.treatments.DateTretment;
+
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author Black Burn Cybernetic
@@ -9,7 +11,7 @@ import java.util.Date;
  * @github github.com/Bomsalvez
  */
 
-public class ReactTrans {
+public class ReactTrans extends DateTretment {
     private Long idRctTrans;
     private int methylateRctTrans;
     private int pureRctTrans;
@@ -47,8 +49,12 @@ public class ReactTrans {
         return dtRctTrans;
     }
 
+    public void setDtRctTrans(java.util.Date dtRctTrans) {
+        this.dtRctTrans = convertDateSql(dtRctTrans);
+    }
+
     public void setDtRctTrans(Date dtRctTrans) {
-        this.dtRctTrans = dtRctTrans;
+        this.dtRctTrans = convertDateSql(dtRctTrans);
     }
 
     public Time getHrStartRctTrans() {

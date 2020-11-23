@@ -13,10 +13,16 @@ package dev.senzalla.rectify.canvas.panel;
 public class PnlCalcKoh extends javax.swing.JPanel {
 
     /**
-     * Creates new form PnlMatterEster
+     * Creates new form PnlCalcKoh
      */
     public PnlCalcKoh() {
         initComponents();
+    }
+
+    public PnlCalcKoh(String soap) {
+         initComponents();
+        jComboBox1.setVisible(false);
+        lblCalcValue.setText(soap);
     }
 
     /**
@@ -31,6 +37,7 @@ public class PnlCalcKoh extends javax.swing.JPanel {
         lblCalcTitle = new javax.swing.JLabel();
         lblCalcValue = new javax.swing.JLabel();
         lblCalcFixed = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -47,6 +54,8 @@ public class PnlCalcKoh extends javax.swing.JPanel {
         lblCalcFixed.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblCalcFixed.setText("I.A (mg de KOH)");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,11 +66,13 @@ public class PnlCalcKoh extends javax.swing.JPanel {
                         .addGap(66, 66, 66)
                         .addComponent(lblCalcValue)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCalcFixed))
+                        .addComponent(lblCalcFixed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(lblCalcTitle)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,14 +80,20 @@ public class PnlCalcKoh extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(lblCalcTitle)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCalcValue)
-                    .addComponent(lblCalcFixed))
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCalcValue)
+                            .addComponent(lblCalcFixed))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblCalcFixed;
     private javax.swing.JLabel lblCalcTitle;
     private javax.swing.JLabel lblCalcValue;

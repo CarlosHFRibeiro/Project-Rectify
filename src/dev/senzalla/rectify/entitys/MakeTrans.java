@@ -14,6 +14,8 @@ public class MakeTrans {
     private int trashTrans;
     private int producedTrans;
     private Tank tank;
+    private MatterTrans matterTrans;
+    private ReactTrans reactTranss;
 
     public Long getIdTrans() {
         return idTrans;
@@ -67,7 +69,24 @@ public class MakeTrans {
         return tank;
     }
 
+    public MatterTrans getMatterTrans() {
+        return matterTrans;
+    }
+
+    public void setMatterTrans(MatterTrans matterTrans) {
+        this.matterTrans = matterTrans;
+    }
+
+    public ReactTrans getReactTranss() {
+        return reactTranss;
+    }
+
+    public void setReactTranss(ReactTrans reactTranss) {
+        this.reactTranss = reactTranss;
+    }
+
     public void setTank(Tank tank) {
         this.tank = tank;
+
     }
 }

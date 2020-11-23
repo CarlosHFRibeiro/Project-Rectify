@@ -3,8 +3,8 @@ package dev.senzalla.rectify.request;
 import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Black Burn Cybernetic
@@ -14,7 +14,8 @@ import java.util.Map;
 public abstract class Model<T> extends ConectionMySql {
 
     private List<T> list;
-    private String select = null;
+    private String SELECT_QUERY = null;
+    private String where = "";
 
     public  void insert(T t) {
         try {
@@ -29,28 +30,38 @@ public abstract class Model<T> extends ConectionMySql {
     }
 
     public List<T> select() {
-        selectAll( select);
+        selectAll(SELECT_QUERY, null);
         return list;
     }
 
-    public List<T> select(Map<String, T> clause) {
-        String where = "";
-        where = clause.entrySet().stream().map(entry -> 
-                String.format(" %s = %s AND", entry.getKey(), entry.getValue())
-        ).reduce(where, String::concat);
-
-        select += " WHERE " + where.substring(0, where.length() - 3);
-        selectAll(select);
+    public List<T> select(T t) {
+        String clause = SELECT_QUERY + " WHERE UPPER(nameMakeEster) LIKE UPPER(?);";
+        selectAll(clause, null);
         return list;
     }
 
+    public List<T> select(List<String> clause, T t) {
 
-    protected List<T> selectAll(String select) {
+        clause.forEach(s -> where += String.format(" %s ? AND",s));
+
+        SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
+        selectAll(SELECT_QUERY,null);
+        return list;
+    }
+
+    private void selectAll(String select, T clause) {
+        connection();
+        if (list == null) {
+            list = new ArrayList<>();
+        }
         try {
             prepareStatement(select);
+            if (clause != null) {
+                stmt.setString(1, '%' + clause.toString() + '%');
+            }
             resultSet();
             while (rs.next()) {
-        T t = null;
+                T t = null;
                 list.add(t);
             }
         } catch (SQLException ex) {
@@ -58,7 +69,5 @@ public abstract class Model<T> extends ConectionMySql {
         } finally {
             closeConnectionRs();
         }
-
-        return list;
     }
 }

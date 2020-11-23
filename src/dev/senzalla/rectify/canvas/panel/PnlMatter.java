@@ -5,18 +5,32 @@
  */
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.PnlMatterTreatment;
+import dev.senzalla.rectify.treatments.ProductTreatment;
+
+import javax.swing.*;
+
 /**
  * @author Bomsalvez
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
 public class PnlMatter extends javax.swing.JPanel {
+    private JFormattedTextField txtTransAmount;
 
     /**
      * Creates new form PnlMatterEster
      */
     public PnlMatter() {
         initComponents();
+    }
+
+    public PnlMatter(JFormattedTextField txtTransAmount, int count) {
+        initComponents();
+        new ProductTreatment().addComboBox(cbxMatterProduct);
+        this.txtTransAmount = txtTransAmount;
+        this.count = count;
     }
 
     /**
@@ -49,40 +63,66 @@ public class PnlMatter extends javax.swing.JPanel {
         txtMatterLiter.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtMatterLiter.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtMatterLiter.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtMatterLiter.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMatterLiterFocusLost(evt);
+            }
+        });
+        txtMatterLiter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMatterLiterKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblMatterProduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(lblMatterLiter)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblMatterProduct)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblMatterLiter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMatterProduct)
-                    .addComponent(lblMatterLiter)
-                    .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMatterProduct)
+                                        .addComponent(lblMatterLiter)
+                                        .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private int count;
+    private boolean send = false;
+
+
+    private void txtMatterLiterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatterLiterFocusLost
+        new PnlMatterTreatment().addLitters(txtTransAmount, txtMatterLiter, send, count);
+        send = true;
+    }//GEN-LAST:event_txtMatterLiterFocusLost
+
+    private void txtMatterLiterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatterLiterKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtMatterLiterKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbxMatterProduct;
+    private javax.swing.JComboBox<Object> cbxMatterProduct;
     private javax.swing.JLabel lblMatterLiter;
     private javax.swing.JLabel lblMatterProduct;
     private javax.swing.JFormattedTextField txtMatterLiter;
     // End of variables declaration//GEN-END:variables
 
+    public void minusLitters() {
+        new PnlMatterTreatment().minusLitters(count, txtTransAmount,txtMatterLiter);
+    }
 }

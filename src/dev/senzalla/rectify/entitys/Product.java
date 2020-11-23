@@ -34,4 +34,9 @@ public class Product {
     public void setNameProduct(String nameProduct) {
         this.nameProduct = nameProduct;
     }
+
+    @Override
+    public String toString() {
+        return getNameProduct();
+    }
 }

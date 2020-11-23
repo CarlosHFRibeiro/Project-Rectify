@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.setting.ConectionMySql;
+
 import java.util.List;
 import java.util.Map;
 
@@ -17,5 +18,5 @@ public abstract class Request<T> extends ConectionMySql {
 
     public abstract List<T> select(T t);
 
-    public abstract List<T> select(Map<String, T> clause);
+    public abstract List<T> select(List<String> clause, T t);
 }
