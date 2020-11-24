@@ -12,7 +12,8 @@ import dev.senzalla.rectify.request.HclRequest;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Black Burn Cybernetic
@@ -20,7 +21,8 @@ import java.awt.GridLayout;
  * @github github.com/BlackBurnCybernetic
  */
 public class FrmCalcSoap extends javax.swing.JInternalFrame {
-    String soap;
+    private String soap;
+    private JTextField txtLabCarSoap;
 
     /**
      * Creates new form FrmCalcSoap
@@ -28,6 +30,12 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
     public FrmCalcSoap() {
         initComponents();
         showComboBox();
+    }
+
+    public FrmCalcSoap(JTextField txtLabCarSoap) {
+        initComponents();
+        showComboBox();
+        this.txtLabCarSoap = txtLabCarSoap;
     }
 
     /**
@@ -210,7 +218,7 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
             GridLayout layout = new GridLayout();
             pnlCalc.setLayout(layout);
             pnlCalc.add(new PnlCalcOleic(soap)).setVisible(true);
-
+            txtLabCarSoap.setText(soap);
         } else {
             new EmptyField().showMsg();
         }

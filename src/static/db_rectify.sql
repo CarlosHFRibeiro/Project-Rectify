@@ -53,14 +53,14 @@ CREATE TABLE IF NOT EXISTS `tbl_driver`
 
 CREATE TABLE IF NOT EXISTS `tbl_labCar`
 (
-    idCar      INT      NOT NULL AUTO_INCREMENT,
-    trashCar   INT      NOT NULL DEFAULT 0,
-    collectCar CHAR(5)  NOT NULL,
-    acidCar    DOUBLE   NOT NULL DEFAULT 0,
-    soapCar    DOUBLE   NOT NULL DEFAULT 0,
-    densityCar DOUBLE   NOT NULL,
-    dtCar      DATE NOT NULL DEFAULT (CURRENT_DATE()),
-    hrCar      TIME NOT NULL DEFAULT (CURRENT_TIME()),
+    idCar      INT    NOT NULL AUTO_INCREMENT,
+    trashCar   INT    NOT NULL DEFAULT 0,
+    collectCar INT    NOT NULL,
+    acidCar    DOUBLE NOT NULL DEFAULT 0,
+    soapCar    DOUBLE NOT NULL DEFAULT 0,
+    densityCar DOUBLE NOT NULL,
+    dtCar      DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    hrCar      TIME   NOT NULL DEFAULT (CURRENT_TIME()),
     PRIMARY KEY (idCar)
 );
 

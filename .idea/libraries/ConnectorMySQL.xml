@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="ConnectorMySQL">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../_Libs/ConnectorMySQL.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../_Libs/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../_Libs/ConnectorMySQL.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

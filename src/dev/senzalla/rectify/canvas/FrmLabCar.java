@@ -7,7 +7,9 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
+import dev.senzalla.rectify.treatments.LabCarTreatment;
 import dev.senzalla.rectify.treatments.LabSplitTreatment;
+import dev.senzalla.rectify.treatments.NumberField;
 
 /**
  * @author Black Burn Cybernetic
@@ -37,7 +39,6 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlLabCar = new javax.swing.JPanel();
-        btnLabCarMain = new javax.swing.JButton();
         lblLabCarTitle = new javax.swing.JLabel();
         lblLabCarlblLabCarAcid = new javax.swing.JLabel();
         txtLabCarAcid = new javax.swing.JTextField();
@@ -66,14 +67,6 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
         pnlLabCar.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlLabCar.setPreferredSize(new java.awt.Dimension(596, 438));
 
-        btnLabCarMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnLabCarMain.setText("<<");
-        btnLabCarMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarMainActionPerformed(evt);
-            }
-        });
-
         lblLabCarTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblLabCarTitle.setText("Analise Caminhão");
 
@@ -82,6 +75,11 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
 
         txtLabCarAcid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtLabCarAcid.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtLabCarAcid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLabCarAcidKeyTyped(evt);
+            }
+        });
 
         btnLabCarAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
         btnLabCarAcid.setToolTipText("");
@@ -96,6 +94,11 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
 
         txtLabCarSoap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtLabCarSoap.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtLabCarSoap.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLabCarSoapKeyTyped(evt);
+            }
+        });
 
         btnLabCarSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
         btnLabCarSoap.setToolTipText("");
@@ -110,6 +113,11 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
 
         txtLabCarDens.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtLabCarDens.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtLabCarDens.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLabCarDensKeyTyped(evt);
+            }
+        });
 
         lblLabCarTrash.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblLabCarTrash.setText("Impureza");
@@ -117,6 +125,11 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
         txtLabCarTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtLabCarTrash.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtLabCarTrash.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtLabCarTrash.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLabCarTrashKeyTyped(evt);
+            }
+        });
 
         lblLabCarCollect.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblLabCarCollect.setText("Coleta");
@@ -162,9 +175,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addComponent(btnLabCarMain)
-                                                .addGap(153, 153, 153)
+                                                .addGap(211, 211, 211)
                                                 .addComponent(lblLabCarTitle))
                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                 .addGap(93, 93, 93)
@@ -204,10 +215,8 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
                 pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnLabCarMain)
-                                        .addComponent(lblLabCarTitle))
-                                .addGap(20, 20, 20)
+                                .addComponent(lblLabCarTitle)
+                                .addGap(28, 28, 28)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lblLabCarlblLabCarAcid)
                                         .addComponent(txtLabCarAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,10 +271,33 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtLabCarAcidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarAcidKeyTyped
+        NumberField.addNumber(txtLabCarAcid, evt);
+    }//GEN-LAST:event_txtLabCarAcidKeyTyped
+
+    private void btnLabCarAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarAcidActionPerformed
+        Access.goToCanvas(new FrmCalcAcid(txtLabCarAcid));
+    }
+
+    private void txtLabCarSoapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarSoapKeyTyped
+        NumberField.addNumber(txtLabCarSoap, evt);
+    }//GEN-LAST:event_txtLabCarSoapKeyTyped
+
     private void btnLabCarSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarSoapActionPerformed
+        Access.goToCanvas(new FrmCalcSoap(txtLabCarSoap));
     }//GEN-LAST:event_btnLabCarSoapActionPerformed
 
+    private void txtLabCarDensKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarDensKeyTyped
+        NumberField.addNumber(txtLabCarDens, evt);
+    }//GEN-LAST:event_txtLabCarDensKeyTyped
+
+    private void txtLabCarTrashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarTrashKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtLabCarTrashKeyTyped
+
+
     private void btnLabCarSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarSaveActionPerformed
+        new LabCarTreatment().saveLabCar(pnlLabCar,txtLabCarAcid,txtLabCarSoap,txtLabCarDens,txtLabCarTrash,cbxLabCarCollect,cbxLabCarSplit);
     }//GEN-LAST:event_btnLabCarSaveActionPerformed
 
     private void btnLabCarClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarClearActionPerformed
@@ -274,20 +306,11 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     private void btnLabCarCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarCancelActionPerformed
     }//GEN-LAST:event_btnLabCarCancelActionPerformed
 
-    private void btnLabCarMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarMainActionPerformed
-        Access.goToCanvas(this, new FrmLabCarTbl());
-    }//GEN-LAST:event_btnLabCarMainActionPerformed
-
-    private void btnLabCarAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarAcidActionPerformed
-
-    }//GEN-LAST:event_btnLabCarAcidActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLabCarAcid;
     private javax.swing.JButton btnLabCarCancel;
     private javax.swing.JButton btnLabCarClear;
-    private javax.swing.JButton btnLabCarMain;
     private javax.swing.JButton btnLabCarSave;
     private javax.swing.JButton btnLabCarSoap;
     private javax.swing.JComboBox<Object> cbxLabCarCollect;
@@ -308,5 +331,6 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
     private void showComboBox() {
         new LabSplitTreatment().addComboBox(cbxLabCarSplit);
+        new LabCarTreatment().CollectComboBox(cbxLabCarCollect);
     }
 }

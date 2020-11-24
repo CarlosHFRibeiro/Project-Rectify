@@ -68,9 +68,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnLabCarMain" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
                           <Component id="lblLabCarTitle" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -123,11 +121,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnLabCarMain" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblLabCarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="lblLabCarTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblLabCarlblLabCarAcid" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtLabCarAcid" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,17 +168,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnLabCarMain">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabCarMainActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblLabCarTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -209,6 +193,9 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLabCarAcidKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLabCarAcid">
           <Properties>
@@ -238,6 +225,9 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLabCarSoapKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLabCarSoap">
           <Properties>
@@ -267,6 +257,9 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLabCarDensKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLabCarTrash">
           <Properties>
@@ -288,6 +281,9 @@
               <Dimension value="[150, 27]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLabCarTrashKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLabCarCollect">
           <Properties>

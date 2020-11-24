@@ -86,7 +86,20 @@ public class LabCar extends DateTretment {
         return collect;
     }
 
-    public void setCollect(Collect collect) {
-        this.collect = collect;
+    public void setCollect(int collect) {
+        switch (collect) {
+            case 1:
+                this.collect = Collect.BOCA;
+                break;
+            case 2:
+                this.collect = Collect.SONDA;
+                break;
+            case 3:
+                this.collect = Collect.DRENO;
+                break;
+            case 4:
+                this.collect = Collect.BOMBA;
+                break;
+        }
     }
 }
