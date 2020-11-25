@@ -35,24 +35,31 @@ public class HclTreatment {
     }
 
     public void addSolutionHcl() {
-        new HclRequest().insert(getHcl());
-    }
-
-    private Hcl getHcl() {
         try {
             String solution = new HclTreatment().panelInsert();
-            Hcl naoh = new Hcl();
-            naoh.setValueHcl(Double.parseDouble(solution));
-            return naoh;
+            if (solution != null) {
+                Hcl hcl = new Hcl();
+                hcl.setValueHcl(Double.parseDouble(solution));
+                new HclRequest().insert(hcl);
+            }
         } catch (NumberFormatException ex) {
-            throw new FieldException();
+            new FieldException();
         }
     }
 
+
     public void updateSolutionHcl(JList<String> lstSolHcl) {
-        Hcl naoh = getHcl();
-        naoh.setIdHcl(getIdHcl(lstSolHcl));
-        new HclRequest().update(naoh);
+        try {
+            String solution = new HclTreatment().panelInsert();
+            if (solution != null) {
+                Hcl hcl = new Hcl();
+                hcl.setValueHcl(Double.parseDouble(solution));
+                hcl.setIdHcl(getIdHcl(lstSolHcl));
+                new HclRequest().update(hcl);
+            }
+        } catch (NumberFormatException ex) {
+            new FieldException();
+        }
     }
 
     public Long getIdHcl(JList<String> lstSolHcl) {
@@ -80,5 +87,9 @@ public class HclTreatment {
         } else {
             PopUp.cancelOperation();
         }
+    }
+
+    public void showComboBox(JComboBox<Object> cbxConcentration) {
+        new HclRequest().select().forEach(cbxConcentration::addItem);
     }
 }

@@ -1,9 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.entitys.Provider;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.ProviderRequest;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.ProviderTreatement;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 
 /**
@@ -192,16 +190,7 @@ public class FrmProvider extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPhoneKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (new TxtTreatment().isTxtVoid(pnlProvider)) {
-            Provider provider = new Provider();
-            provider.setPhoneProvider(txtPhone.getText());
-            provider.setCnpjProvider(txtCnpj.getText());
-            provider.setNameProvider(txtName.getText());
-            new ProviderRequest().insert(provider);
-            btnClearActionPerformed(evt);
-        } else {
-            new EmptyField().showMsg();
-        }
+       new ProviderTreatement().saveProvider(pnlProvider,txtName,txtCnpj,txtPhone);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

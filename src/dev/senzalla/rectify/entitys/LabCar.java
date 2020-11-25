@@ -66,10 +66,6 @@ public class LabCar extends DateTretment {
         return dtCar;
     }
 
-    public void setDtCar(Date dtCar) {
-        this.dtCar = dtCar;
-    }
-
     public void setDtCar(java.util.Date dtCar) {
         this.dtCar = convertDateSql(dtCar);
     }
@@ -84,6 +80,10 @@ public class LabCar extends DateTretment {
 
     public Collect getCollect() {
         return collect;
+    }
+
+    public void setCollect(Collect collect) {
+        this.collect = collect;
     }
 
     public void setCollect(int collect) {

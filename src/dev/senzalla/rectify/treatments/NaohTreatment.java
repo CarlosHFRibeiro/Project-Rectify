@@ -30,29 +30,32 @@ public class NaohTreatment {
         naohs.forEach(model::addElement);
     }
 
-    public String panelInsert() {
-        return PopUp.panelInsert("NaoH");
-    }
-
     public void addSolutionNaoh() {
-        new NaohRequest().insert(getNaoh());
-    }
-
-    private Naoh getNaoh() {
         try {
-            String solution = new NaohTreatment().panelInsert();
-            Naoh naoh = new Naoh();
-            naoh.setValueNaoh(Double.parseDouble(solution));
-            return naoh;
+            String solution = PopUp.panelInsert("NaoH");
+            if (solution != null) {
+                Naoh naoh = new Naoh();
+                naoh.setValueNaoh(Double.parseDouble(solution));
+                new NaohRequest().insert(naoh);
+            }
         } catch (NumberFormatException ex) {
-            throw new FieldException();
+             new FieldException();
         }
     }
 
+
     public void updateSolutionNaoh(JList<String> lstSolNaoh) {
-        Naoh naoh = getNaoh();
-        naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
-        new NaohRequest().update(naoh);
+        try {
+            String solution = PopUp.panelInsert("NaoH");
+            if (solution != null) {
+                Naoh naoh = new Naoh();
+                naoh.setValueNaoh(Double.parseDouble(solution));
+                naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
+                new NaohRequest().update(naoh);
+            }
+        } catch (NumberFormatException ex) {
+             new FieldException();
+        }
     }
 
     public Long getIdNaoh(JList<String> lstSolNaoh) {
@@ -80,5 +83,9 @@ public class NaohTreatment {
         } else {
             PopUp.cancelOperation();
         }
+    }
+
+    public void showComboBox(JComboBox<Object> cbxConcentration) {
+        new NaohRequest().select().forEach(cbxConcentration::addItem);
     }
 }

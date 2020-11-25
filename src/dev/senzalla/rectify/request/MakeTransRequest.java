@@ -3,7 +3,7 @@ package dev.senzalla.rectify.request;
 import dev.senzalla.rectify.entitys.MakeTrans;
 import dev.senzalla.rectify.entitys.ReactTrans;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class MakeTransRequest extends Request<MakeTrans> {
             stmt.setInt(5, makeester.getProducedTrans());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), null);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }

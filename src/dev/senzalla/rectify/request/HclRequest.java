@@ -1,12 +1,11 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Hcl;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Bomsalvez Freitas
@@ -27,7 +26,7 @@ public class HclRequest extends Request<Hcl> {
             stmt.setDouble(1, hcl.getValueHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }
@@ -79,7 +78,7 @@ public class HclRequest extends Request<Hcl> {
             stmt.setLong(2, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }

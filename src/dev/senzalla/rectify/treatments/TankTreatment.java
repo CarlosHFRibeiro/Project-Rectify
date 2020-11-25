@@ -5,6 +5,7 @@ import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.TankRequest;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Bomsalvez Freitas
@@ -13,10 +14,15 @@ import javax.swing.*;
  */
 
 public class TankTreatment {
-    public void addComboBox(JComboBox<Object> cbx) {
-        cbx.removeAllItems();
-        cbx.addItem("Tanque");
-        new TankRequest().select().forEach(cbx::addItem);
+    public void showTable(JTable tbl) {
+        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
+        model.setNumRows(0);
+
+        new TankRequest().select().forEach(tank
+                -> model.addRow(new Object[]{
+                tank.getNameTank(),
+                tank.getCapacityTank()
+        }));
     }
 
     public void saveTanque(JPanel pnlTank, JTextField txtName, JTextField txtCapacity) {
@@ -29,5 +35,12 @@ public class TankTreatment {
         } else {
             new EmptyField().showMsg();
         }
+    }
+
+
+    public void addComboBox(JComboBox<Object> cbx) {
+        cbx.removeAllItems();
+        cbx.addItem("Tanque");
+        new TankRequest().select().forEach(cbx::addItem);
     }
 }

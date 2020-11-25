@@ -6,13 +6,10 @@
 package dev.senzalla.rectify;
 
 import dev.senzalla.rectify.canvas.*;
-//import dev.senzalla.rectify.canvas.FrmProductTbl;
-import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import dev.senzalla.rectify.treatments.TreatmentsItem;
-import javax.swing.JInternalFrame;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Bomsalvez Freitas
@@ -28,7 +25,6 @@ public class FrmRectify extends JFrame {
         initComponents();
         Access.setDktMain(dktMain);
         TreatmentsItem.visiblePanel(pnlMenu);
-//        this.goToCanvas(new FrmStkTk());
     }
 
     /**

@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS `db_retifica`;
 CREATE SCHEMA IF NOT EXISTS `db_retifica`;
 USE `db_retifica`;
 
+DROP TABLE IF EXISTS `tbl_tank`;
 CREATE TABLE IF NOT EXISTS `tbl_tank`
 (
     idTank       INT         NOT NULL AUTO_INCREMENT,
@@ -11,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tank`
     CONSTRAINT `Nome Tanque` UNIQUE (nameTank)
 );
 
+DROP TABLE IF EXISTS `tbl_provider`;
 CREATE TABLE IF NOT EXISTS `tbl_provider`
 (
     idProvider    INT         NOT NULL AUTO_INCREMENT,
@@ -20,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `tbl_provider`
     PRIMARY KEY (idProvider),
     CONSTRAINT `CNPJ Parceiro` UNIQUE (cnpjProvider)
 );
-
+DROP TABLE IF EXISTS `tbl_product`;
 CREATE TABLE IF NOT EXISTS `tbl_product`
 (
     idProduct      INT         NOT NULL AUTO_INCREMENT,
@@ -30,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `tbl_product`
     CONSTRAINT `Nome Produto` UNIQUE (nameProduct)
 );
 
+DROP TABLE IF EXISTS `tbl_labSplit`;
 CREATE TABLE IF NOT EXISTS `tbl_labSplit`
 (
     idSplit       INT  NOT NULL AUTO_INCREMENT,
@@ -42,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `tbl_labSplit`
     PRIMARY KEY (idSplit)
 );
 
+DROP TABLE IF EXISTS `tbl_driver`;
 CREATE TABLE IF NOT EXISTS `tbl_driver`
 (
     idDriver   INT          NOT NULL AUTO_INCREMENT,
@@ -51,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `tbl_driver`
     CONSTRAINT `CNH Motorista` UNIQUE (cnhDriver)
 );
 
+DROP TABLE IF EXISTS `tbl_labCar`;
 CREATE TABLE IF NOT EXISTS `tbl_labCar`
 (
     idCar      INT    NOT NULL AUTO_INCREMENT,
@@ -64,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `tbl_labCar`
     PRIMARY KEY (idCar)
 );
 
+DROP TABLE IF EXISTS `tbl_labCarsplit`;
 CREATE TABLE IF NOT EXISTS `tbl_labCarsplit`
 (
     idCarSplit INT NOT NULL AUTO_INCREMENT,
@@ -76,31 +82,36 @@ CREATE TABLE IF NOT EXISTS `tbl_labCarsplit`
         REFERENCES `tbl_labSplit` (idSplit)
 );
 
+DROP TABLE IF EXISTS `tbl_labBio`;
 CREATE TABLE IF NOT EXISTS `tbl_labBio`
 (
-    idBio        INT      NOT NULL AUTO_INCREMENT,
-    acidBio      DOUBLE   NOT NULL DEFAULT 0,
-    densityBio   DOUBLE   NOT NULL,
-    density20Bio DOUBLE   NOT NULL,
-    tempBio      DOUBLE   NOT NULL,
-    factorBio    DOUBLE   NOT NULL,
-    dtBio        DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    idBio        INT    NOT NULL AUTO_INCREMENT,
+    acidBio      DOUBLE NOT NULL DEFAULT 0,
+    densityBio   DOUBLE NOT NULL,
+    density20Bio DOUBLE NOT NULL,
+    tempBio      DOUBLE NOT NULL,
+    factorBio    DOUBLE NOT NULL,
+    dtBio        DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    hrBio        TIME   NOT NULL DEFAULT (CURRENT_TIME()),
     PRIMARY KEY (idBio)
 );
 
+DROP TABLE IF EXISTS `tbl_labTank`;
 CREATE TABLE IF NOT EXISTS `tbl_labTank`
 (
-    idTq     INT      NOT NULL AUTO_INCREMENT,
-    trashTq  INT      NOT NULL DEFAULT 0,
-    fkTankTq INT      NOT NULL,
-    acidTq   DOUBLE   NOT NULL DEFAULT 0,
-    soapTq   DOUBLE   NOT NULL DEFAULT 0,
-    dtTq     DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP()),
+    idTq     INT    NOT NULL AUTO_INCREMENT,
+    trashTq  INT    NOT NULL DEFAULT 0,
+    fkTankTq INT    NOT NULL,
+    acidTq   DOUBLE NOT NULL DEFAULT 0,
+    soapTq   DOUBLE NOT NULL DEFAULT 0,
+    dtTq     DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    hrTq     TIME   NOT NULL DEFAULT (CURRENT_TIME()),
     PRIMARY KEY (idTq),
     CONSTRAINT `FK_Tanque_Tanque` FOREIGN KEY (fkTankTq)
         REFERENCES `tbl_Tank` (idTank)
 );
 
+DROP TABLE IF EXISTS `tbl_charge`;
 CREATE TABLE IF NOT EXISTS `tbl_charge`
 (
     idCharge         INT     NOT NULL AUTO_INCREMENT,
@@ -131,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `tbl_charge`
         REFERENCES tbl_labCar (idCar)
 );
 
+DROP TABLE IF EXISTS `tbl_obsCharge`;
 CREATE TABLE IF NOT EXISTS `tbl_obsCharge`
 (
     idObsCharge INT          NOT NULL AUTO_INCREMENT,
@@ -141,6 +153,7 @@ CREATE TABLE IF NOT EXISTS `tbl_obsCharge`
         REFERENCES tbl_charge (idCharge)
 );
 
+DROP TABLE IF EXISTS `tbl_discharge`;
 CREATE TABLE IF NOT EXISTS `tbl_discharge`
 (
     idDcharge         INT     NOT NULL AUTO_INCREMENT,
@@ -171,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `tbl_discharge`
         REFERENCES tbl_labCar (idCar)
 );
 
+DROP TABLE IF EXISTS `tbl_obsDcharge`;
 CREATE TABLE IF NOT EXISTS `tbl_obsDcharge`
 (
     idObsDcharge INT          NOT NULL AUTO_INCREMENT,
@@ -181,6 +195,7 @@ CREATE TABLE IF NOT EXISTS `tbl_obsDcharge`
         REFERENCES tbl_discharge (idDcharge)
 );
 
+DROP TABLE IF EXISTS `tbl_stocktank`;
 CREATE TABLE IF NOT EXISTS tbl_stocktank
 (
     idStkTq        INT  NOT NULL AUTO_INCREMENT,
@@ -195,6 +210,7 @@ CREATE TABLE IF NOT EXISTS tbl_stocktank
         REFERENCES tbl_product (idProduct)
 );
 
+DROP TABLE IF EXISTS `tbl_stockproduct`;
 CREATE TABLE IF NOT EXISTS tbl_stockproduct
 (
     idStkPd        INT  NOT NULL AUTO_INCREMENT,
@@ -207,6 +223,7 @@ CREATE TABLE IF NOT EXISTS tbl_stockproduct
         REFERENCES tbl_product (idProduct)
 );
 
+DROP TABLE IF EXISTS `tbl_seal`;
 CREATE TABLE IF NOT EXISTS tbl_seal
 (
     idSeal         INT  NOT NULL AUTO_INCREMENT,
@@ -224,6 +241,7 @@ CREATE TABLE IF NOT EXISTS tbl_seal
         REFERENCES tbl_provider (idProvider)
 );
 
+DROP TABLE IF EXISTS `tbl_makeEster`;
 CREATE TABLE IF NOT EXISTS `tbl_makeEster`
 (
     idEster       INT NOT NULL AUTO_INCREMENT,
@@ -238,6 +256,7 @@ CREATE TABLE IF NOT EXISTS `tbl_makeEster`
         REFERENCES tbl_tank (idTank)
 );
 
+DROP TABLE IF EXISTS `tbl_matterEster`;
 CREATE TABLE IF NOT EXISTS `tbl_matterEster`
 (
     idMtEster        INT NOT NULL AUTO_INCREMENT,
@@ -251,6 +270,7 @@ CREATE TABLE IF NOT EXISTS `tbl_matterEster`
         REFERENCES tbl_makeEster (idEster)
 );
 
+DROP TABLE IF EXISTS `tbl_reactEster`;
 CREATE TABLE IF NOT EXISTS `tbl_reactEster`
 (
     idRctEster         INT  NOT NULL AUTO_INCREMENT,
@@ -272,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `tbl_reactEster`
         REFERENCES tbl_labTank (idTq)
 );
 
+DROP TABLE IF EXISTS `tbl_makeTrans`;
 CREATE TABLE IF NOT EXISTS `tbl_makeTrans`
 (
     idTrans       INT NOT NULL AUTO_INCREMENT,
@@ -286,6 +307,7 @@ CREATE TABLE IF NOT EXISTS `tbl_makeTrans`
         REFERENCES tbl_tank (idTank)
 );
 
+DROP TABLE IF EXISTS `tbl_matterTrans`;
 CREATE TABLE IF NOT EXISTS `tbl_matterTrans`
 (
     idMtTrans        INT NOT NULL AUTO_INCREMENT,
@@ -299,6 +321,7 @@ CREATE TABLE IF NOT EXISTS `tbl_matterTrans`
         REFERENCES tbl_makeTrans (idTrans)
 );
 
+DROP TABLE IF EXISTS `tbl_reactTrans`;
 CREATE TABLE IF NOT EXISTS `tbl_reactTrans`
 (
     idRctTrans        INT  NOT NULL AUTO_INCREMENT,
@@ -316,6 +339,7 @@ CREATE TABLE IF NOT EXISTS `tbl_reactTrans`
         REFERENCES tbl_makeTrans (idTrans)
 );
 
+DROP TABLE IF EXISTS `tbl_naoh`;
 CREATE TABLE IF NOT EXISTS tbl_naoh
 (
     idNaoh    INT    NOT NULL AUTO_INCREMENT,
@@ -324,6 +348,7 @@ CREATE TABLE IF NOT EXISTS tbl_naoh
     CONSTRAINT `Concentracao_Solucao_Naoh` UNIQUE (valueNaoh)
 );
 
+DROP TABLE IF EXISTS `tbl_hcl`;
 CREATE TABLE IF NOT EXISTS tbl_hcl
 (
     idHcl    INT    NOT NULL AUTO_INCREMENT,

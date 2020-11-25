@@ -3,7 +3,8 @@ package dev.senzalla.rectify.entitys;
 
 import dev.senzalla.rectify.treatments.DateTretment;
 
-import java.sql.Timestamp;
+import java.sql.Date;
+import java.sql.Time;
 
 /**
  * @author Black Burn Cybernetic
@@ -16,7 +17,8 @@ public class LabTank extends DateTretment {
     private int trashTq;
     private double acidTq;
     private double soapTq;
-    private Timestamp dtTq;
+    private Date dtTq;
+    private Time hrTq;
     private Tank tank;
 
     public Long getIdTq() {
@@ -51,12 +53,20 @@ public class LabTank extends DateTretment {
         this.soapTq = soapTq;
     }
 
-    public Timestamp getDtTq() {
+    public Date getDtTq() {
         return dtTq;
     }
 
-    public void setDtTq(Timestamp dtTq) {
-        this.dtTq = dtTq;
+    public void setDtTq(java.util.Date dtTq) {
+        this.dtTq = convertDateSql(dtTq);
+    }
+
+    public Time getHrTq() {
+        return hrTq;
+    }
+
+    public void setHrTq(Time hrTq) {
+        this.hrTq = hrTq;
     }
 
     public Tank getTank() {

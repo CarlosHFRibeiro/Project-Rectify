@@ -1,8 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.request.TankRequest;
-import javax.swing.table.DefaultTableModel;
+import dev.senzalla.rectify.treatments.TankTreatment;
 
 /**
  * @author Bomsalvez
@@ -16,7 +15,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
      */
     public FrmTankTbl() {
         initComponents();
-        showTable();
+        new TankTreatment().showTable(tbl);
     }
 
     /**
@@ -137,14 +136,4 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
-    private void showTable() {
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-
-        new TankRequest().select().forEach(tank
-                -> model.addRow(new Object[]{
-            tank.getNameTank(),
-            tank.getCapacityTank()
-        }));
-    }
 }

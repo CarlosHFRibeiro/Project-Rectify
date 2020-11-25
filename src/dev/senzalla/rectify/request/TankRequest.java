@@ -1,11 +1,11 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Black Burn Cybernetic
@@ -26,7 +26,7 @@ public class TankRequest extends Request<Tank> {
             stmt.setString(2, tank.getNameTank());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), tank.getNameTank());
+            new DataBaseException().processMsg(ex.getMessage(), tank.getNameTank());
         } finally {
             closeConnection();
         }

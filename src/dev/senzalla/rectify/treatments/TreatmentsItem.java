@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
-import java.awt.Component;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Bomsalvez

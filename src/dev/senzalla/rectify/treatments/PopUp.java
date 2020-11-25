@@ -14,12 +14,17 @@ public class PopUp {
     }
 
     public static String panelInsert(String solution) {
-        return JOptionPane.showInputDialog(
-                new JFrame(),
-                String.format("Insira o valor da solução de %s!", solution),
-                String.format("Solução %s", solution),
-                JOptionPane.QUESTION_MESSAGE
-        ).replace(",", ".");
+        try {
+            return JOptionPane.showInputDialog(
+                    new JFrame(),
+                    String.format("Insira o valor da solução de %s!", solution),
+                    String.format("Solução %s", solution),
+                    JOptionPane.QUESTION_MESSAGE
+            ).replace(",", ".");
+        } catch (NullPointerException ex) {
+            cancelOperation();
+        }
+        return null;
     }
 
     public static void cancelOperation() {
@@ -37,6 +42,15 @@ public class PopUp {
                 String.format("Deseja excluir %sos arquivos? (S/N)", all),
                 "Exclusão",
                 JOptionPane.QUESTION_MESSAGE
+        );
+    }
+
+    public static void isEmpty(String item) {
+        JOptionPane.showMessageDialog(
+                new JFrame(),
+                item + " não foi encontrado!",
+                "Sem Registro",
+                JOptionPane.WARNING_MESSAGE
         );
     }
 

@@ -1,13 +1,11 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Provider;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author Bomsalvez Freitas
@@ -30,7 +28,7 @@ public class ProviderRequest extends Request<Provider> {
             stmt.setString(3, provider.getNameProvider());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), provider.getNameProvider());
+            new DataBaseException().processMsg(ex.getMessage(), provider.getNameProvider());
         } finally {
             closeConnection();
         }
@@ -62,7 +60,7 @@ public class ProviderRequest extends Request<Provider> {
         try {
             prepareStatement(select);
             if (clause != null) {
-                stmt.setString(1, '%' + clause.getNameProvider() + '%');
+                stmt.setString(1,  clause.getNameProvider() + '%');
             }
             resultSet();
             while (rs.next()) {

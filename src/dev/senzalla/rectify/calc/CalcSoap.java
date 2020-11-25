@@ -1,7 +1,5 @@
 package dev.senzalla.rectify.calc;
 
-import javax.swing.*;
-
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com

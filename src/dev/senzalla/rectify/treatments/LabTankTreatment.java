@@ -1,9 +1,84 @@
 package dev.senzalla.rectify.treatments;
 
+import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.entitys.LabTank;
+import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.exception.EmptyField;
+import dev.senzalla.rectify.request.LabTankRequest;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
+
+import static dev.senzalla.rectify.treatments.DateTretment.convertDateUtil;
+
 public class LabTankTreatment {
-//    public void addComboBox(JComboBox<Object> cbx) {
-//        cbx.removeAllItems();
-//        cbx.addItem("Cod. Analise");
-//        new Lab().select().forEach(cbx::addItem);
-//    }
+    private DefaultTableModel model;
+
+    public void showTable(JTable tbl) {
+        model = (DefaultTableModel) tbl.getModel();
+        model.setNumRows(0);
+        new LabTankRequest().select().forEach(this::table);
+    }
+
+    public void saveLabTank(JPanel pnlLabTk, JComboBox<Object> cbxTank, JTextField txtAcid, JTextField txtSoap, JFormattedTextField txtTrash) {
+        if (new TxtTreatment().isTxtVoid(pnlLabTk) && new CbxTreatment().isTxtVoid(pnlLabTk)) {
+            Tank tank = new Tank();
+            tank.setIdTank((long) cbxTank.getSelectedIndex());
+
+            LabTank labTank = new LabTank();
+            labTank.setTank(tank);
+            labTank.setAcidTq(Double.parseDouble(txtAcid.getText()));
+            labTank.setSoapTq(Double.parseDouble(txtSoap.getText()));
+            labTank.setTrashTq(Integer.parseInt(txtTrash.getText()));
+            new LabTankRequest().insert(labTank);
+            new TxtTreatment().cleanTxt(pnlLabTk);
+            new CbxTreatment().cleanCbx(pnlLabTk);
+        } else {
+            new EmptyField().showMsg();
+        }
+    }
+
+    public void showTable(JTable tbl, JSpinner spnCod, JDateChooser dtcDt, JDateChooser dtcDtAte) {
+        List<String> clause = new ArrayList<>();
+        LabTank labTank = new LabTank();
+        if (!spnCod.getValue().equals(0)) {
+            clause.add("idTq =");
+            labTank.setIdTq(Long.valueOf(spnCod.getValue().toString()));
+        }
+
+        if (dtcDtAte.getDate() != null && dtcDt.getDate() != null) {
+            clause.add("dtTq between");
+            labTank.setDtTq(dtcDt.getDate());
+            clause.add("");
+            labTank.setDateBetween(dtcDtAte.getDate());
+
+        } else {
+            if (dtcDt.getDate() != null) {
+                clause.add("dtTq =");
+                labTank.setDtTq(dtcDt.getDate());
+            }
+        }
+
+        if (!new LabTankRequest().select(clause, labTank).isEmpty()) {
+            model = (DefaultTableModel) tbl.getModel();
+            model.setNumRows(0);
+            new LabTankRequest().select(clause, labTank).forEach(this::table);
+        } else {
+            PopUp.isEmpty("Analise");
+        }
+    }
+
+    private void table(LabTank lab) {
+        model.addRow(new Object[]{
+                lab.getIdTq(),
+                lab.getAcidTq(),
+                lab.getSoapTq(),
+                lab.getTrashTq(),
+                lab.getTank(),
+                convertDateUtil(lab.getDtTq()),
+                lab.getHrTq()
+        });
+    }
 }

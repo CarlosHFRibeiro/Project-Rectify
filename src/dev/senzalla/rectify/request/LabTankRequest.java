@@ -2,7 +2,7 @@ package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.LabTank;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ public class LabTankRequest extends Request<LabTank> {
     private List<LabTank> labtanks;
     private String SELECT_QUERY = "SELECT * FROM db_retifica.view_labtank";
     private String where = "";
+    private final String ORDER = " ORDER BY idTq DESC";
 
     @Override
     public void insert(LabTank labtank) {
@@ -32,7 +33,7 @@ public class LabTankRequest extends Request<LabTank> {
             stmt.setDouble(4, labtank.getSoapTq());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), null);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -40,7 +41,7 @@ public class LabTankRequest extends Request<LabTank> {
 
     @Override
     public List<LabTank> select() {
-        selectAll(SELECT_QUERY, null);
+        selectAll(SELECT_QUERY + ORDER, null);
         return labtanks;
     }
 
@@ -53,24 +54,29 @@ public class LabTankRequest extends Request<LabTank> {
     @Override
     public List<LabTank> select(List<String> query, LabTank labTank) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
-
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
-        selectAll(SELECT_QUERY, null);
+        selectAll(SELECT_QUERY + ORDER, labTank);
         return labtanks;
     }
 
-    private void selectAll(String query, LabTank labTank) {
+    private void selectAll(String query, LabTank parameter) {
         connection();
         if (labtanks == null) {
             labtanks = new ArrayList<>();
         }
         try {
             prepareStatement(query);
-            if (labTank != null) {
-                stmt.setLong(1, labTank.getIdTq());
-                stmt.setString(2, labTank.getTank().getNameTank());
-                stmt.setTimestamp(3, labTank.getDtTq());
-                stmt.setDate(4, labTank.getDateBetween());
+            if (parameter != null) {
+                int i = 1;
+                if (parameter.getIdTq() != null) {
+                    stmt.setLong(i++, parameter.getIdTq());
+                }
+                if (parameter.getDtTq() != null) {
+                    stmt.setDate(i++, parameter.getDtTq());
+                }
+                if (parameter.getDateBetween() != null) {
+                    stmt.setDate(i, parameter.getDateBetween());
+                }
             }
             resultSet();
             while (rs.next()) {
@@ -79,16 +85,17 @@ public class LabTankRequest extends Request<LabTank> {
                 labtank.setTrashTq(rs.getInt("trashTq"));
                 labtank.setAcidTq(rs.getDouble("acidTq"));
                 labtank.setSoapTq(rs.getDouble("soapTq"));
-                labTank.setDtTq(rs.getTimestamp("dtTq"));
+                labtank.setDtTq(rs.getDate("dtTq"));
+                labtank.setHrTq(rs.getTime("hrTq"));
 
                 Tank tank = new Tank();
                 tank.setNameTank(rs.getString("nameTank"));
-                labTank.setTank(tank);
+                labtank.setTank(tank);
 
                 labtanks.add(labtank);
             }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnectionRs();
         }

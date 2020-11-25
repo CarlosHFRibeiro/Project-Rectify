@@ -1,5 +1,6 @@
 package dev.senzalla.rectify.request;
 
+import dev.senzalla.rectify.exception.DataBaseException;
 import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public abstract class Model<T> extends ConectionMySql {
             prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage(), null);
         } finally {
             closeConnection();
         }
@@ -50,13 +51,13 @@ public abstract class Model<T> extends ConectionMySql {
         return list;
     }
 
-    private void selectAll(String select, T clause) {
+    private void selectAll(String query, T parameter) {
         connection();
             list = new ArrayList<>();
         try {
-            prepareStatement(select);
-            if (clause != null) {
-                stmt.setString(1, '%' + clause.toString() + '%');
+            prepareStatement(query);
+            if (parameter != null) {
+                stmt.setString(1, '%' + parameter.toString() + '%');
             }
             resultSet();
             while (rs.next()) {

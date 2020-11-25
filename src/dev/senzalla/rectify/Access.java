@@ -5,9 +5,7 @@
  */
 package dev.senzalla.rectify;
 
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
+import javax.swing.*;
 
 /**
  * @author Black Burn Cybernetic

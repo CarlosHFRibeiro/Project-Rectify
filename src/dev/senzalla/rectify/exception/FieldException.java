@@ -2,7 +2,7 @@ package dev.senzalla.rectify.exception;
 
 import javax.swing.*;
 
-public class FieldException extends NumberFormatException {
+public class FieldException  {
     public FieldException() {
         JOptionPane.showMessageDialog(
                 new JFrame(),

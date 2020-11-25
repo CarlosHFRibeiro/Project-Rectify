@@ -8,9 +8,7 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterProvider;
-import dev.senzalla.rectify.request.ProviderRequest;
-
-import javax.swing.table.DefaultTableModel;
+import dev.senzalla.rectify.treatments.ProviderTreatement;
 
 /**
  * @author Black Burn Cybernetic
@@ -25,7 +23,7 @@ public class FrmProviderTbl extends javax.swing.JInternalFrame {
      */
     public FrmProviderTbl() {
         initComponents();
-        showTable();
+        new ProviderTreatement().showTable(tbl);
     }
 
 
@@ -164,15 +162,4 @@ public class FrmProviderTbl extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
-    private void showTable() {
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-
-        new ProviderRequest().select().forEach(provider
-                -> model.addRow(new Object[]{
-                provider.getNameProvider(),
-                provider.getCnpjProvider(),
-                provider.getPhoneProvider()
-        }));
-    }
 }

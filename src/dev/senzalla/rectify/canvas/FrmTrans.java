@@ -9,10 +9,9 @@ import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactTrans;
 import dev.senzalla.rectify.treatments.TankTreatment;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 
 /**
  * @author Black Burn Cybernetic

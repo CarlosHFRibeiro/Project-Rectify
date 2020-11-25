@@ -7,10 +7,10 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactEster;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 
 /**
  * @author Black Burn Cybernetic

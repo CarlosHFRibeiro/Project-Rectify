@@ -1,9 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 
 /**
@@ -136,12 +134,12 @@ public class FrmProduct extends javax.swing.JInternalFrame {
                 .addGap(80, 80, 80)
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDensity)
-                    .addComponent(txtDensity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                    .addComponent(txtDensity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,15 +166,7 @@ public class FrmProduct extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDensityKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (new TxtTreatment().isTxtVoid(pnlProduct)) {
-            Product product=new Product();
-            product.setNameProduct(txtName.getText());
-            product.setDensityProduct(Double.parseDouble(txtDensity.getText().replace(",", ".")));
-            new ProductRequest().insert(product);
-            btnClearActionPerformed(evt);
-        } else {
-            new EmptyField().showMsg();
-        }
+        new ProductTreatment().saveProduct(pnlProduct,txtName,txtDensity);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

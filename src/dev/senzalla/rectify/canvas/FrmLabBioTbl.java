@@ -7,6 +7,8 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
+import dev.senzalla.rectify.canvas.filter.Lab;
+import dev.senzalla.rectify.treatments.LabBioTreatment;
 
 /**
  * @author Black Burn Cybernetic
@@ -20,6 +22,7 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabBioTbl() {
         initComponents();
+        new LabBioTreatment().showTable(tbl);
     }
 
     /**
@@ -32,12 +35,11 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlLabBio = new javax.swing.JPanel();
-        btnLabBioMain = new javax.swing.JButton();
-        lblLabBioTitle = new javax.swing.JLabel();
-        btnLabBioAdd = new javax.swing.JButton();
-        btnLabBioFilter = new javax.swing.JButton();
-        rollLabBio = new javax.swing.JScrollPane();
-        tblLabBio = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnFilter = new javax.swing.JButton();
+        roll = new javax.swing.JScrollPane();
+        tbl = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -48,40 +50,32 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
         pnlLabBio.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlLabBio.setPreferredSize(new java.awt.Dimension(596, 438));
 
-        btnLabBioMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnLabBioMain.setText("<<");
-        btnLabBioMain.addActionListener(new java.awt.event.ActionListener() {
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Analise Biodiesel");
+
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabBioMainActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        lblLabBioTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblLabBioTitle.setText("Analise Biodiesel");
-
-        btnLabBioAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
-        btnLabBioAdd.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabBioAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
+        btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabBioAddActionPerformed(evt);
+                btnFilterActionPerformed(evt);
             }
         });
 
-        btnLabBioFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
-        btnLabBioFilter.setPreferredSize(new java.awt.Dimension(46, 40));
-        btnLabBioFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabBioFilterActionPerformed(evt);
-            }
-        });
+        roll.setBorder(null);
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.setMaximumSize(new java.awt.Dimension(596, 385));
+        roll.setMinimumSize(new java.awt.Dimension(596, 385));
+        roll.setPreferredSize(new java.awt.Dimension(596, 385));
 
-        rollLabBio.setBorder(null);
-        rollLabBio.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        rollLabBio.setMaximumSize(new java.awt.Dimension(596, 385));
-        rollLabBio.setMinimumSize(new java.awt.Dimension(596, 385));
-        rollLabBio.setPreferredSize(new java.awt.Dimension(596, 385));
-
-        tblLabBio.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -97,41 +91,37 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblLabBio.setMaximumSize(new java.awt.Dimension(592, 363));
-        tblLabBio.setMinimumSize(new java.awt.Dimension(592, 363));
-        tblLabBio.setPreferredSize(new java.awt.Dimension(592, 363));
-        rollLabBio.setViewportView(tblLabBio);
+        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
+        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
+        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlLabBioLayout = new javax.swing.GroupLayout(pnlLabBio);
         pnlLabBio.setLayout(pnlLabBioLayout);
         pnlLabBioLayout.setHorizontalGroup(
             pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabBioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLabBioMain)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblLabBioTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
                 .addGap(105, 105, 105)
-                .addComponent(btnLabBioAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLabBioFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabBioLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(rollLabBio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlLabBioLayout.setVerticalGroup(
             pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabBioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLabBioFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnLabBioMain)
-                        .addComponent(lblLabBioTitle))
-                    .addComponent(btnLabBioAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rollLabBio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,27 +140,22 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLabBioMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabBioMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnLabBioMainActionPerformed
-
-    private void btnLabBioAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabBioAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToCanvas(this, new FrmLabBio());
-    }//GEN-LAST:event_btnLabBioAddActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnLabBioFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabBioFilterActionPerformed
-        Access.goToFilter(new FrmFilterLab());
-    }//GEN-LAST:event_btnLabBioFilterActionPerformed
+    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
+        Access.goToFilter(new FrmFilterLab(tbl, Lab.LABBIO));
+    }//GEN-LAST:event_btnFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLabBioAdd;
-    private javax.swing.JButton btnLabBioFilter;
-    private javax.swing.JButton btnLabBioMain;
-    private javax.swing.JLabel lblLabBioTitle;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnFilter;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlLabBio;
-    private javax.swing.JScrollPane rollLabBio;
-    private javax.swing.JTable tblLabBio;
+    private javax.swing.JScrollPane roll;
+    private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
 }

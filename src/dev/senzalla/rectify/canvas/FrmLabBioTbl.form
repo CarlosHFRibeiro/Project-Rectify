@@ -61,19 +61,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLabBioMain" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblLabBioTitle" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                  <Component id="btnLabBioAdd" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLabBioFilter" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnFilter" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="rollLabBio" max="-2" attributes="0"/>
+                  <Component id="roll" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,32 +80,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btnLabBioFilter" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="btnLabBioMain" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblLabBioTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="btnLabBioAdd" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="rollLabBio" max="-2" attributes="0"/>
+                  <Component id="roll" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnLabBioMain">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabBioMainActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblLabBioTitle">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="20" style="1"/>
@@ -115,7 +99,7 @@
             <Property name="text" type="java.lang.String" value="Analise Biodiesel"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLabBioAdd">
+        <Component class="javax.swing.JButton" name="btnAdd">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/add_36dp.png"/>
@@ -125,10 +109,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabBioAddActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLabBioFilter">
+        <Component class="javax.swing.JButton" name="btnFilter">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/filter_24dp.png"/>
@@ -138,10 +122,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabBioFilterActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFilterActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="rollLabBio">
+        <Container class="javax.swing.JScrollPane" name="roll">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -163,7 +147,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblLabBio">
+            <Component class="javax.swing.JTable" name="tbl">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="0">

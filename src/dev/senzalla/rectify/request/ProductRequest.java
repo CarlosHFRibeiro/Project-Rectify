@@ -1,13 +1,11 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Bomsalvez Freitas
@@ -29,7 +27,7 @@ public class ProductRequest extends Request<Product> {
             stmt.setString(2, product.getNameProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), product.getNameProduct());
+            new DataBaseException().processMsg(ex.getMessage(), product.getNameProduct());
         } finally {
             closeConnection();
         }

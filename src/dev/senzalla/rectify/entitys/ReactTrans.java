@@ -2,8 +2,8 @@ package dev.senzalla.rectify.entitys;
 
 import dev.senzalla.rectify.treatments.DateTretment;
 
-import java.sql.Time;
 import java.sql.Date;
+import java.sql.Time;
 
 /**
  * @author Black Burn Cybernetic

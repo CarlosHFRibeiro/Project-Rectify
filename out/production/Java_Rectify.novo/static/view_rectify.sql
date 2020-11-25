@@ -1,5 +1,14 @@
 USE db_retifica;
 
+CREATE OR REPLACE VIEW view_labtank AS
+    SELECT idTq, trashTq, acidTq, soapTq, dtTq,hrTq, nameTank
+    FROM
+        tbl_labtank
+        JOIN tbl_tank ON fkTankTq = idTank;
+
+
+
+
 
 CREATE OR REPLACE VIEW view_maketrans AS
 SELECT mt.idTrans,tr.dtRctTrans,mt.reactTrans,tt.nameTank,mt.producedTrans,mt.trashTrans FROM tbl_maketrans mt
@@ -89,17 +98,7 @@ join tbl_tank tt on tt.idTank = mt.fkTankTrans
 #
 #
 #
-CREATE OR REPLACE VIEW view_labtank AS
-    SELECT
-        idTq,
-        trashTq,
-        acidTq,
-        soapTq,
-        dtTq,
-        nameTank
-    FROM
-        tbl_labtank
-        JOIN tbl_tank ON fkTankTq = idTank;
+
 #
 #
 #

@@ -5,16 +5,11 @@
  */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.calc.CalcAcid;
-import dev.senzalla.rectify.canvas.panel.PnlCalcKoh;
-import dev.senzalla.rectify.canvas.panel.PnlCalcOleic;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.NaohRequest;
+import dev.senzalla.rectify.treatments.CalcAcidTreatment;
+import dev.senzalla.rectify.treatments.NaohTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * @author Black Burn Cybernetic
@@ -29,12 +24,12 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
      */
     public FrmCalcAcid() {
         initComponents();
-        showComboBox();
+        new NaohTreatment().showComboBox(cbxConcentration);
     }
 
     public FrmCalcAcid(JTextField txtLabCarAcid) {
         initComponents();
-        showComboBox();
+        new NaohTreatment().showComboBox(cbxConcentration);
         this.txtLabCarAcid = txtLabCarAcid;
     }
 
@@ -49,7 +44,6 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
 
         btgCalcAcid = new javax.swing.ButtonGroup();
         pnlCalcAcid = new javax.swing.JPanel();
-        btnMain = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblConcentration = new javax.swing.JLabel();
         cbxConcentration = new javax.swing.JComboBox<>();
@@ -70,14 +64,6 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pnlCalcAcid.setMaximumSize(new java.awt.Dimension(596, 438));
         pnlCalcAcid.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlCalcAcid.setPreferredSize(new java.awt.Dimension(596, 438));
-
-        btnMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnMain.setText("<<");
-        btnMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMainActionPerformed(evt);
-            }
-        });
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Calculadora Acidez");
@@ -124,7 +110,7 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
                 pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 559, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
                 pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,48 +122,43 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pnlCalcAcidLayout.setHorizontalGroup(
                 pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
-                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnMain)
-                                .addGap(146, 146, 146)
+                                .addGap(204, 204, 204)
                                 .addComponent(lblTitle)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
-                                .addContainerGap(15, Short.MAX_VALUE)
+                                .addGap(12, 12, 12)
                                 .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
-                                                .addComponent(lblConcentration)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                                                .addGap(182, 182, 182)
-                                                                .addComponent(rbtnOther))
-                                                        .addComponent(rbtnBio)
-                                                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                                                .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(73, 73, 73)
-                                                                .addComponent(lblMass)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(txtMass, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(90, 90, 90)
-                                                                .addComponent(lblBulk)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(txtBulk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(25, 25, 25))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
                                                 .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(33, 33, 33))))
+                                                .addGap(33, 33, 33))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
+                                                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
+                                                                .addComponent(lblConcentration)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
+                                                                                .addGap(182, 182, 182)
+                                                                                .addComponent(rbtnOther))
+                                                                        .addComponent(rbtnBio)
+                                                                        .addGroup(pnlCalcAcidLayout.createSequentialGroup()
+                                                                                .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(73, 73, 73)
+                                                                                .addComponent(lblMass)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtMass, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(90, 90, 90)
+                                                                                .addComponent(lblBulk)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(txtBulk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addGap(25, 25, 25))))
         );
         pnlCalcAcidLayout.setVerticalGroup(
                 pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnlCalcAcidLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnMain)
-                                        .addComponent(lblTitle))
+                                .addComponent(lblTitle)
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lblConcentration)
@@ -194,7 +175,7 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
                                 .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(33, Short.MAX_VALUE))
+                                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,34 +192,8 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnMainActionPerformed
-
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        if (new TxtTreatment().isTxtVoid(pnlCalcAcid) && btgCalcAcid.getSelection() != null) {
-
-            CalcAcid calcAcid = new CalcAcid(
-                    Double.parseDouble(String.valueOf(cbxConcentration.getSelectedItem())),
-                    Double.parseDouble(txtBulk.getText().replace(",", ".")),
-                    Double.parseDouble(txtMass.getText().replace(",", "."))
-            );
-
-            if (pnlCalc.getComponents().length > 0) {
-                pnlCalc.removeAll();
-            }
-
-            GridLayout layout = new GridLayout();
-            pnlCalc.setLayout(layout);
-            pnlCalc.add(
-                    rbtnBio.isSelected() ? new PnlCalcOleic(calcAcid.getAcid()) : new PnlCalcKoh(calcAcid.getIndice())
-            ).setVisible(true);
-            if (txtLabCarAcid != null) {
-                txtLabCarAcid.setText(rbtnBio.isSelected() ? calcAcid.getAcid() : calcAcid.getIndice());
-            }
-        } else {
-            new EmptyField().showMsg();
-        }
+        new CalcAcidTreatment().calcAcid(pnlCalc, pnlCalcAcid, btgCalcAcid, cbxConcentration, txtBulk, txtMass, txtLabCarAcid, rbtnBio);
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void txtMassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMassKeyTyped
@@ -252,7 +207,6 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgCalcAcid;
     private javax.swing.JButton btnCalc;
-    private javax.swing.JButton btnMain;
     private javax.swing.JComboBox<Object> cbxConcentration;
     private javax.swing.JLabel lblBulk;
     private javax.swing.JLabel lblConcentration;
@@ -264,10 +218,11 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbtnOther;
     private javax.swing.JTextField txtBulk;
     private javax.swing.JTextField txtMass;
+
+    public void setRbt() {
+        rbtnOther.setVisible(false);
+        rbtnBio.setSelected(true);
+    }
     // End of variables declaration//GEN-END:variables
 
-    private void showComboBox() {
-        cbxConcentration.removeAllItems();
-        new NaohRequest().select().forEach(hcl -> cbxConcentration.addItem(hcl));
-    }
 }

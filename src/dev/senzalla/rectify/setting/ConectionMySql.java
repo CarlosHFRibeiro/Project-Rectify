@@ -1,9 +1,10 @@
 package dev.senzalla.rectify.setting;
 
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 import dev.senzalla.connector.ConnectionMySql;
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**

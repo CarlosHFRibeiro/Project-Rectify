@@ -5,15 +5,11 @@
  */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.calc.CalcSoap;
-import dev.senzalla.rectify.canvas.panel.PnlCalcOleic;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.HclRequest;
+import dev.senzalla.rectify.treatments.CalcSoapTreatment;
+import dev.senzalla.rectify.treatments.HclTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * @author Black Burn Cybernetic
@@ -21,7 +17,6 @@ import java.awt.*;
  * @github github.com/BlackBurnCybernetic
  */
 public class FrmCalcSoap extends javax.swing.JInternalFrame {
-    private String soap;
     private JTextField txtLabCarSoap;
 
     /**
@@ -29,12 +24,12 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
      */
     public FrmCalcSoap() {
         initComponents();
-        showComboBox();
+        new HclTreatment().showComboBox(cbxConcentration);
     }
 
     public FrmCalcSoap(JTextField txtLabCarSoap) {
         initComponents();
-        showComboBox();
+        new HclTreatment().showComboBox(cbxConcentration);
         this.txtLabCarSoap = txtLabCarSoap;
     }
 
@@ -206,22 +201,7 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
 
 
     private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
-        if (new TxtTreatment().isTxtVoid(pnlCalcSoap)) {
-            soap = new CalcSoap().getSoap(
-                    Double.parseDouble(cbxConcentration.getSelectedItem().toString()),
-                    Double.parseDouble(txtBulk.getText()),
-                    Double.parseDouble(txtMass.getText())
-            );
-            if (pnlCalc.getComponents().length > 0) {
-                pnlCalc.removeAll();
-            }
-            GridLayout layout = new GridLayout();
-            pnlCalc.setLayout(layout);
-            pnlCalc.add(new PnlCalcOleic(soap)).setVisible(true);
-            txtLabCarSoap.setText(soap);
-        } else {
-            new EmptyField().showMsg();
-        }
+        new CalcSoapTreatment().calcSoap(pnlCalc, pnlCalcSoap, cbxConcentration, txtBulk, txtMass, txtLabCarSoap);
     }//GEN-LAST:event_btnCalculateActionPerformed
 
 
@@ -238,10 +218,5 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBulk;
     private javax.swing.JTextField txtMass;
     // End of variables declaration//GEN-END:variables
-
-    private void showComboBox() {
-        cbxConcentration.removeAllItems();
-        new HclRequest().select().forEach(hcl -> cbxConcentration.addItem(hcl));
-    }
 
 }

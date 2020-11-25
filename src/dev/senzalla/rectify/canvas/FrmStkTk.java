@@ -5,8 +5,6 @@
  */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
-
 /**
  * @author Black Burn Cybernetic
  * @e-mail blackburncyber@gmail.com

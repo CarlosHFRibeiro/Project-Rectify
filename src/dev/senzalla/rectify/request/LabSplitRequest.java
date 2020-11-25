@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.LabSplit;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,7 +16,8 @@ public class LabSplitRequest extends Request<LabSplit> {
 
     private List<LabSplit> labSplits;
     private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_labsplit";
-    private String where = " ORDER BY idSplit DESC";
+    private String where = " ";
+    private final String ORDER = " ORDER BY idSplit DESC";
 
     @Override
     public void insert(LabSplit labSplit) {
@@ -28,11 +29,9 @@ public class LabSplitRequest extends Request<LabSplit> {
             stmt.setInt(2, labSplit.getSludgeSplit());
             stmt.setInt(3, labSplit.getGlycerinSplit());
             stmt.setInt(4, labSplit.getTrashSplit());
-            System.out.println(stmt);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            new ElementDuplicate().processMsg(ex.getMessage(), null);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -40,7 +39,7 @@ public class LabSplitRequest extends Request<LabSplit> {
 
     @Override
     public List<LabSplit> select() {
-        selectAll(SELECT_QUERY + where, null);
+        selectAll(SELECT_QUERY + ORDER, null);
         return labSplits;
     }
 
@@ -50,15 +49,30 @@ public class LabSplitRequest extends Request<LabSplit> {
     }
 
     @Override
-    public List<LabSplit> select(List<String> clause, LabSplit labSplit) {
-        return null;
+    public List<LabSplit> select(List<String> query, LabSplit labSplit) {
+        query.forEach(s -> where += String.format(" %s ? AND", s));
+        SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
+        selectAll(SELECT_QUERY + ORDER, labSplit);
+        return labSplits;
     }
 
-    private void selectAll(String select, LabSplit clause) {
+    private void selectAll(String select, LabSplit parameter) {
         connection();
         labSplits = new ArrayList<>();
         try {
             prepareStatement(select);
+            if (parameter != null) {
+                int i = 1;
+                if (parameter.getIdSplit() != null) {
+                    stmt.setLong(i++, parameter.getIdSplit());
+                }
+                if (parameter.getDtSplit() != null) {
+                    stmt.setDate(i++, parameter.getDtSplit());
+                }
+                if (parameter.getDateBetween() != null) {
+                    stmt.setDate(i, parameter.getDateBetween());
+                }
+            }
             resultSet();
             while (rs.next()) {
                 LabSplit labSplit = new LabSplit();
@@ -71,8 +85,8 @@ public class LabSplitRequest extends Request<LabSplit> {
                 labSplit.setHrSplit(rs.getTime("hrSplit"));
                 labSplits.add(labSplit);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException ex) {
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnectionRs();
         }

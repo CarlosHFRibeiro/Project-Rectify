@@ -7,9 +7,10 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.Access;
+import dev.senzalla.rectify.treatments.CbxTreatment;
 import dev.senzalla.rectify.treatments.LabCarTreatment;
-import dev.senzalla.rectify.treatments.LabSplitTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TxtTreatment;
 
 /**
  * @author Black Burn Cybernetic
@@ -24,7 +25,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
      */
     public FrmLabCar() {
         initComponents();
-        showComboBox();
+        new LabCarTreatment().showComboBox(cbxSplit, cbxCollect);
     }
 
 
@@ -39,24 +40,24 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         pnlLabCar = new javax.swing.JPanel();
-        lblLabCarTitle = new javax.swing.JLabel();
-        lblLabCarlblLabCarAcid = new javax.swing.JLabel();
-        txtLabCarAcid = new javax.swing.JTextField();
-        btnLabCarAcid = new javax.swing.JButton();
-        lblLabCarSoap = new javax.swing.JLabel();
-        txtLabCarSoap = new javax.swing.JTextField();
-        btnLabCarSoap = new javax.swing.JButton();
-        lblLabCarDens = new javax.swing.JLabel();
-        txtLabCarDens = new javax.swing.JTextField();
-        lblLabCarTrash = new javax.swing.JLabel();
-        txtLabCarTrash = new javax.swing.JFormattedTextField();
-        lblLabCarCollect = new javax.swing.JLabel();
-        cbxLabCarCollect = new javax.swing.JComboBox<>();
-        lblLabCarSplit = new javax.swing.JLabel();
-        cbxLabCarSplit = new javax.swing.JComboBox<>();
-        btnLabCarSave = new javax.swing.JButton();
-        btnLabCarClear = new javax.swing.JButton();
-        btnLabCarCancel = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        lblAcid = new javax.swing.JLabel();
+        txtAcid = new javax.swing.JTextField();
+        btnAcid = new javax.swing.JButton();
+        lblSoap = new javax.swing.JLabel();
+        txtSoap = new javax.swing.JTextField();
+        btnSoap = new javax.swing.JButton();
+        lblDens = new javax.swing.JLabel();
+        txtDens = new javax.swing.JTextField();
+        lblTrash = new javax.swing.JLabel();
+        txtTrash = new javax.swing.JFormattedTextField();
+        lblCollect = new javax.swing.JLabel();
+        cbxCollect = new javax.swing.JComboBox<>();
+        lblSplit = new javax.swing.JLabel();
+        cbxSplit = new javax.swing.JComboBox<>();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -67,104 +68,104 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
         pnlLabCar.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlLabCar.setPreferredSize(new java.awt.Dimension(596, 438));
 
-        lblLabCarTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblLabCarTitle.setText("Analise Caminhão");
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Analise Caminhão");
 
-        lblLabCarlblLabCarAcid.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarlblLabCarAcid.setText("Acidez");
+        lblAcid.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAcid.setText("Acidez");
 
-        txtLabCarAcid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtLabCarAcid.setPreferredSize(new java.awt.Dimension(150, 27));
-        txtLabCarAcid.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtAcid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAcid.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtAcid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtLabCarAcidKeyTyped(evt);
+                txtAcidKeyTyped(evt);
             }
         });
 
-        btnLabCarAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
-        btnLabCarAcid.setToolTipText("");
-        btnLabCarAcid.addActionListener(new java.awt.event.ActionListener() {
+        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnAcid.setToolTipText("");
+        btnAcid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarAcidActionPerformed(evt);
+                btnAcidActionPerformed(evt);
             }
         });
 
-        lblLabCarSoap.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarSoap.setText("Saponidade");
+        lblSoap.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblSoap.setText("Saponidade");
 
-        txtLabCarSoap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtLabCarSoap.setPreferredSize(new java.awt.Dimension(150, 27));
-        txtLabCarSoap.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSoap.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSoap.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtSoap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtLabCarSoapKeyTyped(evt);
+                txtSoapKeyTyped(evt);
             }
         });
 
-        btnLabCarSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
-        btnLabCarSoap.setToolTipText("");
-        btnLabCarSoap.addActionListener(new java.awt.event.ActionListener() {
+        btnSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnSoap.setToolTipText("");
+        btnSoap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarSoapActionPerformed(evt);
+                btnSoapActionPerformed(evt);
             }
         });
 
-        lblLabCarDens.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarDens.setText("Densidade");
+        lblDens.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDens.setText("Densidade");
 
-        txtLabCarDens.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtLabCarDens.setPreferredSize(new java.awt.Dimension(150, 27));
-        txtLabCarDens.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtDens.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDens.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtDens.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtLabCarDensKeyTyped(evt);
+                txtDensKeyTyped(evt);
             }
         });
 
-        lblLabCarTrash.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarTrash.setText("Impureza");
+        lblTrash.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTrash.setText("Impureza");
 
-        txtLabCarTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtLabCarTrash.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtLabCarTrash.setPreferredSize(new java.awt.Dimension(150, 27));
-        txtLabCarTrash.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtTrash.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTrash.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtTrash.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtLabCarTrashKeyTyped(evt);
+                txtTrashKeyTyped(evt);
             }
         });
 
-        lblLabCarCollect.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarCollect.setText("Coleta");
+        lblCollect.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCollect.setText("Coleta");
 
-        cbxLabCarCollect.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxCollect.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        lblLabCarSplit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblLabCarSplit.setText("Cod Cisão");
+        lblSplit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblSplit.setText("Cod Cisão");
 
-        cbxLabCarSplit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxSplit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        btnLabCarSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnLabCarSave.setText("Salvar");
-        btnLabCarSave.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnLabCarSave.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setText("Salvar");
+        btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarSaveActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        btnLabCarClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnLabCarClear.setText("Limpar");
-        btnLabCarClear.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnLabCarClear.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setText("Limpar");
+        btnClear.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarClearActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
 
-        btnLabCarCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnLabCarCancel.setText("Cancelar");
-        btnLabCarCancel.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnLabCarCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setText("Cancelar");
+        btnCancel.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLabCarCancelActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -176,78 +177,78 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                 .addGap(211, 211, 211)
-                                                .addComponent(lblLabCarTitle))
+                                                .addComponent(lblTitle))
                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                 .addGap(93, 93, 93)
                                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lblLabCarSoap)
-                                                        .addComponent(lblLabCarlblLabCarAcid)
-                                                        .addComponent(lblLabCarDens)
-                                                        .addComponent(lblLabCarTrash)
-                                                        .addComponent(lblLabCarCollect)
-                                                        .addComponent(lblLabCarSplit)
-                                                        .addComponent(btnLabCarSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(lblSoap)
+                                                        .addComponent(lblAcid)
+                                                        .addComponent(lblDens)
+                                                        .addComponent(lblTrash)
+                                                        .addComponent(lblCollect)
+                                                        .addComponent(lblSplit)
+                                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                                 .addGap(25, 25, 25)
-                                                                .addComponent(btnLabCarClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(25, 25, 25)
-                                                                .addComponent(btnLabCarCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(txtLabCarSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(txtLabCarDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(txtLabCarTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                        .addComponent(txtSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(btnLabCarSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(cbxLabCarCollect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(cbxLabCarSplit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(btnSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(cbxCollect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(cbxSplit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLabCarLayout.createSequentialGroup()
-                                                                                .addComponent(txtLabCarAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(btnLabCarAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                                                .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                                 .addGap(93, 93, 93))
         );
         pnlLabCarLayout.setVerticalGroup(
                 pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnlLabCarLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(lblLabCarTitle)
+                                .addComponent(lblTitle)
                                 .addGap(28, 28, 28)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLabCarlblLabCarAcid)
-                                        .addComponent(txtLabCarAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnLabCarAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblAcid)
+                                        .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(25, 25, 25)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(lblLabCarSoap)
-                                                .addComponent(txtLabCarSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(btnLabCarSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lblSoap)
+                                                .addComponent(txtSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLabCarDens)
-                                        .addComponent(txtLabCarDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblDens)
+                                        .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLabCarTrash)
-                                        .addComponent(txtLabCarTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblTrash)
+                                        .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLabCarCollect)
-                                        .addComponent(cbxLabCarCollect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblCollect)
+                                        .addComponent(cbxCollect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLabCarSplit)
-                                        .addComponent(cbxLabCarSplit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblSplit)
+                                        .addComponent(cbxSplit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnLabCarSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnLabCarClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnLabCarCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(31, 31, 31))
         );
 
@@ -271,66 +272,66 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLabCarAcidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarAcidKeyTyped
-        NumberField.addNumber(txtLabCarAcid, evt);
-    }//GEN-LAST:event_txtLabCarAcidKeyTyped
 
-    private void btnLabCarAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarAcidActionPerformed
-        Access.goToCanvas(new FrmCalcAcid(txtLabCarAcid));
+    private void txtAcidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcidKeyTyped
+        NumberField.addNumber(txtAcid, evt);
+    }//GEN-LAST:event_txtAcidKeyTyped
+
+    private void btnAcidActionPerformed(java.awt.event.ActionEvent evt) {
+        Access.goToCanvas(new FrmCalcAcid(txtAcid));
     }
 
-    private void txtLabCarSoapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarSoapKeyTyped
-        NumberField.addNumber(txtLabCarSoap, evt);
-    }//GEN-LAST:event_txtLabCarSoapKeyTyped
+    private void txtSoapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSoapKeyTyped
+        NumberField.addNumber(txtSoap, evt);
+    }//GEN-LAST:event_txtSoapKeyTyped
 
-    private void btnLabCarSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarSoapActionPerformed
-        Access.goToCanvas(new FrmCalcSoap(txtLabCarSoap));
-    }//GEN-LAST:event_btnLabCarSoapActionPerformed
+    private void btnSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoapActionPerformed
+        Access.goToCanvas(new FrmCalcSoap(txtSoap));
+    }//GEN-LAST:event_btnSoapActionPerformed
 
-    private void txtLabCarDensKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarDensKeyTyped
-        NumberField.addNumber(txtLabCarDens, evt);
-    }//GEN-LAST:event_txtLabCarDensKeyTyped
+    private void txtDensKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDensKeyTyped
+        NumberField.addNumber(txtDens, evt);
+    }//GEN-LAST:event_txtDensKeyTyped
 
-    private void txtLabCarTrashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLabCarTrashKeyTyped
+    private void txtTrashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTrashKeyTyped
         NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtLabCarTrashKeyTyped
+    }//GEN-LAST:event_txtTrashKeyTyped
 
 
-    private void btnLabCarSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarSaveActionPerformed
-        new LabCarTreatment().saveLabCar(pnlLabCar,txtLabCarAcid,txtLabCarSoap,txtLabCarDens,txtLabCarTrash,cbxLabCarCollect,cbxLabCarSplit);
-    }//GEN-LAST:event_btnLabCarSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        new LabCarTreatment().saveLabCar(pnlLabCar, txtAcid, txtSoap, txtDens, txtTrash, cbxCollect, cbxSplit);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnLabCarClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarClearActionPerformed
-    }//GEN-LAST:event_btnLabCarClearActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        new TxtTreatment().cleanTxt(pnlLabCar);
+        new CbxTreatment().cleanCbx(pnlLabCar);
+    }//GEN-LAST:event_btnClearActionPerformed
 
-    private void btnLabCarCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabCarCancelActionPerformed
-    }//GEN-LAST:event_btnLabCarCancelActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLabCarAcid;
-    private javax.swing.JButton btnLabCarCancel;
-    private javax.swing.JButton btnLabCarClear;
-    private javax.swing.JButton btnLabCarSave;
-    private javax.swing.JButton btnLabCarSoap;
-    private javax.swing.JComboBox<Object> cbxLabCarCollect;
-    private javax.swing.JComboBox<Object> cbxLabCarSplit;
-    private javax.swing.JLabel lblLabCarCollect;
-    private javax.swing.JLabel lblLabCarDens;
-    private javax.swing.JLabel lblLabCarSoap;
-    private javax.swing.JLabel lblLabCarSplit;
-    private javax.swing.JLabel lblLabCarTitle;
-    private javax.swing.JLabel lblLabCarTrash;
-    private javax.swing.JLabel lblLabCarlblLabCarAcid;
+    private javax.swing.JButton btnAcid;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSoap;
+    private javax.swing.JComboBox<Object> cbxCollect;
+    private javax.swing.JComboBox<Object> cbxSplit;
+    private javax.swing.JLabel lblAcid;
+    private javax.swing.JLabel lblCollect;
+    private javax.swing.JLabel lblDens;
+    private javax.swing.JLabel lblSoap;
+    private javax.swing.JLabel lblSplit;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTrash;
     private javax.swing.JPanel pnlLabCar;
-    private javax.swing.JTextField txtLabCarAcid;
-    private javax.swing.JTextField txtLabCarDens;
-    private javax.swing.JTextField txtLabCarSoap;
-    private javax.swing.JFormattedTextField txtLabCarTrash;
-
+    private javax.swing.JTextField txtAcid;
+    private javax.swing.JTextField txtDens;
+    private javax.swing.JTextField txtSoap;
+    private javax.swing.JFormattedTextField txtTrash;
     // End of variables declaration//GEN-END:variables
-    private void showComboBox() {
-        new LabSplitTreatment().addComboBox(cbxLabCarSplit);
-        new LabCarTreatment().CollectComboBox(cbxLabCarCollect);
-    }
+
 }

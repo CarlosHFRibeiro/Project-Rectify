@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
-
-//import dev.senzalla.rectify.request.NaohRequest;
 
 import dev.senzalla.rectify.treatments.HclTreatment;
 import dev.senzalla.rectify.treatments.NaohTreatment;

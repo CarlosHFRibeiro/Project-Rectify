@@ -3,7 +3,6 @@ package dev.senzalla.rectify.request;
 import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Black Burn Cybernetic

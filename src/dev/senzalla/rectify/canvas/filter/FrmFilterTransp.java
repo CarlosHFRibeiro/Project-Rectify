@@ -5,9 +5,6 @@
  */
 package dev.senzalla.rectify.canvas.filter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Black Burn Cybernetic
  * @mail blackburncyber@gmail.com

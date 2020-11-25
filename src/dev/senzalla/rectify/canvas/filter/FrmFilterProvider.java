@@ -6,10 +6,9 @@
 package dev.senzalla.rectify.canvas.filter;
 
 import dev.senzalla.rectify.entitys.Provider;
-import dev.senzalla.rectify.request.ProviderRequest;
+import dev.senzalla.rectify.treatments.ProviderTreatement;
 
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 
 /**
  * @author Bomsalvez Freitas
@@ -17,6 +16,8 @@ import javax.swing.table.DefaultTableModel;
  * @git github.com/BlackBurnCybernetic
  */
 public class FrmFilterProvider extends javax.swing.JFrame {
+
+    private JTable tbl;
 
     /**
      * Creates new form FrmFilterSeal
@@ -134,29 +135,15 @@ public class FrmFilterProvider extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        Provider provider=new Provider();
+        Provider provider = new Provider();
         provider.setNameProvider(txtName.getText());
 
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-        new ProviderRequest().select(provider).forEach(p
-                -> model.addRow(new Object[]{
-                p.getNameProvider(),
-                p.getCnpjProvider(),
-                p.getPhoneProvider()
-        }));
+        new ProviderTreatement().showTable(tbl, provider);
         this.dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-        new ProviderRequest().select().forEach(p
-                -> model.addRow(new Object[]{
-                p.getNameProvider(),
-                p.getCnpjProvider(),
-                p.getPhoneProvider()
-        }));
+        new ProviderTreatement().showTable(tbl);
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -191,10 +178,8 @@ public class FrmFilterProvider extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmFilterProvider().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FrmFilterProvider().setVisible(true);
         });
     }
 
@@ -207,5 +192,4 @@ public class FrmFilterProvider extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 
-    private JTable tbl;
 }

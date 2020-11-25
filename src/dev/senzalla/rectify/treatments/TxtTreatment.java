@@ -5,11 +5,10 @@
  */
 package dev.senzalla.rectify.treatments;
 
-import java.awt.Component;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  * @author Bomsalvez
@@ -43,5 +42,4 @@ public class TxtTreatment {
             }
         }
     }
-
 }

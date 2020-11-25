@@ -1,12 +1,11 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Naoh;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Bomsalvez Freitas
@@ -16,7 +15,6 @@ import java.util.Map;
 public class NaohRequest extends Request<Naoh> {
 
     private List<Naoh> naohs;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_naoh;";
 
     @Override
     public void insert(Naoh naoh) {
@@ -27,7 +25,7 @@ public class NaohRequest extends Request<Naoh> {
             stmt.setDouble(1, naoh.getValueNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
         } finally {
             closeConnection();
         }
@@ -35,6 +33,7 @@ public class NaohRequest extends Request<Naoh> {
 
     @Override
     public List<Naoh> select() {
+        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_naoh;";
         selectAll(SELECT_QUERY);
         return naohs;
     }
@@ -64,7 +63,7 @@ public class NaohRequest extends Request<Naoh> {
                 naohs.add(naoh);
             }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnectionRs();
         }
@@ -79,7 +78,7 @@ public class NaohRequest extends Request<Naoh> {
             stmt.setLong(2, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
         } finally {
             closeConnection();
         }
@@ -93,7 +92,7 @@ public class NaohRequest extends Request<Naoh> {
             stmt.setLong(1, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -106,7 +105,7 @@ public class NaohRequest extends Request<Naoh> {
             prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }

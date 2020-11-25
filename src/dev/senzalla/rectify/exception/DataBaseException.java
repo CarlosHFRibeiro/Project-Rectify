@@ -5,15 +5,14 @@
  */
 package dev.senzalla.rectify.exception;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  * @author Bomsalvez
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class ElementDuplicate {
+public class DataBaseException {
 
     public void processMsg(String ex, String element) {
         if (ex.contains("Duplicate")) {
@@ -21,10 +20,14 @@ public class ElementDuplicate {
             String msg = String.format(" %s já existe no registro", element);
             showMsg(msg, titulo, JOptionPane.ERROR_MESSAGE);
         } else {
-            String titulo = "Erro no banco";
-            String msg = "Se percistir o sintoma o suporte devera ser consultado";
-            showMsg(msg, titulo, JOptionPane.WARNING_MESSAGE);
+            processMsg(ex);
         }
+    }
+
+    public void processMsg(String ex) {
+        String titulo = "Erro no banco";
+        String msg = String.format("%s \nSe percistir o sintoma o suporte devera ser consultado", ex);
+        showMsg(msg, titulo, JOptionPane.WARNING_MESSAGE);
     }
 
     private void showMsg(String msg, String titulo, int MESSAGE) {

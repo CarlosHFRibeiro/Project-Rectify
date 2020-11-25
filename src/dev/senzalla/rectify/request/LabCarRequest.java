@@ -1,8 +1,7 @@
 package dev.senzalla.rectify.request;
 
-import dev.senzalla.rectify.entitys.Collect;
 import dev.senzalla.rectify.entitys.LabCar;
-import dev.senzalla.rectify.exception.ElementDuplicate;
+import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,13 +25,13 @@ public class LabCarRequest extends Request<LabCar> {
             final String sql = "INSERT INTO `db_retifica`.`tbl_labcar` (`trashCar`, `collectCar`, `acidCar`, `soapCar`, `densityCar`) VALUES (?, ?, ?, ?, ?);";
             prepareStatement(sql);
             stmt.setInt(1, labcar.getTrashCar());
-            stmt.setString(2, labcar.getCollect().getDescricao());
+            stmt.setInt(2, labcar.getCollect().getValor());
             stmt.setDouble(3, labcar.getAcidCar());
             stmt.setDouble(4, labcar.getSoapCar());
             stmt.setDouble(5, labcar.getDensityCar());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new ElementDuplicate().processMsg(ex.getMessage(), null);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -40,7 +39,8 @@ public class LabCarRequest extends Request<LabCar> {
 
     @Override
     public List<LabCar> select() {
-        selectAll(SELECT_QUERY, null);
+        String ORDER = " ORDER BY idCar DESC";
+        selectAll(SELECT_QUERY + ORDER, null);
         return labcars;
     }
 
@@ -53,40 +53,44 @@ public class LabCarRequest extends Request<LabCar> {
     @Override
     public List<LabCar> select(List<String> query, LabCar labCar) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
-
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
-        selectAll(SELECT_QUERY, null);
+        selectAll(SELECT_QUERY, labCar);
         return labcars;
     }
 
     private void selectAll(String query, LabCar labCar) {
         connection();
-        if (labcars == null) {
-            labcars = new ArrayList<>();
-        }
+        labcars = new ArrayList<>();
         try {
             prepareStatement(query);
             if (labCar != null) {
-                stmt.setLong(1, labCar.getIdCar());
-                stmt.setString(2, labCar.getCollect().getDescricao());
-//                stmt.setTimestamp(3, labCar.getDtCar());
-                stmt.setDate(4, labCar.getDateBetween());
+                int i = 1;
+                if (labCar.getIdCar() != null) {
+                    stmt.setLong(i++, labCar.getIdCar());
+                }
+                if (labCar.getDtCar() != null) {
+                    stmt.setDate(i++, labCar.getDtCar());
+                }
+                if (labCar.getDateBetween() != null) {
+                    stmt.setDate(i, labCar.getDateBetween());
+                }
             }
             resultSet();
             while (rs.next()) {
                 LabCar labcar = new LabCar();
                 labcar.setIdCar(rs.getLong("idCar"));
                 labcar.setTrashCar(rs.getInt("trashCar"));
-                labcar.setCollect(rs.getObject("collectCar", Collect.class));
+                labcar.setCollect(rs.getInt("collectCar"));
                 labcar.setAcidCar(rs.getDouble("acidCar"));
                 labcar.setSoapCar(rs.getDouble("soapCar"));
-                labCar.setDensityCar(rs.getDouble("densityCar"));
-                labCar.setDtCar(rs.getTimestamp("dtCar"));
+                labcar.setDensityCar(rs.getDouble("densityCar"));
+                labcar.setDtCar(rs.getDate("dtCar"));
+                labcar.setHrCar(rs.getTime("hrCar"));
 
                 labcars.add(labcar);
             }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg(ex.getMessage());
         } finally {
             closeConnectionRs();
         }

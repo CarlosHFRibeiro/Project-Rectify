@@ -5,8 +5,8 @@
  */
 package dev.senzalla.rectify.treatments;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
-import javax.swing.JTextField;
 
 /**
  * @author Bomsalvez
