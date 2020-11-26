@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.calc.CalcTrans;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.TreatmentTxt;
 
 /**
  * @author Bomsalvez Freitas
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
@@ -247,7 +242,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         CalcTrans calcTrans = new CalcTrans();
-        if (new TxtTreatment().isTxtVoid(pnlCalcTrans)) {
+        if (new TreatmentTxt().isTxtVoid(pnlCalcTrans)) {
             calcTrans.calcular(
                     cbxAcid.getSelectedIndex(), Double.parseDouble(txtCalc.getText())
             );

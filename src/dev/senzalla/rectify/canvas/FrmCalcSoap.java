@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.treatments.CalcSoapTreatment;
-import dev.senzalla.rectify.treatments.HclTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TreatmentCalcSoap;
+import dev.senzalla.rectify.treatments.TreatmentHcl;
 
 import javax.swing.*;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmCalcSoap extends javax.swing.JInternalFrame {
     private JTextField txtLabCarSoap;
@@ -24,12 +19,12 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
      */
     public FrmCalcSoap() {
         initComponents();
-        new HclTreatment().showComboBox(cbxConcentration);
+        new TreatmentHcl().showComboBox(cbxConcentration);
     }
 
     public FrmCalcSoap(JTextField txtLabCarSoap) {
         initComponents();
-        new HclTreatment().showComboBox(cbxConcentration);
+        new TreatmentHcl().showComboBox(cbxConcentration);
         this.txtLabCarSoap = txtLabCarSoap;
     }
 
@@ -201,7 +196,7 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
 
 
     private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
-        new CalcSoapTreatment().calcSoap(pnlCalc, pnlCalcSoap, cbxConcentration, txtBulk, txtMass, txtLabCarSoap);
+        new TreatmentCalcSoap().calcSoap(pnlCalc, pnlCalcSoap, cbxConcentration, txtBulk, txtMass, txtLabCarSoap);
     }//GEN-LAST:event_btnCalculateActionPerformed
 
 

@@ -5,8 +5,8 @@ import java.awt.*;
 
 /**
  * @author Bomsalvez
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class TreatmentsItem {
 

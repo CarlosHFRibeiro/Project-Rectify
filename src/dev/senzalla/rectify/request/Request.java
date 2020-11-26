@@ -5,7 +5,7 @@ import dev.senzalla.rectify.setting.ConectionMySql;
 import java.util.List;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -18,4 +18,5 @@ public abstract class Request<T> extends ConectionMySql {
     public abstract List<T> select(T t);
 
     public abstract List<T> select(List<String> clause, T t);
+
 }

@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterTransp;
+import dev.senzalla.rectify.treatments.Access;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmDchargeTbl extends javax.swing.JInternalFrame {
 
     /** Creates new form FrmLabTqTbl */
@@ -55,7 +48,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
         lblTranspDchargeTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTranspDchargeTitle.setText("Descarregamento");
 
-        btnTranspDchargeAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnTranspDchargeAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnTranspDchargeAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnTranspDchargeAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +56,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnTranspDchargeFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnTranspDchargeFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnTranspDchargeFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnTranspDchargeFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

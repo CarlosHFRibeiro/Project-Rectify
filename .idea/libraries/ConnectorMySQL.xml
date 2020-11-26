@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../_Libs/jcalendar-1.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../_Libs/ConnectorMySQL.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../_Libs/itextpdf-5.5.13.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

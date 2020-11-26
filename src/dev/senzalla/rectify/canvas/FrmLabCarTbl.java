@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
-import dev.senzalla.rectify.canvas.filter.Lab;
-import dev.senzalla.rectify.treatments.LabCarTreatment;
+import dev.senzalla.rectify.enuns.Lab;
+import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.TreatmentLabCar;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabCarTbl extends javax.swing.JInternalFrame {
 
     /**
@@ -24,7 +17,7 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabCarTbl() {
         initComponents();
-        new LabCarTreatment().showTable(tbl);
+        new TreatmentLabCar().showTable(tbl);
     }
 
     /**
@@ -56,7 +49,7 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
         lblTitle.setText("Analise Caminhão");
 
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +57,7 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -2,6 +2,11 @@ package dev.senzalla.rectify.exception;
 
 import javax.swing.*;
 
+/**
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
+ */
 public class FieldException  {
     public FieldException() {
         JOptionPane.showMessageDialog(

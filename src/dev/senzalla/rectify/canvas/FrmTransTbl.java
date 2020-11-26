@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.entitys.MakeTrans;
-import dev.senzalla.rectify.request.MakeTransRequest;
+import dev.senzalla.rectify.request.RequestMakeTrans;
+import dev.senzalla.rectify.treatments.Access;
 
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -53,7 +48,7 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Transesterificação");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +56,7 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +164,7 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
 
-        for (MakeTrans makeTrans : new MakeTransRequest().select()) {
+        for (MakeTrans makeTrans : new RequestMakeTrans().select()) {
             model.addRow(new Object[]{
                 makeTrans.getIdTrans(),
                 makeTrans.getReactTranss().getDtRctTrans(),

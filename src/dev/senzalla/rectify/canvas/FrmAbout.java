@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmAbout extends javax.swing.JInternalFrame {
 
@@ -30,7 +25,6 @@ public class FrmAbout extends javax.swing.JInternalFrame {
 
         btgCalcAcid = new javax.swing.ButtonGroup();
         pnlTank = new javax.swing.JPanel();
-        btnTankMain = new javax.swing.JButton();
         lblFrmAddTankTitle = new javax.swing.JLabel();
         lblAboutVersion = new javax.swing.JLabel();
         lblAboutDev = new javax.swing.JLabel();
@@ -49,14 +43,6 @@ public class FrmAbout extends javax.swing.JInternalFrame {
         pnlTank.setMaximumSize(new java.awt.Dimension(596, 438));
         pnlTank.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlTank.setPreferredSize(new java.awt.Dimension(596, 438));
-
-        btnTankMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnTankMain.setText("<<");
-        btnTankMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTankMainActionPerformed(evt);
-            }
-        });
 
         lblFrmAddTankTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblFrmAddTankTitle.setText("Sobre");
@@ -92,12 +78,10 @@ public class FrmAbout extends javax.swing.JInternalFrame {
             .addGroup(pnlTankLayout.createSequentialGroup()
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTankLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnTankMain)
-                        .addGap(212, 212, 212)
+                        .addGap(270, 270, 270)
                         .addComponent(lblFrmAddTankTitle))
                     .addGroup(pnlTankLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
+                        .addGap(128, 128, 128)
                         .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlTankLayout.createSequentialGroup()
                                 .addGap(41, 41, 41)
@@ -106,9 +90,7 @@ public class FrmAbout extends javax.swing.JInternalFrame {
                                 .addComponent(lblAboutDevCyber1))
                             .addGroup(pnlTankLayout.createSequentialGroup()
                                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlTankLayout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addComponent(lblAboutVersion))
+                                    .addComponent(lblAboutVersion)
                                     .addComponent(lblAboutDev)
                                     .addComponent(lblAboutDev1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -116,16 +98,14 @@ public class FrmAbout extends javax.swing.JInternalFrame {
                                     .addComponent(lblAboutDevBurn)
                                     .addComponent(lblAboutDevBlack)
                                     .addComponent(lblAboutDevCyber))))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         pnlTankLayout.setVerticalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTankMain)
-                    .addComponent(lblFrmAddTankTitle))
-                .addGap(70, 70, 70)
+                .addComponent(lblFrmAddTankTitle)
+                .addGap(78, 78, 78)
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAboutVersion1)
                     .addComponent(lblAboutDevCyber1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,7 +121,7 @@ public class FrmAbout extends javax.swing.JInternalFrame {
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAboutDev1)
                     .addComponent(lblAboutDevBlack))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,14 +138,9 @@ public class FrmAbout extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTankMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnTankMainActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgCalcAcid;
-    private javax.swing.JButton btnTankMain;
     private javax.swing.JLabel lblAboutDev;
     private javax.swing.JLabel lblAboutDev1;
     private javax.swing.JLabel lblAboutDevBlack;

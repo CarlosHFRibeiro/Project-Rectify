@@ -1,20 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.treatments.CalcAcidTreatment;
-import dev.senzalla.rectify.treatments.NaohTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TreatmentCalcAcid;
+import dev.senzalla.rectify.treatments.TreatmentNaoh;
 
 import javax.swing.*;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmCalcAcid extends javax.swing.JInternalFrame {
     private JTextField txtLabCarAcid;
@@ -24,12 +19,12 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
      */
     public FrmCalcAcid() {
         initComponents();
-        new NaohTreatment().showComboBox(cbxConcentration);
+        new TreatmentNaoh().showComboBox(cbxConcentration);
     }
 
     public FrmCalcAcid(JTextField txtLabCarAcid) {
         initComponents();
-        new NaohTreatment().showComboBox(cbxConcentration);
+        new TreatmentNaoh().showComboBox(cbxConcentration);
         this.txtLabCarAcid = txtLabCarAcid;
     }
 
@@ -193,7 +188,7 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        new CalcAcidTreatment().calcAcid(pnlCalc, pnlCalcAcid, btgCalcAcid, cbxConcentration, txtBulk, txtMass, txtLabCarAcid, rbtnBio);
+        new TreatmentCalcAcid().calcAcid(pnlCalc, pnlCalcAcid, btgCalcAcid, cbxConcentration, txtBulk, txtMass, txtLabCarAcid, rbtnBio);
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void txtMassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMassKeyTyped

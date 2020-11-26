@@ -4,11 +4,10 @@ import java.sql.Time;
 import java.util.Date;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class Discharge {
     private Long idDcharge;
     private int noteDcharge;

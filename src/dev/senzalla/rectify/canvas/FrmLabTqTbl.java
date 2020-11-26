@@ -5,15 +5,15 @@
  */
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
-import dev.senzalla.rectify.canvas.filter.Lab;
-import dev.senzalla.rectify.treatments.LabTankTreatment;
+import dev.senzalla.rectify.enuns.Lab;
+import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.TreatmentLabTank;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmLabTqTbl extends javax.swing.JInternalFrame {
 
@@ -22,7 +22,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabTqTbl() {
         initComponents();
-        new LabTankTreatment().showTable(tbl);
+        new TreatmentLabTank().showTable(tbl);
     }
 
     /**
@@ -53,7 +53,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Amostras Do Tanque");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

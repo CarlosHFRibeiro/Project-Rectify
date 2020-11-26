@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmTheme extends javax.swing.JInternalFrame {
 
@@ -30,7 +25,6 @@ public class FrmTheme extends javax.swing.JInternalFrame {
 
         btgCalcAcid = new javax.swing.ButtonGroup();
         pnlTank = new javax.swing.JPanel();
-        btnTankMain = new javax.swing.JButton();
         lblFrmAddTankTitle = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -48,14 +42,6 @@ public class FrmTheme extends javax.swing.JInternalFrame {
         pnlTank.setMaximumSize(new java.awt.Dimension(596, 438));
         pnlTank.setMinimumSize(new java.awt.Dimension(596, 438));
         pnlTank.setPreferredSize(new java.awt.Dimension(596, 438));
-
-        btnTankMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnTankMain.setText("<<");
-        btnTankMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTankMainActionPerformed(evt);
-            }
-        });
 
         lblFrmAddTankTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblFrmAddTankTitle.setText("Tema");
@@ -103,27 +89,24 @@ public class FrmTheme extends javax.swing.JInternalFrame {
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTankLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlTankLayout.createSequentialGroup()
-                                .addComponent(btnTankMain)
-                                .addGap(212, 212, 212)
-                                .addComponent(lblFrmAddTankTitle))
-                            .addGroup(pnlTankLayout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlTankLayout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnlTankLayout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(101, 101, 101)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlTankLayout.createSequentialGroup()
+                            .addGap(270, 270, 270)
+                            .addComponent(lblFrmAddTankTitle))
+                        .addGroup(pnlTankLayout.createSequentialGroup()
+                            .addGap(113, 113, 113)
+                            .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlTankLayout.createSequentialGroup()
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(39, 39, 39)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pnlTankLayout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(101, 101, 101)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(pnlTankLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -133,9 +116,7 @@ public class FrmTheme extends javax.swing.JInternalFrame {
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTankMain)
-                    .addComponent(lblFrmAddTankTitle))
+                .addComponent(lblFrmAddTankTitle)
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTankLayout.createSequentialGroup()
                         .addGap(134, 134, 134)
@@ -150,7 +131,7 @@ public class FrmTheme extends javax.swing.JInternalFrame {
                         .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,14 +148,9 @@ public class FrmTheme extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTankMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankMainActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnTankMainActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgCalcAcid;
-    private javax.swing.JButton btnTankMain;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;

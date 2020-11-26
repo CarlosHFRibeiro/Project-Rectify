@@ -1,10 +1,10 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.treatments.TankTreatment;
+import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.TreatmentTank;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -15,7 +15,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
      */
     public FrmTankTbl() {
         initComponents();
-        new TankTreatment().showTable(tbl);
+        new TreatmentTank().showTable(tbl);
     }
 
     /**
@@ -44,7 +44,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Tanque");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

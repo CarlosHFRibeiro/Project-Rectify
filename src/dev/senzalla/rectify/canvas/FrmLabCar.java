@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.treatments.CbxTreatment;
-import dev.senzalla.rectify.treatments.LabCarTreatment;
-import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.*;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabCar extends javax.swing.JInternalFrame {
 
     /**
@@ -25,7 +14,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
      */
     public FrmLabCar() {
         initComponents();
-        new LabCarTreatment().showComboBox(cbxSplit, cbxCollect);
+        new TreatmentLabCar().showComboBox(cbxSplit, cbxCollect);
     }
 
 
@@ -82,7 +71,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
             }
         });
 
-        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/calculadora_b.png"))); // NOI18N
         btnAcid.setToolTipText("");
         btnAcid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +90,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/calculadora_b.png"))); // NOI18N
         btnSoap.setToolTipText("");
         btnSoap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,12 +288,12 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
 
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new LabCarTreatment().saveLabCar(pnlLabCar, txtAcid, txtSoap, txtDens, txtTrash, cbxCollect, cbxSplit);
+        new TreatmentLabCar().saveLabCar(pnlLabCar, txtAcid, txtSoap, txtDens, txtTrash, cbxCollect, cbxSplit);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlLabCar);
-        new CbxTreatment().cleanCbx(pnlLabCar);
+        new TreatmentTxt().cleanTxt(pnlLabCar);
+        new TreatmentCbx().cleanCbx(pnlLabCar);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

@@ -1,11 +1,11 @@
 package dev.senzalla.rectify.entitys;
 
+
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class Provider {
     private Long idProvider;
     private String cnpjProvider;
@@ -42,5 +42,10 @@ public class Provider {
 
     public void setNameProvider(String nameProvider) {
         this.nameProvider = nameProvider;
+    }
+
+    @Override
+    public String toString() {
+        return getNameProvider();
     }
 }

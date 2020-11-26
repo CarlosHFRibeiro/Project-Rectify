@@ -1,11 +1,12 @@
 package dev.senzalla.rectify.entitys;
 
+
+
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class ObservationCharge {
     private Long idObsCharge;
     private String obsCharge;

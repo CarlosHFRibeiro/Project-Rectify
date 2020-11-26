@@ -1,13 +1,13 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.ProviderTreatement;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.TreatementProvider;
+import dev.senzalla.rectify.treatments.TreatmentTxt;
 
 /**
  * @author Bomsalvez Freitas
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmProvider extends javax.swing.JInternalFrame {
 
@@ -190,11 +190,11 @@ public class FrmProvider extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPhoneKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       new ProviderTreatement().saveProvider(pnlProvider,txtName,txtCnpj,txtPhone);
+       new TreatementProvider().saveProvider(pnlProvider,txtName,txtCnpj,txtPhone);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlProvider);
+        new TreatmentTxt().cleanTxt(pnlProvider);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas.filter;
 
+import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.treatments.*;
 
 import javax.swing.*;
 
 /**
- * @author Black Burn Cybernetic
- * @mail blackburncyber@gmail.com
- * @git github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmFilterLab extends javax.swing.JFrame {
 
@@ -98,66 +94,66 @@ public class FrmFilterLab extends javax.swing.JFrame {
         javax.swing.GroupLayout pnlLabLayout = new javax.swing.GroupLayout(pnlLab);
         pnlLab.setLayout(pnlLabLayout);
         pnlLabLayout.setHorizontalGroup(
-                pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlLabLayout.createSequentialGroup()
+            pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLabLayout.createSequentialGroup()
+                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLabLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlLabLayout.createSequentialGroup()
+                                .addComponent(lblCod)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                                .addGap(35, 35, 35)
-                                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                                                .addComponent(lblCod)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(lblTitle)
-                                                                        .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                                                .addComponent(lblDt)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(dtcDt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                                                .addComponent(lblDtAte)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(dtcDtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                                .addGap(21, 21, 21)
-                                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(21, 21, 21))
+                                    .addComponent(lblTitle)
+                                    .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlLabLayout.createSequentialGroup()
+                                .addComponent(lblDt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dtcDt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlLabLayout.createSequentialGroup()
+                                .addComponent(lblDtAte)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dtcDtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlLabLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
         );
         pnlLabLayout.setVerticalGroup(
-                pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlLabLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblTitle)
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblCod)
-                                        .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDt)
-                                        .addComponent(dtcDt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDtAte)
-                                        .addComponent(dtcDtAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21))
+            pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlLabLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lblTitle)
+                .addGap(18, 18, 18)
+                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCod)
+                    .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDt)
+                    .addComponent(dtcDt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDtAte)
+                    .addComponent(dtcDtAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlLab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlLab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlLab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlLab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -167,31 +163,31 @@ public class FrmFilterLab extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         switch (lab) {
             case LABCAR:
-                if (new DtcTreatment().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
-                    new LabCarTreatment().showTable(tbl);
+                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                    new TreatmentLabCar().showTable(tbl);
                 } else {
-                    new LabCarTreatment().showTable(tbl, spnCod, dtcDt, dtcDtAte);
+                    new TreatmentLabCar().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABTANK:
-                if (new DtcTreatment().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
-                    new LabTankTreatment().showTable(tbl);
+                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                    new TreatmentLabTank().showTable(tbl);
                 } else {
-                    new LabTankTreatment().showTable(tbl, spnCod, dtcDt, dtcDtAte);
+                    new TreatmentLabTank().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABBIO:
-                if (new DtcTreatment().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
-                    new LabBioTreatment().showTable(tbl);
+                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                    new TreatmentLabBio().showTable(tbl);
                 } else {
-                    new LabBioTreatment().showTable(tbl, spnCod, dtcDt, dtcDtAte);
+                    new TreatmentLabBio().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABSPLIT:
-                if (new DtcTreatment().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
-                    new LabSplitTreatment().showTable(tbl);
+                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                    new TreatmentLabSplit().showTable(tbl);
                 } else {
-                    new LabSplitTreatment().showTable(tbl, spnCod, dtcDt, dtcDtAte);
+                    new TreatmentLabSplit().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
         }
@@ -201,16 +197,16 @@ public class FrmFilterLab extends javax.swing.JFrame {
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
         switch (lab) {
             case LABCAR:
-                new LabCarTreatment().showTable(tbl);
+                new TreatmentLabCar().showTable(tbl);
                 break;
             case LABTANK:
-                new LabTankTreatment().showTable(tbl);
+                new TreatmentLabTank().showTable(tbl);
                 break;
             case LABBIO:
-                new LabBioTreatment().showTable(tbl);
+                new TreatmentLabBio().showTable(tbl);
                 break;
             case LABSPLIT:
-                new LabSplitTreatment().showTable(tbl);
+                new TreatmentLabSplit().showTable(tbl);
                 break;
         }
         this.dispose();

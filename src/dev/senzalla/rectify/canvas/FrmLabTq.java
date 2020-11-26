@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.treatments.*;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabTq extends javax.swing.JInternalFrame {
 
     /**
@@ -22,7 +14,7 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
      */
     public FrmLabTq() {
         initComponents();
-        new TankTreatment().addComboBox(cbxTank);
+        new TreatmentTank().showComboBox(cbxTank);
     }
 
     /**
@@ -79,7 +71,7 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
             }
         });
 
-        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/calculadora_b.png"))); // NOI18N
         btnAcid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcidActionPerformed(evt);
@@ -96,7 +88,7 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/calculadora_b.png"))); // NOI18N
         btnSoap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSoapActionPerformed(evt);
@@ -251,12 +243,12 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTrashKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new LabTankTreatment().saveLabTank(pnlLabTk, cbxTank, txtAcid, txtSoap, txtTrash);
+        new TreatmentLabTank().saveLabTank(pnlLabTk, cbxTank, txtAcid, txtSoap, txtTrash);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlLabTk);
-        new CbxTreatment().cleanCbx(pnlLabTk);
+        new TreatmentTxt().cleanTxt(pnlLabTk);
+        new TreatmentCbx().cleanCbx(pnlLabTk);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

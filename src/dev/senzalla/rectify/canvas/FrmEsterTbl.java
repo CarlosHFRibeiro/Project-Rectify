@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
+import dev.senzalla.rectify.treatments.Access;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class FrmEsterTbl extends javax.swing.JInternalFrame {
 
     /** Creates new form FrmEsterTbl */
@@ -57,7 +50,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         lblEsterTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblEsterTitle.setText("Esterificação");
 
-        btnEsterAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnEsterAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnEsterAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnEsterAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +58,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEsterFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnEsterFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnEsterFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnEsterFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

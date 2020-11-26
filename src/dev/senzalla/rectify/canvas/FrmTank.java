@@ -1,13 +1,13 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TankTreatment;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.TreatmentTank;
+import dev.senzalla.rectify.treatments.TreatmentTxt;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmTank extends javax.swing.JInternalFrame {
 
@@ -166,11 +166,11 @@ public class FrmTank extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCapacityKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new TankTreatment().saveTanque(pnlTank,txtName,txtCapacity);
+        new TreatmentTank().saveTanque(pnlTank,txtName,txtCapacity);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlTank);
+        new TreatmentTxt().cleanTxt(pnlTank);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

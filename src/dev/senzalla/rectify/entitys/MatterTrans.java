@@ -1,11 +1,10 @@
 package dev.senzalla.rectify.entitys;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class MatterTrans {
     private Long idMtTrans;
     private int literMtTrans;

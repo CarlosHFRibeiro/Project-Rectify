@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.treatments.LabBioTreatment;
+import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.TreatmentLabBio;
+import dev.senzalla.rectify.treatments.TreatmentTxt;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabBio extends javax.swing.JInternalFrame {
 
     /**
@@ -76,7 +69,7 @@ public class FrmLabBio extends javax.swing.JInternalFrame {
             }
         });
 
-        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/calculadora_b.png"))); // NOI18N
+        btnAcid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/calculadora_b.png"))); // NOI18N
         btnAcid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcidActionPerformed(evt);
@@ -268,11 +261,11 @@ public class FrmLabBio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtFactorKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new LabBioTreatment().saveLabBio(pnlLabBio, txtAcid, txtDens, txtDens20, txtTemp, txtFactor);
+        new TreatmentLabBio().saveLabBio(pnlLabBio, txtAcid, txtDens, txtDens20, txtTemp, txtFactor);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlLabBio);
+        new TreatmentTxt().cleanTxt(pnlLabBio);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

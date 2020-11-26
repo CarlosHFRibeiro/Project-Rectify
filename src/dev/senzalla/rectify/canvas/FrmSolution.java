@@ -1,13 +1,15 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.treatments.HclTreatment;
-import dev.senzalla.rectify.treatments.NaohTreatment;
+import dev.senzalla.rectify.entitys.Hcl;
+import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.treatments.PopUp;
+import dev.senzalla.rectify.treatments.TreatmentHcl;
+import dev.senzalla.rectify.treatments.TreatmentNaoh;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmSolution extends javax.swing.JInternalFrame {
 
@@ -16,8 +18,8 @@ public class FrmSolution extends javax.swing.JInternalFrame {
      */
     public FrmSolution() {
         initComponents();
-        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
-        new HclTreatment().showSolutionHcl(lstSolHcl);
+        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
+        new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }
 
     /**
@@ -105,33 +107,33 @@ public class FrmSolution extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlSolutionNaohLayout = new javax.swing.GroupLayout(pnlSolutionNaoh);
         pnlSolutionNaoh.setLayout(pnlSolutionNaohLayout);
         pnlSolutionNaohLayout.setHorizontalGroup(
-                pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(rollSolNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnSolNaohChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                        .addComponent(btnSolNaohDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(btnSolNaohAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(btnSolNaohDeleteAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addGap(16, 16, 16))
+            pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rollSolNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnSolNaohChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                    .addComponent(btnSolNaohDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolNaohAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolNaohDeleteAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         pnlSolutionNaohLayout.setVerticalGroup(
-                pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
-                                                .addComponent(btnSolNaohAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(36, 36, 36)
-                                                .addComponent(btnSolNaohChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(39, 39, 39)
-                                                .addComponent(btnSolNaohDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                                                .addComponent(btnSolNaohDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(rollSolNaoh))
-                                .addContainerGap())
+            pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSolutionNaohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSolutionNaohLayout.createSequentialGroup()
+                        .addComponent(btnSolNaohAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnSolNaohChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(btnSolNaohDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(btnSolNaohDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rollSolNaoh))
+                .addContainerGap())
         );
 
         pnlSolutionHcl.setBorder(javax.swing.BorderFactory.createTitledBorder("HCl"));
@@ -181,132 +183,132 @@ public class FrmSolution extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlSolutionHclLayout = new javax.swing.GroupLayout(pnlSolutionHcl);
         pnlSolutionHcl.setLayout(pnlSolutionHclLayout);
         pnlSolutionHclLayout.setHorizontalGroup(
-                pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionHclLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(rollSolHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnSolHclChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                        .addComponent(btnSolHclAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addContainerGap(14, Short.MAX_VALUE))
+            pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionHclLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rollSolHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnSolHclChange, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                    .addComponent(btnSolHclAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         pnlSolutionHclLayout.setVerticalGroup(
-                pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionHclLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlSolutionHclLayout.createSequentialGroup()
-                                                .addComponent(btnSolHclAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(36, 36, 36)
-                                                .addComponent(btnSolHclChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(36, 36, 36)
-                                                .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(rollSolHcl))
-                                .addContainerGap())
+            pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionHclLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSolutionHclLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSolutionHclLayout.createSequentialGroup()
+                        .addComponent(btnSolHclAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnSolHclChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnSolHclDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSolHclDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rollSolHcl))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlSolutionLayout = new javax.swing.GroupLayout(pnlSolution);
         pnlSolution.setLayout(pnlSolutionLayout);
         pnlSolutionLayout.setHorizontalGroup(
-                pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlSolutionLayout.createSequentialGroup()
-                                                .addGap(249, 249, 249)
-                                                .addComponent(lblTitle)
-                                                .addGap(251, 254, Short.MAX_VALUE))
-                                        .addGroup(pnlSolutionLayout.createSequentialGroup()
-                                                .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(12, 12, 12))))
+            pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSolutionLayout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(lblTitle)
+                        .addGap(251, 254, Short.MAX_VALUE))
+                    .addGroup(pnlSolutionLayout.createSequentialGroup()
+                        .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))))
         );
         pnlSolutionLayout.setVerticalGroup(
-                pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSolutionLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblTitle)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                                        .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
-                                .addContainerGap())
+            pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSolutionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlSolution, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlSolution, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlSolution, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlSolution, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSolNaohAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohAddActionPerformed
-        new NaohTreatment().addSolutionNaoh();
-        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
+        new TreatmentNaoh().addSolutionNaoh();
+        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohAddActionPerformed
 
     private void btnSolNaohChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohChangeActionPerformed
         if (lstSolNaoh.getSelectedIndex() >= 0) {
-            new NaohTreatment().updateSolutionNaoh(lstSolNaoh);
+            new TreatmentNaoh().updateSolutionNaoh(lstSolNaoh);
         } else {
             PopUp.selectField();
         }
-        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
+        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohChangeActionPerformed
 
     private void btnSolNaohDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteActionPerformed
         if (lstSolNaoh.getSelectedIndex() >= 0) {
-            new NaohTreatment().deleteSolutionNaoh(lstSolNaoh);
+            new TreatmentNaoh().deleteSolutionNaoh(lstSolNaoh);
         } else {
             PopUp.selectField();
         }
-        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
+        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteActionPerformed
 
     private void btnSolNaohDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteAllActionPerformed
-        new NaohTreatment().deleteAllSolutionNaoh();
-        new NaohTreatment().showSolutionNaoh(lstSolNaoh);
+        new TreatmentNaoh().deleteAllSolutionNaoh();
+        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteAllActionPerformed
 
     private void btnSolHclAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclAddActionPerformed
-        new HclTreatment().addSolutionHcl();
-        new HclTreatment().showSolutionHcl(lstSolHcl);
+        new TreatmentHcl().addSolutionHcl();
+        new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclAddActionPerformed
 
     private void btnSolHclChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclChangeActionPerformed
         if (lstSolHcl.getSelectedIndex() >= 0) {
-            new HclTreatment().updateSolutionHcl(lstSolHcl);
+            new TreatmentHcl().updateSolutionHcl(lstSolHcl);
         } else {
             PopUp.selectField();
         }
-        new HclTreatment().showSolutionHcl(lstSolHcl);
+        new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclChangeActionPerformed
 
     private void btnSolHclDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteActionPerformed
         if (lstSolHcl.getSelectedIndex() >= 0) {
-            new HclTreatment().deleteSolutionHcl(lstSolHcl);
+            new TreatmentHcl().deleteSolutionHcl(lstSolHcl);
         } else {
             PopUp.selectField();
         }
-        new HclTreatment().showSolutionHcl(lstSolHcl);
+        new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclDeleteActionPerformed
 
     private void btnSolHclDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteAllActionPerformed
-        new HclTreatment().deleteAllSolutionHcl();
-        new HclTreatment().showSolutionHcl(lstSolHcl);
+        new TreatmentHcl().deleteAllSolutionHcl();
+        new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclDeleteAllActionPerformed
 
 
@@ -320,8 +322,8 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSolNaohDelete;
     private javax.swing.JButton btnSolNaohDeleteAll;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JList<String> lstSolHcl;
-    private javax.swing.JList<String> lstSolNaoh;
+    private javax.swing.JList<Hcl> lstSolHcl;
+    private javax.swing.JList<Naoh> lstSolNaoh;
     private javax.swing.JPanel pnlSolution;
     private javax.swing.JPanel pnlSolutionHcl;
     private javax.swing.JPanel pnlSolutionNaoh;

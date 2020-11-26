@@ -5,7 +5,6 @@ package dev.senzalla.rectify.calc;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class CalcAcid {
     double acid;
 

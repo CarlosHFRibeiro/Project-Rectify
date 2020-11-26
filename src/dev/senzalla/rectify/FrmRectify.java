@@ -6,15 +6,16 @@
 package dev.senzalla.rectify;
 
 import dev.senzalla.rectify.canvas.*;
+import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentsItem;
 
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * @author Bomsalvez Freitas
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmRectify extends JFrame {
 
@@ -57,7 +58,7 @@ public class FrmRectify extends JFrame {
         btnStk = new javax.swing.JButton();
         pnlStk = new javax.swing.JPanel();
         btnStkPr = new javax.swing.JButton();
-        btnStkMonthly = new javax.swing.JButton();
+        btnStkTk = new javax.swing.JButton();
         btnMake = new javax.swing.JButton();
         pnlMake = new javax.swing.JPanel();
         btnMakeEster = new javax.swing.JButton();
@@ -272,10 +273,10 @@ public class FrmRectify extends JFrame {
             }
         });
 
-        btnStkMonthly.setText("Estoque Mensal");
-        btnStkMonthly.addActionListener(new java.awt.event.ActionListener() {
+        btnStkTk.setText("Estoque Tanque");
+        btnStkTk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStkMonthlyActionPerformed(evt);
+                btnStkTkActionPerformed(evt);
             }
         });
 
@@ -284,14 +285,14 @@ public class FrmRectify extends JFrame {
         pnlStkLayout.setHorizontalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnStkPr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnStkMonthly, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnStkTk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlStkLayout.setVerticalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlStkLayout.createSequentialGroup()
                 .addComponent(btnStkPr)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnStkMonthly)
+                .addComponent(btnStkTk)
                 .addGap(0, 0, 0))
         );
 
@@ -548,7 +549,7 @@ public class FrmRectify extends JFrame {
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         retractPanel();
-        this.goToCanvas(new FrmStkTk());
+//        this.goToCanvas(new FrmStkTk());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabActionPerformed
@@ -596,9 +597,9 @@ public class FrmRectify extends JFrame {
 //        goToCanvas(new );
     }//GEN-LAST:event_btnStkPrActionPerformed
 
-    private void btnStkMonthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStkMonthlyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStkMonthlyActionPerformed
+    private void btnStkTkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStkTkActionPerformed
+       this.goToCanvas(new FrmStkTank());
+    }//GEN-LAST:event_btnStkTkActionPerformed
 
     private void btnMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeActionPerformed
         expandPanel(pnlMake, btnMake);
@@ -625,7 +626,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnCalcSoapActionPerformed
 
     private void btnCalcTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcTransActionPerformed
-       this.goToCanvas(new FrmCalcTrans());
+        this.goToCanvas(new FrmCalcTrans());
     }//GEN-LAST:event_btnCalcTransActionPerformed
 
     private void btnSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupActionPerformed
@@ -633,7 +634,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnSetupActionPerformed
 
     private void btnProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderActionPerformed
-       this.goToCanvas(new FrmProviderTbl());
+        this.goToCanvas(new FrmProviderTbl());
     }//GEN-LAST:event_btnProviderActionPerformed
 
     private void btnTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankActionPerformed
@@ -663,7 +664,7 @@ public class FrmRectify extends JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -710,8 +711,8 @@ public class FrmRectify extends JFrame {
     private javax.swing.JButton btnSetup;
     private javax.swing.JButton btnSol;
     private javax.swing.JButton btnStk;
-    private javax.swing.JButton btnStkMonthly;
     private javax.swing.JButton btnStkPr;
+    private javax.swing.JButton btnStkTk;
     private javax.swing.JButton btnTank;
     private javax.swing.JButton btnTheme;
     private javax.swing.JButton btnTransp;

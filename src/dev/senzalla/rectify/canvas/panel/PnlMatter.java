@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas.panel;
 
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.PnlMatterTreatment;
-import dev.senzalla.rectify.treatments.ProductTreatment;
+import dev.senzalla.rectify.treatments.TreatmentPnlMatter;
+import dev.senzalla.rectify.treatments.TreatmentProduct;
 
 import javax.swing.*;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -31,7 +26,7 @@ public class PnlMatter extends javax.swing.JPanel {
 
     public PnlMatter(JFormattedTextField txtTransAmount, int count) {
         initComponents();
-        new ProductTreatment().addComboBox(cbxMatterProduct);
+        new TreatmentProduct().addComboBox(cbxMatterProduct);
         this.txtTransAmount = txtTransAmount;
         this.count = count;
     }
@@ -112,11 +107,11 @@ public class PnlMatter extends javax.swing.JPanel {
 
     private void txtMatterLiterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatterLiterFocusLost
         if (send) {
-            new PnlMatterTreatment().editLitters(Integer.parseInt(txtMatterLiter.getText()), count);
+            new TreatmentPnlMatter().editLitters(Integer.parseInt(txtMatterLiter.getText()), count);
         } else {
-            new PnlMatterTreatment().sumLitters(Integer.parseInt(txtMatterLiter.getText()));
+            new TreatmentPnlMatter().sumLitters(Integer.parseInt(txtMatterLiter.getText()));
         }
-        txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
+        txtTransAmount.setText(String.valueOf(TreatmentPnlMatter.getLitters()));
         send = true;
     }//GEN-LAST:event_txtMatterLiterFocusLost
 
@@ -130,8 +125,8 @@ public class PnlMatter extends javax.swing.JPanel {
 
     public void minusLitters() {
         if (!txtMatterLiter.getText().equals("")) {
-            new PnlMatterTreatment().minusLitters(count);
-            txtTransAmount.setText(String.valueOf(PnlMatterTreatment.getLitters()));
+            new TreatmentPnlMatter().minusLitters(count);
+            txtTransAmount.setText(String.valueOf(TreatmentPnlMatter.getLitters()));
         }
     }
 }

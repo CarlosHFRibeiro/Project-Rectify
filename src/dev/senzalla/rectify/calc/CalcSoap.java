@@ -5,7 +5,6 @@ package dev.senzalla.rectify.calc;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class CalcSoap {
 
     public String getSoap(double cbxHcl, double txtBulk, double txtMass) {

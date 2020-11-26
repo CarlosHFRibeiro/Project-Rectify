@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas.filter;
 
 import dev.senzalla.rectify.entitys.Provider;
-import dev.senzalla.rectify.treatments.ProviderTreatement;
+import dev.senzalla.rectify.treatments.TreatementProvider;
 
 import javax.swing.*;
 
 /**
  * @author Bomsalvez Freitas
- * @mail blackburncyber@gmail.com
- * @git github.com/BlackBurnCybernetic
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmFilterProvider extends javax.swing.JFrame {
 
@@ -83,51 +78,51 @@ public class FrmFilterProvider extends javax.swing.JFrame {
         javax.swing.GroupLayout pnlProviderLayout = new javax.swing.GroupLayout(pnlProvider);
         pnlProvider.setLayout(pnlProviderLayout);
         pnlProviderLayout.setHorizontalGroup(
-            pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlProviderLayout.createSequentialGroup()
-                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlProviderLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(lblTitle))
-                    .addGroup(pnlProviderLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProviderLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlProviderLayout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(27, 27, Short.MAX_VALUE))
+                pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                .addGap(89, 89, 89)
+                                                .addComponent(lblTitle))
+                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                .addGap(26, 26, 26)
+                                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                                .addGap(20, 20, 20)
+                                                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(37, 37, 37)
+                                                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                                                .addComponent(lblName)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(27, 27, Short.MAX_VALUE))
         );
         pnlProviderLayout.setVerticalGroup(
-            pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlProviderLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lblTitle)
-                .addGap(29, 29, 29)
-                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlProviderLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(lblTitle)
+                                .addGap(29, 29, 29)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblName)
+                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -138,12 +133,12 @@ public class FrmFilterProvider extends javax.swing.JFrame {
         Provider provider = new Provider();
         provider.setNameProvider(txtName.getText());
 
-        new ProviderTreatement().showTable(tbl, provider);
+        new TreatementProvider().showTable(tbl, provider);
         this.dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        new ProviderTreatement().showTable(tbl);
+        new TreatementProvider().showTable(tbl);
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 

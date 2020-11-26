@@ -1,24 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas.filter;
+
+import dev.senzalla.rectify.treatments.TreatmentSeal;
+import dev.senzalla.rectify.treatments.TreatementProvider;
 
 import javax.swing.*;
 
 /**
- * @author Black Burn Cybernetic
- * @mail blackburncyber@gmail.com
- * @git github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmFilterSeal extends javax.swing.JFrame {
+
+    private JTable tbl;
 
     /**
      * Creates new form FrmFilterSeal
      */
     public FrmFilterSeal() {
         initComponents();
+        new TreatmentSeal().showSale(cbxSale);
+        new TreatementProvider().showComboBox(cbxProvider);
+        lblDtAte.setVisible(true);
+        dtcAte.setVisible(true);
+    }
+
+    public FrmFilterSeal(JTable tbl) {
+        initComponents();
+        new TreatmentSeal().showSale(cbxSale);
+        new TreatementProvider().showComboBox(cbxProvider);
+        this.tbl = tbl;
+        lblDtAte.setVisible(true);
+        dtcAte.setVisible(true);
     }
 
     /**
@@ -30,40 +43,42 @@ public class FrmFilterSeal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlFilterSeal = new javax.swing.JPanel();
-        lblFilterSealTitle = new javax.swing.JLabel();
-        lblFilterSealDt = new javax.swing.JLabel();
-        lblFilterSealSale = new javax.swing.JLabel();
-        cbxFilterSealSale = new javax.swing.JComboBox<>();
-        lblFilterSealProvider = new javax.swing.JLabel();
-        cbxFilterSealProvider = new javax.swing.JComboBox<>();
+        pnlSeal = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblSale = new javax.swing.JLabel();
+        cbxSale = new javax.swing.JComboBox<>();
+        lblProvider = new javax.swing.JLabel();
+        cbxProvider = new javax.swing.JComboBox<>();
+        lblDt = new javax.swing.JLabel();
         btnFilterSealSave = new javax.swing.JButton();
         btnFilterSealCancel = new javax.swing.JButton();
+        dtcDe = new com.toedter.calendar.JDateChooser();
+        dtcAte = new com.toedter.calendar.JDateChooser();
+        lblDtAte = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("FrmFilterSeal"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
 
-        pnlFilterSeal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnlSeal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblFilterSealTitle.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        lblFilterSealTitle.setText("Filtro de Amostras");
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblTitle.setText("Filtro de Amostras");
 
-        lblFilterSealDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFilterSealDt.setText("Data");
+        lblSale.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblSale.setText("Leilão");
 
-        lblFilterSealSale.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFilterSealSale.setText("Leilão");
+        cbxSale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbxSale.setPreferredSize(new java.awt.Dimension(34, 27));
 
-        cbxFilterSealSale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cbxFilterSealSale.setPreferredSize(new java.awt.Dimension(34, 27));
+        lblProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblProvider.setText("Parceira");
 
-        lblFilterSealProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblFilterSealProvider.setText("Parceira");
+        cbxProvider.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cbxProvider.setPreferredSize(new java.awt.Dimension(34, 27));
 
-        cbxFilterSealProvider.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cbxFilterSealProvider.setPreferredSize(new java.awt.Dimension(34, 27));
+        lblDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDt.setText("De");
 
         btnFilterSealSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         btnFilterSealSave.setText("Buscar");
@@ -83,49 +98,71 @@ public class FrmFilterSeal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlFilterSealLayout = new javax.swing.GroupLayout(pnlFilterSeal);
-        pnlFilterSeal.setLayout(pnlFilterSealLayout);
-        pnlFilterSealLayout.setHorizontalGroup(
-            pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFilterSealLayout.createSequentialGroup()
-                .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFilterSealLayout.createSequentialGroup()
+        dtcDe.setDateFormatString("dd/MM/yyyy");
+        dtcDe.setMaxSelectableDate(new java.util.Date(253370782899000L));
+
+        dtcAte.setDateFormatString("dd/MM/yyyy");
+        dtcAte.setMaxSelectableDate(new java.util.Date(253370782899000L));
+
+        lblDtAte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtAte.setText("Ate");
+
+        javax.swing.GroupLayout pnlSealLayout = new javax.swing.GroupLayout(pnlSeal);
+        pnlSeal.setLayout(pnlSealLayout);
+        pnlSealLayout.setHorizontalGroup(
+            pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSealLayout.createSequentialGroup()
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSealLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblFilterSealProvider)
-                            .addComponent(lblFilterSealSale)
-                            .addComponent(lblFilterSealDt))
+                        .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblProvider)
+                            .addComponent(lblSale)
+                            .addComponent(lblDt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxFilterSealProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxFilterSealSale, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlFilterSealLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnFilterSealSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFilterSealCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlFilterSealLayout.createSequentialGroup()
+                        .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxSale, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dtcDe, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlSealLayout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addComponent(lblFilterSealTitle)))
+                        .addComponent(lblTitle))
+                    .addGroup(pnlSealLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlSealLayout.createSequentialGroup()
+                                .addComponent(lblDtAte)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dtcAte, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlSealLayout.createSequentialGroup()
+                                .addComponent(btnFilterSealSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnFilterSealCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20))
         );
-        pnlFilterSealLayout.setVerticalGroup(
-            pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFilterSealLayout.createSequentialGroup()
+        pnlSealLayout.setVerticalGroup(
+            pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSealLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblFilterSealTitle)
-                .addGap(32, 32, 32)
-                .addComponent(lblFilterSealDt)
+                .addComponent(lblTitle)
                 .addGap(18, 18, 18)
-                .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilterSealSale)
-                    .addComponent(cbxFilterSealSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSale)
+                    .addComponent(cbxSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFilterSealProvider)
-                    .addComponent(cbxFilterSealProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProvider)
+                    .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlFilterSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDt)
+                    .addComponent(dtcDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDtAte)
+                    .addComponent(dtcAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFilterSealSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFilterSealCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
@@ -135,11 +172,11 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFilterSeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlSeal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFilterSeal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlSeal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -147,9 +184,13 @@ public class FrmFilterSeal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFilterSealSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterSealSaveActionPerformed
+        new TreatmentSeal().showTable(tbl, cbxSale, cbxProvider, dtcDe, dtcAte);
+        this.dispose();
     }//GEN-LAST:event_btnFilterSealSaveActionPerformed
 
     private void btnFilterSealCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterSealCancelActionPerformed
+        new TreatmentSeal().showTable(tbl);
+        this.dispose();
     }//GEN-LAST:event_btnFilterSealCancelActionPerformed
 
     /**
@@ -159,7 +200,7 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -191,19 +232,16 @@ public class FrmFilterSeal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFilterSealCancel;
     private javax.swing.JButton btnFilterSealSave;
-    private javax.swing.JComboBox<Object> cbxFilterSealProvider;
-    private javax.swing.JComboBox<Object> cbxFilterSealSale;
-    private javax.swing.JLabel lblFilterSealDt;
-    private javax.swing.JLabel lblFilterSealProvider;
-    private javax.swing.JLabel lblFilterSealSale;
-    private javax.swing.JLabel lblFilterSealTitle;
-    private javax.swing.JPanel pnlFilterSeal;
+    private javax.swing.JComboBox<Object> cbxProvider;
+    private javax.swing.JComboBox<Object> cbxSale;
+    private com.toedter.calendar.JDateChooser dtcAte;
+    private com.toedter.calendar.JDateChooser dtcDe;
+    private javax.swing.JLabel lblDt;
+    private javax.swing.JLabel lblDtAte;
+    private javax.swing.JLabel lblProvider;
+    private javax.swing.JLabel lblSale;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlSeal;
     // End of variables declaration//GEN-END:variables
-
-    private JTable tbl;
-
-    public void setTbl(JTable tbl) {
-        this.tbl = tbl;
-    }
 
 }

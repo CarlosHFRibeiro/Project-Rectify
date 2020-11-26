@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactTrans;
-import dev.senzalla.rectify.treatments.TankTreatment;
+import dev.senzalla.rectify.treatments.TreatmentTank;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
 public class FrmTrans extends javax.swing.JInternalFrame {
 
@@ -429,6 +424,6 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         defineButton(btnMatterTransRmv, false);
         defineButton(btnReactTransRmv, false);
 
-        new TankTreatment().addComboBox(cbxTransTank);
+        new TreatmentTank().showComboBox(cbxTransTank);
     }
 }

@@ -1,18 +1,17 @@
 package dev.senzalla.rectify.entitys;
 
 
-import dev.senzalla.rectify.treatments.DateTretment;
+import dev.senzalla.rectify.treatments.TreatmentDate;
 
 import java.sql.Date;
 import java.sql.Time;
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
-public class LabTank extends DateTretment {
+public class LabTank extends TreatmentDate {
     private Long idTq;
     private int trashTq;
     private double acidTq;

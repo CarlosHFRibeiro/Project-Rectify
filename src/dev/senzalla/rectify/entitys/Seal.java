@@ -1,14 +1,17 @@
 package dev.senzalla.rectify.entitys;
 
-import java.util.Date;
+
+import dev.senzalla.rectify.treatments.TreatmentDate;
+
+import java.sql.Date;
+
 
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
-public class Seal {
+public class Seal extends TreatmentDate {
     private Long idSeal;
     private int saleSeal;
     private int clientSeal;
@@ -61,8 +64,8 @@ public class Seal {
         return dtSeal;
     }
 
-    public void setDtSeal(Date dtSeal) {
-        this.dtSeal = dtSeal;
+    public void setDtSeal(java.util.Date dtSeal) {
+        this.dtSeal = convertDateSql(dtSeal);
     }
 
     public Provider getProvider() {

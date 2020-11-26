@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.treatments.LabSplitTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.TreatmentLabSplit;
+import dev.senzalla.rectify.treatments.TreatmentTxt;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabSplit extends javax.swing.JInternalFrame {
 
     /**
@@ -229,12 +222,12 @@ public class FrmLabSplit extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTrashKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new LabSplitTreatment().saveSplit(pnlLabSplit,txtOil,txtSludge,txtGlycerin,txtTrash);
-        new TxtTreatment().cleanTxt(pnlLabSplit);
+        new TreatmentLabSplit().saveSplit(pnlLabSplit,txtOil,txtSludge,txtGlycerin,txtTrash);
+        new TreatmentTxt().cleanTxt(pnlLabSplit);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TxtTreatment().cleanTxt(pnlLabSplit);
+        new TreatmentTxt().cleanTxt(pnlLabSplit);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

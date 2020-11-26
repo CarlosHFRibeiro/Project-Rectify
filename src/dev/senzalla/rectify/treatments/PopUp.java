@@ -2,6 +2,11 @@ package dev.senzalla.rectify.treatments;
 
 import javax.swing.*;
 
+/**
+ * @author Bomsalvez
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
+ */
 public class PopUp {
 
     public static void selectField() {

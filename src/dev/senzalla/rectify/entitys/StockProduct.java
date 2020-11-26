@@ -2,12 +2,12 @@ package dev.senzalla.rectify.entitys;
 
 import java.util.Date;
 
+
 /**
- * @author Black Burn Cybernetic
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-
 public class StockProduct {
     private Long idStkPd;
     private int literStkPd;

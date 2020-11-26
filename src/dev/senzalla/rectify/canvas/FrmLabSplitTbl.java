@@ -1,26 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
 import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
-import dev.senzalla.rectify.canvas.filter.Lab;
-import dev.senzalla.rectify.entitys.LabSplit;
-import dev.senzalla.rectify.request.LabSplitRequest;
-import dev.senzalla.rectify.treatments.LabSplitTreatment;
-
-import javax.swing.table.DefaultTableModel;
+import dev.senzalla.rectify.enuns.Lab;
+import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.TreatmentLabSplit;
 
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
 
     /**
@@ -28,7 +17,7 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabSplitTbl() {
         initComponents();
-        new LabSplitTreatment().showTable(tbl);
+        new TreatmentLabSplit().showTable(tbl);
     }
 
 
@@ -57,7 +46,7 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Analise Cisão");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setToolTipText("");
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +55,7 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,19 +156,4 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
-    private void showTable() {
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-
-        for (LabSplit labSplit : new LabSplitRequest().select()) {
-            model.addRow(new Object[]{
-                    labSplit.getIdSplit(),
-                    labSplit.getOilSplit(),
-                    labSplit.getSludgeSplit(),
-                    labSplit.getGlycerinSplit(),
-                    labSplit.getTrashSplit(),
-                    labSplit.getDtSplit()
-            });
-        }
-    }
 }

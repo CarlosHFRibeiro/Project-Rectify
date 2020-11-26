@@ -1,10 +1,10 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.Access;
-import dev.senzalla.rectify.treatments.ProductTreatment;
+import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.TreatmentProduct;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -15,7 +15,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
      */
     public FrmProductTbl() {
         initComponents();
-        new ProductTreatment().showTable(tbl);
+        new TreatmentProduct().showTable(tbl);
     }
 
     /**
@@ -44,7 +44,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Produto");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

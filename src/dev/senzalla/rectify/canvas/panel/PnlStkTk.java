@@ -1,12 +1,10 @@
 package dev.senzalla.rectify.canvas.panel;
 
-
 /**
- * @author Black Burn Cybernetic
- * @e-mail blackburncyber@gmail.com
- * @github github.com/BlackBurnCybernetic
+ * @author Bomsalvez Freitas
+ * @e-mail bomsalvez@gmail.com
+ * @github github.com/Bomsalvez
  */
-
 public class PnlStkTk extends javax.swing.JPanel {
 
     /** Creates new form pnlStkTk */
@@ -52,7 +50,7 @@ public class PnlStkTk extends javax.swing.JPanel {
         pnlStk.setPreferredSize(new java.awt.Dimension(148, 138));
 
         iconTk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconTk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dev/senzalla/rectify/canvas/resource/gas_48dp.png"))); // NOI18N
+        iconTk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/gas_48dp.png"))); // NOI18N
         iconTk.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lblNameTk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
