@@ -200,7 +200,7 @@
         <Component class="javax.swing.JButton" name="btnAcid">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/calculadora_b.png"/>
+              <Image iconType="3" name="/static/img/calculadora_b.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -232,7 +232,7 @@
         <Component class="javax.swing.JButton" name="btnSoap">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/dev/senzalla/rectify/canvas/resource/calculadora_b.png"/>
+              <Image iconType="3" name="/static/img/calculadora_b.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -303,7 +303,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Collect&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSplit">
@@ -324,7 +324,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;labSplit&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btnSave">

@@ -42,4 +42,10 @@ public class TreatmentTank {
         cbx.addItem("Tanque");
         new RequestTank().select().forEach(cbx::addItem);
     }
+
+    public Tank getTank(Object tank) {
+        Tank tank1 = new Tank();
+        tank1.setNameTank(String.valueOf(tank));
+        return new RequestTank().selectName(tank1);
+    }
 }

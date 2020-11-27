@@ -15,7 +15,7 @@ import java.util.Objects;
  * @github github.com/Bomsalvez
  */
 public class TreatmentDtc {
-    private List<Date> dtcChooser;
+    private  List<Date> dtcChooser;
     public void cleanDtc(JPanel pnl) {
         for (Component c : pnl.getComponents()) {
             if (c instanceof JComboBox) {
@@ -25,12 +25,12 @@ public class TreatmentDtc {
         }
     }
 
-    public boolean isTxtVoid(JPanel pnl) {
+    public  boolean isDtcVoid(JPanel pnl) {
         setTxt(pnl);
         return dtcChooser.stream().noneMatch(Objects::nonNull);
     }
 
-    private void setTxt(JPanel pnl) {
+    private  void setTxt(JPanel pnl) {
         dtcChooser = new ArrayList<>();
         for (Component c : pnl.getComponents()) {
             if (c instanceof JDateChooser) {

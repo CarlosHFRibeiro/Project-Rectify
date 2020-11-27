@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class TreatmentCbx {
     private List<Integer> cbxComponent;
+
     public void cleanCbx(JPanel pnl) {
         for (Component c : pnl.getComponents()) {
             if (c instanceof JComboBox) {
@@ -21,9 +22,9 @@ public class TreatmentCbx {
         }
     }
 
-    public boolean isTxtVoid(JPanel pnl) {
+    public boolean isCbxVoid(JPanel pnl) {
         setTxt(pnl);
-        return cbxComponent.stream().noneMatch(cbx -> (cbx==0));
+        return cbxComponent.stream().noneMatch(cbx -> (cbx == 0));
     }
 
     private void setTxt(JPanel pnl) {

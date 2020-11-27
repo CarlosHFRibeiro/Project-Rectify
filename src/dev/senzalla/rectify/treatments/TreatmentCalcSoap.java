@@ -26,7 +26,9 @@ public class TreatmentCalcSoap {
             GridLayout layout = new GridLayout();
             pnlCalc.setLayout(layout);
             pnlCalc.add(new PnlCalcOleic(soap)).setVisible(true);
-            txtLabCarSoap.setText(soap);
+            if (txtLabCarSoap != null) {
+                txtLabCarSoap.setText(soap);
+            }
         } else {
             new EmptyField().showMsg();
         }

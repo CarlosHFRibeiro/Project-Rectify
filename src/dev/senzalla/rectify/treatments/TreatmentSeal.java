@@ -1,10 +1,11 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.canvas.FrmSealTbl;
 import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.entitys.Seal;
 import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.SealRequest;
+import dev.senzalla.rectify.request.RequestSeal;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -25,7 +26,7 @@ public class TreatmentSeal {
     public void showTable(JTable tbl) {
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new SealRequest().select().forEach(this::table);
+        new RequestSeal().select().forEach(this::table);
     }
 
     public void showTable(JTable tbl, JComboBox<Object> cbxSale, JComboBox<Object> cbxProvider, JDateChooser dtcDe, JDateChooser dtcAte) {
@@ -61,22 +62,26 @@ public class TreatmentSeal {
 
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new SealRequest().select(clause, seal).forEach(this::table);
+        FrmSealTbl.query(clause, seal);
+        selectQuery(clause, seal).forEach(this::table);
+    }
+
+    public List<Seal> selectQuery(List<String> clause, Seal seal) {
+        return  new RequestSeal().select(clause, seal);
     }
 
     private void table(Seal seal) {
         model.addRow(new Object[]{
-                seal.getSaleSeal(),
-                seal.getClientSeal(),
-                seal.getFactorySeal(),
-                seal.getBrSeal(),
-                seal.getProvider(),
-                convertDateUtil(seal.getDtSeal())
+            seal.getSaleSeal(),
+            seal.getClientSeal(),
+            seal.getFactorySeal(),
+            seal.getBrSeal(),
+            seal.getProvider(),
+            convertDateUtil(seal.getDtSeal())
         });
     }
 
-    public void saveSeal(JPanel pnlSeal, JFormattedTextField txtSale, JFormattedTextField
-            txtFactory, JFormattedTextField txtClient, JFormattedTextField txtBr, JComboBox<Object> cbxProvider) {
+    public void saveSeal(JPanel pnlSeal, JFormattedTextField txtSale, JFormattedTextField txtFactory, JFormattedTextField txtClient, JFormattedTextField txtBr, JComboBox<Object> cbxProvider) {
         if (new TreatmentTxt().isTxtVoid(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
             Provider provider = new Provider();
             provider.setIdProvider((long) cbxProvider.getSelectedIndex());
@@ -86,7 +91,7 @@ public class TreatmentSeal {
             seal.setFactorySeal(Integer.parseInt(txtFactory.getText()));
             seal.setClientSeal(Integer.parseInt(txtClient.getText()));
             seal.setSaleSeal(Integer.parseInt(txtSale.getText()));
-            new SealRequest().insert(seal);
+            new RequestSeal().insert(seal);
             new TreatmentTxt().cleanTxt(pnlSeal);
             new TreatmentCbx().cleanCbx(pnlSeal);
         } else {
@@ -97,8 +102,7 @@ public class TreatmentSeal {
     public void showSale(JComboBox<Object> cbx) {
         cbx.removeAllItems();
         cbx.addItem("Leilão");
-        new SealRequest().sale().forEach(cbx::addItem);
+        new RequestSeal().sale().forEach(cbx::addItem);
     }
-
 
 }

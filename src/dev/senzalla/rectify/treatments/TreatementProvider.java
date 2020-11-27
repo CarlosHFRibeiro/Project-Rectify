@@ -58,4 +58,10 @@ public class TreatementProvider {
         cbx.addItem("Fornecedor");
         new RequestProvider().select().forEach(cbx::addItem);
     }
+
+    public  Provider provider(JComboBox<Object> cbxProvider) {
+        Provider provider = new Provider();
+        provider.setNameProvider(String.valueOf(cbxProvider.getSelectedItem()));
+        return provider;
+    }
 }

@@ -62,7 +62,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         lblAcid.setText("Acidez");
 
         cbxAcid.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbxAcid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "4.0", "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "5.0"}));
+        cbxAcid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "4.0", "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "5.0" }));
         cbxAcid.setPreferredSize(new java.awt.Dimension(100, 27));
 
         lblLiters.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -103,32 +103,32 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlResultLayout = new javax.swing.GroupLayout(pnlResult);
         pnlResult.setLayout(pnlResultLayout);
         pnlResultLayout.setHorizontalGroup(
-                pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlResultLayout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(lblLitersMetanol)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblLitersMetilato)
-                                .addGap(133, 133, 133))
-                        .addGroup(pnlResultLayout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(lblMetanol)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblMetilato)
-                                .addGap(55, 55, 55))
+            pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResultLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(lblLitersMetanol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLitersMetilato)
+                .addGap(133, 133, 133))
+            .addGroup(pnlResultLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(lblMetanol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblMetilato)
+                .addGap(55, 55, 55))
         );
         pnlResultLayout.setVerticalGroup(
-                pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlResultLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblMetilato)
-                                        .addComponent(lblMetanol))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLitersMetanol)
-                                        .addComponent(lblLitersMetilato))
-                                .addContainerGap())
+            pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResultLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMetilato)
+                    .addComponent(lblMetanol))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLitersMetanol)
+                    .addComponent(lblLitersMetilato))
+                .addContainerGap())
         );
 
         pnlResult1.setBorder(javax.swing.BorderFactory.createTitledBorder("2° Reação"));
@@ -148,89 +148,89 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlResult1Layout = new javax.swing.GroupLayout(pnlResult1);
         pnlResult1.setLayout(pnlResult1Layout);
         pnlResult1Layout.setHorizontalGroup(
-                pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlResult1Layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(lblLitersMetanol1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblLitersMetilato1)
-                                .addGap(133, 133, 133))
-                        .addGroup(pnlResult1Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(lblMetanol1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                                .addComponent(lblMetilato1)
-                                .addGap(55, 55, 55))
+            pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResult1Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(lblLitersMetanol1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLitersMetilato1)
+                .addGap(133, 133, 133))
+            .addGroup(pnlResult1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(lblMetanol1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(lblMetilato1)
+                .addGap(55, 55, 55))
         );
         pnlResult1Layout.setVerticalGroup(
-                pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlResult1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblMetilato1)
-                                        .addComponent(lblMetanol1))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLitersMetanol1)
-                                        .addComponent(lblLitersMetilato1))
-                                .addContainerGap())
+            pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlResult1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMetilato1)
+                    .addComponent(lblMetanol1))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLitersMetanol1)
+                    .addComponent(lblLitersMetilato1))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlCalcTransLayout = new javax.swing.GroupLayout(pnlCalcTrans);
         pnlCalcTrans.setLayout(pnlCalcTransLayout);
         pnlCalcTransLayout.setHorizontalGroup(
-                pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(lblTitle)
-                                .addContainerGap(188, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcTransLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(pnlResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                                                .addGap(39, 39, 39)
-                                                .addComponent(lblAcid)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(153, 153, 153)
-                                                .addComponent(lblLiters)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(25, 25, 25))
+            pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalcTransLayout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(lblTitle)
+                .addContainerGap(188, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcTransLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCalcTransLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(lblAcid)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(153, 153, 153)
+                        .addComponent(lblLiters)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
         );
         pnlCalcTransLayout.setVerticalGroup(
-                pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblTitle)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblAcid)
-                                        .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblLiters)
-                                        .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46))
+            pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalcTransLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAcid)
+                    .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLiters)
+                    .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlCalcTrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlCalcTrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlCalcTrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlCalcTrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -258,7 +258,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalc;
-    private javax.swing.JComboBox<String> cbxAcid;
+    private javax.swing.JComboBox<Object> cbxAcid;
     private javax.swing.JLabel lblAcid;
     private javax.swing.JLabel lblLiters;
     private javax.swing.JLabel lblLitersMetanol;

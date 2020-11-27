@@ -59,4 +59,12 @@ public class PopUp {
         );
     }
 
+    public static void isEmpty() {
+        JOptionPane.showMessageDialog(
+                new JFrame(),
+                "Não foi registrado estoque do tanque ainda",
+                "Sem Registro",
+                JOptionPane.WARNING_MESSAGE
+        );
+    }
 }

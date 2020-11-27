@@ -28,16 +28,16 @@ FROM tbl_stocktank
          JOIN
      tbl_product ON fkProductStkTq = idProduct;
 
-# CREATE OR REPLACE VIEW view_stkProduct AS
-#     SELECT
-#         nameProduct,
-#         literStkPd,
-#         percentStkPd,
-#         dtStkPd
-#     FROM
-#         tbl_stockproduct
-#             JOIN
-#         tbl_product ON fkProductStkPd = idProduct;
+CREATE OR REPLACE VIEW view_stkProduct AS
+    SELECT
+        nameProduct,
+        literStkPd,
+        percentStkPd,
+        dtStkPd
+    FROM
+        tbl_stockproduct
+            JOIN
+        tbl_product ON fkProductStkPd = idProduct;
 
 # CREATE OR REPLACE VIEW view_maketrans AS
 # SELECT mt.idTrans,tr.dtRctTrans,mt.reactTrans,tt.nameTank,mt.producedTrans,mt.trashTrans FROM tbl_maketrans mt

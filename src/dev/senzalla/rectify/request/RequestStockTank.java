@@ -24,8 +24,7 @@ public class RequestStockTank extends Request<StockTank> {
     public void insert(StockTank stockTank) {
         connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_stocktank`" +
-                    " (`literStkTq`, `fkTankStkTq`, `fkProductStkTq`) VALUES (?, ?, ?);";
+            final String sql = "INSERT INTO `db_retifica`.`tbl_stocktank` (`literStkTq`, `fkTankStkTq`, `fkProductStkTq`) VALUES (?, ?, ?);";
             prepareStatement(sql);
             stmt.setInt(1, stockTank.getLiterStkTq());
             stmt.setLong(2, stockTank.getTank().getIdTank());
@@ -65,22 +64,25 @@ public class RequestStockTank extends Request<StockTank> {
         stockTanks = new ArrayList<>();
         try {
             prepareStatement(query);
-//            if (parameter != null) {
-//                int i = 1;
-//                if (parameter.getIdBio() != null) {
-//                    stmt.setLong(i++, parameter.getIdBio());
-//                }
-//                if (parameter.getDtBio() != null) {
-//                    stmt.setDate(i++, parameter.getDtBio());
-//                }
-//                if (parameter.getDateBetween() != null) {
-//                    stmt.setDate(i, parameter.getDateBetween());
-//                }
-//            }
+            if (parameter != null) {
+                int i = 1;
+                if (parameter.getTank() != null) {
+                    stmt.setString(i++, parameter.getTank().getNameTank());
+                }
+                if (parameter.getProduct() != null) {
+                    stmt.setString(i++, parameter.getProduct().getNameProduct());
+                }
+                if (parameter.getDtStkTq() != null) {
+                    stmt.setDate(i++, parameter.getDtStkTq());
+                }
+                if (parameter.getDateBetween() != null) {
+                    stmt.setDate(i, parameter.getDateBetween());
+                }
+            }
             resultSet();
             while (rs.next()) {
                 StockTank stockTank = new StockTank();
-                stockTank.setIdStkTq(rs.getLong("idStkTq"));
+                stockTank.setLiterStkTq(rs.getInt("literStkTq"));
                 stockTank.setDtStkTq(rs.getDate("dtStkTq"));
 
                 Tank tank = new Tank();
@@ -99,4 +101,28 @@ public class RequestStockTank extends Request<StockTank> {
             closeConnectionRs();
         }
     }
+
+    public int selectSum(Product product) {
+        String query = "SELECT sum(literStkTq) FROM db_retifica.tbl_stocktank";
+        if (product != null) {
+            query += " where fkProductStkTq = ?";
+        }
+        connection();
+        try {
+            prepareStatement(query);
+            if (product != null) {
+                stmt.setLong(1, product.getIdProduct());
+            }
+            resultSet();
+            if (rs.next()) {
+                return rs.getInt("sum(literStkTq)");
+            }
+        } catch (SQLException ex) {
+            new DataBaseException().processMsg(ex.getMessage());
+        } finally {
+            closeConnectionRs();
+        }
+        return 0;
+    }
+
 }

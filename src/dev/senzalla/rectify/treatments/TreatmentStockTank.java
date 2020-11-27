@@ -1,10 +1,17 @@
 package dev.senzalla.rectify.treatments;
 
+import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.canvas.FrmStkTank;
+import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockTank;
+import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.request.RequestStockTank;
+import dev.senzalla.rectify.request.RequestTank;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Bomsalvez Freitas
@@ -21,42 +28,6 @@ public class TreatmentStockTank {
         new RequestStockTank().select().forEach(this::table);
     }
 
-//    public void showTable(JTable tbl, JComboBox<Object> cbxSale, JComboBox<Object> cbxProvider, JDateChooser dtcDe, JDateChooser dtcAte) {
-//        List<String> clause = new ArrayList<>();
-//        Seal seal = new Seal();
-//        if (cbxSale.getSelectedIndex() > 0) {
-//            clause.add("saleSeal =");
-//            seal.setSaleSeal(Integer.parseInt(cbxSale.getSelectedItem().toString()));
-//        }
-//        if (cbxProvider.getSelectedIndex() > 0) {
-//            Provider provider = new Provider();
-//            provider.setNameProvider(String.valueOf(cbxProvider.getSelectedItem()));
-//            clause.add("nameProvider =");
-//            seal.setProvider(provider);
-//        }
-//
-//        if (dtcAte.getDate() != null && dtcDe.getDate() != null) {
-//            clause.add("dtSeal between");
-//            seal.setDtSeal(dtcDe.getDate());
-//            clause.add("");
-//            seal.setDateBetween(dtcAte.getDate());
-//        } else {
-//            if (dtcDe.getDate() != null) {
-//                clause.add("dtSeal =");
-//                seal.setDtSeal(dtcDe.getDate());
-//            }
-//            if (dtcAte.getDate() != null) {
-//                clause.add("dtSeal =");
-//                seal.setDtSeal(dtcAte.getDate());
-//            }
-//
-//        }
-//
-//        model = (DefaultTableModel) tbl.getModel();
-//        model.setNumRows(0);
-//        new RequestStockTank().select(clause, seal).forEach(this::table);
-//    }
-
     private void table(StockTank stockTank) {
         model.addRow(new Object[]{
                 stockTank.getTank(),
@@ -65,29 +36,83 @@ public class TreatmentStockTank {
         });
     }
 
-//    public void saveSeal(JPanel pnlSeal, JFormattedTextField txtSale, JFormattedTextField
-//            txtFactory, JFormattedTextField txtClient, JFormattedTextField txtBr, JComboBox<Object> cbxProvider) {
-//        if (new TreatmentTxt().isTxtVoid(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
-//            Provider provider = new Provider();
-//            provider.setIdProvider((long) cbxProvider.getSelectedIndex());
-//            Seal seal = new Seal();
-//            seal.setProvider(provider);
-//            seal.setBrSeal(Integer.parseInt(txtBr.getText()));
-//            seal.setFactorySeal(Integer.parseInt(txtFactory.getText()));
-//            seal.setClientSeal(Integer.parseInt(txtClient.getText()));
-//            seal.setSaleSeal(Integer.parseInt(txtSale.getText()));
-//            new SealRequest().insert(seal);
-//            new TreatmentTxt().cleanTxt(pnlSeal);
-//            new TreatmentCbx().cleanCbx(pnlSeal);
-//        } else {
-//            new EmptyField().showMsg();
-//        }
-//    }
-
-
-    public void saveStockTank(JPanel pnlStk, JTable tbl) {
-        
+    public void saveStockTank(JTable tbl) {
+        for (int i = 0; i < tbl.getRowCount(); i++) {
+            if (!tbl.getValueAt(i, 1).equals("Produto")) {
+                Tank tank = new TreatmentTank().getTank(tbl.getValueAt(i, 0));
+                StockTank stockTank = new StockTank();
+                stockTank.setTank(tank);
+                stockTank.setProduct(new TreatmentProduct().getProduct(tbl.getValueAt(i, 1)));
+                stockTank.setLiterStkTq(litter(tbl, i, tank));
+                new RequestStockTank().insert(stockTank);
+                new TreatmentStockTank().tableTank(tbl);
+            }
+        }
     }
 
+    private int litter(JTable tbl, int i, Tank tank) {
+        Object litters = tbl.getValueAt(i, 2);
+        int litter = 0;
+        if (litters != null) {
+            litter = Integer.parseInt(litters.toString());
+            return litter >= tank.getCapacityTank() ? tank.getCapacityTank() : litter;
+        }
+        return litter;
+    }
+
+    public void tableTank(JTable tbl) {
+        model = (DefaultTableModel) tbl.getModel();
+        model.setNumRows(0);
+        new RequestTank().select().forEach(tank
+                -> model.addRow(new Object[]{
+                tank.getNameTank(),
+                "Produto"
+        }));
+    }
+
+    public void showTable(JTable tbl, JComboBox<Object> cbxTank, JComboBox<Object> cbxProduct, JDateChooser dtcDe, JDateChooser dtcAte) {
+        List<String> clause = new ArrayList<>();
+        StockTank stockTank = new StockTank();
+        if (cbxTank.getSelectedIndex() > 0) {
+            Tank tank = new Tank();
+            tank.setNameTank(String.valueOf(cbxTank.getSelectedItem()));
+            clause.add("nameTank =");
+            stockTank.setTank(tank);
+        }
+        if (cbxProduct.getSelectedIndex() > 0) {
+            Product product = new Product();
+            product.setNameProduct(String.valueOf(cbxProduct.getSelectedItem()));
+            clause.add("nameProduct =");
+            stockTank.setProduct(product);
+        }
+        if (dtcAte.getDate() != null && dtcDe.getDate() != null) {
+            clause.add("dtStkTq between");
+            stockTank.setDtStkTq(dtcDe.getDate());
+            clause.add("");
+            stockTank.setDateBetween(dtcAte.getDate());
+
+        } else {
+            if (dtcDe.getDate() != null) {
+                clause.add("dtStkTq =");
+                stockTank.setDtStkTq(dtcDe.getDate());
+            }
+            if (dtcAte.getDate() != null) {
+                clause.add("dtStkTq =");
+                stockTank.setDtStkTq(dtcAte.getDate());
+            }
+        }
+        if (!new RequestStockTank().select(clause, stockTank).isEmpty()) {
+            FrmStkTank.queryFilter(clause, stockTank);
+            model = (DefaultTableModel) tbl.getModel();
+            model.setNumRows(0);
+            selectQuery(clause, stockTank).forEach(this::table);
+        } else {
+            PopUp.isEmpty("Estoque");
+        }
+    }
+
+    public List<StockTank> selectQuery(List<String> clause, StockTank stockTank) {
+        return new RequestStockTank().select(clause, stockTank);
+    }
 
 }

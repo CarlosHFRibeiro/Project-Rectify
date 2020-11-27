@@ -15,6 +15,7 @@ import java.util.List;
 public class RequestTank extends Request<Tank> {
 
     private List<Tank> tanks;
+    private final String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_tank";
 
     @Override
     public void insert(Tank tank) {
@@ -34,8 +35,7 @@ public class RequestTank extends Request<Tank> {
 
     @Override
     public List<Tank> select() {
-        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_tank;";
-        selectAll(SELECT_QUERY);
+        selectAll(SELECT_QUERY, null);
         return tanks;
     }
 
@@ -44,18 +44,27 @@ public class RequestTank extends Request<Tank> {
         return null;
     }
 
+    public Tank selectName(Tank tank) {
+        String clause = SELECT_QUERY + " WHERE UPPER(nameTank) = UPPER(?);";
+        selectAll(clause, tank);
+        return tanks.get(0);
+    }
+
     @Override
     public List<Tank> select(List<String> clause, Tank tank) {
         return null;
     }
 
-    private void selectAll(String select) {
+    private void selectAll(String select, Tank parameter) {
         connection();
         if (tanks == null) {
             tanks = new ArrayList<>();
         }
         try {
             prepareStatement(select);
+            if (parameter != null) {
+                stmt.setString(1, parameter.getNameTank());
+            }
             resultSet();
             while (rs.next()) {
                 Tank tank = new Tank();
@@ -70,4 +79,6 @@ public class RequestTank extends Request<Tank> {
             closeConnectionRs();
         }
     }
+
+
 }

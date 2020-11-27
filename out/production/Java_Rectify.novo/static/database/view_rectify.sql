@@ -15,9 +15,29 @@ FROM db_retifica.tbl_seal
 ORDER BY idSeal DESC;
 
 CREATE OR REPLACE VIEW view_sale AS
-    SELECT saleSeal FROM tbl_seal;
+SELECT saleSeal FROM tbl_seal;
 
+CREATE OR REPLACE VIEW view_stocktank AS
+SELECT dtStkTq,
+       nameTank,
+       nameProduct,
+       literStkTq
+FROM tbl_stocktank
+         JOIN
+     tbl_tank ON fkTankStkTq = idTank
+         JOIN
+     tbl_product ON fkProductStkTq = idProduct;
 
+CREATE OR REPLACE VIEW view_stkProduct AS
+    SELECT
+        nameProduct,
+        literStkPd,
+        percentStkPd,
+        dtStkPd
+    FROM
+        tbl_stockproduct
+            JOIN
+        tbl_product ON fkProductStkPd = idProduct;
 
 # CREATE OR REPLACE VIEW view_maketrans AS
 # SELECT mt.idTrans,tr.dtRctTrans,mt.reactTrans,tt.nameTank,mt.producedTrans,mt.trashTrans FROM tbl_maketrans mt
@@ -109,33 +129,11 @@ CREATE OR REPLACE VIEW view_sale AS
 
 #
 #
-#
-# CREATE OR REPLACE VIEW view_stkfull AS
-#     SELECT
-#         nameProduct,
-#         literStkPd,
-#         percentStkPd,
-#         dtStkPd
-#     FROM
-#         tbl_stockproduct
-#             JOIN
-#         tbl_product ON fkProductStkPd = idProduct;
+
 #
 #
 #
-# CREATE OR REPLACE VIEW view_stktq AS
-#     SELECT
-#         dtStkTq,
-#         nameTank,
-#         nameProduct,
-#         literStkTq,
-#         fkProductStkTq
-#     FROM
-#         tbl_stocktank
-#             JOIN
-#         tbl_tank ON fkTankStkTq = idTank
-#             JOIN
-#         tbl_product ON fkProductStkTq = idProduct;
+#
 #
 #
 

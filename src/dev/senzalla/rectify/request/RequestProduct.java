@@ -15,7 +15,7 @@ import java.util.List;
 public class RequestProduct extends Request<Product> {
 
     private List<Product> products;
-    private final String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_product;";
+    private final String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_product";
 
     @Override
     public void insert(Product product) {
@@ -35,7 +35,7 @@ public class RequestProduct extends Request<Product> {
 
     @Override
     public List<Product> select() {
-        selectAll(SELECT_QUERY);
+        selectAll(SELECT_QUERY, null);
         return products;
     }
 
@@ -44,18 +44,26 @@ public class RequestProduct extends Request<Product> {
         return null;
     }
 
+
+    public Product selectName(Product product) {
+        String clause = SELECT_QUERY + " WHERE UPPER(nameProduct) = UPPER(?);";
+        selectAll(clause, product);
+        return products.get(0);
+    }
+
     @Override
     public List<Product> select(List<String> clause, Product product) {
         return null;
     }
 
-    private void selectAll(String select) {
+    private void selectAll(String select, Product parameter) {
         connection();
-        if (products == null) {
-            products = new ArrayList<>();
-        }
+        products = new ArrayList<>();
         try {
             prepareStatement(select);
+            if (parameter != null) {
+                stmt.setString(1, parameter.getNameProduct());
+            }
             resultSet();
             while (rs.next()) {
                 Product product = new Product();

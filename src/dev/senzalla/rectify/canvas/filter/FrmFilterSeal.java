@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.canvas.filter;
 
-import dev.senzalla.rectify.treatments.TreatmentSeal;
 import dev.senzalla.rectify.treatments.TreatementProvider;
+import dev.senzalla.rectify.treatments.TreatmentSeal;
 
 import javax.swing.*;
 
@@ -34,6 +34,8 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         dtcAte.setVisible(true);
     }
 
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,11 +52,11 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         lblProvider = new javax.swing.JLabel();
         cbxProvider = new javax.swing.JComboBox<>();
         lblDt = new javax.swing.JLabel();
-        btnFilterSealSave = new javax.swing.JButton();
-        btnFilterSealCancel = new javax.swing.JButton();
         dtcDe = new com.toedter.calendar.JDateChooser();
-        dtcAte = new com.toedter.calendar.JDateChooser();
         lblDtAte = new javax.swing.JLabel();
+        dtcAte = new com.toedter.calendar.JDateChooser();
+        btnSearch = new javax.swing.JButton();
+        btnClean = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("FrmFilterSeal"); // NOI18N
@@ -80,32 +82,32 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         lblDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblDt.setText("De");
 
-        btnFilterSealSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnFilterSealSave.setText("Buscar");
-        btnFilterSealSave.setPreferredSize(new java.awt.Dimension(97, 35));
-        btnFilterSealSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFilterSealSaveActionPerformed(evt);
-            }
-        });
-
-        btnFilterSealCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnFilterSealCancel.setText("Limpar");
-        btnFilterSealCancel.setPreferredSize(new java.awt.Dimension(97, 35));
-        btnFilterSealCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFilterSealCancelActionPerformed(evt);
-            }
-        });
-
         dtcDe.setDateFormatString("dd/MM/yyyy");
         dtcDe.setMaxSelectableDate(new java.util.Date(253370782899000L));
+
+        lblDtAte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtAte.setText("Ate");
 
         dtcAte.setDateFormatString("dd/MM/yyyy");
         dtcAte.setMaxSelectableDate(new java.util.Date(253370782899000L));
 
-        lblDtAte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDtAte.setText("Ate");
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSearch.setText("Buscar");
+        btnSearch.setPreferredSize(new java.awt.Dimension(97, 35));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnClean.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClean.setText("Limpar");
+        btnClean.setPreferredSize(new java.awt.Dimension(97, 35));
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSealLayout = new javax.swing.GroupLayout(pnlSeal);
         pnlSeal.setLayout(pnlSealLayout);
@@ -135,9 +137,9 @@ public class FrmFilterSeal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(dtcAte, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlSealLayout.createSequentialGroup()
-                                .addComponent(btnFilterSealSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnFilterSealCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20))
         );
         pnlSealLayout.setVerticalGroup(
@@ -163,8 +165,8 @@ public class FrmFilterSeal extends javax.swing.JFrame {
                     .addComponent(dtcAte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFilterSealSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFilterSealCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -183,15 +185,15 @@ public class FrmFilterSeal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFilterSealSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterSealSaveActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         new TreatmentSeal().showTable(tbl, cbxSale, cbxProvider, dtcDe, dtcAte);
         this.dispose();
-    }//GEN-LAST:event_btnFilterSealSaveActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnFilterSealCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterSealCancelActionPerformed
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
         new TreatmentSeal().showTable(tbl);
         this.dispose();
-    }//GEN-LAST:event_btnFilterSealCancelActionPerformed
+    }//GEN-LAST:event_btnCleanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,8 +232,8 @@ public class FrmFilterSeal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFilterSealCancel;
-    private javax.swing.JButton btnFilterSealSave;
+    private javax.swing.JButton btnClean;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<Object> cbxProvider;
     private javax.swing.JComboBox<Object> cbxSale;
     private com.toedter.calendar.JDateChooser dtcAte;

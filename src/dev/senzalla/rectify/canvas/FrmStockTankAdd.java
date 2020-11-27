@@ -1,7 +1,5 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.treatments.TreatmentCbx;
 import dev.senzalla.rectify.treatments.TreatmentProduct;
 import dev.senzalla.rectify.treatments.TreatmentStockTank;
 
@@ -18,7 +16,7 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
     public FrmStockTankAdd() {
         initComponents();
         new TreatmentProduct().addComboBox(cbxProduct);
-        new TreatmentStockTank().showTable(tbl);
+        new TreatmentStockTank().tableTank(tbl);
     }
 
     /**
@@ -60,20 +58,24 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setColumnSelectionAllowed(true);
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
         roll.setViewportView(tbl);
+        tbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(250);
             tbl.getColumnModel().getColumn(1).setPreferredWidth(250);
+            tbl.getColumnModel().getColumn(1).setCellEditor(new javax.swing.DefaultCellEditor(cbxProduct)
+            );
         }
 
         javax.swing.GroupLayout pnlStkLayout = new javax.swing.GroupLayout(pnlStk);
@@ -129,7 +131,7 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(42, 42, 42)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -138,24 +140,26 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(pnlStk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new TreatmentStockTank().saveStockTank(pnlStk, tbl);
+        tbl.editCellAt(0, 0);
+        new TreatmentStockTank().saveStockTank(tbl);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        new TreatmentCbx().cleanCbx(pnlStk);
-        
+        tbl.editCellAt(0, 0);
+        new TreatmentStockTank().tableTank(tbl);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

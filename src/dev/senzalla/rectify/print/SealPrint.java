@@ -1,34 +1,35 @@
 package dev.senzalla.rectify.print;
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import dev.senzalla.rectify.entitys.Seal;
 import dev.senzalla.rectify.enuns.FontEnum;
 import dev.senzalla.rectify.request.RequestSeal;
+import dev.senzalla.rectify.treatments.TreatmentSeal;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
 import static dev.senzalla.rectify.treatments.TreatmentDate.newDate;
-import static dev.senzalla.rectify.treatments.TreatmentFont.getFonts;
 
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class SealPrint {
-    private PdfPTable pdfPTable;
+public class SealPrint extends ModelPrint {
 
-    public void print(List<Integer> list) {
+    public void print(List<String> clause, Seal sealSale) {
         try {
-
+            List<Seal> seals;
+            if (sealSale != null) {
+                seals = new TreatmentSeal().selectQuery(clause, sealSale);
+            } else {
+                seals = new RequestSeal().select();
+            }
             final File DIR = new File(System.getProperty("user.home") + "/Relatorio Bio Refitica");
             DIR.mkdir();
             Document document = new Document();
@@ -37,54 +38,33 @@ public class SealPrint {
             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(String.format("%s\\Amostra_%s.pdf", DIR, newDate())));
             document.open();
 
-            pdfPTable = new PdfPTable(1);
-            setTable("Coletas de Biodiesel", FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
+            configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
+            setTable("Coletas de Biodiesel");
             document.add(pdfPTable);
 
-            pdfPTable = new PdfPTable(6);
+            configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
             List<String> header = Arrays.asList("Leilão", "Empresa", "Fabrica", "Petrobras", "Cliente", "Data");
-            header.forEach(s -> setTable(s, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER));
+            header.forEach(this::setTable);
             document.add(pdfPTable);
 
-            pdfPTable = new PdfPTable(6);
-            List<Seal> select = new RequestSeal().select(list);
-            for (int j = 0, selectSize = select.size(); j < selectSize; j++) {
-                Seal seal = select.get(j);
-                if (j % 2 == 0) {
-                    setTable(String.valueOf(seal.getSaleSeal()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getClientSeal()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getFactorySeal()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getBrSeal()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getProvider()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getDtSeal()), FontEnum.FIELD, BaseColor.GRAY, Element.ALIGN_RIGHT);
-                } else {
-                    setTable(String.valueOf(seal.getSaleSeal()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getClientSeal()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getFactorySeal()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getBrSeal()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getProvider()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                    setTable(String.valueOf(seal.getDtSeal()), FontEnum.FIELD, BaseColor.LIGHT_GRAY, Element.ALIGN_RIGHT);
-                }
+            configuration(6, FontEnum.FIELD, Element.ALIGN_RIGHT);
+
+            for (int j = 0; j < seals.size(); j++) {
+                Seal seal = seals.get(j);
+                configuration(j % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
+                setTable(String.valueOf(seal.getSaleSeal()));
+                setTable(String.valueOf(seal.getClientSeal()));
+                setTable(String.valueOf(seal.getFactorySeal()));
+                setTable(String.valueOf(seal.getBrSeal()));
+                setTable(String.valueOf(seal.getProvider()));
+                setTable(String.valueOf(seal.getDtSeal()));
             }
             document.add(pdfPTable);
 
-            String MODELO_CERTIFICADO = "/static/img/baseline_eco_black_24x.png";
-            URL certificado = getClass().getResource(MODELO_CERTIFICADO);
-            Image image = Image.getInstance(certificado);
-            image.setAbsolutePosition(90, 767);
-            pdfWriter.getDirectContent().addImage(image, false);
+            setLogo(pdfWriter);
             document.close();
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void setTable(String text, FontEnum fontEnum, BaseColor color, int align) {
-        Chunk chunk = new Chunk(text, getFonts(fontEnum));
-        Paragraph preface = new Paragraph(chunk);
-        PdfPCell cell = new PdfPCell(preface);
-        cell.setBackgroundColor(color);
-        cell.setHorizontalAlignment(align);
-        pdfPTable.addCell(cell);
     }
 }

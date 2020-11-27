@@ -112,4 +112,10 @@ public class TreatmentLabCar {
                 labCar.getHrCar()
         });
     }
+
+    public  LabCar labCar(JComboBox<Object> cbxLabCar) {
+        LabCar labCar=new LabCar();
+        labCar.setIdCar(Long.valueOf(cbxLabCar.getSelectedItem().toString()));
+        return labCar;
+    }
 }

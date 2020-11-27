@@ -277,7 +277,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Provider&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDchargeDtEntry">
@@ -448,7 +448,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Product&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblChargeAnalyse">
@@ -469,7 +469,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;LabCar&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDchargeBurden">
@@ -526,7 +526,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Tank&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDchargeObs">

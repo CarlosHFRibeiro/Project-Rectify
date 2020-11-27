@@ -1,14 +1,16 @@
 package dev.senzalla.rectify.entitys;
 
+import dev.senzalla.rectify.treatments.TreatmentDate;
+
+import java.sql.Date;
 import java.sql.Time;
-import java.util.Date;
 
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class Charge {
+public class Charge extends TreatmentDate {
     private Long idCharge;
     private int noteCharge;
     private int ticketCharge;
@@ -77,16 +79,16 @@ public class Charge {
         return dtOfCharge;
     }
 
-    public void setDtOfCharge(Date dtOfCharge) {
-        this.dtOfCharge = dtOfCharge;
+    public void setDtOfCharge(java.util.Date dtOfCharge) {
+        this.dtOfCharge = convertDateSql(dtOfCharge);
     }
 
     public Date getDtUpCharge() {
         return dtUpCharge;
     }
 
-    public void setDtUpCharge(Date dtUpCharge) {
-        this.dtUpCharge = dtUpCharge;
+    public void setDtUpCharge(java.util.Date dtUpCharge) {
+        this.dtUpCharge = convertDateSql(dtUpCharge);
     }
 
     public Time getHrOfCharge() {

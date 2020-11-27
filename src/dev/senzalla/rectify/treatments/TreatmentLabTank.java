@@ -2,7 +2,6 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.entitys.LabTank;
-import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestLabTank;
 
@@ -28,12 +27,9 @@ public class TreatmentLabTank {
     }
 
     public void saveLabTank(JPanel pnlLabTk, JComboBox<Object> cbxTank, JTextField txtAcid, JTextField txtSoap, JFormattedTextField txtTrash) {
-        if (new TreatmentTxt().isTxtVoid(pnlLabTk) && new TreatmentCbx().isTxtVoid(pnlLabTk)) {
-            Tank tank = new Tank();
-            tank.setIdTank((long) cbxTank.getSelectedIndex());
-
+        if (new TreatmentTxt().isTxtVoid(pnlLabTk) && new TreatmentCbx().isCbxVoid(pnlLabTk)) {
             LabTank labTank = new LabTank();
-            labTank.setTank(tank);
+            labTank.setTank(new TreatmentTank().getTank(cbxTank.getSelectedItem()));
             labTank.setAcidTq(Double.parseDouble(txtAcid.getText()));
             labTank.setSoapTq(Double.parseDouble(txtSoap.getText()));
             labTank.setTrashTq(Integer.parseInt(txtTrash.getText()));
@@ -89,5 +85,11 @@ public class TreatmentLabTank {
                 convertDateUtil(lab.getDtTq()),
                 lab.getHrTq()
         });
+    }
+
+    public void showComboBox(JComboBox<Object> cbx) {
+        cbx.removeAllItems();
+        cbx.addItem("Cod Analise");
+        new RequestLabTank().select().forEach(cbx::addItem);
     }
 }

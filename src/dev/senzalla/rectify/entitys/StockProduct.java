@@ -1,6 +1,8 @@
 package dev.senzalla.rectify.entitys;
 
-import java.util.Date;
+import dev.senzalla.rectify.treatments.TreatmentDate;
+
+import java.sql.Date;
 
 
 /**
@@ -8,7 +10,7 @@ import java.util.Date;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class StockProduct {
+public class StockProduct extends TreatmentDate {
     private Long idStkPd;
     private int literStkPd;
     private int percentStkPd;
@@ -43,8 +45,8 @@ public class StockProduct {
         return dtStkPd;
     }
 
-    public void setDtStkPd(Date dtStkPd) {
-        this.dtStkPd = dtStkPd;
+    public void setDtStkPd(java.util.Date dtStkPd) {
+        this.dtStkPd = convertDateSql(dtStkPd);
     }
 
     public Product getProduct() {

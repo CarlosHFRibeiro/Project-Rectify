@@ -42,4 +42,8 @@ public class TreatmentProduct {
         cbx.addItem("Produto");
         new RequestProduct().select().forEach(cbx::addItem);
     }
+
+    public Product getProduct(Object product) {
+        return new RequestProduct().selectName((Product) product);
+    }
 }

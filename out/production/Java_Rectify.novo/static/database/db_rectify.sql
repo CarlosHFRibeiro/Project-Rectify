@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tank`
     capacityTank INT         NOT NULL,
     nameTank     VARCHAR(35) NOT NULL,
     PRIMARY KEY (idTank),
-    CONSTRAINT `Nome Tanque` UNIQUE (nameTank)
+    CONSTRAINT `Nome_Tanque` UNIQUE (nameTank)
 );
 
 DROP TABLE IF EXISTS `tbl_provider`;
@@ -142,17 +142,6 @@ CREATE TABLE IF NOT EXISTS `tbl_charge`
         REFERENCES tbl_labCar (idCar)
 );
 
-DROP TABLE IF EXISTS `tbl_obsCharge`;
-CREATE TABLE IF NOT EXISTS `tbl_obsCharge`
-(
-    idObsCharge INT          NOT NULL AUTO_INCREMENT,
-    fkObsCharge INT          NOT NULL,
-    obsCharge   VARCHAR(255) NOT NULL,
-    PRIMARY KEY (idObsCharge),
-    CONSTRAINT FK_Carregamento_Observacao FOREIGN KEY (fkObsCharge)
-        REFERENCES tbl_charge (idCharge)
-);
-
 DROP TABLE IF EXISTS `tbl_discharge`;
 CREATE TABLE IF NOT EXISTS `tbl_discharge`
 (
@@ -182,17 +171,6 @@ CREATE TABLE IF NOT EXISTS `tbl_discharge`
         REFERENCES tbl_driver (idDriver),
     CONSTRAINT `FK_Analise_Descarregamento` FOREIGN KEY (fkLabDcharge)
         REFERENCES tbl_labCar (idCar)
-);
-
-DROP TABLE IF EXISTS `tbl_obsDcharge`;
-CREATE TABLE IF NOT EXISTS `tbl_obsDcharge`
-(
-    idObsDcharge INT          NOT NULL AUTO_INCREMENT,
-    fkObsDcharge INT          NOT NULL,
-    obsDcharge   VARCHAR(255) NOT NULL,
-    PRIMARY KEY (idObsDcharge),
-    CONSTRAINT FK_Descarregamento_Observacao FOREIGN KEY (fkObsDcharge)
-        REFERENCES tbl_discharge (idDcharge)
 );
 
 DROP TABLE IF EXISTS `tbl_stocktank`;

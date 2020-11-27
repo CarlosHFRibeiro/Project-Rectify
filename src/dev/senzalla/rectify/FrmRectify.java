@@ -26,6 +26,7 @@ public class FrmRectify extends JFrame {
         initComponents();
         Access.setDktMain(dktMain);
         TreatmentsItem.visiblePanel(pnlMenu);
+         this.goToCanvas(new FrmStkTk());
     }
 
     /**
@@ -549,7 +550,7 @@ public class FrmRectify extends JFrame {
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         retractPanel();
-//        this.goToCanvas(new FrmStkTk());
+        this.goToCanvas(new FrmStkTk());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLabActionPerformed
@@ -594,11 +595,11 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnStkActionPerformed
 
     private void btnStkPrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStkPrActionPerformed
-//        goToCanvas(new );
+        this.goToCanvas(new FrmStkProduct());
     }//GEN-LAST:event_btnStkPrActionPerformed
 
     private void btnStkTkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStkTkActionPerformed
-       this.goToCanvas(new FrmStkTank());
+        this.goToCanvas(new FrmStkTank());
     }//GEN-LAST:event_btnStkTkActionPerformed
 
     private void btnMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeActionPerformed

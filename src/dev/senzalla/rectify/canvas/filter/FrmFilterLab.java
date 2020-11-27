@@ -163,28 +163,28 @@ public class FrmFilterLab extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         switch (lab) {
             case LABCAR:
-                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                if (new TreatmentDtc().isDtcVoid(pnlLab) && spnCod.getValue().equals(0)) {
                     new TreatmentLabCar().showTable(tbl);
                 } else {
                     new TreatmentLabCar().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABTANK:
-                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                if (new TreatmentDtc().isDtcVoid(pnlLab) && spnCod.getValue().equals(0)) {
                     new TreatmentLabTank().showTable(tbl);
                 } else {
                     new TreatmentLabTank().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABBIO:
-                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                if (new TreatmentDtc().isDtcVoid(pnlLab) && spnCod.getValue().equals(0)) {
                     new TreatmentLabBio().showTable(tbl);
                 } else {
                     new TreatmentLabBio().showTable(tbl, spnCod, dtcDt, dtcDtAte);
                 }
                 break;
             case LABSPLIT:
-                if (new TreatmentDtc().isTxtVoid(pnlLab) && spnCod.getValue().equals(0)) {
+                if (new TreatmentDtc().isDtcVoid(pnlLab) && spnCod.getValue().equals(0)) {
                     new TreatmentLabSplit().showTable(tbl);
                 } else {
                     new TreatmentLabSplit().showTable(tbl, spnCod, dtcDt, dtcDtAte);

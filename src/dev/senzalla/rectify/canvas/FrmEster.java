@@ -406,7 +406,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnMatterEsterRmv;
     private javax.swing.JButton btnReactEsterAdd;
     private javax.swing.JButton btnReactEsterRmv;
-    private javax.swing.JComboBox<String> cbxEsterTank;
+    private javax.swing.JComboBox<Object> cbxEsterTank;
     private javax.swing.JLabel lblEsterAmount;
     private javax.swing.JLabel lblEsterObs;
     private javax.swing.JLabel lblEsterProduced;
