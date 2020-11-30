@@ -76,13 +76,26 @@ public class RequestCharge extends Request<Charge> {
                     stmt.setLong(i, parameter.getIdCharge());
                 }
 
+                if (parameter.getDtOfCharge() != null) {
+                    stmt.setDate(i++, parameter.getDtOfCharge());
+                }
+                if (parameter.getDateBetween() != null) {
+                    stmt.setDate(i++, parameter.getDateBetween());
+                }
+                if (parameter.getTicketCharge() > 0) {
+                    stmt.setInt(i++, parameter.getTicketCharge());
+                }
+                if (parameter.getNoteCharge() > 0) {
+                    stmt.setInt(i++, parameter.getNoteCharge());
+                }
+                if (parameter.getProvider() != null) {
+                    stmt.setString(i++, parameter.getProvider().getNameProvider());
+                }
+                if (parameter.getProduct() != null) {
+                    stmt.setString(i, parameter.getProduct().getNameProduct());
+                }
             }
-//                if (parameter.getDtStkPd() != null) {
-//                    stmt.setDate(i++, parameter.getDtStkPd());
-//                }
-//                if (parameter.getDateBetween() != null) {
-//                    stmt.setDate(i, parameter.getDateBetween());
-//                }
+            System.out.println(stmt);
             resultSet();
             while (rs.next()) {
                 Charge charge = new Charge();
@@ -100,11 +113,14 @@ public class RequestCharge extends Request<Charge> {
 
                 charge.setProvider(new Provider(rs.getString("nameProvider")));
                 charge.setProduct(new Product(rs.getString("nameProduct")));
-                charge.setDriver(new Driver(rs.getString("nameDriver")));
                 charge.setTank(new Tank(rs.getString("nameTank")));
 
-                LabCar labCar = new LabCar();
+                Driver driver = new Driver();
+                driver.setNameDriver(rs.getString("nameDriver"));
+                driver.setCnhDriver(rs.getString("cnhDriver"));
+                charge.setDriver(driver);
 
+                LabCar labCar = new LabCar();
                 labCar.setAcidCar(rs.getDouble("acidCar"));
                 labCar.setDensityCar(rs.getDouble("densityCar"));
                 labCar.setSoapCar(rs.getDouble("soapCar"));

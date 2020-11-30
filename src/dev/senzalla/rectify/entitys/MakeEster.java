@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.entitys;
 
+import java.util.Set;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -13,8 +15,8 @@ public class MakeEster {
     private int trashEster;
     private int producedEster;
     private Tank tank;
-    private MatterEster matterEster;
-    private ReactEster reactEsters;
+    private Set<MatterEster> matterEster;
+    private Set<ReactEster> reactEsters;
 
     public Long getIdEster() {
         return idEster;
@@ -72,20 +74,19 @@ public class MakeEster {
         this.tank = tank;
     }
 
-    public MatterEster getMatterEster() {
+    public Set<MatterEster> getMatterEster() {
         return matterEster;
     }
 
-    public void setMatterEster(MatterEster matterEster) {
+    public void setMatterEster(Set<MatterEster> matterEster) {
         this.matterEster = matterEster;
     }
 
-    public ReactEster getReactEsters() {
+    public Set<ReactEster> getReactEsters() {
         return reactEsters;
     }
 
-    public void setReactEsters(ReactEster reactEsters) {
+    public void setReactEsters(Set<ReactEster> reactEsters) {
         this.reactEsters = reactEsters;
     }
-    
 }

@@ -13,10 +13,6 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String nameDriver) {
-        this.nameDriver = nameDriver;
-    }
-
     public Long getIdDriver() {
         return idDriver;
     }

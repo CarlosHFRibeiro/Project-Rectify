@@ -47,7 +47,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblEsterReactLabFinal" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lblEsterReactHrStart" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jDateChooser1" min="-2" pref="145" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblEsterReactHrStart" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="cbxEsterReactLabStart" alignment="1" max="32767" attributes="0"/>
@@ -79,6 +83,7 @@
                   <Component id="txtEsterReactHrStart" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblEsterReactHrStart" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="lblEsterReactDt" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -181,6 +186,9 @@
           <Dimension value="[120, 27]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEsterReactSulfuricKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEsterReactPure">
       <Properties>
@@ -202,6 +210,9 @@
           <Dimension value="[120, 27]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEsterReactPureKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEsterReactRecover">
       <Properties>
@@ -223,6 +234,9 @@
           <Dimension value="[120, 27]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEsterReactRecoverKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEsterReactHrFinal">
       <Properties>
@@ -269,6 +283,11 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

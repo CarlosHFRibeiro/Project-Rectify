@@ -69,9 +69,6 @@ public class RequestMakeEster extends Request<MakeEster> {
             prepareStatement(select);
             if (clause != null) {
                 stmt.setLong(1, clause.getIdEster());
-                stmt.setDate(2, clause.getReactEsters().getDtRctEster());
-                stmt.setDate(3, clause.getReactEsters().getDateBetween());
-                stmt.setString(4,clause.getMatterEster().getProduct().getNameProduct());
             }
             resultSet();
             while (rs.next()) {

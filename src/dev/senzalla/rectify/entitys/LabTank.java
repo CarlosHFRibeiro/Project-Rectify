@@ -75,4 +75,9 @@ public class LabTank extends TreatmentDate {
     public void setTank(Tank tank) {
         this.tank = tank;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getIdTq());
+    }
 }

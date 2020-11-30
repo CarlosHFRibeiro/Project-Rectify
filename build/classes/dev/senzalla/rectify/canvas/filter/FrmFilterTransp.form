@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="name" type="java.lang.String" value="FrmFilterCharging" noResource="true"/>
-    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -26,17 +25,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlFilterCharging" min="-2" max="-2" attributes="0"/>
+          <Component id="pnlTransp" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlFilterCharging" alignment="1" max="32767" attributes="0"/>
+          <Component id="pnlTransp" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="pnlFilterCharging">
+    <Container class="javax.swing.JPanel" name="pnlTransp">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -53,31 +52,32 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="btnFilterChargingSearch" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="btnFilterChargingClear" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnClear" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblFilterChargingCod" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingDt" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingDtOf" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingDtUntil" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingTicket" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingNote" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingProvider" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFilterChargingProduct" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCod" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDtOf" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDtUp" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTicket" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNote" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProvider" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProduct" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblFilterChargingTitle" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="spnFilterChargingCod" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="spnFilterChargingTicket" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="spnFilterChargingNote" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbxFilterChargingProvider" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbxFilterChargingProduct" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="spnCod" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnTicket" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spnNote" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxProvider" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbxProduct" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="dtcDtOf" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="dtcDtUp" min="-2" pref="142" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -89,42 +89,48 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="lblFilterChargingTitle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFilterChargingCod" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spnFilterChargingCod" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCod" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spnCod" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="lblDtOf" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="dtcDtOf" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="lblFilterChargingDt" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblFilterChargingDtOf" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="lblFilterChargingDtUntil" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFilterChargingTicket" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spnFilterChargingTicket" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFilterChargingNote" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spnFilterChargingNote" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblDtUp" min="-2" max="-2" attributes="0"/>
+                      <Component id="dtcDtUp" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFilterChargingProvider" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbxFilterChargingProvider" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTicket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spnTicket" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFilterChargingProduct" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbxFilterChargingProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNote" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spnNote" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnFilterChargingSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnFilterChargingClear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblProvider" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxProvider" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
@@ -132,7 +138,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingTitle">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -140,7 +146,7 @@
             <Property name="text" type="java.lang.String" value="Filtro Carregamento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingCod">
+        <Component class="javax.swing.JLabel" name="lblCod">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -148,10 +154,13 @@
             <Property name="text" type="java.lang.String" value="Cod"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spnFilterChargingCod">
+        <Component class="javax.swing.JSpinner" name="spnCod">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[70, 26]"/>
@@ -161,15 +170,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingDt">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Data"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingDtOf">
+        <Component class="javax.swing.JLabel" name="lblDtOf">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -177,7 +178,12 @@
             <Property name="text" type="java.lang.String" value="De"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingDtUntil">
+        <Component class="com.toedter.calendar.JDateChooser" name="dtcDtOf">
+          <Properties>
+            <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDtUp">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -185,7 +191,12 @@
             <Property name="text" type="java.lang.String" value="Ate"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingTicket">
+        <Component class="com.toedter.calendar.JDateChooser" name="dtcDtUp">
+          <Properties>
+            <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTicket">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -193,10 +204,13 @@
             <Property name="text" type="java.lang.String" value="Ticket"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spnFilterChargingTicket">
+        <Component class="javax.swing.JSpinner" name="spnTicket">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[70, 26]"/>
@@ -206,7 +220,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingNote">
+        <Component class="javax.swing.JLabel" name="lblNote">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -214,10 +228,13 @@
             <Property name="text" type="java.lang.String" value="Nota"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spnFilterChargingNote">
+        <Component class="javax.swing.JSpinner" name="spnNote">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[70, 26]"/>
@@ -227,7 +244,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingProvider">
+        <Component class="javax.swing.JLabel" name="lblProvider">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -235,23 +252,20 @@
             <Property name="text" type="java.lang.String" value="Fornecedor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxFilterChargingProvider">
+        <Component class="javax.swing.JComboBox" name="cbxProvider">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="teste"/>
-                <StringItem index="1" value="te"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblFilterChargingProduct">
+        <Component class="javax.swing.JLabel" name="lblProduct">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -259,23 +273,20 @@
             <Property name="text" type="java.lang.String" value="Produto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxFilterChargingProduct">
+        <Component class="javax.swing.JComboBox" name="cbxProduct">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="teste"/>
-                <StringItem index="1" value="te"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFilterChargingSearch">
+        <Component class="javax.swing.JButton" name="btnSearch">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -286,10 +297,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFilterChargingSearchActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnFilterChargingClear">
+        <Component class="javax.swing.JButton" name="btnClear">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="16" style="1"/>
@@ -300,7 +311,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFilterChargingClearActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

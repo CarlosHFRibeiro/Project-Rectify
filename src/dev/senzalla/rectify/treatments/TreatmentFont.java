@@ -20,6 +20,7 @@ public class TreatmentFont {
         fonts.add(new Font(Font.FontFamily.TIMES_ROMAN, 36, Font.NORMAL, BaseColor.BLACK));
         fonts.add(new Font(Font.FontFamily.HELVETICA, 16, Font.NORMAL, BaseColor.BLACK));
         fonts.add(new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.BLACK));
+        fonts.add(new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLACK));
     }
 
     public static Font getFonts(FontEnum font) {

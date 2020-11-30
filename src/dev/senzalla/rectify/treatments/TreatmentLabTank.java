@@ -2,6 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.entitys.LabTank;
+import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestLabTank;
 
@@ -91,5 +92,11 @@ public class TreatmentLabTank {
         cbx.removeAllItems();
         cbx.addItem("Cod Analise");
         new RequestLabTank().select().forEach(cbx::addItem);
+    }
+
+    public void showComboBox(JComboBox<Object> cbx, LabTank labTank) {
+        cbx.removeAllItems();
+        cbx.addItem("Cod Analise");
+        new RequestLabTank().select(labTank).forEach(cbx::addItem);
     }
 }

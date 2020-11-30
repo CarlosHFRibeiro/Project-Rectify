@@ -1,13 +1,14 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.canvas.FrmChargeTbl;
 import dev.senzalla.rectify.entitys.*;
 import dev.senzalla.rectify.request.RequestCharge;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.io.File;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,48 +21,61 @@ public class TreatmentCharge {
     private DefaultTableModel model;
 
     public void showTable(JTable tbl) {
+        List<Charge> charges = new RequestCharge().select();
+        FrmChargeTbl.query(charges);
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new RequestCharge().select().forEach(this::table);
+        charges.forEach(this::table);
     }
 
-//    public void showTable(JTable tbl, JComboBox<Object> cbxProduct, JDateChooser dtcDe, JDateChooser dtcAte) {
-//        List<String> clause = new ArrayList<>();
-//        Charge charge = new Charge();
-//        if (cbxProduct.getSelectedIndex() > 0) {
-//            Product product = new Product();
-//            product.setNameProduct(String.valueOf(cbxProduct.getSelectedItem()));
-//            clause.add("nameProduct =");
-//            stockProduct.setProduct(product);
-//        }
-//        if (dtcAte.getDate() != null && dtcDe.getDate() != null) {
-//            clause.add("dtStkPd between");
-//            stockProduct.setDtStkPd(dtcDe.getDate());
-//            clause.add("");
-//            stockProduct.setDateBetween(dtcAte.getDate());
-//
-//        } else {
-//            if (dtcDe.getDate() != null) {
-//                clause.add("dtStkPd =");
-//                stockProduct.setDtStkPd(dtcDe.getDate());
-//            }
-//            if (dtcAte.getDate() != null) {
-//                clause.add("dtStkPd =");
-//                stockProduct.setDtStkPd(dtcAte.getDate());
-//            }
-//        }
-//        if (!new RequestStockProduct().select(clause, charge).isEmpty()) {
-//            model = (DefaultTableModel) tbl.getModel();
-//            model.setNumRows(0);
-////            .query(clause, charge);
-//            selectQuery(clause, charge).forEach(this::table);
-//        } else {
-//            PopUp.isEmpty("Estoque");
-//        }
-//    }
+    public void showTable(JTable tbl, JSpinner spnCod, JDateChooser dtcDtOf, JDateChooser dtcDtUp, JSpinner spnTicket, JSpinner spnNote, JComboBox<Object> cbxProduct, JComboBox<Object> cbxProvider) {
+        List<String> clause = new ArrayList<>();
+        Charge charge = new Charge();
+        if (!spnCod.getValue().equals(0)) {
+            clause.add("idCharge =");
+            charge.setIdCharge(Long.valueOf(spnCod.getValue().toString()));
+        }
+        if (dtcDtOf.getDate() != null && dtcDtUp.getDate() != null) {
+            clause.add("dtOfCharge between");
+            charge.setDtOfCharge(dtcDtOf.getDate());
+            clause.add("");
+            charge.setDateBetween(dtcDtUp.getDate());
 
-    public List<Charge> selectQuery(List<String> clause, Charge charge) {
-        return new RequestCharge().select(clause, charge);
+        } else {
+            if (dtcDtOf.getDate() != null) {
+                clause.add("dtOfCharge =");
+                charge.setDtOfCharge(dtcDtOf.getDate());
+            }
+            if (dtcDtUp.getDate() != null) {
+                clause.add("dtOfCharge =");
+                charge.setDtOfCharge(dtcDtUp.getDate());
+            }
+        }
+        if (!spnTicket.getValue().equals(0)) {
+            clause.add("ticketCharge =");
+            charge.setTicketCharge(Integer.parseInt(spnTicket.getValue().toString()));
+        }
+        if (!spnNote.getValue().equals(0)) {
+            clause.add("noteCharge =");
+            charge.setNoteCharge(Integer.parseInt(spnNote.getValue().toString()));
+        }
+        if (cbxProvider.getSelectedIndex() > 0) {
+            clause.add("nameProvider =");
+            charge.setProvider((Provider) cbxProvider.getSelectedItem());
+        }
+        if (cbxProduct.getSelectedIndex() > 0) {
+            clause.add("nameProduct =");
+            charge.setProduct((Product) cbxProduct.getSelectedItem());
+        }
+        List<Charge> charges = new RequestCharge().select(clause, charge);
+        if (!charges.isEmpty()) {
+            FrmChargeTbl.query(charges);
+            model = (DefaultTableModel) tbl.getModel();
+            model.setNumRows(0);
+            charges.forEach(this::table);
+        } else {
+            PopUp.isEmpty("Carregamento");
+        }
     }
 
     private void table(Charge charge) {
@@ -107,4 +121,5 @@ public class TreatmentCharge {
         LabCar labCar = (LabCar) selectedItem;
         return (int) (keyChar / labCar.getDensityCar());
     }
+
 }

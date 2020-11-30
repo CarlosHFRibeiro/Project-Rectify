@@ -18,6 +18,7 @@ import static dev.senzalla.rectify.treatments.TreatmentFont.getFonts;
  */
 public class ModelPrint {
     protected PdfPTable pdfPTable;
+    protected Paragraph preface;
     private FontEnum fontEnum;
     private BaseColor color;
     private int align;
@@ -46,6 +47,18 @@ public class ModelPrint {
         cell.setBackgroundColor(color);
         cell.setHorizontalAlignment(align);
         pdfPTable.addCell(cell);
+    }
+
+    protected void setParagraph(String key, FontEnum fontKey) {
+        PdfPCell cell = new PdfPCell();
+        cell.addElement(new Phrase(key, getFonts(fontKey)));
+        cell.setBorder(Rectangle.NO_BORDER);
+        cell.setHorizontalAlignment(align);
+        pdfPTable.addCell(cell);
+    }
+
+    protected void setvacuo() {
+        preface.add("\n\n");
     }
 
     protected void setLogo(PdfWriter pdfWriter) {

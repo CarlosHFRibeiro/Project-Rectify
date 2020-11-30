@@ -1,6 +1,9 @@
 package dev.senzalla.rectify.canvas;
 
-import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.entitys.Driver;
+import dev.senzalla.rectify.exception.EmptyField;
+import dev.senzalla.rectify.request.RequestDriver;
+import dev.senzalla.rectify.treatments.*;
 
 /**
  * @author Bomsalvez Freitas
@@ -8,12 +11,18 @@ import dev.senzalla.rectify.treatments.Access;
  * @github github.com/Bomsalvez
  */
 public class FrmDcharge extends javax.swing.JInternalFrame {
+    private boolean driverEmpty = true;
+    private Driver driver;
 
     /**
      * Creates new form FrmLabTqTbl
      */
     public FrmDcharge() {
         initComponents();
+        new TreatmentProduct().addComboBox(cbxProduct);
+        new TreatementProvider().showComboBox(cbxProvider);
+        new TreatmentTank().showComboBox(cbxTank);
+        new TreatmentLabCar().showComboBox(cbxLabCar);
     }
 
     /**
@@ -25,416 +34,446 @@ public class FrmDcharge extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rollDcharge = new javax.swing.JScrollPane();
-        pnlDcharge = new javax.swing.JPanel();
-        btnDchargeMain = new javax.swing.JButton();
-        lblDchargeTitle = new javax.swing.JLabel();
-        lblDchargeProvider = new javax.swing.JLabel();
-        cbxDchargeProvider = new javax.swing.JComboBox<>();
-        lblDchargeDtEntry = new javax.swing.JLabel();
-        lblDchargeHrEntry = new javax.swing.JLabel();
-        txtDchargeHrEntry = new javax.swing.JFormattedTextField();
-        lblDchargeNote = new javax.swing.JLabel();
-        lblDchargeTicket = new javax.swing.JLabel();
-        spnDchargeNote = new javax.swing.JSpinner();
-        spnDchargeTicket = new javax.swing.JSpinner();
-        lblDchargeBoard = new javax.swing.JLabel();
-        txtDchargeBoard = new javax.swing.JTextField();
-        lblDchargeCnh = new javax.swing.JLabel();
-        txtDchargeCnh = new javax.swing.JFormattedTextField();
-        lblDchargeDriver = new javax.swing.JLabel();
-        txtDchargeDriver = new javax.swing.JTextField();
-        lblDchargeDtDeparture = new javax.swing.JLabel();
-        lblDchargeHrDeparture = new javax.swing.JLabel();
-        txtDchargeHrDeparture = new javax.swing.JFormattedTextField();
-        lblDchargeProduct = new javax.swing.JLabel();
-        cbxChargeProduct = new javax.swing.JComboBox<>();
-        lblChargeAnalyse = new javax.swing.JLabel();
-        cbxChargeAnalyze = new javax.swing.JComboBox<>();
-        lblDchargeBurden = new javax.swing.JLabel();
-        txtDchargeBurden = new javax.swing.JFormattedTextField();
-        lblDchargeLiters = new javax.swing.JLabel();
-        txtDchargeLiters = new javax.swing.JFormattedTextField();
-        lblDchargeTank = new javax.swing.JLabel();
-        cbxDchargeTank = new javax.swing.JComboBox<>();
-        lblDchargeObs = new javax.swing.JLabel();
-        rollDchargeObs = new javax.swing.JScrollPane();
-        txtDchargeObs = new javax.swing.JTextArea();
-        btnDchargeSave = new javax.swing.JButton();
-        btnDchargeClear = new javax.swing.JButton();
-        btnDchargeCancel = new javax.swing.JButton();
+        rollCharge = new javax.swing.JScrollPane();
+        pnlCharge = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblProvider = new javax.swing.JLabel();
+        cbxProvider = new javax.swing.JComboBox<>();
+        lblDtOf = new javax.swing.JLabel();
+        dtcDtOf = new com.toedter.calendar.JDateChooser();
+        lblHrOf = new javax.swing.JLabel();
+        txtHrOf = new javax.swing.JFormattedTextField();
+        lblNote = new javax.swing.JLabel();
+        spnNote = new javax.swing.JSpinner();
+        lblTicket = new javax.swing.JLabel();
+        spnTicket = new javax.swing.JSpinner();
+        lblBoard = new javax.swing.JLabel();
+        txtBoard = new javax.swing.JTextField();
+        lblCnh = new javax.swing.JLabel();
+        txtCnh = new javax.swing.JFormattedTextField();
+        lblDriver = new javax.swing.JLabel();
+        txtDriver = new javax.swing.JTextField();
+        lblDtUp = new javax.swing.JLabel();
+        dtcDtUp = new com.toedter.calendar.JDateChooser();
+        lblHrUp = new javax.swing.JLabel();
+        txtHrUp = new javax.swing.JFormattedTextField();
+        lblProduct = new javax.swing.JLabel();
+        cbxProduct = new javax.swing.JComboBox<>();
+        lblLabCar = new javax.swing.JLabel();
+        cbxLabCar = new javax.swing.JComboBox<>();
+        lblBurden = new javax.swing.JLabel();
+        txtBurden = new javax.swing.JFormattedTextField();
+        lblLitter = new javax.swing.JLabel();
+        txtLitter = new javax.swing.JTextField();
+        lblTank = new javax.swing.JLabel();
+        cbxTank = new javax.swing.JComboBox<>();
+        btnSave = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
         setMinimumSize(new java.awt.Dimension(598, 460));
         setPreferredSize(new java.awt.Dimension(598, 460));
 
-        rollDcharge.setBorder(null);
-        rollDcharge.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        rollDcharge.setMaximumSize(new java.awt.Dimension(596, 438));
-        rollDcharge.setMinimumSize(new java.awt.Dimension(596, 438));
-        rollDcharge.setPreferredSize(new java.awt.Dimension(596, 438));
+        rollCharge.setBorder(null);
+        rollCharge.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollCharge.setMaximumSize(new java.awt.Dimension(596, 438));
+        rollCharge.setMinimumSize(new java.awt.Dimension(596, 438));
+        rollCharge.setPreferredSize(new java.awt.Dimension(596, 438));
 
-        pnlDcharge.setMaximumSize(new java.awt.Dimension(750, 765));
-        pnlDcharge.setMinimumSize(new java.awt.Dimension(750, 765));
+        pnlCharge.setMaximumSize(new java.awt.Dimension(750, 765));
+        pnlCharge.setMinimumSize(new java.awt.Dimension(750, 765));
 
-        btnDchargeMain.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnDchargeMain.setText("<<");
-        btnDchargeMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDchargeMainActionPerformed(evt);
-            }
-        });
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setText("Descarregamento");
 
-        lblDchargeTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblDchargeTitle.setText("Carregamento");
+        lblProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblProvider.setText("Fornecedor");
 
-        lblDchargeProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeProvider.setText("Fornecedor");
+        cbxProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        cbxDchargeProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtOf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtOf.setText("Data Entrada");
 
-        lblDchargeDtEntry.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeDtEntry.setText("Data Entrada");
+        dtcDtOf.setDateFormatString("dd/MM/yyyy");
 
-        lblDchargeHrEntry.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeHrEntry.setText("Hora Entrada");
+        lblHrOf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblHrOf.setText("Hora Entrada");
 
         try {
-            txtDchargeHrEntry.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+            txtHrOf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDchargeHrEntry.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDchargeHrEntry.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtHrOf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtHrOf.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        lblDchargeNote.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeNote.setText("Nota N°");
+        lblNote.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNote.setText("Nota N°");
 
-        lblDchargeTicket.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeTicket.setText("Ticket");
+        spnNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        spnNote.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spnNote.setPreferredSize(new java.awt.Dimension(70, 27));
 
-        spnDchargeNote.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        spnDchargeNote.setPreferredSize(new java.awt.Dimension(70, 27));
+        lblTicket.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTicket.setText("Ticket");
 
-        spnDchargeTicket.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        spnDchargeTicket.setPreferredSize(new java.awt.Dimension(70, 27));
+        spnTicket.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        spnTicket.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spnTicket.setPreferredSize(new java.awt.Dimension(70, 27));
 
-        lblDchargeBoard.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeBoard.setText("Placa");
+        lblBoard.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblBoard.setText("Placa");
 
-        txtDchargeBoard.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtDchargeBoard.setPreferredSize(new java.awt.Dimension(120, 27));
-        txtDchargeBoard.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtBoard.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtBoard.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtBoard.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDchargeBoardFocusLost(evt);
+                txtBoardFocusLost(evt);
             }
         });
 
-        lblDchargeCnh.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeCnh.setText("CNH");
+        lblCnh.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCnh.setText("CNH");
 
-        txtDchargeCnh.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtDchargeCnh.setPreferredSize(new java.awt.Dimension(120, 27));
-        txtDchargeCnh.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtCnh.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCnh.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtCnh.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDchargeCnhFocusLost(evt);
+                txtCnhFocusLost(evt);
+            }
+        });
+        txtCnh.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCnhKeyTyped(evt);
             }
         });
 
-        lblDchargeDriver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeDriver.setText("Motorista");
+        lblDriver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDriver.setText("Motorista");
 
-        txtDchargeDriver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtDchargeDriver.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtDriver.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtDriver.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        lblDchargeDtDeparture.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeDtDeparture.setText("Data Saida");
+        lblDtUp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtUp.setText("Data Saida");
 
-        lblDchargeHrDeparture.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeHrDeparture.setText("Hora Saida");
+        dtcDtUp.setDateFormatString("dd/MM/yyyy");
+
+        lblHrUp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblHrUp.setText("Hora Saida");
 
         try {
-            txtDchargeHrDeparture.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
+            txtHrUp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDchargeHrDeparture.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDchargeHrDeparture.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtHrUp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtHrUp.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        lblDchargeProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeProduct.setText("Produto");
+        lblProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblProduct.setText("Produto");
 
-        cbxChargeProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        lblChargeAnalyse.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblChargeAnalyse.setText("Analise");
+        lblLabCar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblLabCar.setText("Analise");
 
-        cbxChargeAnalyze.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxLabCar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        lblDchargeBurden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeBurden.setText("Peso");
+        lblBurden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblBurden.setText("Peso");
 
-        txtDchargeBurden.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtDchargeBurden.setPreferredSize(new java.awt.Dimension(120, 27));
-
-        lblDchargeLiters.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeLiters.setText("Litros");
-
-        txtDchargeLiters.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtDchargeLiters.setPreferredSize(new java.awt.Dimension(120, 27));
-
-        lblDchargeTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeTank.setText("Tanque");
-
-        cbxDchargeTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        lblDchargeObs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblDchargeObs.setText("Observação");
-
-        txtDchargeObs.setColumns(20);
-        txtDchargeObs.setRows(5);
-        rollDchargeObs.setViewportView(txtDchargeObs);
-
-        btnDchargeSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnDchargeSave.setText("Salvar");
-        btnDchargeSave.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnDchargeSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDchargeSaveActionPerformed(evt);
+        txtBurden.setEditable(false);
+        txtBurden.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtBurden.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtBurden.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBurdenKeyTyped(evt);
             }
         });
 
-        btnDchargeClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnDchargeClear.setText("Limpar");
-        btnDchargeClear.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnDchargeClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDchargeClearActionPerformed(evt);
+        lblLitter.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblLitter.setText("Litros");
+
+        txtLitter.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtLitterFocusLost(evt);
             }
         });
 
-        btnDchargeCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnDchargeCancel.setText("Cancelar");
-        btnDchargeCancel.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnDchargeCancel.addActionListener(new java.awt.event.ActionListener() {
+        lblTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTank.setText("Tanque");
+
+        cbxTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setText("Salvar");
+        btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDchargeCancelActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlDchargeLayout = new javax.swing.GroupLayout(pnlDcharge);
-        pnlDcharge.setLayout(pnlDchargeLayout);
-        pnlDchargeLayout.setHorizontalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlDchargeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnDchargeMain)
-                        .addGap(171, 171, 171)
-                        .addComponent(lblDchargeTitle))
-                    .addGroup(pnlDchargeLayout.createSequentialGroup()
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setText("Limpar");
+        btnClear.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setText("Cancelar");
+        btnCancel.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlChargeLayout = new javax.swing.GroupLayout(pnlCharge);
+        pnlCharge.setLayout(pnlChargeLayout);
+        pnlChargeLayout.setHorizontalGroup(
+            pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlChargeLayout.createSequentialGroup()
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(lblTitle))
+                    .addGroup(pnlChargeLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDchargeDtEntry)
-                            .addComponent(lblDchargeProvider)
-                            .addComponent(lblDchargeNote)
-                            .addComponent(lblDchargeBoard)
-                            .addComponent(lblDchargeDriver)
-                            .addComponent(lblDchargeDtDeparture)
-                            .addComponent(lblDchargeProduct)
-                            .addComponent(lblChargeAnalyse)
-                            .addComponent(lblDchargeBurden)
-                            .addComponent(lblDchargeTank)
-                            .addComponent(lblDchargeObs))
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDtOf)
+                            .addComponent(lblProvider)
+                            .addComponent(lblNote)
+                            .addComponent(lblBoard)
+                            .addComponent(lblDriver)
+                            .addComponent(lblDtUp)
+                            .addComponent(lblProduct)
+                            .addComponent(lblLabCar)
+                            .addComponent(lblTank)
+                            .addComponent(lblLitter))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlDchargeLayout.createSequentialGroup()
-                                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlDchargeLayout.createSequentialGroup()
-                                        .addComponent(txtDchargeBurden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlChargeLayout.createSequentialGroup()
+                                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlChargeLayout.createSequentialGroup()
+                                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(spnNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblDchargeLiters))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDchargeLayout.createSequentialGroup()
-                                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(spnDchargeNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtDchargeBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(107, 107, Short.MAX_VALUE)
-                                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDchargeCnh, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblDchargeTicket, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addComponent(lblDchargeHrDeparture)
-                                    .addComponent(lblDchargeHrEntry))
+                                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCnh, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblTicket, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                                        .addComponent(dtcDtUp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblHrUp))
+                                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                                        .addComponent(dtcDtOf, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                        .addComponent(lblHrOf))
+                                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                                        .addComponent(txtLitter, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblBurden)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtDchargeCnh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDchargeHrDeparture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDchargeLiters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDchargeHrEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(spnDchargeTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(txtDchargeDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxChargeProduct, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxDchargeProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxDchargeTank, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxChargeAnalyze, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rollDchargeObs)))
-                    .addGroup(pnlDchargeLayout.createSequentialGroup()
+                                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCnh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtHrUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtHrOf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(spnTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlChargeLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(txtBurden, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxProduct, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxTank, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxLabCar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlChargeLayout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(btnDchargeSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
-                        .addComponent(btnDchargeClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)
-                        .addComponent(btnDchargeCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50))
         );
-        pnlDchargeLayout.setVerticalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
+        pnlChargeLayout.setVerticalGroup(
+            pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlChargeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDchargeHrEntry)
-                        .addComponent(txtDchargeHrEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlDchargeLayout.createSequentialGroup()
-                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDchargeMain)
-                            .addComponent(lblDchargeTitle))
-                        .addGap(22, 22, 22)
-                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDchargeProvider)
-                            .addComponent(cbxDchargeProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addComponent(lblDchargeDtEntry)))
-                .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDchargeNote)
-                    .addComponent(lblDchargeTicket)
-                    .addComponent(spnDchargeNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnDchargeTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDchargeBoard)
-                    .addComponent(txtDchargeBoard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDchargeCnh)
-                    .addComponent(txtDchargeCnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlDchargeLayout.createSequentialGroup()
-                        .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDchargeDriver)
-                            .addComponent(txtDchargeDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblHrOf)
+                        .addComponent(txtHrOf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addGap(30, 30, 30)
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblProvider)
+                            .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblDchargeDtDeparture))
-                    .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDchargeHrDeparture)
-                        .addComponent(txtDchargeHrDeparture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDtOf)
+                            .addComponent(dtcDtOf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDchargeProduct)
-                    .addComponent(cbxChargeProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNote)
+                    .addComponent(lblTicket)
+                    .addComponent(spnNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblChargeAnalyse)
-                    .addComponent(cbxChargeAnalyze, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBoard)
+                    .addComponent(txtBoard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCnh)
+                    .addComponent(txtCnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDchargeBurden)
-                    .addComponent(txtDchargeBurden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDchargeLiters)
-                    .addComponent(txtDchargeLiters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlChargeLayout.createSequentialGroup()
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDriver)
+                            .addComponent(txtDriver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDtUp)
+                            .addComponent(dtcDtUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblHrUp)
+                        .addComponent(txtHrUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDchargeTank)
-                    .addComponent(cbxDchargeTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDchargeObs)
-                    .addComponent(rollDchargeObs, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDchargeClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDchargeCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDchargeSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProduct)
+                    .addComponent(cbxProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLabCar)
+                    .addComponent(cbxLabCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBurden)
+                    .addComponent(txtBurden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLitter)
+                    .addComponent(txtLitter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTank)
+                    .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
 
-        rollDcharge.setViewportView(pnlDcharge);
+        rollCharge.setViewportView(pnlCharge);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rollDcharge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(rollCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rollDcharge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(rollCharge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDchargeMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDchargeMainActionPerformed
-        Access.goToCanvas(this, new FrmDchargeTbl());
-    }//GEN-LAST:event_btnDchargeMainActionPerformed
+    private void txtBoardFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBoardFocusLost
+        txtBoard.setText(txtBoard.getText().toUpperCase());
+    }//GEN-LAST:event_txtBoardFocusLost
 
-    private void txtDchargeBoardFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDchargeBoardFocusLost
-        txtDchargeBoard.setText(txtDchargeBoard.getText().toUpperCase());
-    }//GEN-LAST:event_txtDchargeBoardFocusLost
+    private void txtCnhKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCnhKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtCnhKeyTyped
 
-    private void txtDchargeCnhFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDchargeCnhFocusLost
-    }//GEN-LAST:event_txtDchargeCnhFocusLost
+    private void txtCnhFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCnhFocusLost
+        driver = new RequestDriver().selectCnh(txtCnh.getText());
+        if (driver != null) {
+            driverEmpty = false;
+            txtDriver.setText(driver.getNameDriver());
+        }
+    }//GEN-LAST:event_txtCnhFocusLost
 
-    private void btnDchargeSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDchargeSaveActionPerformed
-    }//GEN-LAST:event_btnDchargeSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        if (new TreatmentTxt().isTxtVoid(pnlCharge) && new TreatmentCbx().isCbxVoid(pnlCharge) && new TreatmentSpn().isSpnVoid(pnlCharge) && new TreatmentDtc().isDtcVoid(pnlCharge)) {
+            if (driverEmpty) {
+                new TreatmentDriver().saveDriver(txtDriver, txtCnh);
+                driver = new RequestDriver().selectCnh(txtCnh.getText());
+            }
+            new TreatmentDcharge().saveDchage(pnlCharge, cbxProvider, dtcDtOf, txtHrOf, spnNote, spnTicket, txtBoard, driver, dtcDtUp, txtHrUp, cbxProduct, cbxLabCar, txtBurden, txtLitter, cbxTank);
+        } else {
+            new EmptyField().showMsg();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnDchargeClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDchargeClearActionPerformed
-    }//GEN-LAST:event_btnDchargeClearActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        new TreatmentCharge().clear(pnlCharge);
+    }//GEN-LAST:event_btnClearActionPerformed
 
-    private void btnDchargeCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDchargeCancelActionPerformed
-    }//GEN-LAST:event_btnDchargeCancelActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtBurdenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBurdenKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtBurdenKeyTyped
+
+    private void txtLitterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLitterFocusLost
+        if (cbxLabCar.getSelectedIndex() > 0 && !txtLitter.getText().equals("")) {
+            int litter = new TreatmentCharge().calcLitter(cbxLabCar.getSelectedItem(), Integer.parseInt((txtLitter.getText())));
+            txtBurden.setText(String.valueOf(litter));
+        }
+    }//GEN-LAST:event_txtLitterFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDchargeCancel;
-    private javax.swing.JButton btnDchargeClear;
-    private javax.swing.JButton btnDchargeMain;
-    private javax.swing.JButton btnDchargeSave;
-    private javax.swing.JComboBox<Object> cbxChargeAnalyze;
-    private javax.swing.JComboBox<Object> cbxChargeProduct;
-    private javax.swing.JComboBox<Object> cbxDchargeProvider;
-    private javax.swing.JComboBox<Object> cbxDchargeTank;
-    private javax.swing.JLabel lblChargeAnalyse;
-    private javax.swing.JLabel lblDchargeBoard;
-    private javax.swing.JLabel lblDchargeBurden;
-    private javax.swing.JLabel lblDchargeCnh;
-    private javax.swing.JLabel lblDchargeDriver;
-    private javax.swing.JLabel lblDchargeDtDeparture;
-    private javax.swing.JLabel lblDchargeDtEntry;
-    private javax.swing.JLabel lblDchargeHrDeparture;
-    private javax.swing.JLabel lblDchargeHrEntry;
-    private javax.swing.JLabel lblDchargeLiters;
-    private javax.swing.JLabel lblDchargeNote;
-    private javax.swing.JLabel lblDchargeObs;
-    private javax.swing.JLabel lblDchargeProduct;
-    private javax.swing.JLabel lblDchargeProvider;
-    private javax.swing.JLabel lblDchargeTank;
-    private javax.swing.JLabel lblDchargeTicket;
-    private javax.swing.JLabel lblDchargeTitle;
-    private javax.swing.JPanel pnlDcharge;
-    private javax.swing.JScrollPane rollDcharge;
-    private javax.swing.JScrollPane rollDchargeObs;
-    private javax.swing.JSpinner spnDchargeNote;
-    private javax.swing.JSpinner spnDchargeTicket;
-    private javax.swing.JTextField txtDchargeBoard;
-    private javax.swing.JFormattedTextField txtDchargeBurden;
-    private javax.swing.JFormattedTextField txtDchargeCnh;
-    private javax.swing.JTextField txtDchargeDriver;
-    private javax.swing.JFormattedTextField txtDchargeHrDeparture;
-    private javax.swing.JFormattedTextField txtDchargeHrEntry;
-    private javax.swing.JFormattedTextField txtDchargeLiters;
-    private javax.swing.JTextArea txtDchargeObs;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<Object> cbxLabCar;
+    private javax.swing.JComboBox<Object> cbxProduct;
+    private javax.swing.JComboBox<Object> cbxProvider;
+    private javax.swing.JComboBox<Object> cbxTank;
+    private com.toedter.calendar.JDateChooser dtcDtOf;
+    private com.toedter.calendar.JDateChooser dtcDtUp;
+    private javax.swing.JLabel lblBoard;
+    private javax.swing.JLabel lblBurden;
+    private javax.swing.JLabel lblCnh;
+    private javax.swing.JLabel lblDriver;
+    private javax.swing.JLabel lblDtOf;
+    private javax.swing.JLabel lblDtUp;
+    private javax.swing.JLabel lblHrOf;
+    private javax.swing.JLabel lblHrUp;
+    private javax.swing.JLabel lblLabCar;
+    private javax.swing.JLabel lblLitter;
+    private javax.swing.JLabel lblNote;
+    private javax.swing.JLabel lblProduct;
+    private javax.swing.JLabel lblProvider;
+    private javax.swing.JLabel lblTank;
+    private javax.swing.JLabel lblTicket;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlCharge;
+    private javax.swing.JScrollPane rollCharge;
+    private javax.swing.JSpinner spnNote;
+    private javax.swing.JSpinner spnTicket;
+    private javax.swing.JTextField txtBoard;
+    private javax.swing.JFormattedTextField txtBurden;
+    private javax.swing.JFormattedTextField txtCnh;
+    private javax.swing.JTextField txtDriver;
+    private javax.swing.JFormattedTextField txtHrOf;
+    private javax.swing.JFormattedTextField txtHrUp;
+    private javax.swing.JTextField txtLitter;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -1,5 +1,10 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.rectify.entitys.LabTank;
+import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.TreatmentLabTank;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -10,6 +15,20 @@ public class PnlReactEster extends javax.swing.JPanel {
     /** Creates new form PnlReactEster */
     public PnlReactEster() {
         initComponents();
+        new TreatmentLabTank().showComboBox(cbxEsterReactLabStart);
+        new TreatmentLabTank().showComboBox(cbxEsterReactLabFinal);
+    }
+
+    public PnlReactEster(Object selectedItem) {
+        initComponents();
+        getLab(selectedItem);
+    }
+
+    public void getLab(Object selectedItem){
+        LabTank labTank = new LabTank();
+        labTank.setTank( (Tank) selectedItem);
+        new TreatmentLabTank().showComboBox(cbxEsterReactLabStart, labTank);
+        new TreatmentLabTank().showComboBox(cbxEsterReactLabFinal, labTank);
     }
 
     /** This method is called from within the constructor to
@@ -36,6 +55,7 @@ public class PnlReactEster extends javax.swing.JPanel {
         txtEsterReactHrFinal = new javax.swing.JFormattedTextField();
         lblEsterReactLabFinal = new javax.swing.JLabel();
         cbxEsterReactLabFinal = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(550, 174));
@@ -69,6 +89,11 @@ public class PnlReactEster extends javax.swing.JPanel {
         txtEsterReactSulfuric.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtEsterReactSulfuric.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtEsterReactSulfuric.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtEsterReactSulfuric.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEsterReactSulfuricKeyTyped(evt);
+            }
+        });
 
         lblEsterReactPure.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEsterReactPure.setText("Metanol Puro");
@@ -76,6 +101,11 @@ public class PnlReactEster extends javax.swing.JPanel {
         txtEsterReactPure.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtEsterReactPure.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtEsterReactPure.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtEsterReactPure.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEsterReactPureKeyTyped(evt);
+            }
+        });
 
         lblEsterReactRecover.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEsterReactRecover.setText("Metanol Recuperado");
@@ -83,6 +113,11 @@ public class PnlReactEster extends javax.swing.JPanel {
         txtEsterReactRecover.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtEsterReactRecover.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtEsterReactRecover.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtEsterReactRecover.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEsterReactRecoverKeyTyped(evt);
+            }
+        });
 
         lblEsterReactHrFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEsterReactHrFinal.setText("Hora Final");
@@ -102,6 +137,8 @@ public class PnlReactEster extends javax.swing.JPanel {
         cbxEsterReactLabFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbxEsterReactLabFinal.setPreferredSize(new java.awt.Dimension(120, 27));
 
+        jDateChooser1.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +156,10 @@ public class PnlReactEster extends javax.swing.JPanel {
                         .addComponent(txtEsterReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblEsterReactLabFinal))
-                    .addComponent(lblEsterReactHrStart, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblEsterReactHrStart))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(cbxEsterReactLabStart, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -143,7 +183,8 @@ public class PnlReactEster extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEsterReactHrStart)
-                    .addComponent(lblEsterReactDt))
+                    .addComponent(lblEsterReactDt)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEsterReactLabStart)
@@ -166,10 +207,23 @@ public class PnlReactEster extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtEsterReactSulfuricKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEsterReactSulfuricKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtEsterReactSulfuricKeyTyped
+
+    private void txtEsterReactPureKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEsterReactPureKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtEsterReactPureKeyTyped
+
+    private void txtEsterReactRecoverKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEsterReactRecoverKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtEsterReactRecoverKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Object> cbxEsterReactLabFinal;
     private javax.swing.JComboBox<Object> cbxEsterReactLabStart;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel lblEsterReactDt;
     private javax.swing.JLabel lblEsterReactHrFinal;
     private javax.swing.JLabel lblEsterReactHrStart;

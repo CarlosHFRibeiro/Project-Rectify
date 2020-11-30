@@ -8,7 +8,8 @@ package dev.senzalla.rectify.enuns;
 public enum FontEnum {
     TITLE(0, "Titulo"),
     SUBTITLE(1, "Subtitulo"),
-    FIELD(2, "Subtitulo");
+    FIELD(2, "Corpo"),
+    BOLDFIELD(3, "Corpo Negrito");
 
     private final int valor;
     private final String descricao;

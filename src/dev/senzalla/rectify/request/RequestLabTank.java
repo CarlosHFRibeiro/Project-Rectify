@@ -44,6 +44,12 @@ public class RequestLabTank extends Request<LabTank> {
         return labtanks;
     }
 
+    public List<LabTank> select(LabTank labTank) {
+        SELECT_QUERY += " WHERE nameTank = ?";
+        selectAll(SELECT_QUERY, labTank);
+        return labtanks;
+    }
+
     @Override
     public List<LabTank> select(List<String> query, LabTank labTank) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
@@ -68,7 +74,10 @@ public class RequestLabTank extends Request<LabTank> {
                     stmt.setDate(i++, parameter.getDtTq());
                 }
                 if (parameter.getDateBetween() != null) {
-                    stmt.setDate(i, parameter.getDateBetween());
+                    stmt.setDate(i++, parameter.getDateBetween());
+                }
+                if (parameter.getTank() != null) {
+                    stmt.setString(i, parameter.getTank().getNameTank());
                 }
             }
             resultSet();
@@ -93,4 +102,6 @@ public class RequestLabTank extends Request<LabTank> {
             closeConnectionRs();
         }
     }
+
+
 }

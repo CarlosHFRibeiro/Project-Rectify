@@ -33,7 +33,7 @@ public class StockTankPrint extends ModelPrint {
             final File DIR = new File(System.getProperty("user.home") + "/Relatorio Estoque Tanque");
             DIR.mkdir();
             Document document = new Document();
-            document.setMargins(5, 10, 30, 5);
+            document.setMargins(-35, -40, 30, 5);
             document.setPageSize(PageSize.A4);
             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(String.format("%s\\StockTank.pdf", DIR)));
             document.open();

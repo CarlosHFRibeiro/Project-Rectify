@@ -428,7 +428,9 @@ public class FrmCharge extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBurdenKeyTyped
 
     private void txtBurdenFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBurdenFocusLost
-        if (cbxLabCar.getSelectedIndex() > 0 && !txtLitter.getText().equals("")) {
+        System.out.println(!txtBurden.getText().equals(""));
+        System.out.println(txtBurden.getText());
+        if (cbxLabCar.getSelectedIndex() > 0 && !txtBurden.getText().equals("")) {
             int litter = new TreatmentCharge().calcLitter(cbxLabCar.getSelectedItem(), Integer.parseInt((txtBurden.getText())));
             txtLitter.setText(String.valueOf(litter));
         }

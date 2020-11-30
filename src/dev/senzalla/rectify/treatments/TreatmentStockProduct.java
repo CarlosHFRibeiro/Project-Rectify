@@ -71,15 +71,14 @@ public class TreatmentStockProduct {
         if (!new RequestStockProduct().select(clause, stockProduct).isEmpty()) {
             model = (DefaultTableModel) tbl.getModel();
             model.setNumRows(0);
-            FrmStkProduct.query(clause,stockProduct);
-            selectQuery(clause,stockProduct).forEach(this::table);
+            List<StockProduct> stockProducts = new RequestStockProduct().select(clause, stockProduct);
+            FrmStkProduct.query(stockProducts);
+            stockProducts.forEach(this::table);
         } else {
             PopUp.isEmpty("Estoque");
         }
     }
-    public List<StockProduct> selectQuery(List<String> clause, StockProduct stockProduct) {
-        return new RequestStockProduct().select(clause, stockProduct);
-    }
+
     private void table(StockProduct stockProduct) {
         model.addRow(new Object[]{
                 stockProduct.getProduct(),
@@ -101,7 +100,6 @@ public class TreatmentStockProduct {
         });
         showTable(tbl);
     }
-
 
 
 }

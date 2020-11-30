@@ -19,6 +19,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
      */
     public FrmStkTk() {
         initComponents();
+        lblEmpty.setVisible(false);
         showPanel();
 
     }
@@ -32,6 +33,8 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
                 pnlStk.setLayout(layout);
                 pnlStk.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
             });
+        } else {
+            lblEmpty.setVisible(true);
         }
 
     }
@@ -47,6 +50,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
         roll = new javax.swing.JScrollPane();
         pnlStk = new javax.swing.JPanel();
+        lblEmpty = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -57,15 +61,24 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
         pnlStk.setMaximumSize(new java.awt.Dimension(593, 435));
 
+        lblEmpty.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblEmpty.setText("Não foi cadastrado estoque Hoje!");
+
         javax.swing.GroupLayout pnlStkLayout = new javax.swing.GroupLayout(pnlStk);
         pnlStk.setLayout(pnlStkLayout);
         pnlStkLayout.setHorizontalGroup(
-                pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 593, Short.MAX_VALUE)
+            pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStkLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(lblEmpty)
+                .addContainerGap(453, Short.MAX_VALUE))
         );
         pnlStkLayout.setVerticalGroup(
-                pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 435, Short.MAX_VALUE)
+            pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlStkLayout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(lblEmpty)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         roll.setViewportView(pnlStk);
@@ -73,12 +86,12 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(roll)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(roll)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(roll)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(roll)
         );
 
         pack();
@@ -86,6 +99,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblEmpty;
     private javax.swing.JPanel pnlStk;
     private javax.swing.JScrollPane roll;
     // End of variables declaration//GEN-END:variables

@@ -33,7 +33,7 @@ public class SealPrint extends ModelPrint {
             final File DIR = new File(System.getProperty("user.home") + "/Relatorio Bio Refitica");
             DIR.mkdir();
             Document document = new Document();
-            document.setMargins(5, 10, 30, 5);
+            document.setMargins(-35, -40, 30, 5);
             document.setPageSize(PageSize.A4);
             PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(String.format("%s\\Amostra_%s.pdf", DIR, newDate())));
             document.open();

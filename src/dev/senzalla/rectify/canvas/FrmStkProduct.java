@@ -14,8 +14,7 @@ import java.util.List;
  * @github github.com/Bomsalvez
  */
 public class FrmStkProduct extends javax.swing.JInternalFrame {
-    private static List<String> clause;
-    private static StockProduct stockProduct;
+    private static List<StockProduct> stockProducts;
 
     /**
      * Creates new form FrmStkProduct
@@ -25,9 +24,8 @@ public class FrmStkProduct extends javax.swing.JInternalFrame {
         new TreatmentStockProduct().showTable(this, tbl);
     }
 
-    public static void query(List<String> clause, StockProduct stockProduct) {
-        FrmStkProduct.clause = clause;
-        FrmStkProduct.stockProduct = stockProduct;
+    public static void query(List<StockProduct> stockProducts) {
+        FrmStkProduct.stockProducts = stockProducts;
     }
 
     /**
@@ -149,7 +147,7 @@ public class FrmStkProduct extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        new StockProductPrint().print(clause, stockProduct);
+        new StockProductPrint().print(stockProducts);
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
