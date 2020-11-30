@@ -40,7 +40,7 @@ public class RequestProvider extends Request<Provider> {
         return providers;
     }
 
-    @Override
+
     public List<Provider> select(Provider provider) {
         String clause = SELECT_QUERY + " WHERE UPPER(nameProvider) LIKE UPPER(?);";
         selectAll(clause, provider);

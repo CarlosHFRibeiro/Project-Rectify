@@ -45,12 +45,6 @@ public class RequestStockProduct extends Request<StockProduct> {
     }
 
     @Override
-    public List<StockProduct> select(StockProduct stockProduct) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    @Override
     public List<StockProduct> select(List<String> query, StockProduct parameter) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);

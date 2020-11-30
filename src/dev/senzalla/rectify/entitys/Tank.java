@@ -10,6 +10,13 @@ public class Tank {
     private int capacityTank;
     private String nameTank;
 
+    public Tank() {
+    }
+
+    public Tank(String nameTank) {
+        this.nameTank = nameTank;
+    }
+
     public Long getIdTank() {
         return idTank;
     }

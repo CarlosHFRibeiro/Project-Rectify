@@ -39,42 +39,34 @@ CREATE OR REPLACE VIEW view_stkProduct AS
             JOIN
         tbl_product ON fkProductStkPd = idProduct;
 
-# CREATE OR REPLACE VIEW view_maketrans AS
-# SELECT mt.idTrans,tr.dtRctTrans,mt.reactTrans,tt.nameTank,mt.producedTrans,mt.trashTrans FROM tbl_maketrans mt
-# join tbl_reacttrans tr on mt.idTrans = tr.fkRctTrans
-# join tbl_tank tt on tt.idTank = mt.fkTankTrans
-
-
-# CREATE OR REPLACE VIEW view_charge AS
-#     SELECT
-#         idCharge,
-#         noteCharge,
-#         ticketCharge,
-#         burdenCharge,
-#         literCharge,
-#         nameTank,
-#         nameProvider,
-#         nameProduct,
-#         fkLabCharge,
-#         nameDriver,
-#         boardCharge,
-#         dtOfCharge,
-#         dtUpCharge,
-#         hrOfCharge,
-#         hrUpCharge,
-#         acidCar,
-#         trashCar,
-#         soapCar,
-#         densityCar,
-#         obsCharge
-#     FROM
-#         tbl_charge
-#         JOIN tbl_product ON fkProductCharge = idProduct
-#         JOIN tbl_tank ON fkTankCharge = idTank
-#         JOIN tbl_provider ON fkProviderCharge = idProvider
-#         JOIN tbl_driver ON fkDriverCharge = idDriver
-#         JOIN tbl_labcar ON fkLabCharge = idCar
-#         LEFT JOIN tbl_obscharge ON idCharge = fkObsCharge;
+CREATE OR REPLACE VIEW view_charge AS
+    SELECT
+        idCharge,
+        noteCharge,
+        ticketCharge,
+        burdenCharge,
+        literCharge,
+        nameTank,
+        nameProvider,
+        nameProduct,
+        fkLabCharge,
+        nameDriver,
+        boardCharge,
+        dtOfCharge,
+        dtUpCharge,
+        hrOfCharge,
+        hrUpCharge,
+        acidCar,
+        trashCar,
+        soapCar,
+        densityCar
+    FROM
+        tbl_charge
+        JOIN tbl_product ON fkProductCharge = idProduct
+        JOIN tbl_tank ON fkTankCharge = idTank
+        JOIN tbl_provider ON fkProviderCharge = idProvider
+        JOIN tbl_driver ON fkDriverCharge = idDriver
+        JOIN tbl_labcar ON fkLabCharge = idCar
 #
 #
 #
@@ -110,6 +102,10 @@ CREATE OR REPLACE VIEW view_stkProduct AS
 #         LEFT JOIN tbl_obsdcharge ON idDcharge = fkObsDcharge;
 #
 #
+# CREATE OR REPLACE VIEW view_maketrans AS
+# SELECT mt.idTrans,tr.dtRctTrans,mt.reactTrans,tt.nameTank,mt.producedTrans,mt.trashTrans FROM tbl_maketrans mt
+# join tbl_reacttrans tr on mt.idTrans = tr.fkRctTrans
+# join tbl_tank tt on tt.idTank = mt.fkTankTrans
 #
 # CREATE OR REPLACE VIEW view_labbio AS
 #     SELECT

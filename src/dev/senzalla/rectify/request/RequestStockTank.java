@@ -46,12 +46,6 @@ public class RequestStockTank extends Request<StockTank> {
     }
 
     @Override
-    public List<StockTank> select(StockTank stockTank) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    @Override
     public List<StockTank> select(List<String> query, StockTank parameter) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);

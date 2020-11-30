@@ -43,11 +43,6 @@ public class RequestSeal extends Request<Seal> {
         return seals;
     }
 
-    @Override
-    public List<Seal> select(Seal seal) {
-        return null;
-    }
-
     public List<Seal> select(List<Integer> seal) {
         seal.forEach(s -> where += String.format(" saleSeal = ? OR", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 2);

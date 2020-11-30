@@ -45,7 +45,6 @@ public class RequestMakeTrans extends Request<MakeTrans> {
         return maketrans;
     }
 
-    @Override
     public List<MakeTrans> select(MakeTrans makeester) {
         String clause = SELECT_QUERY + " WHERE UPPER(nameMakeTrans) LIKE UPPER(?);";
         selectAll(clause, makeester);

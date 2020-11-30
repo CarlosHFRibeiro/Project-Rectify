@@ -44,7 +44,6 @@ public class RequestMakeEster extends Request<MakeEster> {
         return makeesters;
     }
 
-    @Override
     public List<MakeEster> select(MakeEster makeester) {
         String clause = SELECT_QUERY + " WHERE UPPER(nameMakeEster) LIKE UPPER(?);";
         selectAll(clause, makeester);

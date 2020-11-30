@@ -46,12 +46,6 @@ public class RequestLabBio extends Request<LabBio> {
     }
 
     @Override
-    public List<LabBio> select(LabBio labBio) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    @Override
     public List<LabBio> select(List<String> query, LabBio parameter) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);

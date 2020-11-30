@@ -39,11 +39,6 @@ public class RequestHcl extends Request<Hcl> {
     }
 
     @Override
-    public List<Hcl> select(Hcl hcl) {
-        return null;
-    }
-
-    @Override
     public List<Hcl> select(List<String> clause, Hcl hcl) {
         return null;
     }

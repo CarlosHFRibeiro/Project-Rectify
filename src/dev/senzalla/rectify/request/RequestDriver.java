@@ -39,11 +39,6 @@ public class RequestDriver extends Request<Driver> {
         return null;
     }
 
-    @Override
-    public List<Driver> select(Driver driver) {
-        return null;
-    }
-
     public Driver selectCnh(String driver) {
         SELECT_QUERY += " WHERE cnhDriver = ?";
         return selectAll(SELECT_QUERY, driver);

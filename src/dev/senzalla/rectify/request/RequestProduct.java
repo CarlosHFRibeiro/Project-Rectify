@@ -39,12 +39,6 @@ public class RequestProduct extends Request<Product> {
         return products;
     }
 
-    @Override
-    public List<Product> select(Product product) {
-        return null;
-    }
-
-
     public Product selectName(Product product) {
         String clause = SELECT_QUERY + " WHERE UPPER(nameProduct) = UPPER(?);";
         selectAll(clause, product);

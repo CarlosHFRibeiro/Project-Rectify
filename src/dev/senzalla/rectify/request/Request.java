@@ -15,8 +15,6 @@ public abstract class Request<T> extends ConectionMySql {
 
     public abstract List<T> select();
 
-    public abstract List<T> select(T t);
-
     public abstract List<T> select(List<String> clause, T t);
 
 }

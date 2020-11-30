@@ -11,6 +11,13 @@ public class Product {
     private double densityProduct;
     private String nameProduct;
 
+    public Product() {
+    }
+
+    public Product(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
     public Long getIdProduct() {
         return idProduct;
     }

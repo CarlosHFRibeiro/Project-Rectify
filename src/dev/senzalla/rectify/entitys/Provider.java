@@ -12,6 +12,13 @@ public class Provider {
     private String phoneProvider;
     private String nameProvider;
 
+    public Provider() {
+    }
+
+    public Provider(String nameProvider) {
+        this.nameProvider = nameProvider;
+    }
+
     public Long getIdProvider() {
         return idProvider;
     }

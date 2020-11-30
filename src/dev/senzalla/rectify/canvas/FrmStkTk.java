@@ -24,13 +24,15 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
     }
 
     private void showPanel() {
-        GridLayout layout = new GridLayout();
         List<StockTank> stockTank = new RequestStockTank().select();
-        layout.setRows(stockTank.size()/2);
-        stockTank.forEach(stock -> {
-            pnlStk.setLayout(layout);
-            pnlStk.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
-        });
+        if (!stockTank.isEmpty()) {
+            GridLayout layout = new GridLayout();
+            layout.setRows(stockTank.size() / 2);
+            stockTank.forEach(stock -> {
+                pnlStk.setLayout(layout);
+                pnlStk.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
+            });
+        }
 
     }
 
@@ -58,12 +60,12 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlStkLayout = new javax.swing.GroupLayout(pnlStk);
         pnlStk.setLayout(pnlStkLayout);
         pnlStkLayout.setHorizontalGroup(
-            pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+                pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 593, Short.MAX_VALUE)
         );
         pnlStkLayout.setVerticalGroup(
-            pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+                pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 435, Short.MAX_VALUE)
         );
 
         roll.setViewportView(pnlStk);
@@ -71,12 +73,12 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(roll)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(roll)
         );
 
         pack();

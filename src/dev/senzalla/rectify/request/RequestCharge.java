@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.request;
 
-import dev.senzalla.rectify.entitys.Charge;
+import dev.senzalla.rectify.entitys.*;
 import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RequestCharge extends Request<Charge> {
 
     private List<Charge> charges;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.view_stkproduct";
+    private String SELECT_QUERY = "SELECT * FROM db_retifica.view_charge";
     private String where = "";
 
     @Override
@@ -46,19 +46,16 @@ public class RequestCharge extends Request<Charge> {
         }
     }
 
-
     @Override
     public List<Charge> select() {
-        final String DATE = "dtStkPd = CURDATE()";
-        selectAll(SELECT_QUERY + " WHERE " + DATE, null);
+        selectAll(SELECT_QUERY, null);
         return charges;
     }
 
-    @Override
-    public List<Charge> select(Charge charge) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Charge select(Charge cod) {
+        selectAll(SELECT_QUERY + " WHERE idCharge = ?", cod);
+        return charges.get(0);
     }
-
 
     @Override
     public List<Charge> select(List<String> query, Charge parameter) {
@@ -73,32 +70,49 @@ public class RequestCharge extends Request<Charge> {
         charges = new ArrayList<>();
         try {
             prepareStatement(query);
-//            if (parameter != null) {
-//                int i = 1;
-//                if (parameter.getProduct() != null) {
-//                    stmt.setString(i++, parameter.getProduct().getNameProduct());
-//                }
+            if (parameter != null) {
+                int i = 1;
+                if (parameter.getIdCharge() != null) {
+                    stmt.setLong(i, parameter.getIdCharge());
+                }
+
+            }
 //                if (parameter.getDtStkPd() != null) {
 //                    stmt.setDate(i++, parameter.getDtStkPd());
 //                }
 //                if (parameter.getDateBetween() != null) {
 //                    stmt.setDate(i, parameter.getDateBetween());
 //                }
-//            }
-//            System.out.println(stmt);
-//            resultSet();
-//            while (rs.next()) {
-//                Charge charge = new Charge();
-//                charge.setLiterStkPd(rs.getInt("literStkPd"));
-//                charge.setPercentStkPd(rs.getInt("percentStkPd"));
-//                charge.setDtStkPd(rs.getDate("dtStkPd"));
-//
-//                Product tank = new Product();
-//                tank.setNameProduct(rs.getString("nameProduct"));
-//                charge.setProduct(tank);
-//
-//                charges.add(charge);
-//            }
+            resultSet();
+            while (rs.next()) {
+                Charge charge = new Charge();
+                charge.setIdCharge(rs.getLong("idCharge"));
+                charge.setTicketCharge(rs.getInt("ticketCharge"));
+                charge.setLiterCharge(rs.getInt("literCharge"));
+                charge.setDtOfCharge(rs.getDate("dtOfCharge"));
+
+                charge.setNoteCharge(rs.getInt("noteCharge"));
+                charge.setBoardCharge(rs.getString("boardCharge"));
+                charge.setBurdenCharge(rs.getInt("burdenCharge"));
+                charge.setDtUpCharge(rs.getDate("dtUpCharge"));
+                charge.setHrOfCharge(rs.getTime("hrOfCharge"));
+                charge.setHrUpCharge(rs.getTime("hrUpCharge"));
+
+                charge.setProvider(new Provider(rs.getString("nameProvider")));
+                charge.setProduct(new Product(rs.getString("nameProduct")));
+                charge.setDriver(new Driver(rs.getString("nameDriver")));
+                charge.setTank(new Tank(rs.getString("nameTank")));
+
+                LabCar labCar = new LabCar();
+
+                labCar.setAcidCar(rs.getDouble("acidCar"));
+                labCar.setDensityCar(rs.getDouble("densityCar"));
+                labCar.setSoapCar(rs.getDouble("soapCar"));
+                labCar.setTrashCar(rs.getInt("trashCar"));
+                charge.setLabCar(labCar);
+
+                charges.add(charge);
+            }
         } catch (SQLException ex) {
             new DataBaseException().processMsg(ex.getMessage());
         } finally {

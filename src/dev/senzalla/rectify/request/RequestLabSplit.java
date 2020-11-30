@@ -44,11 +44,6 @@ public class RequestLabSplit extends Request<LabSplit> {
     }
 
     @Override
-    public List<LabSplit> select(LabSplit labSplit) {
-        return null;
-    }
-
-    @Override
     public List<LabSplit> select(List<String> query, LabSplit labSplit) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);

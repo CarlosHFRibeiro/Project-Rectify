@@ -45,12 +45,6 @@ public class RequestLabTank extends Request<LabTank> {
     }
 
     @Override
-    public List<LabTank> select(LabTank labtank) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-
-    @Override
     public List<LabTank> select(List<String> query, LabTank labTank) {
         query.forEach(s -> where += String.format(" %s ? AND", s));
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);

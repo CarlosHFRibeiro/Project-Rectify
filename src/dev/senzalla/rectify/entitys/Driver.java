@@ -10,6 +10,13 @@ public class Driver {
     private String cnhDriver;
     private String nameDriver;
 
+    public Driver() {
+    }
+
+    public Driver(String nameDriver) {
+        this.nameDriver = nameDriver;
+    }
+
     public Long getIdDriver() {
         return idDriver;
     }

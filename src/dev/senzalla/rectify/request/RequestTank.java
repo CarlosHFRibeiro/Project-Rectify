@@ -39,11 +39,6 @@ public class RequestTank extends Request<Tank> {
         return tanks;
     }
 
-    @Override
-    public List<Tank> select(Tank tank) {
-        return null;
-    }
-
     public Tank selectName(Tank tank) {
         String clause = SELECT_QUERY + " WHERE UPPER(nameTank) = UPPER(?);";
         selectAll(clause, tank);

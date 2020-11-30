@@ -101,4 +101,9 @@ public class LabCar extends TreatmentDate {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getIdCar());
+    }
 }

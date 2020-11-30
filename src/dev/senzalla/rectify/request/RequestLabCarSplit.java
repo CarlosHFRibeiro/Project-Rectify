@@ -33,11 +33,6 @@ public class RequestLabCarSplit extends Request<LabCarSplit> {
     }
 
     @Override
-    public List<LabCarSplit> select(LabCarSplit labCarSplit) {
-        return null;
-    }
-
-    @Override
     public List<LabCarSplit> select(List<String> clause, LabCarSplit labCarSplit) {
         return null;
     }

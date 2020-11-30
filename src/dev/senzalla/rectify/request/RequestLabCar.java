@@ -44,9 +44,10 @@ public class RequestLabCar extends Request<LabCar> {
         return labcars;
     }
 
-    @Override
-    public List<LabCar> select(LabCar labcar) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public LabCar select(LabCar labcar) {
+         SELECT_QUERY += "WHERE idCar = ?";
+         selectAll(SELECT_QUERY,labcar);
+         return labcars.get(0);
     }
 
 

@@ -39,11 +39,6 @@ public class RequestNaoh extends Request<Naoh> {
     }
 
     @Override
-    public List<Naoh> select(Naoh naoh) {
-        return null;
-    }
-
-    @Override
     public List<Naoh> select(List<String> clause, Naoh naoh) {
         return null;
     }
