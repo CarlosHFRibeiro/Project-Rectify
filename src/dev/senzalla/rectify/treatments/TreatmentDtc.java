@@ -18,7 +18,7 @@ public class TreatmentDtc {
     private  List<Date> dtcChooser;
     public void cleanDtc(JPanel pnl) {
         for (Component c : pnl.getComponents()) {
-            if (c instanceof JComboBox) {
+            if (c instanceof JDateChooser) {
                 JDateChooser dtc = (JDateChooser) c;
                 dtc.setDate(null);
             }
@@ -27,7 +27,7 @@ public class TreatmentDtc {
 
     public  boolean isDtcVoid(JPanel pnl) {
         setTxt(pnl);
-        return dtcChooser.stream().noneMatch(Objects::nonNull);
+        return dtcChooser.stream().noneMatch(Objects::isNull);
     }
 
     private  void setTxt(JPanel pnl) {
