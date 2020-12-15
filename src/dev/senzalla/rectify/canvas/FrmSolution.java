@@ -5,6 +5,7 @@ import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.rectify.treatments.TreatmentHcl;
 import dev.senzalla.rectify.treatments.TreatmentNaoh;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -18,6 +19,9 @@ public class FrmSolution extends javax.swing.JInternalFrame {
      */
     public FrmSolution() {
         initComponents();
+        TreatmentTheme.initTheme(pnlSolution);
+        TreatmentTheme.initListTheme(lstSolHcl);
+        TreatmentTheme.initListTheme(lstSolNaoh);
         new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
         new TreatmentHcl().showSolutionHcl(lstSolHcl);
     }

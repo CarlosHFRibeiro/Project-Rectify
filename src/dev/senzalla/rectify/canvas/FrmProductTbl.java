@@ -2,6 +2,7 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -15,6 +16,8 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
      */
     public FrmProductTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlProduct);
+        TreatmentTheme.initTableTheme(tbl);
         new TreatmentProduct().showTable(tbl);
     }
 
@@ -77,6 +80,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(500);

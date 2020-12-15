@@ -1,17 +1,24 @@
 USE db_retifica;
 
 CREATE TRIGGER tr_carsplit
-    BEFORE INSERT ON tbl_labcarsplit FOR EACH ROW
-    SET new.fkLabCar = (SELECT MAX(idCar)FROM tbl_labcar);
+    BEFORE INSERT
+    ON tbl_labcarsplit
+    FOR EACH ROW SET new.fkLabCar = (SELECT MAX(idCar)
+                                     FROM tbl_labcar);
 
+CREATE TRIGGER tr_matterester
+    BEFORE INSERT
+    ON tbl_matterester
+    FOR EACH ROW
+    set new.fkMtEster = (select max(idEster)
+                         from tbl_makeester);
 
-# create trigger tr_matterester
-#     before insert on tbl_matterester for each row
-#     set new.fkMtEster = (select max(idEster)from tbl_makeester);
-#
-# create trigger tr_reacester
-#     before insert on tbl_reactester for each row
-#     set new.fkRctEster =  (select max(idEster)from tbl_makeester);
+CREATE TRIGGER tr_reacester
+    BEFORE INSERT
+    ON tbl_reactester
+    FOR EACH ROW
+    set new.fkRctEster = (select max(idEster)
+                          from tbl_makeester);
 #
 #
 # create trigger tr_mattertrans

@@ -18,4 +18,8 @@ public class TreatmentsItem {
             }
         }
     }
+
+    public static void speedRoll(JScrollPane roll) {
+        roll.getVerticalScrollBar().setUnitIncrement(12);
+    }
 }

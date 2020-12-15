@@ -3,6 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatementProvider;
 import dev.senzalla.rectify.treatments.TreatmentTxt;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -16,6 +17,7 @@ public class FrmProvider extends javax.swing.JInternalFrame {
      */
     public FrmProvider() {
         initComponents();
+        TreatmentTheme.initTheme(pnlProvider);
     }
 
     /**

@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.treatments.*;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -14,6 +15,7 @@ public class FrmSeal extends javax.swing.JInternalFrame {
      */
     public FrmSeal() {
         initComponents();
+        TreatmentTheme.initTheme(pnlSeal);
         new TreatementProvider().showComboBox(cbxProvider);
     }
 

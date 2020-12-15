@@ -95,7 +95,6 @@ public class RequestCharge extends Request<Charge> {
                     stmt.setString(i, parameter.getProduct().getNameProduct());
                 }
             }
-            System.out.println(stmt);
             resultSet();
             while (rs.next()) {
                 Charge charge = new Charge();

@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.theme.TreatmentTheme;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -15,7 +17,8 @@ public class PnlCalcKoh extends javax.swing.JPanel {
     }
 
     public PnlCalcKoh(String soap) {
-         initComponents();
+        initComponents();
+        TreatmentTheme.initTheme(pnlKoh);
         jComboBox1.setVisible(false);
         lblCalcValue.setText(soap);
     }
@@ -29,6 +32,7 @@ public class PnlCalcKoh extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlKoh = new javax.swing.JPanel();
         lblCalcTitle = new javax.swing.JLabel();
         lblCalcValue = new javax.swing.JLabel();
         lblCalcFixed = new javax.swing.JLabel();
@@ -51,39 +55,45 @@ public class PnlCalcKoh extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        javax.swing.GroupLayout pnlKohLayout = new javax.swing.GroupLayout(pnlKoh);
+        pnlKoh.setLayout(pnlKohLayout);
+        pnlKohLayout.setHorizontalGroup(
+            pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlKohLayout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlKohLayout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addComponent(lblCalcValue)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblCalcFixed))
+                        .addComponent(lblCalcTitle)))
+                .addGap(38, 38, 38))
+        );
+        pnlKohLayout.setVerticalGroup(
+            pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlKohLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(lblCalcTitle)
+                .addGap(18, 18, 18)
+                .addGroup(pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCalcValue)
+                    .addComponent(lblCalcFixed))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblCalcValue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCalcFixed)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(lblCalcTitle)))
-                .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblCalcTitle)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCalcValue)
-                            .addComponent(lblCalcFixed))
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,6 +102,7 @@ public class PnlCalcKoh extends javax.swing.JPanel {
     private javax.swing.JLabel lblCalcFixed;
     private javax.swing.JLabel lblCalcTitle;
     private javax.swing.JLabel lblCalcValue;
+    private javax.swing.JPanel pnlKoh;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -3,6 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentCalcAcid;
 import dev.senzalla.rectify.treatments.TreatmentNaoh;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -19,6 +20,7 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
      */
     public FrmCalcAcid() {
         initComponents();
+        TreatmentTheme.initTheme(pnlCalcAcid);
         new TreatmentNaoh().showComboBox(cbxConcentration);
     }
 
@@ -105,7 +107,7 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 559, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,33 +123,29 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
                 .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
-                        .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcAcidLayout.createSequentialGroup()
-                        .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlCalcAcidLayout.createSequentialGroup()
+                        .addComponent(lblConcentration)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                .addComponent(lblConcentration)
+                                .addGap(182, 182, 182)
+                                .addComponent(rbtnOther))
+                            .addComponent(rbtnBio)
+                            .addGroup(pnlCalcAcidLayout.createSequentialGroup()
+                                .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)
+                                .addComponent(lblMass)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                        .addGap(182, 182, 182)
-                                        .addComponent(rbtnOther))
-                                    .addComponent(rbtnBio)
-                                    .addGroup(pnlCalcAcidLayout.createSequentialGroup()
-                                        .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(73, 73, 73)
-                                        .addComponent(lblMass)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtMass, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(90, 90, 90)
-                                        .addComponent(lblBulk)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtBulk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(25, 25, 25))))
+                                .addComponent(txtMass, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(90, 90, 90)
+                                .addComponent(lblBulk)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBulk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
         pnlCalcAcidLayout.setVerticalGroup(
             pnlCalcAcidLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,11 +211,11 @@ public class FrmCalcAcid extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbtnOther;
     private javax.swing.JTextField txtBulk;
     private javax.swing.JTextField txtMass;
-
-    public void setRbt() {
-        rbtnOther.setVisible(false);
-        rbtnBio.setSelected(true);
-    }
     // End of variables declaration//GEN-END:variables
+
+    void setRbt() {
+        rbtnBio.setSelected(true);
+        rbtnOther.setVisible(false);
+    }
 
 }

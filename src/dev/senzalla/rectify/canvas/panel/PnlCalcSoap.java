@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.theme.TreatmentTheme;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -12,6 +14,14 @@ public class PnlCalcSoap extends javax.swing.JPanel {
      */
     public PnlCalcSoap() {
         initComponents();
+        TreatmentTheme.initTheme(pnlSoap);
+    }
+
+    public PnlCalcSoap(String soap) {
+        initComponents();
+        TreatmentTheme.initTheme(pnlSoap);
+        lblSoap.setText(soap);
+        jComboBox1.setVisible(false);
     }
 
     /**
@@ -23,9 +33,11 @@ public class PnlCalcSoap extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlSoap = new javax.swing.JPanel();
         lblCalcSoapResultTitle = new javax.swing.JLabel();
-        lblCalcSoapResultValue = new javax.swing.JLabel();
+        lblSoap = new javax.swing.JLabel();
         lblCalcSoapResultFixed = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -36,45 +48,67 @@ public class PnlCalcSoap extends javax.swing.JPanel {
         lblCalcSoapResultTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcSoapResultTitle.setText("Sabões");
 
-        lblCalcSoapResultValue.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        lblCalcSoapResultValue.setText("Sabão");
+        lblSoap.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblSoap.setText("Sabão");
 
         lblCalcSoapResultFixed.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblCalcSoapResultFixed.setText("ppm");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout pnlSoapLayout = new javax.swing.GroupLayout(pnlSoap);
+        pnlSoap.setLayout(pnlSoapLayout);
+        pnlSoapLayout.setHorizontalGroup(
+            pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSoapLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addGroup(pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSoapLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(lblCalcSoapResultTitle)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlSoapLayout.createSequentialGroup()
+                        .addComponent(lblSoap)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCalcSoapResultFixed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+        );
+        pnlSoapLayout.setVerticalGroup(
+            pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSoapLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblCalcSoapResultTitle)
+                .addGap(36, 36, 36)
+                .addGroup(pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSoap)
+                    .addComponent(lblCalcSoapResultFixed))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSoapLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(lblCalcSoapResultTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(lblCalcSoapResultValue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCalcSoapResultFixed)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblCalcSoapResultTitle)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCalcSoapResultValue)
-                    .addComponent(lblCalcSoapResultFixed))
-                .addGap(18, 18, 18))
+            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblCalcSoapResultFixed;
     private javax.swing.JLabel lblCalcSoapResultTitle;
-    private javax.swing.JLabel lblCalcSoapResultValue;
+    private javax.swing.JLabel lblSoap;
+    private javax.swing.JPanel pnlSoap;
     // End of variables declaration//GEN-END:variables
 
 }

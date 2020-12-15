@@ -4,6 +4,7 @@ import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
 import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentLabCar;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -17,6 +18,8 @@ public class FrmLabCarTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabCarTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlLabCar);
+        TreatmentTheme.initTableTheme(tbl);
         new TreatmentLabCar().showTable(tbl);
     }
 

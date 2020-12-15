@@ -1,8 +1,11 @@
 package dev.senzalla.rectify.canvas;
 
+import dev.senzalla.rectify.canvas.detail.FrmMakeEsterDetail;
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
+import dev.senzalla.rectify.treatments.TreatmentEster;
+import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
 
@@ -20,6 +23,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
      */
     public FrmEsterTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlDcharge);
+        TreatmentTheme.initTableTheme(tbl);
+        new TreatmentEster().initTable(tbl);
     }
 
     public static void query(List<MakeEster> makeEsters) {
@@ -90,11 +96,11 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cod", "Data", "Reações", "Tanque", "Produzido", "Residuos", ""
+                "Cod", "Data", "Tanque", "Produzido", "Residuos", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -104,6 +110,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMouseClicked(evt);
@@ -111,9 +118,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         });
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tbl.getColumnModel().getColumn(6).setPreferredWidth(5);
-            tbl.getColumnModel().getColumn(6).setCellRenderer(new IconTable());
+            tbl.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tbl.getColumnModel().getColumn(5).setPreferredWidth(5);
+            tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
 
         javax.swing.GroupLayout pnlDchargeLayout = new javax.swing.GroupLayout(pnlDcharge);
@@ -121,7 +128,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         pnlDchargeLayout.setHorizontalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDchargeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(200, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(67, 67, 67)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,7 +137,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlDchargeLayout.createSequentialGroup()
+                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDchargeLayout.setVerticalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +187,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
-        if (tbl.getSelectedColumn() == 6) {
-            
+        if (tbl.getSelectedColumn() == 5) {
+            new FrmMakeEsterDetail(tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
+            tbl.clearSelection();
         }
     }//GEN-LAST:event_tblMouseClicked
 

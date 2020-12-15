@@ -8,6 +8,7 @@ package dev.senzalla.rectify;
 import dev.senzalla.rectify.canvas.*;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,9 +25,10 @@ public class FrmRectify extends JFrame {
      */
     public FrmRectify() {
         initComponents();
+        TreatmentTheme.initTheme(pnlMenu);
         Access.setDktMain(dktMain);
         TreatmentsItem.visiblePanel(pnlMenu);
-         this.goToCanvas(new FrmStkTk());
+        this.goToCanvas(new FrmStkTk());
     }
 
     /**
@@ -651,7 +653,9 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnSolActionPerformed
 
     private void btnThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemeActionPerformed
-        this.goToCanvas(new FrmTheme());
+        FrmTheme theme = new FrmTheme();
+        theme.setMenu(pnlMenu);
+        this.goToCanvas(theme);
     }//GEN-LAST:event_btnThemeActionPerformed
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
@@ -729,30 +733,27 @@ public class FrmRectify extends JFrame {
     private javax.swing.JPanel pnlTransp;
     // End of variables declaration//GEN-END:variables
 
-    private JButton button;
     private JPanel panel;
     private JInternalFrame frame;
-
+    
     private void expandPanel(JPanel pnl, JButton btn) {
         if (!pnl.isVisible()) {
             retractPanel();
         }
-        button = btn;
         panel = pnl;
         pnl.setVisible(!pnl.isVisible());
         btn.setBackground(pnl.isVisible() ? Color.BLUE : new Color(187, 187, 187));
         btn.setForeground(pnl.isVisible() ? Color.WHITE : new Color(60, 63, 65));
     }
-
+    
     private void retractPanel() {
         try {
             panel.setVisible(false);
-            button.setBackground(new Color(187, 187, 187));
-            button.setForeground(new Color(60, 63, 65));
+            TreatmentTheme.initTheme(pnlMenu);
         } catch (NullPointerException e) {
         }
     }
-
+    
     private void goToCanvas(JInternalFrame frame) {
         if (this.frame == null) {
             Access.goToCanvas(frame);

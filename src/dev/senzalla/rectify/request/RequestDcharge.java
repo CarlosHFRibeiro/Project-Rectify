@@ -95,7 +95,6 @@ public class RequestDcharge extends Request<Discharge> {
                     stmt.setString(i, parameter.getProduct().getNameProduct());
                 }
             }
-            System.out.println(stmt);
             resultSet();
             while (rs.next()) {
                 Discharge dcharge = new Discharge();

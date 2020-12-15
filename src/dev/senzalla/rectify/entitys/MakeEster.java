@@ -1,5 +1,8 @@
 package dev.senzalla.rectify.entitys;
 
+import dev.senzalla.rectify.treatments.TreatmentDate;
+
+import java.sql.Date;
 import java.util.Set;
 
 /**
@@ -7,13 +10,13 @@ import java.util.Set;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class MakeEster {
+public class MakeEster extends TreatmentDate {
     private Long idEster;
-    private int reactEster;
     private int amountEster;
     private int foreseenEster;
     private int trashEster;
     private int producedEster;
+    private Date dtEster;
     private Tank tank;
     private Set<MatterEster> matterEster;
     private Set<ReactEster> reactEsters;
@@ -26,13 +29,6 @@ public class MakeEster {
         this.idEster = idEster;
     }
 
-    public int getReactEster() {
-        return reactEster;
-    }
-
-    public void setReactEster(int reactEster) {
-        this.reactEster = reactEster;
-    }
 
     public int getAmountEster() {
         return amountEster;
@@ -64,6 +60,14 @@ public class MakeEster {
 
     public void setProducedEster(int producedEster) {
         this.producedEster = producedEster;
+    }
+
+    public Date getDtEster() {
+        return dtEster;
+    }
+
+    public void setDtEster(java.util.Date dtEster) {
+        this.dtEster = convertDateSql(dtEster);
     }
 
     public Tank getTank() {

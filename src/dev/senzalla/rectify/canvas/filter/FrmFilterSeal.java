@@ -2,6 +2,7 @@ package dev.senzalla.rectify.canvas.filter;
 
 import dev.senzalla.rectify.treatments.TreatementProvider;
 import dev.senzalla.rectify.treatments.TreatmentSeal;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -19,6 +20,7 @@ public class FrmFilterSeal extends javax.swing.JFrame {
      */
     public FrmFilterSeal() {
         initComponents();
+        TreatmentTheme.initTheme(pnlSeal);
         new TreatmentSeal().showSale(cbxSale);
         new TreatementProvider().showComboBox(cbxProvider);
         lblDtAte.setVisible(true);
@@ -27,6 +29,7 @@ public class FrmFilterSeal extends javax.swing.JFrame {
 
     public FrmFilterSeal(JTable tbl) {
         initComponents();
+        TreatmentTheme.initTheme(pnlSeal);
         new TreatmentSeal().showSale(cbxSale);
         new TreatementProvider().showComboBox(cbxProvider);
         this.tbl = tbl;

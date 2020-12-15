@@ -4,6 +4,7 @@ import dev.senzalla.rectify.treatments.TreatmentProduct;
 import dev.senzalla.rectify.treatments.TreatmentStockProduct;
 import dev.senzalla.rectify.treatments.TreatmentStockTank;
 import dev.senzalla.rectify.treatments.TreatmentTank;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -22,12 +23,14 @@ public class FrmFilterStock extends javax.swing.JFrame {
      */
     public FrmFilterStock() {
         initComponents();
+        TreatmentTheme.initTheme(pnlStock);
         new TreatmentTank().showComboBox(cbxTank);
         new TreatmentProduct().addComboBox(cbxProduct);
     }
 
     public FrmFilterStock(JTable tbl) {
         initComponents();
+        TreatmentTheme.initTheme(pnlStock);
         new TreatmentTank().showComboBox(cbxTank);
         new TreatmentProduct().addComboBox(cbxProduct);
         this.tbl = tbl;
@@ -35,6 +38,7 @@ public class FrmFilterStock extends javax.swing.JFrame {
 
     public FrmFilterStock(JTable tbl, boolean flagProduct) {
         initComponents();
+        TreatmentTheme.initTheme(pnlStock);
         new TreatmentTank().showComboBox(cbxTank);
         new TreatmentProduct().addComboBox(cbxProduct);
         this.tbl = tbl;

@@ -3,6 +3,8 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.canvas.panel.PnlStkTk;
 import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.request.RequestStockTank;
+import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.theme.TreatmentTheme;
 
 import java.awt.*;
 import java.util.List;
@@ -19,6 +21,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
      */
     public FrmStkTk() {
         initComponents();
+        TreatmentTheme.initTheme(pnlStk);
         lblEmpty.setVisible(false);
         showPanel();
 
@@ -58,6 +61,11 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(598, 460));
 
         roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
 
         pnlStk.setMaximumSize(new java.awt.Dimension(593, 435));
 
@@ -96,6 +104,10 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        TreatmentsItem.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

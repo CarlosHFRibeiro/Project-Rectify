@@ -4,6 +4,7 @@ import dev.senzalla.rectify.calc.CalcTrans;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentTxt;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -17,6 +18,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
      */
     public FrmCalcTrans() {
         initComponents();
+        TreatmentTheme.initTheme(pnlCalcTrans);
     }
 
     /**

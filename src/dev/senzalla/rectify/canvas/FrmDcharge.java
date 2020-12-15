@@ -4,6 +4,7 @@ import dev.senzalla.rectify.entitys.Driver;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestDriver;
 import dev.senzalla.rectify.treatments.*;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -19,6 +20,7 @@ public class FrmDcharge extends javax.swing.JInternalFrame {
      */
     public FrmDcharge() {
         initComponents();
+        TreatmentTheme.initTheme(pnlCharge);
         new TreatmentProduct().addComboBox(cbxProduct);
         new TreatementProvider().showComboBox(cbxProvider);
         new TreatmentTank().showComboBox(cbxTank);
@@ -81,6 +83,11 @@ public class FrmDcharge extends javax.swing.JInternalFrame {
         rollCharge.setMaximumSize(new java.awt.Dimension(596, 438));
         rollCharge.setMinimumSize(new java.awt.Dimension(596, 438));
         rollCharge.setPreferredSize(new java.awt.Dimension(596, 438));
+        rollCharge.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollChargeMouseWheelMoved(evt);
+            }
+        });
 
         pnlCharge.setMaximumSize(new java.awt.Dimension(750, 765));
         pnlCharge.setMinimumSize(new java.awt.Dimension(750, 765));
@@ -435,6 +442,10 @@ public class FrmDcharge extends javax.swing.JInternalFrame {
             txtBurden.setText(String.valueOf(litter));
         }
     }//GEN-LAST:event_txtLitterFocusLost
+
+    private void rollChargeMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollChargeMouseWheelMoved
+        TreatmentsItem.speedRoll(rollCharge);
+    }//GEN-LAST:event_rollChargeMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

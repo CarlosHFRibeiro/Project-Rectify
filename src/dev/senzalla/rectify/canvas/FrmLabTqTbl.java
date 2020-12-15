@@ -9,6 +9,7 @@ import dev.senzalla.rectify.canvas.filter.FrmFilterLab;
 import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentLabTank;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -22,6 +23,8 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
      */
     public FrmLabTqTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlLabTk);
+        TreatmentTheme.initTableTheme(tbl);
         new TreatmentLabTank().showTable(tbl);
     }
 
@@ -94,6 +97,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlLabTkLayout = new javax.swing.GroupLayout(pnlLabTk);

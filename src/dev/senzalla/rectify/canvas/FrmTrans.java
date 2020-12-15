@@ -3,6 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactTrans;
 import dev.senzalla.rectify.treatments.TreatmentTank;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class FrmTrans extends javax.swing.JInternalFrame {
      */
     public FrmTrans() {
         initComponents();
+        TreatmentTheme.initTheme(pnlTrans);
         initContainers();
     }
 
@@ -311,7 +313,7 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMatterTransAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatterTransAddActionPerformed
-        PnlMatter panel = new PnlMatter(txtTransAmount, ++count);
+        PnlMatter panel = new PnlMatter(txtTransAmount, count);
         pnlMatterTrans.setLayout(layoutMatter);
         if (countMatter <= 1) {
             pnlMatter = new ArrayList<>();
@@ -425,5 +427,9 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         defineButton(btnReactTransRmv, false);
 
         new TreatmentTank().showComboBox(cbxTransTank);
+    }
+
+    public void setCount(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

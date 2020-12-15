@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.theme.TreatmentTheme;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -10,6 +12,7 @@ public class PnlReactTrans extends javax.swing.JPanel {
     /** Creates new form PnlReactEster */
     public PnlReactTrans() {
         initComponents();
+        TreatmentTheme.initTheme(pnlReact);
         showComboBox();
     }
 
@@ -24,18 +27,19 @@ public class PnlReactTrans extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlReact = new javax.swing.JPanel();
         lblEsterReactDt = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         lblEsterReactHrStart = new javax.swing.JLabel();
         txtEsterReactHrStart = new javax.swing.JFormattedTextField();
-        lblEsterReactLabStart = new javax.swing.JLabel();
-        cbxEsterReactLabStart = new javax.swing.JComboBox<>();
-        lblTransReactMethylate = new javax.swing.JLabel();
         txtTransReactMethylate = new javax.swing.JFormattedTextField();
+        lblTransReactMethylate = new javax.swing.JLabel();
+        cbxEsterReactLabStart = new javax.swing.JComboBox<>();
+        lblEsterReactLabStart = new javax.swing.JLabel();
         lblTransReactPure = new javax.swing.JLabel();
         txtTransReactPure = new javax.swing.JFormattedTextField();
         lblTransReactHrFinal = new javax.swing.JLabel();
         txtTransReactHrFinal = new javax.swing.JFormattedTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(550, 133));
@@ -44,6 +48,8 @@ public class PnlReactTrans extends javax.swing.JPanel {
 
         lblEsterReactDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEsterReactDt.setText("Data");
+
+        jDateChooser1.setDateFormatString("dd/MM/yyyy");
 
         lblEsterReactHrStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblEsterReactHrStart.setText("Hora Inicial");
@@ -57,18 +63,18 @@ public class PnlReactTrans extends javax.swing.JPanel {
         txtEsterReactHrStart.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtEsterReactHrStart.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        lblEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblEsterReactLabStart.setText("Cod Analise");
-
-        cbxEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbxEsterReactLabStart.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtTransReactMethylate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtTransReactMethylate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtTransReactMethylate.setPreferredSize(new java.awt.Dimension(120, 27));
 
         lblTransReactMethylate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTransReactMethylate.setText("Metilato");
 
-        txtTransReactMethylate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtTransReactMethylate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTransReactMethylate.setPreferredSize(new java.awt.Dimension(120, 27));
+        cbxEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxEsterReactLabStart.setPreferredSize(new java.awt.Dimension(120, 27));
+
+        lblEsterReactLabStart.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblEsterReactLabStart.setText("Cod Analise");
 
         lblTransReactPure.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTransReactPure.setText("Metanol Puro");
@@ -84,66 +90,75 @@ public class PnlReactTrans extends javax.swing.JPanel {
         txtTransReactHrFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txtTransReactHrFinal.setPreferredSize(new java.awt.Dimension(120, 27));
 
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
+        pnlReact.setLayout(pnlReactLayout);
+        pnlReactLayout.setHorizontalGroup(
+            pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlReactLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEsterReactLabStart)
                     .addComponent(lblEsterReactDt)
                     .addComponent(lblTransReactPure))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlReactLayout.createSequentialGroup()
                         .addComponent(txtTransReactPure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(97, 97, 97)
                         .addComponent(lblTransReactHrFinal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTransReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlReactLayout.createSequentialGroup()
+                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbxEsterReactLabStart, 0, 130, Short.MAX_VALUE)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(96, 96, 96)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
                                 .addComponent(lblEsterReactHrStart)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
                                 .addComponent(lblTransReactMethylate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTransReactMethylate, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        pnlReactLayout.setVerticalGroup(
+            pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlReactLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEsterReactHrStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEsterReactHrStart)
                     .addComponent(lblEsterReactDt)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEsterReactLabStart)
                     .addComponent(cbxEsterReactLabStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTransReactMethylate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTransReactMethylate))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtTransReactHrFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTransReactHrFinal)
                         .addComponent(txtTransReactPure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblTransReactPure)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlReact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlReact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -157,6 +172,7 @@ public class PnlReactTrans extends javax.swing.JPanel {
     private javax.swing.JLabel lblTransReactHrFinal;
     private javax.swing.JLabel lblTransReactMethylate;
     private javax.swing.JLabel lblTransReactPure;
+    private javax.swing.JPanel pnlReact;
     private javax.swing.JFormattedTextField txtEsterReactHrStart;
     private javax.swing.JFormattedTextField txtTransReactHrFinal;
     private javax.swing.JFormattedTextField txtTransReactMethylate;

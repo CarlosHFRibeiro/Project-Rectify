@@ -222,13 +222,14 @@ CREATE TABLE IF NOT EXISTS tbl_seal
 DROP TABLE IF EXISTS `tbl_makeEster`;
 CREATE TABLE IF NOT EXISTS `tbl_makeEster`
 (
-    idEster       INT NOT NULL AUTO_INCREMENT,
-    reactEster    INT NOT NULL,
-    fkTankEster   INT NOT NULL,
-    amountEster   INT NOT NULL,
-    foreseenEster INT NOT NULL,
-    trashEster    INT NOT NULL,
-    producedEster INT NOT NULL,
+    idEster       INT  NOT NULL AUTO_INCREMENT,
+    reactEster    INT  NOT NULL,
+    fkTankEster   INT  NOT NULL,
+    amountEster   INT  NOT NULL,
+    foreseenEster INT  NOT NULL,
+    trashEster    INT  NOT NULL,
+    producedEster INT  NOT NULL,
+    dtEster       DATE NOT NULL,
     PRIMARY KEY (idEster),
     CONSTRAINT `FK_Tanque_Esterificacao` FOREIGN KEY (fkTankEster)
         REFERENCES tbl_tank (idTank)

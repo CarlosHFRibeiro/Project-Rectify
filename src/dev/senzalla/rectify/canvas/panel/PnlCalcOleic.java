@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.theme.TreatmentTheme;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -12,10 +14,12 @@ public class PnlCalcOleic extends javax.swing.JPanel {
      */
     public PnlCalcOleic() {
         initComponents();
+        TreatmentTheme.initTheme(pnlOleic);
     }
 
     public PnlCalcOleic(String soap) {
         initComponents();
+        TreatmentTheme.initTheme(pnlOleic);
         jComboBox1.setVisible(false);
         lblCalcValue.setText(soap);
     }
@@ -29,6 +33,7 @@ public class PnlCalcOleic extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlOleic = new javax.swing.JPanel();
         lblCalcTitle = new javax.swing.JLabel();
         lblCalcValue = new javax.swing.JLabel();
         lblCalcFixed = new javax.swing.JLabel();
@@ -36,9 +41,9 @@ public class PnlCalcOleic extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(520, 150));
-        setMinimumSize(new java.awt.Dimension(520, 150));
-        setPreferredSize(new java.awt.Dimension(520, 150));
+        setMaximumSize(new java.awt.Dimension(550, 150));
+        setMinimumSize(new java.awt.Dimension(550, 150));
+        setPreferredSize(new java.awt.Dimension(550, 150));
 
         lblCalcTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcTitle.setText("ACIDEZ ÁCIDO GRAXO E BIODEISEL ESTEREFICADO");
@@ -49,17 +54,17 @@ public class PnlCalcOleic extends javax.swing.JPanel {
         lblCalcFixed.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblCalcFixed.setText("% OLÉICO");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlOleicLayout = new javax.swing.GroupLayout(pnlOleic);
+        pnlOleic.setLayout(pnlOleicLayout);
+        pnlOleicLayout.setHorizontalGroup(
+            pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOleicLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlOleicLayout.createSequentialGroup()
                         .addComponent(lblCalcTitle)
-                        .addContainerGap(15, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(pnlOleicLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCalcValue)
                         .addGap(18, 18, 18)
@@ -68,22 +73,33 @@ public class PnlCalcOleic extends javax.swing.JPanel {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        pnlOleicLayout.setVerticalGroup(
+            pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOleicLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(lblCalcTitle)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlOleicLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCalcValue)
                             .addComponent(lblCalcFixed))
                         .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOleicLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlOleic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlOleic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,6 +108,7 @@ public class PnlCalcOleic extends javax.swing.JPanel {
     private javax.swing.JLabel lblCalcFixed;
     private javax.swing.JLabel lblCalcTitle;
     private javax.swing.JLabel lblCalcValue;
+    private javax.swing.JPanel pnlOleic;
     // End of variables declaration//GEN-END:variables
 
 }

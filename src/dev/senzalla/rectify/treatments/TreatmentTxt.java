@@ -30,7 +30,7 @@ public class TreatmentTxt {
 
     public boolean isTxtVoid(JPanel pnl) {
         setTxt(pnl);
-        return txtField.stream().noneMatch(txt -> (txt.equals("")));
+        return txtField.stream().noneMatch(txt -> txt.equals(""));
     }
 
     private void setTxt(JPanel pnl) {
@@ -42,4 +42,5 @@ public class TreatmentTxt {
             }
         }
     }
+
 }

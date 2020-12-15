@@ -69,7 +69,6 @@ public class RequestStockProduct extends Request<StockProduct> {
                     stmt.setDate(i, parameter.getDateBetween());
                 }
             }
-            System.out.println(stmt);
             resultSet();
             while (rs.next()) {
                 StockProduct stockProduct = new StockProduct();

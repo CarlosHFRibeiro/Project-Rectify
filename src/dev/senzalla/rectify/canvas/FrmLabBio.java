@@ -4,6 +4,7 @@ import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentLabBio;
 import dev.senzalla.rectify.treatments.TreatmentTxt;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -17,6 +18,7 @@ public class FrmLabBio extends javax.swing.JInternalFrame {
      */
     public FrmLabBio() {
         initComponents();
+        TreatmentTheme.initTheme(pnlLabBio);
     }
 
     /**

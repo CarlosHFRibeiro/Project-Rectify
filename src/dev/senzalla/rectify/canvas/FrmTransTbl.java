@@ -3,6 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.entitys.MakeTrans;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
+import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
      */
     public FrmTransTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlDcharge);
+        TreatmentTheme.initTableTheme(tbl);
     }
 
     public static void query(List<MakeTrans> makeTranses) {
@@ -104,6 +107,7 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMouseClicked(evt);

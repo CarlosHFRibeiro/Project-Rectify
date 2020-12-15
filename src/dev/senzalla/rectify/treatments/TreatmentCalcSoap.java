@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.calc.CalcSoap;
-import dev.senzalla.rectify.canvas.panel.PnlCalcOleic;
+import dev.senzalla.rectify.canvas.panel.PnlCalcSoap;
 import dev.senzalla.rectify.exception.EmptyField;
 
 import javax.swing.*;
@@ -25,7 +25,7 @@ public class TreatmentCalcSoap {
             }
             GridLayout layout = new GridLayout();
             pnlCalc.setLayout(layout);
-            pnlCalc.add(new PnlCalcOleic(soap)).setVisible(true);
+            pnlCalc.add(new PnlCalcSoap(soap)).setVisible(true);
             if (txtLabCarSoap != null) {
                 txtLabCarSoap.setText(soap);
             }

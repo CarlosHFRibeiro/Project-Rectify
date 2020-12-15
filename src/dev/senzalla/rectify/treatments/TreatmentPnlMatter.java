@@ -1,5 +1,10 @@
 package dev.senzalla.rectify.treatments;
 
+import dev.senzalla.rectify.entitys.MatterEster;
+import dev.senzalla.rectify.entitys.Product;
+import dev.senzalla.rectify.request.RequestMatterEster;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +14,10 @@ import java.util.List;
  * @github github.com/Bomsalvez
  */
 public class TreatmentPnlMatter {
-    private static final List<Integer> litters;
 
-    static {
+    private static List<Integer> litters;
+
+    public static void initEster() {
         litters = new ArrayList<>();
     }
 
@@ -28,6 +34,8 @@ public class TreatmentPnlMatter {
     }
 
     public void minusLitters(int count) {
-        TreatmentPnlMatter.litters.remove(count);
+        if (count < litters.size()) {
+            TreatmentPnlMatter.litters.remove(count);
+        }
     }
 }

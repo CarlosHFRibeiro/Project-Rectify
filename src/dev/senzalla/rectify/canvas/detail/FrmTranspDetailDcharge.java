@@ -5,6 +5,7 @@ import dev.senzalla.rectify.print.DchargeDetailPrint;
 import dev.senzalla.rectify.request.RequestDcharge;
 
 import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez
@@ -20,10 +21,12 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
      */
     public FrmTranspDetailDcharge() {
         initComponents();
+        TreatmentTheme.initTheme(pnlDetail);
     }
 
     public FrmTranspDetailDcharge(Object cod) {
         initComponents();
+        TreatmentTheme.initTheme(pnlDetail);
         Discharge d = new Discharge();
         d.setIdDcharge(Long.valueOf(cod.toString()));
         discharge = new RequestDcharge().select(d);
@@ -40,7 +43,7 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDetail = new javax.swing.JPanel();
+        pnlDetail = new javax.swing.JPanel();
         lblProvider = new javax.swing.JLabel();
         txtProvider = new javax.swing.JLabel();
         lblDtOf = new javax.swing.JLabel();
@@ -81,10 +84,11 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
         btnPrint = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
-        lblDetail.setMaximumSize(new java.awt.Dimension(400, 765));
-        lblDetail.setMinimumSize(new java.awt.Dimension(400, 765));
-        lblDetail.setPreferredSize(new java.awt.Dimension(400, 730));
+        pnlDetail.setMaximumSize(new java.awt.Dimension(400, 765));
+        pnlDetail.setMinimumSize(new java.awt.Dimension(400, 765));
+        pnlDetail.setPreferredSize(new java.awt.Dimension(400, 730));
 
         lblProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblProvider.setText("Fornecedor");
@@ -204,13 +208,13 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout lblDetailLayout = new javax.swing.GroupLayout(lblDetail);
-        lblDetail.setLayout(lblDetailLayout);
-        lblDetailLayout.setHorizontalGroup(
-            lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblDetailLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDetailLayout = new javax.swing.GroupLayout(pnlDetail);
+        pnlDetail.setLayout(pnlDetailLayout);
+        pnlDetailLayout.setHorizontalGroup(
+            pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDetailLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblDens)
                     .addComponent(lblAcid)
                     .addComponent(lblDtOf)
@@ -224,129 +228,129 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
                     .addComponent(lblBurden)
                     .addComponent(lblTank))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblDetailLayout.createSequentialGroup()
-                        .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDetailLayout.createSequentialGroup()
+                        .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtProvider)
                             .addComponent(txtDriver)
                             .addComponent(txtProduct)
-                            .addGroup(lblDetailLayout.createSequentialGroup()
-                                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(lblDetailLayout.createSequentialGroup()
+                            .addGroup(pnlDetailLayout.createSequentialGroup()
+                                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtDens)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblTrash))
-                                    .addGroup(lblDetailLayout.createSequentialGroup()
+                                    .addGroup(pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtAcid)
                                         .addGap(45, 45, 45)
                                         .addComponent(lblSoap)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtSoap)
                                     .addComponent(txtTrash)))
                             .addComponent(txtTank)
-                            .addGroup(lblDetailLayout.createSequentialGroup()
-                                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDetailLayout.createSequentialGroup()
+                            .addGroup(pnlDetailLayout.createSequentialGroup()
+                                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtBoard)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblCnh))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDetailLayout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtNote)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblTicket))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDetailLayout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtDtUp)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblHrUp))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDetailLayout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlDetailLayout.createSequentialGroup()
                                         .addComponent(txtDtOf)
                                         .addGap(52, 52, 52)
                                         .addComponent(lblHrOf)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHrUp)
                                     .addComponent(txtTicket)
                                     .addComponent(txtHrOf)
                                     .addComponent(txtCnh))))
                         .addContainerGap(56, Short.MAX_VALUE))
-                    .addGroup(lblDetailLayout.createSequentialGroup()
+                    .addGroup(pnlDetailLayout.createSequentialGroup()
                         .addComponent(txtBurden)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblLiters)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtLiters)
                         .addGap(122, 122, 122))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblDetailLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetailLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPrint)
                 .addContainerGap())
         );
-        lblDetailLayout.setVerticalGroup(
-            lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lblDetailLayout.createSequentialGroup()
+        pnlDetailLayout.setVerticalGroup(
+            pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDetailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnPrint)
                 .addGap(27, 27, 27)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProvider)
                     .addComponent(txtProvider))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDtOf)
                     .addComponent(txtDtOf)
                     .addComponent(lblHrOf)
                     .addComponent(txtHrOf))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNote)
                     .addComponent(txtNote)
                     .addComponent(txtTicket)
                     .addComponent(lblTicket))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblCnh)
                         .addComponent(txtCnh))
-                    .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblBoard)
                         .addComponent(txtBoard)))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDriver)
                     .addComponent(txtDriver))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDtUp)
                     .addComponent(txtDtUp)
                     .addComponent(lblHrUp)
                     .addComponent(txtHrUp))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProduct)
                     .addComponent(txtProduct))
                 .addGap(27, 27, 27)
                 .addComponent(lblAnalyse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAcid)
                     .addComponent(txtAcid)
                     .addComponent(lblSoap)
                     .addComponent(txtSoap))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDens)
                     .addComponent(txtDens)
                     .addComponent(lblTrash)
                     .addComponent(txtTrash))
                 .addGap(30, 30, 30)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBurden)
                     .addComponent(txtBurden)
                     .addComponent(lblLiters)
                     .addComponent(txtLiters))
                 .addGap(18, 18, 18)
-                .addGroup(lblDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTank)
                     .addComponent(txtTank))
                 .addGap(27, 27, 27))
@@ -358,12 +362,12 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(lblDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
+            .addComponent(pnlDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
         );
 
         pack();
@@ -418,7 +422,6 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
     private javax.swing.JLabel lblBurden;
     private javax.swing.JLabel lblCnh;
     private javax.swing.JLabel lblDens;
-    private javax.swing.JPanel lblDetail;
     private javax.swing.JLabel lblDriver;
     private javax.swing.JLabel lblDtOf;
     private javax.swing.JLabel lblDtUp;
@@ -432,6 +435,7 @@ public class FrmTranspDetailDcharge extends javax.swing.JFrame {
     private javax.swing.JLabel lblTank;
     private javax.swing.JLabel lblTicket;
     private javax.swing.JLabel lblTrash;
+    private javax.swing.JPanel pnlDetail;
     private javax.swing.JLabel txtAcid;
     private javax.swing.JLabel txtBoard;
     private javax.swing.JLabel txtBurden;

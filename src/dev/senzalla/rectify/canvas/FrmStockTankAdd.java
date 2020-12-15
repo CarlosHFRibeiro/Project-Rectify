@@ -2,6 +2,7 @@ package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.treatments.TreatmentProduct;
 import dev.senzalla.rectify.treatments.TreatmentStockTank;
+import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez Freitas
@@ -15,6 +16,8 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
      */
     public FrmStockTankAdd() {
         initComponents();
+        TreatmentTheme.initTheme(pnlStk);
+        TreatmentTheme.initTableTheme(tbl);
         new TreatmentProduct().addComboBox(cbxProduct);
         new TreatmentStockTank().tableTank(tbl);
     }
@@ -69,6 +72,7 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
         tbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tbl.getColumnModel().getColumnCount() > 0) {

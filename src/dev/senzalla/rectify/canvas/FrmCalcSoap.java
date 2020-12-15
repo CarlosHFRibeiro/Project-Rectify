@@ -3,6 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentCalcSoap;
 import dev.senzalla.rectify.treatments.TreatmentHcl;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -12,6 +13,7 @@ import javax.swing.*;
  * @github github.com/Bomsalvez
  */
 public class FrmCalcSoap extends javax.swing.JInternalFrame {
+
     private JTextField txtLabCarSoap;
 
     /**
@@ -19,11 +21,13 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
      */
     public FrmCalcSoap() {
         initComponents();
+        TreatmentTheme.initTheme(pnlCalcSoap);
         new TreatmentHcl().showComboBox(cbxConcentration);
     }
 
     public FrmCalcSoap(JTextField txtLabCarSoap) {
         initComponents();
+        TreatmentTheme.initTheme(pnlCalcSoap);
         new TreatmentHcl().showComboBox(cbxConcentration);
         this.txtLabCarSoap = txtLabCarSoap;
     }

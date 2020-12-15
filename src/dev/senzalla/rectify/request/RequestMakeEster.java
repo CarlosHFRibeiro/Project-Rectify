@@ -16,20 +16,20 @@ import java.util.List;
 public class RequestMakeEster extends Request<MakeEster> {
 
     private List<MakeEster> makeesters;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_makeester";
+    private String SELECT_QUERY = "SELECT * FROM db_retifica.view_makeester";
     private String where = "";
 
     @Override
     public void insert(MakeEster makeester) {
         connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_makeester` (`reactEster`, `fkTankEster`, `amountEster`, `foreseenEster`, `trashEster`, `producedEster`) VALUES (?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `db_retifica`.`tbl_makeester` (`fkTankEster`, `amountEster`, `foreseenEster`, `trashEster`, `producedEster`, `dtEster`) VALUES (?, ?, ?, ?, ?, ?);";
             prepareStatement(sql);
-            stmt.setInt(1, makeester.getReactEster());
-            stmt.setLong(2, makeester.getTank().getIdTank());
-            stmt.setInt(3, makeester.getAmountEster());
-            stmt.setInt(4, makeester.getForeseenEster());
-            stmt.setInt(5, makeester.getProducedEster());
+            stmt.setLong(1, makeester.getTank().getIdTank());
+            stmt.setInt(2, makeester.getAmountEster());
+            stmt.setInt(3, makeester.getForeseenEster());
+            stmt.setInt(4, makeester.getProducedEster());
+            stmt.setDate(5, makeester.getDtEster());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             new DataBaseException().processMsg(ex.getMessage());
@@ -44,12 +44,14 @@ public class RequestMakeEster extends Request<MakeEster> {
         return makeesters;
     }
 
-    public List<MakeEster> select(MakeEster makeester) {
-        String clause = SELECT_QUERY + " WHERE UPPER(nameMakeEster) LIKE UPPER(?);";
+    public MakeEster select(MakeEster makeester) {
+        String clause = SELECT_QUERY + " WHERE idEster = ?";
         selectAll(clause, makeester);
-        return makeesters;
+        makeester = makeesters.get(0);
+        makeester = new RequestMatterEster().select(makeester);
+        makeester = new RequestReactEster().select(makeester);
+         return makeester;
     }
-
 
     @Override
     public List<MakeEster> select(List<String> clause, MakeEster makeEster) {
@@ -73,15 +75,12 @@ public class RequestMakeEster extends Request<MakeEster> {
             resultSet();
             while (rs.next()) {
                 MakeEster makeester = new MakeEster();
-                makeester.setIdEster(rs.getLong("idMakeEster"));
-                makeester.setAmountEster(rs.getInt("amountTrans"));
-                makeester.setProducedEster(rs.getInt("producedTrans"));
-                makeester.setReactEster(rs.getInt("reactTrans"));
-                makeester.setTrashEster(rs.getInt("trashTrans"));
-
-                Tank tank = new Tank();
-                tank.setNameTank(rs.getString("nameTank"));
-                makeester.setTank(tank);
+                makeester.setIdEster(rs.getLong("idEster"));
+                makeester.setAmountEster(rs.getInt("amountEster"));
+                makeester.setProducedEster(rs.getInt("producedEster"));
+                makeester.setDtEster(rs.getDate("dtEster"));
+                makeester.setTrashEster(rs.getInt("trashEster"));
+                makeester.setTank(new Tank(rs.getString("nameTank")));
                 makeesters.add(makeester);
             }
         } catch (SQLException ex) {

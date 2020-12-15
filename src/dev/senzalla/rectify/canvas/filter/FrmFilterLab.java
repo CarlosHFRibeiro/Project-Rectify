@@ -2,6 +2,7 @@ package dev.senzalla.rectify.canvas.filter;
 
 import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.treatments.*;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -20,6 +21,7 @@ public class FrmFilterLab extends javax.swing.JFrame {
      */
     public FrmFilterLab() {
         initComponents();
+        TreatmentTheme.initTheme(pnlLab);
     }
 
     public FrmFilterLab(JTable tbl, Lab lab) {

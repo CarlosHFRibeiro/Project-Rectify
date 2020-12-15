@@ -1,5 +1,7 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.theme.TreatmentTheme;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -12,10 +14,12 @@ public class PnlStkTk extends javax.swing.JPanel {
      */
     public PnlStkTk() {
         initComponents();
+        TreatmentTheme.initTheme(pnlStk);
     }
 
     public PnlStkTk(String nameTank, String nameProduct, int litterTk) {
         initComponents();
+        TreatmentTheme.initTheme(pnlStk);
         lblLiterTk.setText(Integer.toString(litterTk));
         lblNameProduct.setText(nameProduct);
         lblNameTk.setText(nameTank);

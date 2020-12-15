@@ -7,6 +7,7 @@ import dev.senzalla.rectify.print.DchargePrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
 import dev.senzalla.rectify.treatments.TreatmentDcharge;
+import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
      */
     public FrmDchargeTbl() {
         initComponents();
+        TreatmentTheme.initTheme(pnlDcharge);
+        TreatmentTheme.initTableTheme(tbl);
         new TreatmentDcharge().showTable(tbl);
     }
 
@@ -109,6 +112,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
         tbl.setMaximumSize(new java.awt.Dimension(592, 363));
         tbl.setMinimumSize(new java.awt.Dimension(592, 363));
         tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setShowGrid(true);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMouseClicked(evt);

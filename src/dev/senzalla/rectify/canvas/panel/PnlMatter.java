@@ -1,8 +1,12 @@
 package dev.senzalla.rectify.canvas.panel;
 
+import dev.senzalla.rectify.entitys.MatterEster;
+import dev.senzalla.rectify.entitys.Product;
+import dev.senzalla.rectify.request.RequestMatterEster;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentPnlMatter;
 import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
 
@@ -12,20 +16,22 @@ import javax.swing.*;
  * @github github.com/Bomsalvez
  */
 public class PnlMatter extends javax.swing.JPanel {
+
     private JFormattedTextField txtTransAmount;
+    private int count;
+    private boolean send = false;
 
     /**
      * Creates new form PnlMatterEster
      */
     public PnlMatter() {
         initComponents();
+        TreatmentTheme.initTheme(pnlMatter);
     }
-
-    private int count;
-    private boolean send = false;
 
     public PnlMatter(JFormattedTextField txtTransAmount, int count) {
         initComponents();
+        TreatmentTheme.initTheme(pnlMatter);
         new TreatmentProduct().addComboBox(cbxMatterProduct);
         this.txtTransAmount = txtTransAmount;
         this.count = count;
@@ -40,6 +46,7 @@ public class PnlMatter extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlMatter = new javax.swing.JPanel();
         lblMatterProduct = new javax.swing.JLabel();
         cbxMatterProduct = new javax.swing.JComboBox<>();
         lblMatterLiter = new javax.swing.JLabel();
@@ -72,40 +79,50 @@ public class PnlMatter extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
+        javax.swing.GroupLayout pnlMatterLayout = new javax.swing.GroupLayout(pnlMatter);
+        pnlMatter.setLayout(pnlMatterLayout);
+        pnlMatterLayout.setHorizontalGroup(
+                pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMatterLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblMatterProduct)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46)
                                 .addComponent(lblMatterLiter)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlMatterLayout.setVerticalGroup(
+                pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlMatterLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMatterProduct)
+                                        .addComponent(lblMatterLiter)
+                                        .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 2, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cbxMatterProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblMatterProduct)
-                                        .addComponent(lblMatterLiter)
-                                        .addComponent(txtMatterLiter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 1, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void txtMatterLiterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatterLiterKeyTyped
-        NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtMatterLiterKeyTyped
-
     private void txtMatterLiterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatterLiterFocusLost
+        String txt = txtMatterLiter.getText().equals("") ? "0" : txtMatterLiter.getText();
+        txtMatterLiter.setText(txt);
         if (send) {
             new TreatmentPnlMatter().editLitters(Integer.parseInt(txtMatterLiter.getText()), count);
         } else {
@@ -115,11 +132,16 @@ public class PnlMatter extends javax.swing.JPanel {
         send = true;
     }//GEN-LAST:event_txtMatterLiterFocusLost
 
+    private void txtMatterLiterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatterLiterKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtMatterLiterKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Object> cbxMatterProduct;
     private javax.swing.JLabel lblMatterLiter;
     private javax.swing.JLabel lblMatterProduct;
+    private javax.swing.JPanel pnlMatter;
     private javax.swing.JFormattedTextField txtMatterLiter;
     // End of variables declaration//GEN-END:variables
 
@@ -128,5 +150,16 @@ public class PnlMatter extends javax.swing.JPanel {
             new TreatmentPnlMatter().minusLitters(count);
             txtTransAmount.setText(String.valueOf(TreatmentPnlMatter.getLitters()));
         }
+    }
+
+    public JPanel getPanel() {
+        return pnlMatter;
+    }
+
+    public void save() {
+        MatterEster matterEster = new MatterEster();
+        matterEster.setProduct((Product) cbxMatterProduct.getSelectedItem());
+        matterEster.setLiterMtEster(Integer.parseInt(txtMatterLiter.getText()));
+        new RequestMatterEster().insert(matterEster);
     }
 }
