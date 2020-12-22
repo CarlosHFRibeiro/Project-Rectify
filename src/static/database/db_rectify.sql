@@ -223,7 +223,6 @@ DROP TABLE IF EXISTS `tbl_makeEster`;
 CREATE TABLE IF NOT EXISTS `tbl_makeEster`
 (
     idEster       INT  NOT NULL AUTO_INCREMENT,
-    reactEster    INT  NOT NULL,
     fkTankEster   INT  NOT NULL,
     amountEster   INT  NOT NULL,
     foreseenEster INT  NOT NULL,
@@ -274,13 +273,13 @@ CREATE TABLE IF NOT EXISTS `tbl_reactEster`
 DROP TABLE IF EXISTS `tbl_makeTrans`;
 CREATE TABLE IF NOT EXISTS `tbl_makeTrans`
 (
-    idTrans       INT NOT NULL AUTO_INCREMENT,
-    reactTrans    INT NOT NULL,
-    fkTankTrans   INT NOT NULL,
-    amountTrans   INT NOT NULL,
-    foreseenTrans INT NOT NULL,
-    trashTrans    INT NOT NULL,
-    producedTrans INT NOT NULL,
+    idTrans       INT  NOT NULL AUTO_INCREMENT,
+    fkTankTrans   INT  NOT NULL,
+    amountTrans   INT  NOT NULL,
+    foreseenTrans INT  NOT NULL,
+    trashTrans    INT  NOT NULL,
+    producedTrans INT  NOT NULL,
+    dtTrans       DATE NOT NULL,
     PRIMARY KEY (idTrans),
     CONSTRAINT `FK_Tanque_Transesterificacao` FOREIGN KEY (fkTankTrans)
         REFERENCES tbl_tank (idTank)

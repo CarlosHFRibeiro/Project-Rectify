@@ -3,9 +3,9 @@ package dev.senzalla.rectify.canvas.detail;
 import dev.senzalla.rectify.entitys.Discharge;
 import dev.senzalla.rectify.print.DchargeDetailPrint;
 import dev.senzalla.rectify.request.RequestDcharge;
+import dev.senzalla.theme.TreatmentTheme;
 
 import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
-import dev.senzalla.theme.TreatmentTheme;
 
 /**
  * @author Bomsalvez

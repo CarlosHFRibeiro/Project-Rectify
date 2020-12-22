@@ -3,11 +3,9 @@ package dev.senzalla.rectify.request;
 import dev.senzalla.rectify.entitys.LabTank;
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.entitys.ReactEster;
-import dev.senzalla.rectify.entitys.ReactEster;
 import dev.senzalla.rectify.exception.DataBaseException;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

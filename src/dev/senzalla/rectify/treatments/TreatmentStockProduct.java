@@ -3,7 +3,7 @@ package dev.senzalla.rectify.treatments;
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.calc.CalcStockProduct;
 import dev.senzalla.rectify.canvas.FrmStkProduct;
-import dev.senzalla.rectify.canvas.FrmStkTank;
+import dev.senzalla.rectify.canvas.FrmStockTankAdd;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockProduct;
 import dev.senzalla.rectify.request.RequestProduct;
@@ -28,9 +28,10 @@ public class TreatmentStockProduct {
         if (new RequestStockProduct().select().isEmpty()) {
             if (!new RequestStockTank().select().isEmpty()) {
                 saveStockProduct(tbl);
+                showTable(tbl);
             } else {
                 PopUp.isEmpty();
-                Access.goToCanvas(frmStkProduct, new FrmStkTank());
+                Access.goToFrame(frmStkProduct, new FrmStockTankAdd());
             }
         } else {
             showTable(tbl);
@@ -40,7 +41,9 @@ public class TreatmentStockProduct {
     public void showTable(JTable tbl) {
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new RequestStockProduct().select().forEach(this::table);
+        List<StockProduct> stockProducts = new RequestStockProduct().select();
+        FrmStkProduct.query(stockProducts);
+        stockProducts.forEach(this::table);
     }
 
     public void showTable(JTable tbl, JComboBox<Object> cbxProduct, JDateChooser dtcDe, JDateChooser dtcAte) {

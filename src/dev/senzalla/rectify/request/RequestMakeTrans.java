@@ -1,7 +1,6 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.MakeTrans;
-import dev.senzalla.rectify.entitys.ReactTrans;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.DataBaseException;
 
@@ -16,87 +15,91 @@ import java.util.List;
  */
 public class RequestMakeTrans extends Request<MakeTrans> {
 
-    private List<MakeTrans> maketrans;
+    private List<MakeTrans> maketranss;
     private String SELECT_QUERY = "SELECT * FROM db_retifica.view_maketrans";
     private String where = "";
 
     @Override
-    public void insert(MakeTrans makeester) {
+    public void insert(MakeTrans makeTrans) {
         connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_makeester` (`reactTrans`, `fkTankTrans`, `amountTrans`, `foreseenTrans`, `trashTrans`, `producedTrans`) VALUES (?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `db_retifica`.`tbl_maketrans` (`fkTankTrans`, `amountTrans`, `trashTrans`, `producedTrans`, `dtTrans`) VALUES (?, ?, ?, ?, ?);";
             prepareStatement(sql);
-            stmt.setInt(1, makeester.getReactTrans());
-            stmt.setLong(2, makeester.getTank().getIdTank());
-            stmt.setInt(3, makeester.getAmountTrans());
-            stmt.setInt(4, makeester.getForeseenTrans());
-            stmt.setInt(5, makeester.getProducedTrans());
+            stmt.setLong(1, makeTrans.getTank().getIdTank());
+            stmt.setInt(2, makeTrans.getAmountTrans());
+            stmt.setInt(3, makeTrans.getTrashTrans());
+            stmt.setInt(4, makeTrans.getProducedTrans());
+            stmt.setDate(5, makeTrans.getDtTrans());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            new DataBaseException().processMsg("Make Trans: " + ex.getMessage());
         } finally {
             closeConnection();
         }
     }
 
+
+    public MakeTrans select(MakeTrans makeTrans) {
+        String clause = SELECT_QUERY + " WHERE idTrans = ?";
+        selectAll(clause, makeTrans);
+        makeTrans = maketranss.get(0);
+        makeTrans = new RequestMatterTrans().select(makeTrans);
+        makeTrans = new RequestReactTrans().select(makeTrans);
+        return makeTrans;
+    }
+
     @Override
     public List<MakeTrans> select() {
         selectAll(SELECT_QUERY, null);
-        return maketrans;
+        return maketranss;
     }
-
-    public List<MakeTrans> select(MakeTrans makeester) {
-        String clause = SELECT_QUERY + " WHERE UPPER(nameMakeTrans) LIKE UPPER(?);";
-        selectAll(clause, makeester);
-        return maketrans;
-    }
-
 
     @Override
     public List<MakeTrans> select(List<String> clause, MakeTrans makeTrans) {
         clause.forEach(s -> where += String.format(" %s ? AND", s));
-
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
         selectAll(SELECT_QUERY, null);
-        return maketrans;
+        return maketranss;
     }
 
     private void selectAll(String select, MakeTrans clause) {
         connection();
-        if (maketrans == null) {
-            maketrans = new ArrayList<>();
-        }
+        maketranss = new ArrayList<>();
         try {
             prepareStatement(select);
+            int i = 1;
             if (clause != null) {
-                stmt.setLong(1, clause.getIdTrans());
-                stmt.setDate(2, clause.getReactTranss().getDtRctTrans());
-                stmt.setDate(3, clause.getReactTranss().getDateBetween());
-                stmt.setString(4, clause.getMatterTrans().getProduct().getNameProduct());
+                if (clause.getIdTrans() != null) {
+                    stmt.setLong(i++, clause.getIdTrans());
+                }
+                if (clause.getDtTrans() != null) {
+                    stmt.setDate(i++, clause.getDtTrans());
+                }
+                if (clause.getDateBetween() != null) {
+                    stmt.setDate(i++, clause.getDateBetween());
+                }
+                if (clause.getTank() != null) {
+                    stmt.setString(i, clause.getTank().getNameTank());
+                }
             }
             resultSet();
             while (rs.next()) {
-                MakeTrans makeester = new MakeTrans();
-                makeester.setIdTrans(rs.getLong("idTrans"));
-                makeester.setReactTrans(rs.getInt("reactTrans"));
-                makeester.setProducedTrans(rs.getInt("producedTrans"));
-                makeester.setReactTrans(rs.getInt("reactTrans"));
-                makeester.setTrashTrans(rs.getInt("trashTrans"));
+                MakeTrans makeTrans = new MakeTrans();
+                makeTrans.setIdTrans(rs.getLong("idTrans"));
+                makeTrans.setAmountTrans(rs.getInt("amountTrans"));
+                makeTrans.setTrashTrans(rs.getInt("trashTrans"));
+                makeTrans.setProducedTrans(rs.getInt("producedTrans"));
+                makeTrans.setDtTrans(rs.getDate("dtTrans"));
+                makeTrans.setTank(new Tank(rs.getString("nameTank")));
 
-                Tank tank = new Tank();
-                tank.setNameTank(rs.getString("nameTank"));
-                makeester.setTank(tank);
-
-                ReactTrans reactTrans = new ReactTrans();
-                reactTrans.setDtRctTrans(rs.getDate("dtRctTrans"));
-                makeester.setReactTranss(reactTrans);
-
-                maketrans.add(makeester);
+                maketranss.add(makeTrans);
             }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            new DataBaseException().processMsg("Make Trans: " + ex.getMessage());
         } finally {
             closeConnectionRs();
         }
     }
+
+
 }

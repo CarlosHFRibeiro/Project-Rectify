@@ -10,21 +10,27 @@ CREATE TRIGGER tr_matterester
     BEFORE INSERT
     ON tbl_matterester
     FOR EACH ROW
-    set new.fkMtEster = (select max(idEster)
-                         from tbl_makeester);
+    SET new.fkMtEster = (SELECT MAX(idEster)
+                         FROM tbl_makeester);
 
 CREATE TRIGGER tr_reacester
     BEFORE INSERT
     ON tbl_reactester
     FOR EACH ROW
-    set new.fkRctEster = (select max(idEster)
-                          from tbl_makeester);
-#
-#
-# create trigger tr_mattertrans
-#     before insert on tbl_mattertrans for each row
-#     set new.fkMtTrans =  (select max(idTrans)from tbl_maketrans);
-#
-# create trigger tr_reacttrans
-#     before insert on tbl_reacttrans for each row
-#     set new.fkRctTrans =  (select max(idTrans)from tbl_maketrans);
+    SET new.fkRctEster = (SELECT MAX(idEster)
+                          FROM tbl_makeester);
+
+
+CREATE TRIGGER tr_mattertrans
+    BEFORE INSERT
+    ON tbl_mattertrans
+    FOR EACH ROW
+    set new.fkMtTrans = (SELECT MAX(idTrans)
+                         FROM tbl_maketrans);
+
+CREATE TRIGGER tr_reacttrans
+    BEFORE INSERT
+    ON tbl_reacttrans
+    FOR EACH ROW
+    SET new.fkRctTrans = (SELECT MAX(idTrans)
+                          FROM tbl_maketrans);

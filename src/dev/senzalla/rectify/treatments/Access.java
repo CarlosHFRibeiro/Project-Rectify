@@ -20,12 +20,12 @@ public class Access {
         Access.dktMain = dktMain;
     }
 
-    public static void goToCanvas(JInternalFrame oldFrm, JInternalFrame newFrm) {
+    public static void goToFrame(JInternalFrame oldFrm, JInternalFrame newFrm) {
         oldFrm.dispose();
-        goToCanvas(newFrm);
+        goToFrame(newFrm);
     }
 
-    public static void goToCanvas(JInternalFrame newFrm) {
+    public static void goToFrame(JInternalFrame newFrm) {
         dktMain.add(newFrm).setVisible(true);
     }
 

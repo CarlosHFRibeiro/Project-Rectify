@@ -1,13 +1,13 @@
 package dev.senzalla.rectify.print;
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import dev.senzalla.rectify.entitys.Charge;
 import dev.senzalla.rectify.enuns.FontEnum;
 
 import java.awt.*;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
@@ -20,14 +20,8 @@ import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
 public class ChargeDetailPrint extends ModelPrint {
     public void print(Charge charge) {
         try {
-            final File DIR = new File(System.getProperty("user.home") + "/Carregamento");
-            final String archive = String.format("%s\\Detalhado_%d.pdf", DIR, charge.getIdCharge());
-            DIR.mkdir();
-            Document document = new Document();
-            document.setMargins(-35, -40, 30, 5);
-            document.setPageSize(PageSize.A4);
-            PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(archive));
-            document.open();
+            final String archive = String.format("%s\\Carregamento Detalhado_%d.pdf", DIR, charge.getIdCharge());
+            setPdfPTable(archive);
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Carregameto Detalhado");
@@ -90,7 +84,7 @@ public class ChargeDetailPrint extends ModelPrint {
             document.add(pdfPTable);
 
 
-            setLogo(pdfWriter);
+            setLogo();
             document.close();
             Desktop.getDesktop().open(new File(archive));
         } catch (DocumentException | IOException e) {

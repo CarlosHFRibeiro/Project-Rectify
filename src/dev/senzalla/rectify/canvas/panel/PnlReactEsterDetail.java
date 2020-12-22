@@ -1,19 +1,8 @@
 package dev.senzalla.rectify.canvas.panel;
 
-import dev.senzalla.rectify.canvas.FrmEster;
-import dev.senzalla.rectify.entitys.LabTank;
 import dev.senzalla.rectify.entitys.ReactEster;
-import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.request.RequestReactEster;
-import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentDate;
-import dev.senzalla.rectify.treatments.TreatmentLabTank;
 import dev.senzalla.theme.TreatmentTheme;
-
-import java.sql.Time;
-import java.util.Date;
-
-import javax.swing.*;
 
 /**
  * @author Bomsalvez Freitas

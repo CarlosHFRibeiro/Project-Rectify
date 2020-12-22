@@ -9,10 +9,9 @@ import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentLabTank;
 import dev.senzalla.theme.TreatmentTheme;
 
+import javax.swing.*;
 import java.sql.Time;
 import java.util.Date;
-
-import javax.swing.*;
 
 /**
  * @author Bomsalvez Freitas
@@ -35,6 +34,7 @@ public class PnlReactEster extends javax.swing.JPanel {
         new TreatmentLabTank().showComboBox(cbxEsterReactLabFinal);
         this.ester = ester;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

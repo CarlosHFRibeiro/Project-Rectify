@@ -53,10 +53,6 @@ public class ReactTrans extends TreatmentDate {
         this.dtRctTrans = convertDateSql(dtRctTrans);
     }
 
-    public void setDtRctTrans(Date dtRctTrans) {
-        this.dtRctTrans = convertDateSql(dtRctTrans);
-    }
-
     public Time getHrStartRctTrans() {
         return hrStartRctTrans;
     }

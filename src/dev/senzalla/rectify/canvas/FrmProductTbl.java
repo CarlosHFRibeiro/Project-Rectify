@@ -128,7 +128,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this, new FrmProduct());
+        Access.goToFrame(this, new FrmProduct());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

@@ -2,7 +2,6 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.entitys.LabTank;
-import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestLabTank;
 

@@ -21,7 +21,7 @@ public class RequestMatterEster extends Request<MatterEster> {
     public void insert(MatterEster matterester) {
         connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_matterester` (`literMtEster`, `fkProductMtEster`, `fkMtEster`) VALUES (?, ?, ?);";
+            final String sql = "INSERT INTO `db_retifica`.`tbl_matterester` (`literMtEster`, `fkProductMtEster`) VALUES (?, ?);";
             prepareStatement(sql);
             stmt.setInt(1, matterester.getLiterMtEster());
             stmt.setLong(2, matterester.getProduct().getIdProduct());

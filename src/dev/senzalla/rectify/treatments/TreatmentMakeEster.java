@@ -1,7 +1,5 @@
 package dev.senzalla.rectify.treatments;
 
-import dev.senzalla.rectify.entitys.LabCar;
-
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -100,7 +98,7 @@ public class TreatmentMakeEster {
 //        dcharge.setLiterDcharge(Integer.parseInt(txtLitter.getText()));
 //        dcharge.setTank((Tank) cbxTank.getSelectedItem());
 //        new RequestDcharge().insert(dcharge);
-//        Access.goToCanvas(frm,new FrmEster());
+//        Access.goToFrame(frm,new FrmEster());
 //
 //    }
 }

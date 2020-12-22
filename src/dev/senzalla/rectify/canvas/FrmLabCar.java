@@ -269,7 +269,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAcidKeyTyped
 
     private void btnAcidActionPerformed(java.awt.event.ActionEvent evt) {
-        Access.goToCanvas(new FrmCalcAcid(txtAcid));
+        Access.goToFrame(new FrmCalcAcid(txtAcid));
     }
 
     private void txtSoapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSoapKeyTyped
@@ -277,7 +277,7 @@ public class FrmLabCar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSoapKeyTyped
 
     private void btnSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoapActionPerformed
-        Access.goToCanvas(new FrmCalcSoap(txtSoap));
+        Access.goToFrame(new FrmCalcSoap(txtSoap));
     }//GEN-LAST:event_btnSoapActionPerformed
 
     private void txtDensKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDensKeyTyped

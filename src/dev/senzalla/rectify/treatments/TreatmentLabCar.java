@@ -8,7 +8,6 @@ import dev.senzalla.rectify.enuns.Collect;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestLabCar;
 import dev.senzalla.rectify.request.RequestLabCarSplit;
-import dev.senzalla.rectify.request.RequestLabSplit;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

@@ -3,11 +3,7 @@ package dev.senzalla.rectify.canvas;
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactEster;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentEster;
-import dev.senzalla.rectify.treatments.TreatmentPnlMatter;
-import dev.senzalla.rectify.treatments.TreatmentTank;
-import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -328,12 +324,11 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnReactEsterRmvActionPerformed
 
     private void btnEsterSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterSaveActionPerformed
-        new TreatmentEster().save(pnlEster, pnlMatter, pnlReact, cbxTank, txtEsterAmount, txtEsterProduced, txtEsterTrash);
+        new TreatmentEster().save(pnlEster, pnlMatter, pnlReact, cbxTank, txtEsterAmount, txtEsterProduced, txtEsterTrash, this);
     }//GEN-LAST:event_btnEsterSaveActionPerformed
 
     private void btnEsterClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterClearActionPerformed
-        Access.goToCanvas(this, new FrmEster());
-        TreatmentPnlMatter.initEster();
+        Access.goToFrame(this, new FrmEster());
     }//GEN-LAST:event_btnEsterClearActionPerformed
 
     private void btnEsterCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterCancelActionPerformed

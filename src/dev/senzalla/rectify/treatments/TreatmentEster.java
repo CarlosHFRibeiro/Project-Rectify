@@ -5,6 +5,9 @@
  */
 package dev.senzalla.rectify.treatments;
 
+import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.canvas.FrmEster;
+import dev.senzalla.rectify.canvas.FrmEsterTbl;
 import dev.senzalla.rectify.canvas.panel.PnlMatter;
 import dev.senzalla.rectify.canvas.panel.PnlReactEster;
 import dev.senzalla.rectify.entitys.MakeEster;
@@ -12,9 +15,10 @@ import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestMakeEster;
 
-import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Bomsalvez Freitas
@@ -25,11 +29,11 @@ public class TreatmentEster {
 
     private DefaultTableModel model;
 
-    public void save(JPanel pnlEster, List<PnlMatter> pnlMatter, List<PnlReactEster> pnlReact, JComboBox<Object> cbxTank, JFormattedTextField txtEsterAmount, JFormattedTextField txtEsterProduced, JFormattedTextField txtEsterTrash) {
+    public void save(JPanel pnlEster, List<PnlMatter> pnlMatter, List<PnlReactEster> pnlReact, JComboBox<Object> cbxTank, JFormattedTextField txtEsterAmount, JFormattedTextField txtEsterProduced, JFormattedTextField txtEsterTrash, FrmEster frmEster) {
         boolean matter = checkMatter(pnlMatter);
         boolean react = checkReact(pnlReact);
         if (matter && react && new TreatmentTxt().isTxtVoid(pnlEster)) {
-            MakeEster makeEster=new MakeEster();
+            MakeEster makeEster = new MakeEster();
             makeEster.setAmountEster(Integer.parseInt(txtEsterAmount.getText()));
             makeEster.setTank((Tank) cbxTank.getSelectedItem());
             makeEster.setProducedEster(Integer.parseInt(txtEsterProduced.getText()));
@@ -38,35 +42,80 @@ public class TreatmentEster {
             new RequestMakeEster().insert(makeEster);
             saveMatter(pnlMatter);
             saveReact(pnlReact);
+            Access.goToFrame(frmEster, new FrmEster());
         } else {
             new EmptyField().showMsg();
         }
     }
 
     private void saveReact(List<PnlReactEster> pnlReact) {
-        for (PnlReactEster react:pnlReact){
+        for (PnlReactEster react : pnlReact) {
             react.save();
         }
     }
 
     private void saveMatter(List<PnlMatter> pnlMatter) {
-        for (PnlMatter matter:pnlMatter) {
-            matter.save();
+        for (PnlMatter matter : pnlMatter) {
+            matter.saveEster();
         }
     }
 
     private boolean checkMatter(List<PnlMatter> pnlMatter) {
-        return pnlMatter.stream().noneMatch(matter -> new TreatmentTxt().isTxtVoid(matter.getPanel()) || new TreatmentCbx().isCbxVoid(matter.getPanel()));
+        return pnlMatter.stream().anyMatch(matter ->
+                new TreatmentTxt().isTxtVoid(
+                        matter.getPanel())
+                        || new TreatmentCbx().isCbxVoid(matter.getPanel()
+                ));
     }
 
     private boolean checkReact(List<PnlReactEster> pnlReact) {
-        return pnlReact.stream().noneMatch(pnl -> new TreatmentTxt().isTxtVoid(pnl.getPanel()) || new TreatmentCbx().isCbxVoid(pnl.getPanel()) || new TreatmentDtc().isDtcVoid(pnl.getPanel()));
+        return pnlReact.stream().anyMatch(pnl -> new TreatmentTxt().isTxtVoid(pnl.getPanel()) || new TreatmentCbx().isCbxVoid(pnl.getPanel()) || new TreatmentDtc().isDtcVoid(pnl.getPanel()));
     }
 
     public void initTable(JTable tbl) {
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new RequestMakeEster().select().forEach(this::table);
+        List<MakeEster> makeEsters = new RequestMakeEster().select();
+        FrmEsterTbl.query(makeEsters);
+        makeEsters.forEach(this::table);
+    }
+
+    public void initTable(JTable tbl, JSpinner spnCod, JDateChooser dtcDtOf, JDateChooser dtcDtUp, JComboBox<Object> cbxTank) {
+        List<String> clause = new ArrayList<>();
+        MakeEster makeEster = new MakeEster();
+        if (!spnCod.getValue().equals(0)) {
+            clause.add("idEster =");
+            makeEster.setIdEster(Long.valueOf(spnCod.getValue().toString()));
+        }
+        if (dtcDtOf.getDate() != null && dtcDtUp.getDate() != null) {
+            clause.add("dtEster between");
+            makeEster.setDtEster(dtcDtOf.getDate());
+            clause.add("");
+            makeEster.setDateBetween(dtcDtUp.getDate());
+
+        } else {
+            if (dtcDtOf.getDate() != null) {
+                clause.add("dtEster =");
+                makeEster.setDtEster(dtcDtOf.getDate());
+            }
+            if (dtcDtUp.getDate() != null) {
+                clause.add("dtEster =");
+                makeEster.setDtEster(dtcDtUp.getDate());
+            }
+        }
+        if (cbxTank.getSelectedIndex() > 0) {
+            clause.add("nameTank =");
+            makeEster.setTank((Tank) cbxTank.getSelectedItem());
+        }
+        List<MakeEster> makeEsters = new RequestMakeEster().select(clause, makeEster);
+        if (!makeEsters.isEmpty()) {
+            model = (DefaultTableModel) tbl.getModel();
+            model.setNumRows(0);
+            FrmEsterTbl.query(makeEsters);
+            makeEsters.forEach(this::table);
+        } else {
+            PopUp.isEmpty("Carregamento");
+        }
     }
 
     private void table(MakeEster makeEster) {
@@ -78,4 +127,6 @@ public class TreatmentEster {
                 makeEster.getTrashEster()
         });
     }
+
+
 }

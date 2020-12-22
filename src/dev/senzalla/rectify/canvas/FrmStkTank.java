@@ -16,12 +16,10 @@ import java.util.List;
  */
 public class FrmStkTank extends javax.swing.JInternalFrame {
 
-    private static List<String> clause;
-    private static StockTank stockTank;
+    private static List<StockTank> stockTank;
 
-    public static void queryFilter(List<String> clause, StockTank stockTank) {
-        FrmStkTank.clause = clause;
-        FrmStkTank.stockTank = stockTank;
+    public static void queryFilter(List<StockTank> stockTanks) {
+        FrmStkTank.stockTank = stockTanks;
     }
 
     /**
@@ -167,7 +165,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        new StockTankPrint().print(clause,stockTank);
+        new StockTankPrint().print(stockTank);
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
@@ -175,7 +173,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this, new FrmStockTankAdd());
+        Access.goToFrame(this, new FrmStockTankAdd());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

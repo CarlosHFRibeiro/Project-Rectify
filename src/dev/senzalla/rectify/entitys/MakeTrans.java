@@ -1,20 +1,25 @@
 package dev.senzalla.rectify.entitys;
 
+import dev.senzalla.rectify.treatments.TreatmentDate;
+
+import java.sql.Date;
+import java.util.Set;
+
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class MakeTrans {
+public class MakeTrans extends TreatmentDate {
     private Long idTrans;
-    private int reactTrans;
     private int amountTrans;
     private int foreseenTrans;
     private int trashTrans;
     private int producedTrans;
+    private Date dtTrans;
     private Tank tank;
-    private MatterTrans matterTrans;
-    private ReactTrans reactTranss;
+    private Set<MatterTrans> matterTrans;
+    private Set<ReactTrans> reactTranss;
 
     public Long getIdTrans() {
         return idTrans;
@@ -22,14 +27,6 @@ public class MakeTrans {
 
     public void setIdTrans(Long idTrans) {
         this.idTrans = idTrans;
-    }
-
-    public int getReactTrans() {
-        return reactTrans;
-    }
-
-    public void setReactTrans(int reactTrans) {
-        this.reactTrans = reactTrans;
     }
 
     public int getAmountTrans() {
@@ -64,28 +61,35 @@ public class MakeTrans {
         this.producedTrans = producedTrans;
     }
 
+    public Date getDtTrans() {
+        return dtTrans;
+    }
+
+    public void setDtTrans(java.util.Date dtTrans) {
+        this.dtTrans = convertDateSql(dtTrans);
+    }
+
     public Tank getTank() {
         return tank;
     }
 
-    public MatterTrans getMatterTrans() {
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+    public Set<MatterTrans> getMatterTrans() {
         return matterTrans;
     }
 
-    public void setMatterTrans(MatterTrans matterTrans) {
+    public void setMatterTrans(Set<MatterTrans> matterTrans) {
         this.matterTrans = matterTrans;
     }
 
-    public ReactTrans getReactTranss() {
+    public Set<ReactTrans> getReactTranss() {
         return reactTranss;
     }
 
-    public void setReactTranss(ReactTrans reactTranss) {
+    public void setReactTranss(Set<ReactTrans> reactTranss) {
         this.reactTranss = reactTranss;
-    }
-
-    public void setTank(Tank tank) {
-        this.tank = tank;
-
     }
 }

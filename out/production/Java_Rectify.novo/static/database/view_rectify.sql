@@ -118,13 +118,46 @@ SELECT tr.dtRctEster
      , tr.hrFinalRctEster
      , tr.hrStartRctEster
      , tr.fkRctEster
-     , ts.acidTq as acidInitial
-     , ts.soapTq as soapInitial
+     , ts.acidTq  as acidInitial
+     , ts.soapTq  as soapInitial
      , ts.trashTq as trashInitial
-     , tf.acidTq as acidFinal
-     , tf.soapTq as soapFinal
+     , tf.acidTq  as acidFinal
+     , tf.soapTq  as soapFinal
      , tf.trashTq as trashFinal
 FROM tbl_reactester tr
          join tbl_labtank ts on ts.idTq = tr.fkLabStartRctEster
-         join tbl_labtank tf on tf.idTq = tr.fkLabFinalRctEster
+         join tbl_labtank tf on tf.idTq = tr.fkLabFinalRctEster;
 
+CREATE OR REPLACE VIEW view_maketrans AS
+select me.idTrans,
+       me.amountTrans,
+       me.producedTrans,
+       me.trashTrans,
+       me.dtTrans,
+       tt.nameTank
+from (db_retifica.tbl_maketrans me
+         join db_retifica.tbl_tank tt on (tt.idTank = me.fkTankTrans));
+
+# CREATE OR REPLACE VIEW view_matterester AS
+# SELECT tm.idMtEster, tm.literMtEster, tm.fkMtEster, tp.nameProduct
+# FROM tbl_matterester tm
+#          JOIN tbl_product tp on tp.idProduct = tm.fkProductMtEster;
+#
+#
+# CREATE OR REPLACE VIEW view_reactester AS
+# SELECT tr.dtRctEster
+#      , tr.pureRctEster
+#      , tr.recoverRctEster
+#      , tr.sulfuricRctEster
+#      , tr.hrFinalRctEster
+#      , tr.hrStartRctEster
+#      , tr.fkRctEster
+#      , ts.acidTq as acidInitial
+#      , ts.soapTq as soapInitial
+#      , ts.trashTq as trashInitial
+#      , tf.acidTq as acidFinal
+#      , tf.soapTq as soapFinal
+#      , tf.trashTq as trashFinal
+# FROM tbl_reactester tr
+#          join tbl_labtank ts on ts.idTq = tr.fkLabStartRctEster
+#          join tbl_labtank tf on tf.idTq = tr.fkLabFinalRctEster;

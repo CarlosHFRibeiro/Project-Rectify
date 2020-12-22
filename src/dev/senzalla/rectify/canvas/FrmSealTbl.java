@@ -170,7 +170,7 @@ public class FrmSealTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this, new FrmSeal());
+        Access.goToFrame(this, new FrmSeal());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

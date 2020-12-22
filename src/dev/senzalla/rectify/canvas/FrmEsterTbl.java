@@ -1,7 +1,9 @@
 package dev.senzalla.rectify.canvas;
 
 import dev.senzalla.rectify.canvas.detail.FrmMakeEsterDetail;
+import dev.senzalla.rectify.canvas.filter.FrmFilterMake;
 import dev.senzalla.rectify.entitys.MakeEster;
+import dev.senzalla.rectify.print.MakeEsterPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
 import dev.senzalla.rectify.treatments.TreatmentEster;
@@ -59,7 +61,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(598, 460));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTitle.setText("Descarregamento");
+        lblTitle.setText("Esterificação");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
@@ -118,7 +120,11 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         });
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
+            tbl.getColumnModel().getColumn(0).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(5).setResizable(false);
             tbl.getColumnModel().getColumn(5).setPreferredWidth(5);
             tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
@@ -130,16 +136,14 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDchargeLayout.createSequentialGroup()
                 .addContainerGap(200, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(67, 67, 67)
+                .addGap(112, 112, 112)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         pnlDchargeLayout.setVerticalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,15 +179,15 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-       
+       new MakeEsterPrint().print(makeEsters);
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        
+         Access.goToFilter(new FrmFilterMake(tbl, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this,new FrmEster());
+        Access.goToFrame(this,new FrmEster());
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked

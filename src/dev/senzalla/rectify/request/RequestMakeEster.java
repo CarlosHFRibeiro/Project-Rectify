@@ -28,8 +28,9 @@ public class RequestMakeEster extends Request<MakeEster> {
             stmt.setLong(1, makeester.getTank().getIdTank());
             stmt.setInt(2, makeester.getAmountEster());
             stmt.setInt(3, makeester.getForeseenEster());
-            stmt.setInt(4, makeester.getProducedEster());
-            stmt.setDate(5, makeester.getDtEster());
+            stmt.setInt(4, makeester.getTrashEster());
+            stmt.setInt(5, makeester.getProducedEster());
+            stmt.setDate(6, makeester.getDtEster());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             new DataBaseException().processMsg(ex.getMessage());
@@ -50,7 +51,7 @@ public class RequestMakeEster extends Request<MakeEster> {
         makeester = makeesters.get(0);
         makeester = new RequestMatterEster().select(makeester);
         makeester = new RequestReactEster().select(makeester);
-         return makeester;
+        return makeester;
     }
 
     @Override
@@ -58,19 +59,29 @@ public class RequestMakeEster extends Request<MakeEster> {
         clause.forEach(s -> where += String.format(" %s ? AND", s));
 
         SELECT_QUERY += " WHERE " + where.substring(0, where.length() - 3);
-        selectAll(SELECT_QUERY, null);
+        selectAll(SELECT_QUERY, makeEster);
         return makeesters;
     }
 
     private void selectAll(String select, MakeEster clause) {
         connection();
-        if (makeesters == null) {
-            makeesters = new ArrayList<>();
-        }
+        makeesters = new ArrayList<>();
         try {
             prepareStatement(select);
+            int i = 1;
             if (clause != null) {
-                stmt.setLong(1, clause.getIdEster());
+                if (clause.getIdEster() != null) {
+                    stmt.setLong(i++, clause.getIdEster());
+                }
+                if (clause.getDtEster() != null) {
+                    stmt.setDate(i++, clause.getDtEster());
+                }
+                if (clause.getDateBetween() != null) {
+                    stmt.setDate(i++, clause.getDateBetween());
+                }
+                if (clause.getTank() != null) {
+                    stmt.setString(i, clause.getTank().getNameTank());
+                }
             }
             resultSet();
             while (rs.next()) {

@@ -1,8 +1,10 @@
 package dev.senzalla.rectify.canvas.panel;
 
 import dev.senzalla.rectify.entitys.MatterEster;
+import dev.senzalla.rectify.entitys.MatterTrans;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.request.RequestMatterEster;
+import dev.senzalla.rectify.request.RequestMatterTrans;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentPnlMatter;
 import dev.senzalla.rectify.treatments.TreatmentProduct;
@@ -156,10 +158,17 @@ public class PnlMatter extends javax.swing.JPanel {
         return pnlMatter;
     }
 
-    public void save() {
+    public void saveEster() {
         MatterEster matterEster = new MatterEster();
         matterEster.setProduct((Product) cbxMatterProduct.getSelectedItem());
         matterEster.setLiterMtEster(Integer.parseInt(txtMatterLiter.getText()));
         new RequestMatterEster().insert(matterEster);
+    }
+
+    public void saveTrans() {
+        MatterTrans matterTrans = new MatterTrans();
+        matterTrans.setProduct((Product) cbxMatterProduct.getSelectedItem());
+        matterTrans.setLiterMtTrans(Integer.parseInt(txtMatterLiter.getText()));
+        new RequestMatterTrans().insert(matterTrans);
     }
 }

@@ -9,7 +9,7 @@ public class CalcAcid {
     double acid;
 
     public CalcAcid(double cbxAcid, double txtBulk, double txtMass) {
-        acid = ((txtBulk) * 28.2 * cbxAcid) / txtMass;
+        acid = (txtBulk * 28.2 * cbxAcid) / txtMass;
     }
 
     public String getAcid() {

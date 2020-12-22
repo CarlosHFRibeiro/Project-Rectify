@@ -1,16 +1,12 @@
 package dev.senzalla.rectify.print;
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.enuns.FontEnum;
-import dev.senzalla.rectify.request.RequestStockTank;
 import dev.senzalla.rectify.treatments.TreatmentDate;
-import dev.senzalla.rectify.treatments.TreatmentStockTank;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,22 +17,11 @@ import java.util.List;
  */
 public class StockTankPrint extends ModelPrint {
 
-    public void print(List<String> clause, StockTank stockTank) {
+    public void print(List<StockTank> stockTanks) {
         try {
-            List<StockTank> stockTanks;
-            if (stockTank != null) {
-                stockTanks = new TreatmentStockTank().selectQuery(clause, stockTank);
-            } else {
-                stockTanks = new RequestStockTank().select();
-            }
 
-            final File DIR = new File(System.getProperty("user.home") + "/Relatorio Estoque Tanque");
-            DIR.mkdir();
-            Document document = new Document();
-            document.setMargins(-35, -40, 30, 5);
-            document.setPageSize(PageSize.A4);
-            PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(String.format("%s\\StockTank.pdf", DIR)));
-            document.open();
+            final String archive = String.format("%s\\StockTank.pdf", DIR);
+            setPdfPTable(archive);
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Estoque do Tanque");
@@ -61,9 +46,9 @@ public class StockTankPrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo(pdfWriter);
+            setLogo();
             document.close();
-        } catch (DocumentException | IOException e) {
+        } catch (DocumentException e) {
             e.printStackTrace();
         }
     }

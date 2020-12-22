@@ -229,7 +229,7 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAcidKeyTyped
 
     private void btnAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcidActionPerformed
-        Access.goToCanvas(new FrmCalcAcid(txtAcid));
+        Access.goToFrame(new FrmCalcAcid(txtAcid));
     }//GEN-LAST:event_btnAcidActionPerformed
 
     private void txtSoapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSoapKeyTyped
@@ -237,7 +237,7 @@ public class FrmLabTq extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSoapKeyTyped
 
     private void btnSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoapActionPerformed
-        Access.goToCanvas(new FrmCalcSoap(txtSoap));
+        Access.goToFrame(new FrmCalcSoap(txtSoap));
     }//GEN-LAST:event_btnSoapActionPerformed
 
     private void txtTrashKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTrashKeyTyped

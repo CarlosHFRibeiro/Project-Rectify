@@ -182,7 +182,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToCanvas(this, new FrmDcharge());
+        Access.goToFrame(this, new FrmDcharge());
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked

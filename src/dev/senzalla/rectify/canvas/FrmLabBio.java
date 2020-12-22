@@ -243,7 +243,7 @@ public class FrmLabBio extends javax.swing.JInternalFrame {
     private void btnAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcidActionPerformed
         FrmCalcAcid acid = new FrmCalcAcid(txtAcid);
         acid.setRbt();
-        Access.goToCanvas(acid);
+        Access.goToFrame(acid);
     }//GEN-LAST:event_btnAcidActionPerformed
 
     private void txtDensKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDensKeyTyped

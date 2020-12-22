@@ -1,10 +1,5 @@
 package dev.senzalla.rectify.treatments;
 
-import dev.senzalla.rectify.entitys.MatterEster;
-import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.request.RequestMatterEster;
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -25,14 +25,16 @@ public class TreatmentStockTank {
     public void showTable(JTable tbl) {
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new RequestStockTank().select().forEach(this::table);
+        List<StockTank> stockTanks = new RequestStockTank().select();
+        FrmStkTank.queryFilter(stockTanks);
+        stockTanks.forEach(this::table);
     }
 
     private void table(StockTank stockTank) {
         model.addRow(new Object[]{
-                stockTank.getTank(),
-                stockTank.getProduct(),
-                stockTank.getLiterStkTq()
+            stockTank.getTank(),
+            stockTank.getProduct(),
+            stockTank.getLiterStkTq()
         });
     }
 
@@ -45,9 +47,9 @@ public class TreatmentStockTank {
                 stockTank.setProduct(new TreatmentProduct().getProduct(tbl.getValueAt(i, 1)));
                 stockTank.setLiterStkTq(litter(tbl, i, tank));
                 new RequestStockTank().insert(stockTank);
-                new TreatmentStockTank().tableTank(tbl);
             }
         }
+        new TreatmentStockTank().tableTank(tbl);
     }
 
     private int litter(JTable tbl, int i, Tank tank) {
@@ -65,8 +67,8 @@ public class TreatmentStockTank {
         model.setNumRows(0);
         new RequestTank().select().forEach(tank
                 -> model.addRow(new Object[]{
-                tank.getNameTank(),
-                "Produto"
+            tank.getNameTank(),
+            "Produto"
         }));
     }
 
@@ -101,18 +103,15 @@ public class TreatmentStockTank {
                 stockTank.setDtStkTq(dtcAte.getDate());
             }
         }
-        if (!new RequestStockTank().select(clause, stockTank).isEmpty()) {
-            FrmStkTank.queryFilter(clause, stockTank);
+        List<StockTank> stockTanks = new RequestStockTank().select(clause, stockTank);
+        if (!stockTanks.isEmpty()) {
+            FrmStkTank.queryFilter(stockTanks);
             model = (DefaultTableModel) tbl.getModel();
             model.setNumRows(0);
-            selectQuery(clause, stockTank).forEach(this::table);
+            stockTanks.forEach(this::table);
         } else {
             PopUp.isEmpty("Estoque");
         }
-    }
-
-    public List<StockTank> selectQuery(List<String> clause, StockTank stockTank) {
-        return new RequestStockTank().select(clause, stockTank);
     }
 
 }

@@ -65,8 +65,8 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cbxEsterReactLabStart" alignment="0" pref="130" max="32767" attributes="0"/>
-                              <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbxLabCar" alignment="0" pref="130" max="32767" attributes="0"/>
+                              <Component id="dtcTrans" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -96,12 +96,12 @@
                       <Component id="txtEsterReactHrStart" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEsterReactHrStart" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEsterReactDt" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jDateChooser1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="dtcTrans" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblEsterReactLabStart" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbxEsterReactLabStart" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxLabCar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTransReactMethylate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTransReactMethylate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -128,7 +128,7 @@
             <Property name="text" type="java.lang.String" value="Data"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+        <Component class="com.toedter.calendar.JDateChooser" name="dtcTrans">
           <Properties>
             <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
           </Properties>
@@ -176,7 +176,7 @@
             <Property name="text" type="java.lang.String" value="Metilato"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxEsterReactLabStart">
+        <Component class="javax.swing.JComboBox" name="cbxLabCar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -231,9 +231,10 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtTransReactHrFinal">
           <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="2"/>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##:##:##" subtype="-1" type="5"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
             </Property>

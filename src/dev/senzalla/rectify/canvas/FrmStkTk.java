@@ -31,10 +31,10 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         List<StockTank> stockTank = new RequestStockTank().select();
         if (!stockTank.isEmpty()) {
             GridLayout layout = new GridLayout();
-            layout.setRows(stockTank.size() / 2);
+            layout.setRows(stockTank.size()/4);
+            jPanel1.setLayout(layout);
             stockTank.forEach(stock -> {
-                pnlStk.setLayout(layout);
-                pnlStk.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
+                jPanel1.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
             });
         } else {
             lblEmpty.setVisible(true);
@@ -54,6 +54,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         roll = new javax.swing.JScrollPane();
         pnlStk = new javax.swing.JPanel();
         lblEmpty = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(598, 460));
@@ -61,32 +62,51 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(598, 460));
 
         roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.setMaximumSize(new java.awt.Dimension(598, 460));
+        roll.setMinimumSize(new java.awt.Dimension(598, 460));
+        roll.setPreferredSize(new java.awt.Dimension(598, 460));
         roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 rollMouseWheelMoved(evt);
             }
         });
 
-        pnlStk.setMaximumSize(new java.awt.Dimension(593, 435));
+        pnlStk.setPreferredSize(new java.awt.Dimension(598, 1000));
 
         lblEmpty.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblEmpty.setText("Não foi cadastrado estoque Hoje!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout pnlStkLayout = new javax.swing.GroupLayout(pnlStk);
         pnlStk.setLayout(pnlStkLayout);
         pnlStkLayout.setHorizontalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlStkLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(lblEmpty)
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addGroup(pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlStkLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(lblEmpty)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlStkLayout.setVerticalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlStkLayout.createSequentialGroup()
-                .addGap(195, 195, 195)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
                 .addComponent(lblEmpty)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         roll.setViewportView(pnlStk);
@@ -95,11 +115,11 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll)
+            .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll)
+            .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -111,6 +131,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEmpty;
     private javax.swing.JPanel pnlStk;
     private javax.swing.JScrollPane roll;

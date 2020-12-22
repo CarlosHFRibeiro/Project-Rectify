@@ -1,11 +1,9 @@
 package dev.senzalla.rectify.canvas;
 
-import static dev.senzalla.theme.TreatmentTheme.initTableTheme;
-import static dev.senzalla.theme.TreatmentTheme.initTheme;
-import static dev.senzalla.theme.TreatmentTheme.saveDarkTheme;
-import static dev.senzalla.theme.TreatmentTheme.saveLightTheme;
-import java.awt.Color;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+
+import static dev.senzalla.theme.TreatmentTheme.*;
 
 /**
  * @author Bomsalvez Freitas
