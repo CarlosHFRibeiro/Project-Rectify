@@ -71,7 +71,7 @@ public class TreatmentLabBio {
     }
 
     public void saveLabBio(JPanel pnlLabBio, JTextField txtAcid, JTextField txtDens, JTextField txtDens20, JTextField txtTemp, JTextField txtFactor) {
-        if (new TreatmentTxt().isTxtVoid(pnlLabBio)) {
+        if (TreatmentTxt.isTxtEmpty(pnlLabBio)) {
             LabBio labBio = new LabBio();
             labBio.setAcidBio(Double.parseDouble(txtAcid.getText()));
             labBio.setDensityBio(Double.parseDouble(txtDens.getText()));
@@ -79,9 +79,9 @@ public class TreatmentLabBio {
             labBio.setTempBio(Double.parseDouble(txtTemp.getText()));
             labBio.setFactorBio(Double.parseDouble(txtFactor.getText()));
             new RequestLabBio().insert(labBio);
-            new TreatmentTxt().cleanTxt(pnlLabBio);
+            TreatmentTxt.cleanTxt(pnlLabBio);
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 }

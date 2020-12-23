@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.canvas.FrmDchargeTbl;
+import dev.senzalla.rectify.frame.FrmDchargeTbl;
 import dev.senzalla.rectify.entitys.*;
 import dev.senzalla.rectify.request.RequestDcharge;
 
@@ -90,13 +90,13 @@ public class TreatmentDcharge {
     }
 
     public void clear(JPanel pnlDcharge) {
-        new TreatmentTxt().cleanTxt(pnlDcharge);
-        new TreatmentCbx().cleanCbx(pnlDcharge);
+        TreatmentTxt.cleanTxt(pnlDcharge);
+        CbxTreatment.cleanCbx(pnlDcharge);
         new TreatmentDtc().cleanDtc(pnlDcharge);
         new TreatmentSpn().cleanSpn(pnlDcharge);
     }
 
-    public void saveDchage(JPanel pnlDcharge, JComboBox<Object> cbxProvider, JDateChooser dtcDtOf, JFormattedTextField txtHrOf, JSpinner spnNote, JSpinner spnTicket, JTextField txtBoard, Driver driver, JDateChooser dtcDtUp, JFormattedTextField txtHrUp, JComboBox<Object> cbxProduct, JComboBox<Object> cbxLabCar, JFormattedTextField txtBurden, JTextField txtLitter, JComboBox<Object> cbxTank) {
+    public void saveDchage(JPanel pnlDcharge, JComboBox<Object> cbxProvider, JDateChooser dtcDtOf, JFormattedTextField txtHrOf, JSpinner spnNote, JSpinner spnTicket, JTextField txtBoard, Driver driver, JDateChooser dtcDtUp, JFormattedTextField txtHrUp, JComboBox<Object> cbxProduct, JComboBox<Object> cbxanalyzeTruck, JFormattedTextField txtBurden, JTextField txtLitter, JComboBox<Object> cbxTank) {
         Discharge dcharge = new Discharge();
         dcharge.setProvider((Provider) cbxProvider.getSelectedItem());
         dcharge.setDtOfDcharge(dtcDtOf.getDate());
@@ -108,7 +108,7 @@ public class TreatmentDcharge {
         dcharge.setDtUpDcharge(dtcDtUp.getDate());
         dcharge.setHrUpDcharge(Time.valueOf(txtHrUp.getText()));
         dcharge.setProduct((Product) cbxProduct.getSelectedItem());
-        dcharge.setLabCar((LabCar) cbxLabCar.getSelectedItem());
+        dcharge.setanalyzeTruck((AnalyzeTruck) cbxanalyzeTruck.getSelectedItem());
         dcharge.setBurdenDcharge(Integer.parseInt(txtBurden.getText()));
         dcharge.setLiterDcharge(Integer.parseInt(txtLitter.getText()));
         dcharge.setTank((Tank) cbxTank.getSelectedItem());
@@ -118,8 +118,8 @@ public class TreatmentDcharge {
     }
 
     public int calcLitter(Object selectedItem, int keyChar) {
-        LabCar labCar = (LabCar) selectedItem;
-        return (int) (keyChar / labCar.getDensityCar());
+        AnalyzeTruck analyzeTruck = (AnalyzeTruck) selectedItem;
+        return (int) (keyChar / analyzeTruck.getDensityCar());
     }
 
 }

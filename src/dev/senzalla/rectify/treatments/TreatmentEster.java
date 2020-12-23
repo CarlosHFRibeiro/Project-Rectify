@@ -6,10 +6,10 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.canvas.FrmEster;
-import dev.senzalla.rectify.canvas.FrmEsterTbl;
-import dev.senzalla.rectify.canvas.panel.PnlMatter;
-import dev.senzalla.rectify.canvas.panel.PnlReactEster;
+import dev.senzalla.rectify.frame.FrmEster;
+import dev.senzalla.rectify.frame.FrmEsterTbl;
+import dev.senzalla.rectify.frame.panel.PnlMatter;
+import dev.senzalla.rectify.frame.panel.PnlReactEster;
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
@@ -32,7 +32,7 @@ public class TreatmentEster {
     public void save(JPanel pnlEster, List<PnlMatter> pnlMatter, List<PnlReactEster> pnlReact, JComboBox<Object> cbxTank, JFormattedTextField txtEsterAmount, JFormattedTextField txtEsterProduced, JFormattedTextField txtEsterTrash, FrmEster frmEster) {
         boolean matter = checkMatter(pnlMatter);
         boolean react = checkReact(pnlReact);
-        if (matter && react && new TreatmentTxt().isTxtVoid(pnlEster)) {
+        if (matter && react && TreatmentTxt.isTxtEmpty(pnlEster)) {
             MakeEster makeEster = new MakeEster();
             makeEster.setAmountEster(Integer.parseInt(txtEsterAmount.getText()));
             makeEster.setTank((Tank) cbxTank.getSelectedItem());
@@ -42,9 +42,9 @@ public class TreatmentEster {
             new RequestMakeEster().insert(makeEster);
             saveMatter(pnlMatter);
             saveReact(pnlReact);
-            Access.goToFrame(frmEster, new FrmEster());
+            Access.goToInternalFrame(frmEster, new FrmEster());
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 
@@ -62,14 +62,14 @@ public class TreatmentEster {
 
     private boolean checkMatter(List<PnlMatter> pnlMatter) {
         return pnlMatter.stream().anyMatch(matter ->
-                new TreatmentTxt().isTxtVoid(
+                TreatmentTxt.isTxtEmpty(
                         matter.getPanel())
-                        || new TreatmentCbx().isCbxVoid(matter.getPanel()
+                        || CbxTreatment.isCbxEmpty(matter.getPanel()
                 ));
     }
 
     private boolean checkReact(List<PnlReactEster> pnlReact) {
-        return pnlReact.stream().anyMatch(pnl -> new TreatmentTxt().isTxtVoid(pnl.getPanel()) || new TreatmentCbx().isCbxVoid(pnl.getPanel()) || new TreatmentDtc().isDtcVoid(pnl.getPanel()));
+        return pnlReact.stream().anyMatch(pnl -> TreatmentTxt.isTxtEmpty(pnl.getPanel()) || CbxTreatment.isCbxEmpty(pnl.getPanel()) || new TreatmentDtc().isDtcVoid(pnl.getPanel()));
     }
 
     public void initTable(JTable tbl) {

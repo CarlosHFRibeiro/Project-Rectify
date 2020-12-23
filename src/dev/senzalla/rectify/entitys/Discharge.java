@@ -24,7 +24,7 @@ public class Discharge extends TreatmentDate {
     private Tank tank;
     private Provider provider;
     private Product product;
-    private LabCar labCar;
+    private AnalyzeTruck analyzeTruck;
     private Driver driver;
 
     public Long getIdDcharge() {
@@ -131,12 +131,12 @@ public class Discharge extends TreatmentDate {
         this.product = product;
     }
 
-    public LabCar getLabCar() {
-        return labCar;
+    public AnalyzeTruck getanalyzeTruck() {
+        return analyzeTruck;
     }
 
-    public void setLabCar(LabCar labCar) {
-        this.labCar = labCar;
+    public void setanalyzeTruck(AnalyzeTruck analyzeTruck) {
+        this.analyzeTruck = analyzeTruck;
     }
 
     public Driver getDriver() {

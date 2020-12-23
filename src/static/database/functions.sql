@@ -2,9 +2,9 @@ USE db_retifica;
 
 CREATE TRIGGER tr_carsplit
     BEFORE INSERT
-    ON tbl_labcarsplit
-    FOR EACH ROW SET new.fkLabCar = (SELECT MAX(idCar)
-                                     FROM tbl_labcar);
+    ON tbl_analyzeTrucksplit
+    FOR EACH ROW SET new.fkanalyzeTruck = (SELECT MAX(idCar)
+                                     FROM tbl_analyzeTruck);
 
 CREATE TRIGGER tr_matterester
     BEFORE INSERT

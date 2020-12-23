@@ -8,7 +8,7 @@ import dev.senzalla.rectify.request.RequestStockTank;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class CalcStockProduct {
+public class   CalcStockProduct {
     private int litters;
     private int percent;
 

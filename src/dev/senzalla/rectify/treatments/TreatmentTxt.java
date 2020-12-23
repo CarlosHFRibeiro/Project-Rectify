@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify.treatments;
 
 import javax.swing.*;
@@ -11,16 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
 public class TreatmentTxt {
 
-    private List<String> txtField;
-
-    public void cleanTxt(JPanel pnl) {
-        for (Component c : pnl.getComponents()) {
+    /**
+     * @param panelCleaned {@link JPanel}
+     */
+    public static void cleanTxt(JPanel panelCleaned) {
+        for (Component c : panelCleaned.getComponents()) {
             if (c instanceof JTextField) {
                 JTextField txt = (JTextField) c;
                 txt.setText("");
@@ -28,19 +24,19 @@ public class TreatmentTxt {
         }
     }
 
-    public boolean isTxtVoid(JPanel pnl) {
-        setTxt(pnl);
-        return txtField.stream().noneMatch(txt -> txt.equals(""));
-    }
-
-    private void setTxt(JPanel pnl) {
-        txtField = new ArrayList<>();
-        for (Component c : pnl.getComponents()) {
+    /**
+     * @param panel {@link JPanel}
+     * @return boolean
+     */
+    public static boolean isTxtEmpty(JPanel panel) {
+        List<String> txtField = new ArrayList<>();
+        for (Component c : panel.getComponents()) {
             if (c instanceof JTextField) {
                 JTextField txt = (JTextField) c;
                 txtField.add(txt.getText());
             }
         }
+        return txtField.stream().noneMatch(txt -> txt.equals(""));
     }
 
 }

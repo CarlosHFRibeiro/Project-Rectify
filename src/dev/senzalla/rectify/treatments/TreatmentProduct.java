@@ -2,7 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.RequestProduct;
+import dev.senzalla.rectify.request.ProductRequest;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -18,32 +18,28 @@ public class TreatmentProduct {
         DefaultTableModel model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
 
-        new RequestProduct().select().forEach(product
+        new ProductRequest().select().forEach(product
                 -> model.addRow(new Object[]{
                 product.getNameProduct(),
                 product.getDensityProduct()
         }));
     }
 
-    public void saveProduct(JPanel pnlProduct, JTextField txtName, JTextField txtDensity) {
-        if (new TreatmentTxt().isTxtVoid(pnlProduct)) {
+    public void saveProduct(JPanel pnlProduct, String nameProduct, String density) {
+        if (TreatmentTxt.isTxtEmpty(pnlProduct)) {
             Product product = new Product();
-            product.setNameProduct(txtName.getText());
-            product.setDensityProduct(Double.parseDouble(txtDensity.getText().replace(",", ".")));
-            new RequestProduct().insert(product);
-            new TreatmentTxt().cleanTxt(pnlProduct);
+            product.setNameProduct(nameProduct);
+            product.setDensityProduct(Double.parseDouble(density.replace(",", ".")));
+            new ProductRequest().insert(product);
+            TreatmentTxt.cleanTxt(pnlProduct);
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 
     public void addComboBox(JComboBox<Object> cbx) {
         cbx.removeAllItems();
         cbx.addItem("Produto");
-        new RequestProduct().select().forEach(cbx::addItem);
-    }
-
-    public Product getProduct(Object product) {
-        return new RequestProduct().selectName((Product) product);
+        new ProductRequest().select().forEach(cbx::addItem);
     }
 }

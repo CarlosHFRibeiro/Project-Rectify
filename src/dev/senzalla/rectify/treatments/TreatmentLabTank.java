@@ -2,6 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.entitys.LabTank;
+import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestLabTank;
 
@@ -27,17 +28,17 @@ public class TreatmentLabTank {
     }
 
     public void saveLabTank(JPanel pnlLabTk, JComboBox<Object> cbxTank, JTextField txtAcid, JTextField txtSoap, JFormattedTextField txtTrash) {
-        if (new TreatmentTxt().isTxtVoid(pnlLabTk) && new TreatmentCbx().isCbxVoid(pnlLabTk)) {
+        if (TreatmentTxt.isTxtEmpty(pnlLabTk) && CbxTreatment.isCbxEmpty(pnlLabTk)) {
             LabTank labTank = new LabTank();
-            labTank.setTank(new TreatmentTank().getTank(cbxTank.getSelectedItem()));
+            labTank.setTank((Tank) cbxTank.getSelectedItem());
             labTank.setAcidTq(Double.parseDouble(txtAcid.getText()));
             labTank.setSoapTq(Double.parseDouble(txtSoap.getText()));
             labTank.setTrashTq(Integer.parseInt(txtTrash.getText()));
             new RequestLabTank().insert(labTank);
-            new TreatmentTxt().cleanTxt(pnlLabTk);
-            new TreatmentCbx().cleanCbx(pnlLabTk);
+            TreatmentTxt.cleanTxt(pnlLabTk);
+            CbxTreatment.cleanCbx(pnlLabTk);
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 

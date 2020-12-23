@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public class EmptyField {
 
-    public void showMsg() {
+    public static void showMsg() {
         JOptionPane.showMessageDialog(
                 new JFrame(),
                 "Preencha todos os campos!",

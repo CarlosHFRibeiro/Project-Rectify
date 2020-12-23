@@ -30,7 +30,7 @@ public class ChargePrint extends ModelPrint {
             document.add(pdfPTable);
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(charges.get(0).getDtOfCharge()));
+            setTable(convertDateUtil(charges.get(0).getDateEntryCharge()));
             document.add(pdfPTable);
 
             configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -43,7 +43,7 @@ public class ChargePrint extends ModelPrint {
                 Charge charge = charges.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
                 setTable(String.valueOf(charge.getIdCharge()));
-                setTable(convertDateUtil(charge.getDtOfCharge()));
+                setTable(convertDateUtil(charge.getDateEntryCharge()));
                 setTable(String.valueOf(charge.getTicketCharge()));
                 setTable(charge.getProvider().getNameProvider());
                 setTable(charge.getProduct().getNameProduct());

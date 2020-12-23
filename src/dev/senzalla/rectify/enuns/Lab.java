@@ -6,7 +6,7 @@ package dev.senzalla.rectify.enuns;
  * @github github.com/Bomsalvez
  */
 public enum Lab {
-    LABCAR(1, "Carro"),
+    ANALYZETRUCK(1, "Carro"),
     LABBIO(2, "Biodiesel"),
     LABSPLIT(3, "Cisão"),
     LABTANK(4, "Tanque");

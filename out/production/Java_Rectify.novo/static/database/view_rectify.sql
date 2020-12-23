@@ -64,7 +64,7 @@ FROM tbl_charge
          JOIN tbl_tank ON fkTankCharge = idTank
          JOIN tbl_provider ON fkProviderCharge = idProvider
          JOIN tbl_driver ON fkDriverCharge = idDriver
-         JOIN tbl_labcar ON fkLabCharge = idCar;
+         JOIN tbl_analyzeTruck ON fkLabCharge = idCar;
 
 CREATE OR REPLACE VIEW view_dcharge AS
 SELECT idDcharge,
@@ -92,7 +92,7 @@ FROM tbl_discharge
          JOIN tbl_tank ON fkTankDcharge = idTank
          JOIN tbl_provider ON fkProviderDcharge = idProvider
          JOIN tbl_driver ON fkDriverDcharge = idDriver
-         JOIN tbl_labcar ON fkLabDcharge = idCar;
+         JOIN tbl_analyzeTruck ON fkLabDcharge = idCar;
 
 CREATE OR REPLACE VIEW view_makeester AS
 select me.idEster,

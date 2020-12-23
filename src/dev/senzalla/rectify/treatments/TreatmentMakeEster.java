@@ -81,7 +81,7 @@ public class TreatmentMakeEster {
 //    }
 
 
-//    public void saveDchage(JPanel pnlDcharge, JComboBox<Object> cbxProvider, JDateChooser dtcDtOf, JFormattedTextField txtHrOf, JSpinner spnNote, JSpinner spnTicket, JTextField txtBoard, Driver driver, JDateChooser dtcDtUp, JFormattedTextField txtHrUp, JComboBox<Object> cbxProduct, JComboBox<Object> cbxLabCar, JFormattedTextField txtBurden, JTextField txtLitter, JComboBox<Object> cbxTank) {
+//    public void saveDchage(JPanel pnlDcharge, JComboBox<Object> cbxProvider, JDateChooser dtcDtOf, JFormattedTextField txtHrOf, JSpinner spnNote, JSpinner spnTicket, JTextField txtBoard, Driver driver, JDateChooser dtcDtUp, JFormattedTextField txtHrUp, JComboBox<Object> cbxProduct, JComboBox<Object> cbxanalyzeTruck, JFormattedTextField txtBurden, JTextField txtLitter, JComboBox<Object> cbxTank) {
 //        Discharge dcharge = new Discharge();
 //        dcharge.setProvider((Provider) cbxProvider.getSelectedItem());
 //        dcharge.setDtOfDcharge(dtcDtOf.getDate());
@@ -93,12 +93,12 @@ public class TreatmentMakeEster {
 //        dcharge.setDtUpDcharge(dtcDtUp.getDate());
 //        dcharge.setHrUpDcharge(Time.valueOf(txtHrUp.getText()));
 //        dcharge.setProduct((Product) cbxProduct.getSelectedItem());
-//        dcharge.setLabCar((LabCar) cbxLabCar.getSelectedItem());
+//        dcharge.setanalyzeTruck((analyzeTruck) cbxanalyzeTruck.getSelectedItem());
 //        dcharge.setBurdenDcharge(Integer.parseInt(txtBurden.getText()));
 //        dcharge.setLiterDcharge(Integer.parseInt(txtLitter.getText()));
 //        dcharge.setTank((Tank) cbxTank.getSelectedItem());
 //        new RequestDcharge().insert(dcharge);
-//        Access.goToFrame(frm,new FrmEster());
+//        Access.goToInternalFrame(frm,new FrmEster());
 //
 //    }
 }

@@ -66,13 +66,13 @@ public class DchargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Acidez: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getLabCar().getAcidCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getanalyzeTruck().getAcidCar()), FontEnum.FIELD);
             setParagraph("Saponidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getLabCar().getSoapCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getanalyzeTruck().getSoapCar()), FontEnum.FIELD);
             setParagraph("Densidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getLabCar().getDensityCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getanalyzeTruck().getDensityCar()), FontEnum.FIELD);
             setParagraph("Impureza: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getLabCar().getTrashCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getanalyzeTruck().getTrashCar()), FontEnum.FIELD);
             setParagraph("Peso: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getBurdenDcharge()), FontEnum.FIELD);
             setParagraph("Litros: ", FontEnum.BOLDFIELD);

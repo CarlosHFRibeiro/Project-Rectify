@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.canvas.FrmSealTbl;
+import dev.senzalla.rectify.frame.FrmSealTbl;
 import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.entitys.Seal;
 import dev.senzalla.rectify.exception.EmptyField;
@@ -82,7 +82,7 @@ public class TreatmentSeal {
     }
 
     public void saveSeal(JPanel pnlSeal, JFormattedTextField txtSale, JFormattedTextField txtFactory, JFormattedTextField txtClient, JFormattedTextField txtBr, JComboBox<Object> cbxProvider) {
-        if (new TreatmentTxt().isTxtVoid(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
+        if (TreatmentTxt.isTxtEmpty(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
             Provider provider = new Provider();
             provider.setIdProvider((long) cbxProvider.getSelectedIndex());
             Seal seal = new Seal();
@@ -92,10 +92,10 @@ public class TreatmentSeal {
             seal.setClientSeal(Integer.parseInt(txtClient.getText()));
             seal.setSaleSeal(Integer.parseInt(txtSale.getText()));
             new RequestSeal().insert(seal);
-            new TreatmentTxt().cleanTxt(pnlSeal);
-            new TreatmentCbx().cleanCbx(pnlSeal);
+            TreatmentTxt.cleanTxt(pnlSeal);
+            CbxTreatment.cleanCbx(pnlSeal);
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 

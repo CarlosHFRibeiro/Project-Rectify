@@ -55,8 +55,8 @@ CREATE TABLE IF NOT EXISTS `tbl_driver`
     CONSTRAINT `CNH Motorista` UNIQUE (cnhDriver)
 );
 
-DROP TABLE IF EXISTS `tbl_labCar`;
-CREATE TABLE IF NOT EXISTS `tbl_labCar`
+DROP TABLE IF EXISTS `tbl_analyzeTruck`;
+CREATE TABLE IF NOT EXISTS `tbl_analyzeTruck`
 (
     idCar      INT    NOT NULL AUTO_INCREMENT,
     trashCar   INT    NOT NULL DEFAULT 0,
@@ -69,15 +69,15 @@ CREATE TABLE IF NOT EXISTS `tbl_labCar`
     PRIMARY KEY (idCar)
 );
 
-DROP TABLE IF EXISTS `tbl_labCarsplit`;
-CREATE TABLE IF NOT EXISTS `tbl_labCarsplit`
+DROP TABLE IF EXISTS `tbl_analyzeTrucksplit`;
+CREATE TABLE IF NOT EXISTS `tbl_analyzeTrucksplit`
 (
     idCarSplit INT NOT NULL AUTO_INCREMENT,
-    fkLabCar   INT NOT NULL,
+    fkanalyzeTruck   INT NOT NULL,
     fkLabSplit INT NOT NULL,
     PRIMARY KEY (idCarSplit),
-    CONSTRAINT `FK_Analise_Caminhao` FOREIGN KEY (fkLabCar)
-        REFERENCES `tbl_labCar` (idCar),
+    CONSTRAINT `FK_Analise_Caminhao` FOREIGN KEY (fkanalyzeTruck)
+        REFERENCES `tbl_analyzeTruck` (idCar),
     CONSTRAINT `FK_Tridecante` FOREIGN KEY (fkLabSplit)
         REFERENCES `tbl_labSplit` (idSplit)
 );
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `tbl_charge`
     CONSTRAINT `FK_Motorista_Carregamento` FOREIGN KEY (fkDriverCharge)
         REFERENCES tbl_driver (idDriver),
     CONSTRAINT `FK_Analise_Carregamento` FOREIGN KEY (fkLabCharge)
-        REFERENCES tbl_labCar (idCar)
+        REFERENCES tbl_analyzeTruck (idCar)
 );
 
 DROP TABLE IF EXISTS `tbl_discharge`;
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `tbl_discharge`
     CONSTRAINT `FK_Motorista_Descarregamento` FOREIGN KEY (fkDriverDcharge)
         REFERENCES tbl_driver (idDriver),
     CONSTRAINT `FK_Analise_Descarregamento` FOREIGN KEY (fkLabDcharge)
-        REFERENCES tbl_labCar (idCar)
+        REFERENCES tbl_analyzeTruck (idCar)
 );
 
 DROP TABLE IF EXISTS `tbl_stocktank`;

@@ -1,12 +1,12 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.canvas.FrmStkTank;
+import dev.senzalla.rectify.frame.FrmStkTank;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.request.RequestStockTank;
-import dev.senzalla.rectify.request.RequestTank;
+import dev.senzalla.rectify.request.TankRequest;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -41,10 +41,10 @@ public class TreatmentStockTank {
     public void saveStockTank(JTable tbl) {
         for (int i = 0; i < tbl.getRowCount(); i++) {
             if (!tbl.getValueAt(i, 1).equals("Produto")) {
-                Tank tank = new TreatmentTank().getTank(tbl.getValueAt(i, 0));
+                Tank tank = (Tank) (tbl.getValueAt(i, 0));
                 StockTank stockTank = new StockTank();
                 stockTank.setTank(tank);
-                stockTank.setProduct(new TreatmentProduct().getProduct(tbl.getValueAt(i, 1)));
+                stockTank.setProduct((Product) (tbl.getValueAt(i, 1)));
                 stockTank.setLiterStkTq(litter(tbl, i, tank));
                 new RequestStockTank().insert(stockTank);
             }
@@ -65,9 +65,9 @@ public class TreatmentStockTank {
     public void tableTank(JTable tbl) {
         model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        new RequestTank().select().forEach(tank
+        new TankRequest().select().forEach(tank
                 -> model.addRow(new Object[]{
-            tank.getNameTank(),
+            tank,
             "Produto"
         }));
     }

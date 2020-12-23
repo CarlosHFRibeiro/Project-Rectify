@@ -3,7 +3,7 @@ package dev.senzalla.rectify.treatments;
 import javax.swing.*;
 
 /**
- * @author Bomsalvez
+ * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
@@ -18,6 +18,10 @@ public class PopUp {
         );
     }
 
+    /**
+     * @param solution {@link String}
+     * @return String
+     */
     public static String panelInsert(String solution) {
         try {
             return JOptionPane.showInputDialog(
@@ -41,15 +45,22 @@ public class PopUp {
         );
     }
 
-    public static String panelDelete(String all) {
+    /**
+     * @param allSolution {@link String}
+     * @return String
+     */
+    public static String panelDelete(String allSolution) {
         return JOptionPane.showInputDialog(
                 new JFrame(),
-                String.format("Deseja excluir %sos arquivos? (S/N)", all),
+                String.format("Deseja excluir %sos arquivos? (S/N)", allSolution),
                 "Exclusão",
                 JOptionPane.QUESTION_MESSAGE
         );
     }
 
+    /**
+     * @param item {@link String}
+     */
     public static void isEmpty(String item) {
         JOptionPane.showMessageDialog(
                 new JFrame(),

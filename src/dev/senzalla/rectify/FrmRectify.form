@@ -3,8 +3,11 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1280, 720]"/>
+    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[750, 500]"/>
+      <Dimension value="[1280, 720]"/>
     </Property>
     <Property name="name" type="java.lang.String" value="FrmRectify" noResource="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -32,14 +35,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="pnlBar" max="32767" attributes="0"/>
+                  <Component id="pnlBar" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="pnlMenu" max="32767" attributes="0"/>
+                      <Component id="pnlMenu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="dktMain" min="-2" max="-2" attributes="0"/>
+                      <Component id="dktMain" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,11 +52,8 @@
               <Component id="pnlBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="pnlMenu" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="dktMain" max="32767" attributes="0"/>
+                  <Component id="pnlMenu" min="-2" max="-2" attributes="0"/>
+                  <Component id="dktMain" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -66,10 +66,13 @@
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[750, 40]"/>
+          <Dimension value="[1280, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[750, 40]"/>
+          <Dimension value="[1280, 40]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1280, 40]"/>
         </Property>
       </Properties>
 
@@ -77,12 +80,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                  <Component id="lblBarTitle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                  <Component id="btnBarHide" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="467" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="377" max="32767" attributes="0"/>
+                  <Component id="btnHide" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnBarExit" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="btnExit" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -90,10 +93,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnBarExit" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnExit" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="btnBarHide" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblBarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnHide" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -102,7 +105,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnBarHide">
+        <Component class="javax.swing.JButton" name="btnHide">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="30" style="1"/>
@@ -114,10 +117,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBarHideActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHideActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnBarExit">
+        <Component class="javax.swing.JButton" name="btnExit">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -132,10 +135,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBarExitActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblBarTitle">
+        <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
@@ -145,50 +148,30 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDesktopPane" name="dktMain">
-      <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 460]"/>
-        </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 460]"/>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Container class="javax.swing.JPanel" name="pnlMenu">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[153, 460]"/>
+          <Dimension value="[280, 680]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[280, 680]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[153, 460]"/>
+          <Dimension value="[280, 680]"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="pnlLab" max="32767" attributes="0"/>
+              <Component id="pnlLaboratory" max="32767" attributes="0"/>
               <Component id="btnHome" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnLab" alignment="1" max="32767" attributes="0"/>
-              <Component id="btnTransp" alignment="0" max="32767" attributes="0"/>
-              <Component id="pnlTransp" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnStk" alignment="0" max="32767" attributes="0"/>
-              <Component id="pnlStk" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnSeal" alignment="1" max="32767" attributes="0"/>
+              <Component id="btnLaboratory" alignment="1" max="32767" attributes="0"/>
+              <Component id="btnTransport" alignment="0" max="32767" attributes="0"/>
+              <Component id="pnlTransport" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnStock" alignment="0" max="32767" attributes="0"/>
+              <Component id="pnlStock" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnSample" alignment="1" max="32767" attributes="0"/>
               <Component id="btnMake" alignment="1" max="32767" attributes="0"/>
               <Component id="pnlMake" alignment="0" max="32767" attributes="0"/>
               <Component id="btnCalc" alignment="1" max="32767" attributes="0"/>
@@ -202,19 +185,19 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="btnHome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLab" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnLaboratory" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlLab" min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlLaboratory" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSeal" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSample" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnTransp" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTransport" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlTransp" min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlTransport" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="btnStk" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnStock" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlStk" min="-2" max="-2" attributes="0"/>
+                  <Component id="pnlStock" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnMake" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -241,98 +224,98 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHomeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLab">
+        <Component class="javax.swing.JButton" name="btnLaboratory">
           <Properties>
             <Property name="text" type="java.lang.String" value="Laboratorio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLaboratoryActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="pnlLab">
+        <Container class="javax.swing.JPanel" name="pnlLaboratory">
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnLabCar" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnLabTq" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnLabBio" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnLabSplit" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnanalyzeTruck" alignment="1" pref="280" max="32767" attributes="0"/>
+                  <Component id="btnAnalyzeTank" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnAnalyzeBiodiesel" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnAnalyzeSplit" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="btnLabCar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnanalyzeTruck" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnLabTq" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAnalyzeTank" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnLabBio" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAnalyzeBiodiesel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnLabSplit" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAnalyzeSplit" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnLabCar">
+            <Component class="javax.swing.JButton" name="btnanalyzeTruck">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Analise de Caminh&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabCarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnanalyzeTruckActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLabTq">
+            <Component class="javax.swing.JButton" name="btnAnalyzeTank">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Analise de Tanque"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabTqActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalyzeTankActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLabBio">
+            <Component class="javax.swing.JButton" name="btnAnalyzeBiodiesel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Analise Biodiesel"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabBioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalyzeBiodieselActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLabSplit">
+            <Component class="javax.swing.JButton" name="btnAnalyzeSplit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Analise Cis&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLabSplitActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalyzeSplitActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnSeal">
+        <Component class="javax.swing.JButton" name="btnSample">
           <Properties>
             <Property name="text" type="java.lang.String" value="Amostra"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSealActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSampleActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTransp">
+        <Component class="javax.swing.JButton" name="btnTransport">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transporte"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTranspActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTransportActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="pnlTransp">
+        <Container class="javax.swing.JPanel" name="pnlTransport">
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnCharge" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnDcharge" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnDischarge" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -341,7 +324,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="btnCharge" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnDcharge" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDischarge" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -355,59 +338,59 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChargeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnDcharge">
+            <Component class="javax.swing.JButton" name="btnDischarge">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Descarregamento"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDchargeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDischargeActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnStk">
+        <Component class="javax.swing.JButton" name="btnStock">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estoque"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStkActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStockActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="pnlStk">
+        <Container class="javax.swing.JPanel" name="pnlStock">
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnStkPr" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnStkTk" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnProductStock" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnTankStock" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnStkPr" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnProductStock" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnStkTk" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTankStock" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnStkPr">
+            <Component class="javax.swing.JButton" name="btnProductStock">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Estoque Produto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStkPrActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductStockActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnStkTk">
+            <Component class="javax.swing.JButton" name="btnTankStock">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Estoque Tanque"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStkTkActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTankStockActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -472,7 +455,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCalcAcid" max="32767" attributes="0"/>
+                  <Component id="btnCalcAcidity" max="32767" attributes="0"/>
                   <Component id="btnCalcSoap" max="32767" attributes="0"/>
                   <Component id="btnCalcTrans" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -480,7 +463,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnCalcAcid" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCalcAcidity" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnCalcSoap" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -491,12 +474,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnCalcAcid">
+            <Component class="javax.swing.JButton" name="btnCalcAcidity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Acidez"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcAcidActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcAcidityActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCalcSoap">
@@ -533,7 +516,7 @@
                   <Component id="btnProvider" max="32767" attributes="0"/>
                   <Component id="btnTank" max="32767" attributes="0"/>
                   <Component id="btnProduct" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnSol" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSolution" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnTheme" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnAbout" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -547,7 +530,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnProduct" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnSol" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSolution" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnTheme" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -582,12 +565,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSol">
+            <Component class="javax.swing.JButton" name="btnSolution">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Solu&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSolActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSolutionActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnTheme">
@@ -609,6 +592,29 @@
           </SubComponents>
         </Container>
       </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDesktopPane" name="dktMain">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 680]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 680]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="1000" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="680" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
     </Container>
   </SubComponents>
 </Form>

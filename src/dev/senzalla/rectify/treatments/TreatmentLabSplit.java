@@ -73,7 +73,7 @@ public class TreatmentLabSplit {
         });
     }
 
-    public void addComboBox(JComboBox<Object> cbx) {
+    public void initComboBoxSplit(JComboBox<Object> cbx) {
         cbx.removeAllItems();
         cbx.addItem("Cod. Cisão");
         new RequestLabSplit().select().forEach(cbx::addItem);
@@ -81,7 +81,7 @@ public class TreatmentLabSplit {
 
 
     public void saveSplit(JPanel pnlLabSplit, JFormattedTextField txtOil, JFormattedTextField txtSludge, JFormattedTextField txtGlycerin, JFormattedTextField txtTrash) {
-        if (new TreatmentTxt().isTxtVoid(pnlLabSplit)) {
+        if (TreatmentTxt.isTxtEmpty(pnlLabSplit)) {
             int oil = Integer.parseInt(txtOil.getText());
             int sludge = Integer.parseInt(txtSludge.getText());
             int glycerin = Integer.parseInt(txtGlycerin.getText());
@@ -93,10 +93,10 @@ public class TreatmentLabSplit {
                 labSplit.setGlycerinSplit(glycerin);
                 labSplit.setTrashSplit(trash);
                 new RequestLabSplit().insert(labSplit);
-                new TreatmentTxt().cleanTxt(pnlLabSplit);
+                TreatmentTxt.cleanTxt(pnlLabSplit);
             }
         } else {
-            new EmptyField().showMsg();
+            EmptyField.showMsg();
         }
     }
 }

@@ -31,7 +31,7 @@ public class RequestDcharge extends Request<Discharge> {
             stmt.setLong(5, dcharge.getTank().getIdTank());
             stmt.setLong(6, dcharge.getProvider().getIdProvider());
             stmt.setLong(7, dcharge.getProduct().getIdProduct());
-            stmt.setLong(8, dcharge.getLabCar().getIdCar());
+            stmt.setLong(8, dcharge.getanalyzeTruck().getIdCar());
             stmt.setLong(9, dcharge.getDriver().getIdDriver());
             stmt.setString(10, dcharge.getBoardDcharge());
             stmt.setDate(11, dcharge.getDtOfDcharge());
@@ -119,12 +119,12 @@ public class RequestDcharge extends Request<Discharge> {
                 driver.setCnhDriver(rs.getString("cnhDriver"));
                 dcharge.setDriver(driver);
 
-                LabCar labCar = new LabCar();
-                labCar.setAcidCar(rs.getDouble("acidCar"));
-                labCar.setDensityCar(rs.getDouble("densityCar"));
-                labCar.setSoapCar(rs.getDouble("soapCar"));
-                labCar.setTrashCar(rs.getInt("trashCar"));
-                dcharge.setLabCar(labCar);
+               AnalyzeTruck analyzeTruck = new AnalyzeTruck();
+                analyzeTruck.setAcidCar(rs.getDouble("acidCar"));
+                analyzeTruck.setDensityCar(rs.getDouble("densityCar"));
+                analyzeTruck.setSoapCar(rs.getDouble("soapCar"));
+                analyzeTruck.setTrashCar(rs.getInt("trashCar"));
+                dcharge.setanalyzeTruck(analyzeTruck);
 
                 dcharges.add(dcharge);
             }

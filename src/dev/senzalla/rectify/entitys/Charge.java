@@ -16,15 +16,15 @@ public class Charge extends TreatmentDate {
     private int ticketCharge;
     private int burdenCharge;
     private int literCharge;
-    private String boardCharge;
-    private Date dtOfCharge;
-    private Date dtUpCharge;
-    private Time hrOfCharge;
-    private Time hrUpCharge;
+    private String carPlateCharge;
+    private Date dateEntryCharge;
+    private Date dateExitCharge;
+    private Time timeEntryCharge;
+    private Time timeExitCharge;
     private Tank tank;
     private Provider provider;
     private Product product;
-    private LabCar labCar;
+    private AnalyzeTruck analyzeTruck;
     private Driver driver;
 
     public Long getIdCharge() {
@@ -67,44 +67,44 @@ public class Charge extends TreatmentDate {
         this.literCharge = literCharge;
     }
 
-    public String getBoardCharge() {
-        return boardCharge;
+    public String getCarPlateCharge() {
+        return carPlateCharge;
     }
 
-    public void setBoardCharge(String boardCharge) {
-        this.boardCharge = boardCharge;
+    public void setCarPlateCharge(String carPlateCharge) {
+        this.carPlateCharge = carPlateCharge;
     }
 
-    public Date getDtOfCharge() {
-        return dtOfCharge;
+    public Date getDateEntryCharge() {
+        return dateEntryCharge;
     }
 
-    public void setDtOfCharge(java.util.Date dtOfCharge) {
-        this.dtOfCharge = convertDateSql(dtOfCharge);
+    public void setDateEntryCharge(java.util.Date dateEntryCharge) {
+        this.dateEntryCharge = convertDateSql(dateEntryCharge);
     }
 
-    public Date getDtUpCharge() {
-        return dtUpCharge;
+    public Date getDateExitCharge() {
+        return dateExitCharge;
     }
 
-    public void setDtUpCharge(java.util.Date dtUpCharge) {
-        this.dtUpCharge = convertDateSql(dtUpCharge);
+    public void setDateExitCharge(java.util.Date dateExitCharge) {
+        this.dateExitCharge = convertDateSql(dateExitCharge);
     }
 
-    public Time getHrOfCharge() {
-        return hrOfCharge;
+    public Time getTimeEntryCharge() {
+        return timeEntryCharge;
     }
 
-    public void setHrOfCharge(Time hrOfCharge) {
-        this.hrOfCharge = hrOfCharge;
+    public void setTimeEntryCharge(Time timeEntryCharge) {
+        this.timeEntryCharge = timeEntryCharge;
     }
 
-    public Time getHrUpCharge() {
-        return hrUpCharge;
+    public Time getTimeExitCharge() {
+        return timeExitCharge;
     }
 
-    public void setHrUpCharge(Time hrUpCharge) {
-        this.hrUpCharge = hrUpCharge;
+    public void setTimeExitCharge(Time timeExitCharge) {
+        this.timeExitCharge = timeExitCharge;
     }
 
     public Tank getTank() {
@@ -131,12 +131,12 @@ public class Charge extends TreatmentDate {
         this.product = product;
     }
 
-    public LabCar getLabCar() {
-        return labCar;
+    public AnalyzeTruck getanalyzeTruck() {
+        return analyzeTruck;
     }
 
-    public void setLabCar(LabCar labCar) {
-        this.labCar = labCar;
+    public void setanalyzeTruck(AnalyzeTruck analyzeTruck) {
+        this.analyzeTruck = analyzeTruck;
     }
 
     public Driver getDriver() {

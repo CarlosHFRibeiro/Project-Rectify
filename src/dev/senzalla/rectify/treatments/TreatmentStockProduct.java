@@ -2,11 +2,11 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.calc.CalcStockProduct;
-import dev.senzalla.rectify.canvas.FrmStkProduct;
-import dev.senzalla.rectify.canvas.FrmStockTankAdd;
+import dev.senzalla.rectify.frame.FrmStkProduct;
+import dev.senzalla.rectify.frame.FrmStockTankAdd;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockProduct;
-import dev.senzalla.rectify.request.RequestProduct;
+import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.request.RequestStockProduct;
 import dev.senzalla.rectify.request.RequestStockTank;
 
@@ -31,7 +31,7 @@ public class TreatmentStockProduct {
                 showTable(tbl);
             } else {
                 PopUp.isEmpty();
-                Access.goToFrame(frmStkProduct, new FrmStockTankAdd());
+                Access.goToInternalFrame(frmStkProduct, new FrmStockTankAdd());
             }
         } else {
             showTable(tbl);
@@ -92,7 +92,7 @@ public class TreatmentStockProduct {
 
     private void saveStockProduct(JTable tbl) {
         StockProduct stockProduct = new StockProduct();
-        new RequestProduct().select().forEach(product -> {
+        new ProductRequest().select().forEach(product -> {
             CalcStockProduct calc = new CalcStockProduct();
             calc.setLitters(product);
 
