@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame.filter;
 
-import dev.senzalla.rectify.treatments.ProviderTreatment;
 import dev.senzalla.rectify.treatments.ChargeTreatment;
+import dev.senzalla.rectify.treatments.ProviderTreatment;
 import dev.senzalla.rectify.treatments.TreatmentDcharge;
-import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -31,7 +31,7 @@ public class FrmFilterTransp extends javax.swing.JFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlTransp);
         ProviderTreatment.initComboBox(cbxProvider);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
     }
 
     /**

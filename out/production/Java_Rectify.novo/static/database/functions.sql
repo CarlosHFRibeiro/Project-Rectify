@@ -2,7 +2,7 @@ USE db_retifica;
 
 CREATE TRIGGER tr_carsplit
     BEFORE INSERT
-    ON tbl_analyzeTrucksplit
+    ON tbl_analyzeTruckSplit
     FOR EACH ROW SET new.fkanalyzeTruck = (SELECT MAX(idCar)
                                      FROM tbl_analyzeTruck);
 

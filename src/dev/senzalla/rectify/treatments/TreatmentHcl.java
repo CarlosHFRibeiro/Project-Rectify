@@ -8,7 +8,7 @@ package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.Hcl;
 import dev.senzalla.rectify.exception.FieldException;
-import dev.senzalla.rectify.request.RequestHcl;
+import dev.senzalla.rectify.request.HclRequest;
 
 import javax.swing.*;
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public class TreatmentHcl {
         DefaultListModel<Hcl> model = new DefaultListModel<>();
         lstSolHcl.setModel(model);
 
-        Set<Hcl> hcls = new HashSet<>(new RequestHcl().select());
+        Set<Hcl> hcls = new HashSet<>(new HclRequest().select());
         hcls.forEach(model::addElement);
     }
 
@@ -39,10 +39,10 @@ public class TreatmentHcl {
             if (solution != null) {
                 Hcl hcl = new Hcl();
                 hcl.setValueHcl(Double.parseDouble(solution));
-                new RequestHcl().insert(hcl);
+                new HclRequest().insert(hcl);
             }
         } catch (NumberFormatException ex) {
-            new FieldException();
+             FieldException.fieldException();
         }
     }
 
@@ -54,7 +54,7 @@ public class TreatmentHcl {
                 Hcl hcl = new Hcl();
                 hcl.setValueHcl(Double.parseDouble(solution));
                 hcl.setIdHcl(getIdHcl(lstSolHcl));
-                new RequestHcl().update(hcl);
+                new HclRequest().update(hcl);
             }
         } catch (NumberFormatException ex) {
             new FieldException();
@@ -62,7 +62,7 @@ public class TreatmentHcl {
     }
 
     public Long getIdHcl(JList<Hcl> lstSolHcl) {
-        return new RequestHcl().select().stream().filter(naoh ->
+        return new HclRequest().select().stream().filter(naoh ->
                 naoh.getValueHcl() == Double.parseDouble(String.valueOf(lstSolHcl.getSelectedValue())))
                 .findFirst().map(Hcl::getIdHcl)
                 .orElse(null);
@@ -73,7 +73,7 @@ public class TreatmentHcl {
         if (del.toUpperCase().equals("S")) {
             Hcl naoh = new Hcl();
             naoh.setIdHcl(getIdHcl(lstSolHcl));
-            new RequestHcl().delete(naoh);
+            new HclRequest().delete(naoh);
         } else {
             PopUp.cancelOperation();
         }
@@ -82,13 +82,13 @@ public class TreatmentHcl {
     public void deleteAllSolutionHcl() {
         String del = PopUp.panelDelete("todos ");
         if (del.toUpperCase().equals("S")) {
-            new RequestHcl().deleteAll();
+            new HclRequest().deleteAll();
         } else {
             PopUp.cancelOperation();
         }
     }
 
     public void showComboBox(JComboBox<Object> cbxConcentration) {
-        new RequestHcl().select().forEach(cbxConcentration::addItem);
+        new HclRequest().select().forEach(cbxConcentration::addItem);
     }
 }

@@ -8,7 +8,8 @@ import javax.swing.*;
  * @github github.com/Bomsalvez
  */
 public class FieldException  {
-    public FieldException() {
+    
+    public static void fieldException() {
         JOptionPane.showMessageDialog(
                 new JFrame(),
                 "Não é um número valido!",

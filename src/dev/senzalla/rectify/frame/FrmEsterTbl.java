@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.frame.detail.FrmMakeEsterDetail;
 import dev.senzalla.rectify.frame.filter.FrmFilterMake;
-import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.print.MakeEsterPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
@@ -44,7 +44,6 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnDetail = new javax.swing.JButton();
         pnlDcharge = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
@@ -53,17 +52,19 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         roll = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
 
-        btnDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/baseline_remove_red_eye_black_18dp.png"))); // NOI18N
-
         setClosable(true);
-        setMaximumSize(new java.awt.Dimension(598, 460));
-        setMinimumSize(new java.awt.Dimension(598, 460));
-        setPreferredSize(new java.awt.Dimension(598, 460));
+        setMaximumSize(new java.awt.Dimension(1000, 680));
+        setMinimumSize(new java.awt.Dimension(1000, 680));
+        setPreferredSize(new java.awt.Dimension(1000, 680));
+
+        pnlDcharge.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlDcharge.setMinimumSize(new java.awt.Dimension(998, 658));
+        pnlDcharge.setPreferredSize(new java.awt.Dimension(998, 658));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Esterificação");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +72,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf_24dp.png"))); // NOI18N
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf.png"))); // NOI18N
         btnPrint.setPreferredSize(new java.awt.Dimension(46, 40));
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +80,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,9 +90,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
 
         roll.setBorder(null);
         roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(596, 385));
-        roll.setMinimumSize(new java.awt.Dimension(596, 385));
-        roll.setPreferredSize(new java.awt.Dimension(596, 385));
+        roll.setMaximumSize(new java.awt.Dimension(990, 600));
+        roll.setMinimumSize(new java.awt.Dimension(990, 600));
+        roll.setPreferredSize(new java.awt.Dimension(990, 600));
 
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,9 +110,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
-        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
-        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
+        tbl.setMaximumSize(new java.awt.Dimension(990, 578));
+        tbl.setMinimumSize(new java.awt.Dimension(990, 578));
+        tbl.setPreferredSize(new java.awt.Dimension(990, 578));
         tbl.setShowGrid(true);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,7 +126,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
             tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(5).setResizable(false);
-            tbl.getColumnModel().getColumn(5).setPreferredWidth(5);
+            tbl.getColumnModel().getColumn(5).setPreferredWidth(1);
             tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
 
@@ -134,7 +135,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         pnlDchargeLayout.setHorizontalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDchargeLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(599, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(112, 112, 112)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,7 +144,9 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(pnlDchargeLayout.createSequentialGroup()
+                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlDchargeLayout.setVerticalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +158,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,7 +203,6 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDetail;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;

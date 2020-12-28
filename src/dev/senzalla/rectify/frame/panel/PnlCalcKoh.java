@@ -40,9 +40,13 @@ public class PnlCalcKoh extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(550, 150));
-        setMinimumSize(new java.awt.Dimension(550, 150));
-        setPreferredSize(new java.awt.Dimension(550, 150));
+        setMaximumSize(new java.awt.Dimension(592, 150));
+        setMinimumSize(new java.awt.Dimension(592, 150));
+        setPreferredSize(new java.awt.Dimension(592, 150));
+
+        pnlKoh.setMaximumSize(new java.awt.Dimension(590, 146));
+        pnlKoh.setMinimumSize(new java.awt.Dimension(590, 146));
+        pnlKoh.setPreferredSize(new java.awt.Dimension(590, 146));
 
         lblCalcTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcTitle.setText("ACIDEZ ÁCIDO GRAXO E BIODEISEL ESTEREFICADO");
@@ -60,7 +64,7 @@ public class PnlCalcKoh extends javax.swing.JPanel {
         pnlKohLayout.setHorizontalGroup(
             pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlKohLayout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,7 +74,7 @@ public class PnlCalcKoh extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(lblCalcFixed))
                         .addComponent(lblCalcTitle)))
-                .addGap(38, 38, 38))
+                .addGap(53, 53, 53))
         );
         pnlKohLayout.setVerticalGroup(
             pnlKohLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,11 +93,11 @@ public class PnlCalcKoh extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlKoh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

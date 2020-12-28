@@ -10,6 +10,7 @@ import java.awt.*;
  */
 public class TreatmentsItem {
 
+
     public static void visiblePanel(JPanel pnl) {
         for (Component c : pnl.getComponents()) {
             if (c instanceof JPanel) {
@@ -22,4 +23,6 @@ public class TreatmentsItem {
     public static void speedRoll(JScrollPane roll) {
         roll.getVerticalScrollBar().setUnitIncrement(12);
     }
+
+    
 }

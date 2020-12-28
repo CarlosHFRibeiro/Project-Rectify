@@ -4,10 +4,10 @@ import dev.senzalla.rectify.entitys.MakeTrans;
 import dev.senzalla.rectify.entitys.MatterTrans;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.exception.DataBaseException;
+import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,9 +15,8 @@ import java.util.Set;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class RequestMatterTrans extends Request<MatterTrans> {
+public class MatterTransRequest extends ConectionMySql {
 
-    @Override
     public void insert(MatterTrans matterester) {
         connection();
         try {
@@ -27,7 +26,7 @@ public class RequestMatterTrans extends Request<MatterTrans> {
             stmt.setLong(2, matterester.getProduct().getIdProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            DataBaseException.processMsg(ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -35,7 +34,7 @@ public class RequestMatterTrans extends Request<MatterTrans> {
 
     public MakeTrans select(MakeTrans makeester) {
         try {
-            final String SELECT_QUERY = "SELECT * FROM db_retifica.view_matterester WHERE fkMtTrans = ?";
+            final String SELECT_QUERY = "SELECT * FROM db_retifica.view_matterTransr WHERE fkMtTrans = ?";
             connection();
             Set<MatterTrans> matterTranss = new HashSet<>();
             prepareStatement(SELECT_QUERY);
@@ -50,20 +49,10 @@ public class RequestMatterTrans extends Request<MatterTrans> {
             }
             makeester.setMatterTrans(matterTranss);
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            DataBaseException.processMsg("Materia Trans " + ex.getMessage());
         } finally {
             closeConnectionRs();
         }
         return makeester;
-    }
-
-    @Override
-    public List<MatterTrans> select() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<MatterTrans> select(List<String> clause, MatterTrans matterTrans) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

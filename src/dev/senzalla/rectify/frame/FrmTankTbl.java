@@ -19,6 +19,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         TreatmentTheme.initTheme(pnlTank);
         TreatmentTheme.initTableTheme(tbl);
         TankTreatment.initTable(tbl);
+        TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
     }
 
     /**
@@ -48,19 +49,13 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblTitle.setText("Tanque");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-
-        roll.setBorder(null);
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(990, 600));
-        roll.setMinimumSize(new java.awt.Dimension(990, 600));
-        roll.setPreferredSize(new java.awt.Dimension(990, 600));
 
         tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -70,19 +65,9 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
             new String [] {
                 "Nome", "Capacidade"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbl.setMaximumSize(new java.awt.Dimension(990, 578));
-        tbl.setMinimumSize(new java.awt.Dimension(990, 578));
-        tbl.setPreferredSize(new java.awt.Dimension(990, 578));
+        ));
         tbl.setShowGrid(true);
+        tbl.setShowVerticalLines(false);
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(500);
@@ -93,14 +78,15 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         pnlTankLayout.setHorizontalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(456, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(389, 389, 389)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(roll)
+                .addContainerGap())
         );
         pnlTankLayout.setVerticalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,8 +95,9 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTitle)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

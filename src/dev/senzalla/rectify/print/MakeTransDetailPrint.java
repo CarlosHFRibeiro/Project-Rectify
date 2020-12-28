@@ -31,7 +31,7 @@ public class MakeTransDetailPrint extends ModelPrint {
 
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(makeTrans.getDtTrans()));
+            setTable(convertDateUtil(makeTrans.getMakeDateTrans()));
             document.add(pdfPTable);
 
             setPdf();
@@ -46,10 +46,10 @@ public class MakeTransDetailPrint extends ModelPrint {
 
             setPhrase("Quantidade de Produto: ", String.valueOf(makeTrans.getAmountTrans()));
             setEspace();
-            makeTrans.getReactTranss().forEach(reactTrans -> {
-                setPhrase("Data: ", TreatmentDate.convertDateUtil(reactTrans.getDtRctTrans()));
-                setPhrase("Hora Inicial: ", String.valueOf(reactTrans.getHrStartRctTrans()));
-                setPhrase("Metanol Puro: ", String.valueOf(reactTrans.getPureRctTrans()));
+            makeTrans.getReactTrans().forEach(reactTrans -> {
+                setPhrase("Data: ", TreatmentDate.convertDateUtil(reactTrans.getDateReactTrans()));
+                setPhrase("Hora Inicial: ", String.valueOf(reactTrans.getHourFinalReactTrans()));
+                setPhrase("Metanol Puro: ", String.valueOf(reactTrans.getPureReactTrans()));
                 setEspace();
                 setPhrase("Acidez: ", String.valueOf(reactTrans.getLabTank().getAcidTq()));
                 setPhrase("Saponidade: ", String.valueOf(reactTrans.getLabTank().getSoapTq()));

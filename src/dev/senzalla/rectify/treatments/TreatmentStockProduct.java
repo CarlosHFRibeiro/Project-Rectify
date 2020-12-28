@@ -2,10 +2,10 @@ package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.calc.CalcStockProduct;
-import dev.senzalla.rectify.frame.FrmStkProduct;
-import dev.senzalla.rectify.frame.FrmStockTankAdd;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockProduct;
+import dev.senzalla.rectify.frame.FrmStkProduct;
+import dev.senzalla.rectify.frame.FrmStockTankAdd;
 import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.request.RequestStockProduct;
 import dev.senzalla.rectify.request.RequestStockTank;

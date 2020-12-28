@@ -27,10 +27,9 @@ public class RequestMakeEster extends Request<MakeEster> {
             prepareStatement(sql);
             stmt.setLong(1, makeester.getTank().getIdTank());
             stmt.setInt(2, makeester.getAmountEster());
-            stmt.setInt(3, makeester.getForeseenEster());
-            stmt.setInt(4, makeester.getTrashEster());
-            stmt.setInt(5, makeester.getProducedEster());
-            stmt.setDate(6, makeester.getDtEster());
+            stmt.setInt(3, makeester.getTrashEster());
+            stmt.setInt(4, makeester.getProducedEster());
+            stmt.setDate(5, makeester.getDtEster());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             new DataBaseException().processMsg(ex.getMessage());

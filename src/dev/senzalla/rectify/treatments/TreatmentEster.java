@@ -6,13 +6,13 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.entitys.MakeEster;
+import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.frame.FrmEster;
 import dev.senzalla.rectify.frame.FrmEsterTbl;
 import dev.senzalla.rectify.frame.panel.PnlMatter;
 import dev.senzalla.rectify.frame.panel.PnlReactEster;
-import dev.senzalla.rectify.entitys.MakeEster;
-import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.request.RequestMakeEster;
 
 import javax.swing.*;
@@ -77,7 +77,13 @@ public class TreatmentEster {
         model.setNumRows(0);
         List<MakeEster> makeEsters = new RequestMakeEster().select();
         FrmEsterTbl.query(makeEsters);
-        makeEsters.forEach(this::table);
+        makeEsters.forEach(makeEster -> model.addRow(new Object[]{
+                makeEster.getIdEster(),
+                TreatmentDate.convertDateUtil(makeEster.getDtEster()),
+                makeEster.getTank(),
+                makeEster.getProducedEster(),
+                makeEster.getTrashEster()
+        }));
     }
 
     public void initTable(JTable tbl, JSpinner spnCod, JDateChooser dtcDtOf, JDateChooser dtcDtUp, JComboBox<Object> cbxTank) {

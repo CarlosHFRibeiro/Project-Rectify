@@ -12,61 +12,61 @@ import java.sql.Time;
  * @github github.com/Bomsalvez
  */
 public class ReactTrans extends TreatmentDate {
-    private Long idRctTrans;
-    private int methylateRctTrans;
-    private int pureRctTrans;
-    private Date dtRctTrans;
-    private Time hrStartRctTrans;
-    private Time hrFinalRctTrans;
+    private Long idReactTrans;
+    private int methylateReactTrans;
+    private int pureReactTrans;
+    private Date dateReactTrans;
+    private Time hourStartReactTrans;
+    private Time hourFinalReactTrans;
     private LabTank labTank;
     private MakeTrans makeTrans;
 
-    public Long getIdRctTrans() {
-        return idRctTrans;
+    public Long getIdReactTrans() {
+        return idReactTrans;
     }
 
-    public void setIdRctTrans(Long idRctTrans) {
-        this.idRctTrans = idRctTrans;
+    public void setIdReactTrans(Long idReactTrans) {
+        this.idReactTrans = idReactTrans;
     }
 
-    public int getMethylateRctTrans() {
-        return methylateRctTrans;
+    public int getMethylateReactTrans() {
+        return methylateReactTrans;
     }
 
-    public void setMethylateRctTrans(int methylateRctTrans) {
-        this.methylateRctTrans = methylateRctTrans;
+    public void setMethylateReactTrans(int methylateReactTrans) {
+        this.methylateReactTrans = methylateReactTrans;
     }
 
-    public int getPureRctTrans() {
-        return pureRctTrans;
+    public int getPureReactTrans() {
+        return pureReactTrans;
     }
 
-    public void setPureRctTrans(int pureRctTrans) {
-        this.pureRctTrans = pureRctTrans;
+    public void setPureReactTrans(int pureReactTrans) {
+        this.pureReactTrans = pureReactTrans;
     }
 
-    public Date getDtRctTrans() {
-        return dtRctTrans;
+    public Date getDateReactTrans() {
+        return dateReactTrans;
     }
 
-    public void setDtRctTrans(java.util.Date dtRctTrans) {
-        this.dtRctTrans = convertDateSql(dtRctTrans);
+    public void setDateReactTrans(java.util.Date dateReactTrans) {
+        this.dateReactTrans = convertDateSql(dateReactTrans);
     }
 
-    public Time getHrStartRctTrans() {
-        return hrStartRctTrans;
+    public Time getHourStartReactTrans() {
+        return hourStartReactTrans;
     }
 
-    public void setHrStartRctTrans(Time hrStartRctTrans) {
-        this.hrStartRctTrans = hrStartRctTrans;
+    public void setHourStartReactTrans(Time hourStartReactTrans) {
+        this.hourStartReactTrans = hourStartReactTrans;
     }
 
-    public Time getHrFinalRctTrans() {
-        return hrFinalRctTrans;
+    public Time getHourFinalReactTrans() {
+        return hourFinalReactTrans;
     }
 
-    public void setHrFinalRctTrans(Time hrFinalRctTrans) {
-        this.hrFinalRctTrans = hrFinalRctTrans;
+    public void setHourFinalReactTrans(Time hourFinalReactTrans) {
+        this.hourFinalReactTrans = hourFinalReactTrans;
     }
 
     public LabTank getLabTank() {

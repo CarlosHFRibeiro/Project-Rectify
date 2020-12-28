@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.entitys.Discharge;
 import dev.senzalla.rectify.frame.detail.FrmTranspDetailDcharge;
 import dev.senzalla.rectify.frame.filter.FrmFilterTransp;
-import dev.senzalla.rectify.entitys.Discharge;
 import dev.senzalla.rectify.print.DchargePrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;

@@ -25,27 +25,31 @@ public class ProviderTreatment {
 
     /**
      * @param tblProvider {@link JTable}
-     * @param provider    {@link Provider}
+     * @param provider {@link Provider}
      */
     public static void initTable(JTable tblProvider, Provider provider) {
+
         if (!new ProviderRequest().select(provider).isEmpty()) {
             DefaultTableModel model = (DefaultTableModel) tblProvider.getModel();
             model.setNumRows(0);
             new ProviderRequest().select(provider).forEach(p
                     -> model.addRow(new Object[]{
-                    p.getNameProvider(),
-                    p.getCnpjProvider(),
-                    p.getPhoneProvider()
+                p.getNameProvider(),
+                p.getCnpjProvider(),
+                p.getPhoneProvider()
             }));
+
         } else {
-            PopUp.isEmpty("Fornecedor");
+            if (provider != null) {
+                PopUp.isEmpty("Fornecedor");
+            }
         }
     }
 
     /**
-     * @param pnlProvider   {@link JPanel}
-     * @param nameProvider  {@link String}
-     * @param cnpjProvider  {@link String}
+     * @param pnlProvider {@link JPanel}
+     * @param nameProvider {@link String}
+     * @param cnpjProvider {@link String}
      * @param phoneProvider {@link String}
      */
     public void saveProvider(JPanel pnlProvider, String nameProvider, String cnpjProvider, String phoneProvider) {

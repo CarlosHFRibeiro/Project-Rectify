@@ -5,10 +5,9 @@
  */
 package dev.senzalla.rectify.treatments;
 
-
 import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.exception.FieldException;
-import dev.senzalla.rectify.request.RequestNaoh;
+import dev.senzalla.rectify.request.NaohRequest;
 
 import javax.swing.*;
 import java.util.HashSet;
@@ -25,7 +24,7 @@ public class TreatmentNaoh {
         DefaultListModel<Naoh> model = new DefaultListModel<>();
         lstSolNaoh.setModel(model);
 
-        Set<Naoh> naohs = new HashSet<>(new RequestNaoh().select());
+        Set<Naoh> naohs = new HashSet<>(new NaohRequest().select());
         naohs.forEach(model::addElement);
     }
 
@@ -35,13 +34,12 @@ public class TreatmentNaoh {
             if (solution != null) {
                 Naoh naoh = new Naoh();
                 naoh.setValueNaoh(Double.parseDouble(solution));
-                new RequestNaoh().insert(naoh);
+                new NaohRequest().insert(naoh);
             }
         } catch (NumberFormatException ex) {
-            new FieldException();
+            FieldException.fieldException();
         }
     }
-
 
     public void updateSolutionNaoh(JList<Naoh> lstSolNaoh) {
         try {
@@ -50,7 +48,7 @@ public class TreatmentNaoh {
                 Naoh naoh = new Naoh();
                 naoh.setValueNaoh(Double.parseDouble(solution));
                 naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
-                new RequestNaoh().update(naoh);
+                new NaohRequest().update(naoh);
             }
         } catch (NumberFormatException ex) {
             new FieldException();
@@ -58,8 +56,8 @@ public class TreatmentNaoh {
     }
 
     public Long getIdNaoh(JList<Naoh> lstSolNaoh) {
-        return new RequestNaoh().select().stream().filter(naoh ->
-                naoh.getValueNaoh() == Double.parseDouble(String.valueOf(lstSolNaoh.getSelectedValue())))
+        return new NaohRequest().select().stream().filter(naoh
+                -> naoh.getValueNaoh() == Double.parseDouble(String.valueOf(lstSolNaoh.getSelectedValue())))
                 .findFirst().map(Naoh::getIdNaoh)
                 .orElse(null);
     }
@@ -69,7 +67,7 @@ public class TreatmentNaoh {
         if (del.toUpperCase().equals("S")) {
             Naoh naoh = new Naoh();
             naoh.setIdNaoh(getIdNaoh(lstSolNaoh));
-            new RequestNaoh().delete(naoh);
+            new NaohRequest().delete(naoh);
         } else {
             PopUp.cancelOperation();
         }
@@ -78,13 +76,13 @@ public class TreatmentNaoh {
     public void deleteAllSolutionNaoh() {
         String del = PopUp.panelDelete("todos ");
         if (del.toUpperCase().equals("S")) {
-            new RequestNaoh().deleteAll();
+            new NaohRequest().deleteAll();
         } else {
             PopUp.cancelOperation();
         }
     }
 
     public void showComboBox(JComboBox<Object> cbxConcentration) {
-        new RequestNaoh().select().forEach(cbxConcentration::addItem);
+        new NaohRequest().select().forEach(cbxConcentration::addItem);
     }
 }

@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame.filter;
 
-import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.rectify.treatments.TankTreatment;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.TreatmentStockProduct;
 import dev.senzalla.rectify.treatments.TreatmentStockTank;
-import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -25,14 +25,14 @@ public class FrmFilterStock extends javax.swing.JFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlStock);
         TankTreatment.initComboBox(cbxTank);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
     }
 
     public FrmFilterStock(JTable tbl) {
         initComponents();
         TreatmentTheme.initTheme(pnlStock);
         TankTreatment.initComboBox(cbxTank);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
         this.tbl = tbl;
     }
 
@@ -40,7 +40,7 @@ public class FrmFilterStock extends javax.swing.JFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlStock);
         TankTreatment.initComboBox(cbxTank);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
         this.tbl = tbl;
         lblTank.setVisible(false);
         cbxTank.setVisible(false);

@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.TreatmentStockTank;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -18,7 +18,7 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlStk);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
         new TreatmentStockTank().tableTank(tbl);
     }
 

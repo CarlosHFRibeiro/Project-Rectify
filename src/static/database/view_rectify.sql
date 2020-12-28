@@ -64,7 +64,7 @@ FROM tbl_charge
          JOIN tbl_tank ON fkTankCharge = idTank
          JOIN tbl_provider ON fkProviderCharge = idProvider
          JOIN tbl_driver ON fkDriverCharge = idDriver
-         JOIN tbl_analyzeTruck ON fkLabCharge = idCar;
+         JOIN tbl_analyzeTruck tl on tbl_charge.fkLabCharge = tl.idCar;
 
 CREATE OR REPLACE VIEW view_dcharge AS
 SELECT idDcharge,
@@ -138,26 +138,22 @@ select me.idTrans,
 from (db_retifica.tbl_maketrans me
          join db_retifica.tbl_tank tt on (tt.idTank = me.fkTankTrans));
 
-# CREATE OR REPLACE VIEW view_matterester AS
-# SELECT tm.idMtEster, tm.literMtEster, tm.fkMtEster, tp.nameProduct
-# FROM tbl_matterester tm
-#          JOIN tbl_product tp on tp.idProduct = tm.fkProductMtEster;
-#
-#
-# CREATE OR REPLACE VIEW view_reactester AS
-# SELECT tr.dtRctEster
-#      , tr.pureRctEster
-#      , tr.recoverRctEster
-#      , tr.sulfuricRctEster
-#      , tr.hrFinalRctEster
-#      , tr.hrStartRctEster
-#      , tr.fkRctEster
-#      , ts.acidTq as acidInitial
-#      , ts.soapTq as soapInitial
-#      , ts.trashTq as trashInitial
-#      , tf.acidTq as acidFinal
-#      , tf.soapTq as soapFinal
-#      , tf.trashTq as trashFinal
-# FROM tbl_reactester tr
-#          join tbl_labtank ts on ts.idTq = tr.fkLabStartRctEster
-#          join tbl_labtank tf on tf.idTq = tr.fkLabFinalRctEster;
+CREATE OR REPLACE VIEW view_matterTransr AS
+SELECT tm.idMtTrans, tm.literMtTrans, tm.fkMtTrans, tp.nameProduct
+FROM tbl_mattertrans tm
+         JOIN tbl_product tp on tp.idProduct = tm.fkProductMtTrans;
+
+
+CREATE OR REPLACE VIEW view_reactTrans AS
+SELECT tr.idRctTrans
+     , tr.dtRctTrans
+     , tr.methylateRctTrans
+     , tr.pureRctTrans
+     , tr.hrFinalRctTrans
+     , tr.hrStartRctTrans
+     , tr.fkRctTrans
+     , ts.acidTq
+     , ts.soapTq
+     , ts.trashTq
+FROM tbl_reactTrans tr
+         join tbl_labtank ts on ts.idTq = tr.fkLabRctTrans;

@@ -41,9 +41,13 @@ public class PnlCalcSoap extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(550, 150));
-        setMinimumSize(new java.awt.Dimension(550, 150));
-        setPreferredSize(new java.awt.Dimension(550, 150));
+        setMaximumSize(new java.awt.Dimension(592, 150));
+        setMinimumSize(new java.awt.Dimension(592, 150));
+        setPreferredSize(new java.awt.Dimension(592, 150));
+
+        pnlSoap.setMaximumSize(new java.awt.Dimension(588, 146));
+        pnlSoap.setMinimumSize(new java.awt.Dimension(588, 146));
+        pnlSoap.setPreferredSize(new java.awt.Dimension(588, 146));
 
         lblCalcSoapResultTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcSoapResultTitle.setText("Sabões");
@@ -61,7 +65,7 @@ public class PnlCalcSoap extends javax.swing.JPanel {
         pnlSoapLayout.setHorizontalGroup(
             pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSoapLayout.createSequentialGroup()
-                .addGap(155, 155, 155)
+                .addGap(173, 173, 173)
                 .addGroup(pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSoapLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
@@ -71,7 +75,7 @@ public class PnlCalcSoap extends javax.swing.JPanel {
                         .addComponent(lblSoap)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblCalcSoapResultFixed)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))))
         );
@@ -84,7 +88,7 @@ public class PnlCalcSoap extends javax.swing.JPanel {
                 .addGroup(pnlSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSoap)
                     .addComponent(lblCalcSoapResultFixed))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSoapLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -95,11 +99,11 @@ public class PnlCalcSoap extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlSoap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

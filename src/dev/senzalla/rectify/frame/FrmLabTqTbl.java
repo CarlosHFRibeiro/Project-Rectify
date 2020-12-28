@@ -5,8 +5,8 @@
  */
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.frame.filter.FrmFilterLab;
 import dev.senzalla.rectify.enuns.Lab;
+import dev.senzalla.rectify.frame.filter.FrmFilterLab;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentLabTank;
 import dev.senzalla.theme.TreatmentTheme;
@@ -56,7 +56,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Amostras Do Tanque");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +64,7 @@ public class FrmLabTqTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

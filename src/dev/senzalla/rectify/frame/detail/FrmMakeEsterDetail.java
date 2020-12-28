@@ -5,9 +5,9 @@
  */
 package dev.senzalla.rectify.frame.detail;
 
+import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.frame.panel.PnlMatterDetail;
 import dev.senzalla.rectify.frame.panel.PnlReactEsterDetail;
-import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.print.MakeEsterDetailPrint;
 import dev.senzalla.rectify.request.RequestMakeEster;
 import dev.senzalla.rectify.treatments.TreatmentsItem;

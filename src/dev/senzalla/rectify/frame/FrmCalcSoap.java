@@ -94,6 +94,9 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
             }
         });
 
+        pnlCalc.setMaximumSize(new java.awt.Dimension(594, 152));
+        pnlCalc.setMinimumSize(new java.awt.Dimension(594, 152));
+
         javax.swing.GroupLayout pnlCalcLayout = new javax.swing.GroupLayout(pnlCalc);
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(

@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.frame.FrmDchargeTbl;
 import dev.senzalla.rectify.entitys.*;
+import dev.senzalla.rectify.frame.FrmDchargeTbl;
 import dev.senzalla.rectify.request.RequestDcharge;
 
 import javax.swing.*;

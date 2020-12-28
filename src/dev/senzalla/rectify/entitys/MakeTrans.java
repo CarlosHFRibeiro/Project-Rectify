@@ -16,10 +16,10 @@ public class MakeTrans extends TreatmentDate {
     private int foreseenTrans;
     private int trashTrans;
     private int producedTrans;
-    private Date dtTrans;
+    private Date makeDateTrans;
     private Tank tank;
     private Set<MatterTrans> matterTrans;
-    private Set<ReactTrans> reactTranss;
+    private Set<ReactTrans> reactTrans;
 
     public Long getIdTrans() {
         return idTrans;
@@ -61,12 +61,12 @@ public class MakeTrans extends TreatmentDate {
         this.producedTrans = producedTrans;
     }
 
-    public Date getDtTrans() {
-        return dtTrans;
+    public Date getMakeDateTrans() {
+        return makeDateTrans;
     }
 
-    public void setDtTrans(java.util.Date dtTrans) {
-        this.dtTrans = convertDateSql(dtTrans);
+    public void setMakeDateTrans(java.util.Date makeDateTrans) {
+        this.makeDateTrans = convertDateSql(makeDateTrans);
     }
 
     public Tank getTank() {
@@ -85,11 +85,11 @@ public class MakeTrans extends TreatmentDate {
         this.matterTrans = matterTrans;
     }
 
-    public Set<ReactTrans> getReactTranss() {
-        return reactTranss;
+    public Set<ReactTrans> getReactTrans() {
+        return reactTrans;
     }
 
-    public void setReactTranss(Set<ReactTrans> reactTranss) {
-        this.reactTranss = reactTranss;
+    public void setReactTrans(Set<ReactTrans> reactTrans) {
+        this.reactTrans = reactTrans;
     }
 }

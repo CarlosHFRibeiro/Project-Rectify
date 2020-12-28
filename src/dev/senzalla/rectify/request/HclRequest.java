@@ -12,10 +12,9 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class RequestHcl extends Request<Hcl> {
+public class HclRequest extends Request<Hcl> {
 
     private List<Hcl> hcls;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_hcl;";
 
     @Override
     public void insert(Hcl hcl) {
@@ -26,7 +25,7 @@ public class RequestHcl extends Request<Hcl> {
             stmt.setDouble(1, hcl.getValueHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            DataBaseException.processMsg("HCl " + ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }
@@ -34,6 +33,7 @@ public class RequestHcl extends Request<Hcl> {
 
     @Override
     public List<Hcl> select() {
+        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_hcl;";
         selectAll(SELECT_QUERY);
         return hcls;
     }
@@ -58,7 +58,7 @@ public class RequestHcl extends Request<Hcl> {
                 hcls.add(hcl);
             }
         } catch (SQLException ex) {
-            System.err.println(ex);
+            DataBaseException.processMsg("HCl " + ex.getMessage());
         } finally {
             closeConnectionRs();
         }
@@ -73,7 +73,7 @@ public class RequestHcl extends Request<Hcl> {
             stmt.setLong(2, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            DataBaseException.processMsg("HCl " + ex.getMessage(), String.valueOf(hcl.getValueHcl()));
         } finally {
             closeConnection();
         }
@@ -87,11 +87,12 @@ public class RequestHcl extends Request<Hcl> {
             stmt.setLong(1, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println(ex);
+            DataBaseException.processMsg("HCl " + ex.getMessage());
         } finally {
             closeConnection();
         }
     }
+
     public void deleteAll() {
         connection();
         final String sql = "TRUNCATE TABLE `db_retifica`.`tbl_hcl`;";
@@ -99,7 +100,7 @@ public class RequestHcl extends Request<Hcl> {
             prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            System.err.println(ex);
+            DataBaseException.processMsg("HCl " + ex.getMessage());
         } finally {
             closeConnection();
         }

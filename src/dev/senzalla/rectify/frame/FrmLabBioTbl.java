@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.frame.filter.FrmFilterLab;
 import dev.senzalla.rectify.enuns.Lab;
+import dev.senzalla.rectify.frame.filter.FrmFilterLab;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentLabBio;
 import dev.senzalla.theme.TreatmentTheme;

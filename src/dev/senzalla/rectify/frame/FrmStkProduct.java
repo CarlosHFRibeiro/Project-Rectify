@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.frame.filter.FrmFilterStock;
 import dev.senzalla.rectify.entitys.StockProduct;
+import dev.senzalla.rectify.frame.filter.FrmFilterStock;
 import dev.senzalla.rectify.print.StockProductPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentStockProduct;

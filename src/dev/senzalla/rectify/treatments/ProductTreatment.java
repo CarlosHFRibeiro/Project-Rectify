@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @github github.com/Bomsalvez
  */
 
-public class TreatmentProduct {
+public class ProductTreatment {
     public void showTable(JTable tbl) {
         DefaultTableModel model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);

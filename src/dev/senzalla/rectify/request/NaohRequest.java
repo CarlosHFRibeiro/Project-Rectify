@@ -12,7 +12,7 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class RequestNaoh extends Request<Naoh> {
+public class NaohRequest extends Request<Naoh> {
 
     private List<Naoh> naohs;
 
@@ -25,7 +25,7 @@ public class RequestNaoh extends Request<Naoh> {
             stmt.setDouble(1, naoh.getValueNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            DataBaseException.processMsg("NaOH " + ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
         } finally {
             closeConnection();
         }
@@ -58,7 +58,7 @@ public class RequestNaoh extends Request<Naoh> {
                 naohs.add(naoh);
             }
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            DataBaseException.processMsg("NaOH " + ex.getMessage());
         } finally {
             closeConnectionRs();
         }
@@ -73,7 +73,7 @@ public class RequestNaoh extends Request<Naoh> {
             stmt.setLong(2, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            DataBaseException.processMsg("NaOH " + ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
         } finally {
             closeConnection();
         }
@@ -87,7 +87,7 @@ public class RequestNaoh extends Request<Naoh> {
             stmt.setLong(1, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            DataBaseException.processMsg("NaOH " + ex.getMessage());
         } finally {
             closeConnection();
         }
@@ -100,7 +100,7 @@ public class RequestNaoh extends Request<Naoh> {
             prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage());
+            DataBaseException.processMsg("NaO" + ex.getMessage());
         } finally {
             closeConnection();
         }

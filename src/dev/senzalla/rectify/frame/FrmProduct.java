@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.TreatmentTxt;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -168,7 +168,7 @@ public class FrmProduct extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtDensityKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new TreatmentProduct().saveProduct(pnlProduct, txtName.getText(), txtDensity.getText());
+        new ProductTreatment().saveProduct(pnlProduct, txtName.getText(), txtDensity.getText());
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed

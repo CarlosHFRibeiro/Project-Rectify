@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.CalcAcidityTreatment;
+import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentNaoh;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -101,11 +101,14 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
             }
         });
 
+        pnlCalc.setMaximumSize(new java.awt.Dimension(594, 152));
+        pnlCalc.setMinimumSize(new java.awt.Dimension(594, 152));
+
         javax.swing.GroupLayout pnlCalcLayout = new javax.swing.GroupLayout(pnlCalc);
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 594, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
             pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,8 +135,8 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
                     .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
                         .addGap(230, 230, 230)
                         .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
-                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(lblConcentration)

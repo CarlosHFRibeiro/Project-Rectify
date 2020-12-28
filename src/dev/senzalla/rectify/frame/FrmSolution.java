@@ -2,6 +2,8 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Hcl;
 import dev.senzalla.rectify.entitys.Naoh;
+import dev.senzalla.rectify.request.HclRequest;
+import dev.senzalla.rectify.request.NaohRequest;
 import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.rectify.treatments.TreatmentHcl;
 import dev.senzalla.rectify.treatments.TreatmentNaoh;
@@ -24,6 +26,7 @@ public class FrmSolution extends javax.swing.JInternalFrame {
         TreatmentTheme.initListTheme(lstSolNaoh);
         new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
         new TreatmentHcl().showSolutionHcl(lstSolHcl);
+//        preencher();
     }
 
     /**
@@ -346,4 +349,17 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane rollSolHcl;
     private javax.swing.JScrollPane rollSolNaoh;
     // End of variables declaration//GEN-END:variables
+
+    private void preencher() {
+        for (int i = 0; i < 50; i++) {
+            Naoh naoh = new Naoh();
+            naoh.setValueNaoh(i);
+            new NaohRequest().insert(naoh);
+        }
+        for (int i = 0; i < 50; i++) {
+            Hcl hcl = new Hcl();
+            hcl.setValueHcl(i);
+            new HclRequest().insert(hcl);
+        }
+    }
 }

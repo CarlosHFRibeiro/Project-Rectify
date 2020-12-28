@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.frame.filter.FrmFilterSample;
 import dev.senzalla.rectify.entitys.Seal;
+import dev.senzalla.rectify.frame.filter.FrmFilterSample;
 import dev.senzalla.rectify.print.SealPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.TreatmentSeal;

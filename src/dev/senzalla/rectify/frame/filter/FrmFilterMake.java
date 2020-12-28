@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.frame.filter;
 
-import dev.senzalla.rectify.treatments.TreatmentEster;
 import dev.senzalla.rectify.treatments.TankTreatment;
-import dev.senzalla.rectify.treatments.TreatmentTrans;
+import dev.senzalla.rectify.treatments.TransTreatment;
+import dev.senzalla.rectify.treatments.TreatmentEster;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -176,10 +176,12 @@ public class FrmFilterMake extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if (isMakeEster) {
-            new TreatmentEster().initTable(tbl, spnCod, dtcDtOf, dtcDtUp, cbxTank);
-        } else {
-            new TreatmentTrans().initTable(tbl, spnCod, dtcDtOf, dtcDtUp, cbxTank);
+        if (!spnCod.getValue().equals(0) || dtcDtOf.getDate() != null || dtcDtUp.getDate() != null || cbxTank.getSelectedIndex() > 0) {
+            if (isMakeEster) {
+                new TreatmentEster().initTable(tbl, spnCod, dtcDtOf, dtcDtUp, cbxTank);
+            } else {
+                TransTreatment.initTable(tbl, spnCod, dtcDtOf, dtcDtUp, cbxTank);
+            }
         }
         this.dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -188,7 +190,7 @@ public class FrmFilterMake extends javax.swing.JFrame {
         if (isMakeEster) {
             new TreatmentEster().initTable(tbl);
         } else {
-            new TreatmentTrans().initTable(tbl);
+            TransTreatment.initTable(tbl);
         }
         this.dispose();
     }//GEN-LAST:event_btnClearActionPerformed

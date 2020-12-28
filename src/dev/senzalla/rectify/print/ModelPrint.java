@@ -108,9 +108,8 @@ public class ModelPrint {
 
     protected void setLogo() {
         try {
-            String MODELO_CERTIFICADO = "/static/img/baseline_eco_black_24x.png";
-            URL certificado = getClass().getResource(MODELO_CERTIFICADO);
-            Image image = Image.getInstance(certificado);
+            URL ICON_LOGO = getClass().getResource("/static/img/eco_24x.png");
+            Image image = Image.getInstance(ICON_LOGO);
             image.setAbsolutePosition(90, 767);
             pdfWriter.getDirectContent().addImage(image, false);
         } catch (DocumentException | IOException e) {

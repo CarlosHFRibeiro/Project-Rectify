@@ -6,10 +6,14 @@
 package dev.senzalla.rectify.frame.detail;
 
 import dev.senzalla.rectify.entitys.MakeTrans;
+import dev.senzalla.rectify.frame.panel.PnlMatterDetail;
+import dev.senzalla.rectify.frame.panel.PnlReactTransDetail;
 import dev.senzalla.rectify.print.MakeTransDetailPrint;
-import dev.senzalla.rectify.request.RequestMakeTrans;
+import dev.senzalla.rectify.request.MakeTransRequest;
 import dev.senzalla.rectify.treatments.TreatmentsItem;
 import dev.senzalla.theme.TreatmentTheme;
+
+import javax.swing.*;
 
 /**
  * @author Bomsalvez
@@ -18,7 +22,7 @@ import dev.senzalla.theme.TreatmentTheme;
  */
 public class FrmMakeTransDetail extends javax.swing.JFrame {
 
-    private MakeTrans makeEster;
+    private MakeTrans makeTrans;
 
     /**
      * Creates new form FrmTranspDetail
@@ -30,9 +34,9 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
     public FrmMakeTransDetail(Object cod) {
         initComponents();
         TreatmentTheme.initTheme(pnlDetail);
-        MakeTrans ester = new MakeTrans();
-        ester.setIdTrans(Long.valueOf(cod.toString()));
-        makeEster = new RequestMakeTrans().select(ester);
+        MakeTrans makeTransSearch = new MakeTrans();
+        makeTransSearch.setIdTrans(Long.valueOf(cod.toString()));
+        this.makeTrans = new MakeTransRequest().select(makeTransSearch);
         showDetail();
     }
 
@@ -47,36 +51,50 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
 
         roll = new javax.swing.JScrollPane();
         pnlDetail = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnPrint = new javax.swing.JButton();
         lblTank = new javax.swing.JLabel();
-        txtTank = new javax.swing.JLabel();
+        lblNameTank = new javax.swing.JLabel();
         pnlMatter = new javax.swing.JPanel();
         lblAmount = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JLabel();
+        lblAmountProduct = new javax.swing.JLabel();
         pnlReact = new javax.swing.JPanel();
+        lblTrash = new javax.swing.JLabel();
+        lblProduced = new javax.swing.JLabel();
+        lblTrashMake = new javax.swing.JLabel();
+        lblProducedMake = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(480, 640));
+        setMinimumSize(new java.awt.Dimension(480, 640));
+        setPreferredSize(new java.awt.Dimension(480, 640));
         setResizable(false);
 
         roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.setMaximumSize(new java.awt.Dimension(466, 636));
+        roll.setMinimumSize(new java.awt.Dimension(466, 636));
+        roll.setPreferredSize(new java.awt.Dimension(466, 636));
         roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 rollMouseWheelMoved(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf_24dp.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        pnlDetail.setMaximumSize(new java.awt.Dimension(464, 32767));
+        pnlDetail.setMinimumSize(new java.awt.Dimension(464, 636));
+        pnlDetail.setPreferredSize(new java.awt.Dimension(464, 636));
+
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf.png"))); // NOI18N
+        btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPrintActionPerformed(evt);
             }
         });
 
-        lblTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTank.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblTank.setText("Tanque");
 
-        txtTank.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtTank.setText("Tanque");
+        lblNameTank.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNameTank.setText("Tanque");
 
         javax.swing.GroupLayout pnlMatterLayout = new javax.swing.GroupLayout(pnlMatter);
         pnlMatter.setLayout(pnlMatterLayout);
@@ -89,11 +107,11 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lblAmount.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAmount.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblAmount.setText("Quantidade Produto");
 
-        txtAmount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtAmount.setText("Quantidade");
+        lblAmountProduct.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAmountProduct.setText("Quantidade");
 
         javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
         pnlReact.setLayout(pnlReactLayout);
@@ -106,6 +124,18 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        lblTrash.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblTrash.setText("Residuo");
+
+        lblProduced.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblProduced.setText("Total Produzido");
+
+        lblTrashMake.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTrashMake.setText("Residuo");
+
+        lblProducedMake.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProducedMake.setText("Quantidade");
+
         javax.swing.GroupLayout pnlDetailLayout = new javax.swing.GroupLayout(pnlDetail);
         pnlDetail.setLayout(pnlDetailLayout);
         pnlDetailLayout.setHorizontalGroup(
@@ -116,34 +146,49 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addComponent(lblTank)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTank))
-                    .addComponent(jButton1)
+                        .addComponent(lblNameTank))
+                    .addComponent(btnPrint)
                     .addGroup(pnlDetailLayout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(lblAmount)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAmount))
+                        .addComponent(lblAmountProduct))
                     .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlDetailLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(lblTrash)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTrashMake)
+                        .addGap(40, 40, 40)
+                        .addComponent(lblProduced)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblProducedMake)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDetailLayout.setVerticalGroup(
             pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDetailLayout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addComponent(btnPrint)
                 .addGap(18, 18, 18)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTank)
-                    .addComponent(txtTank))
+                    .addComponent(lblNameTank))
                 .addGap(18, 18, 18)
                 .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAmount)
-                    .addComponent(txtAmount))
+                    .addComponent(lblAmountProduct))
                 .addGap(18, 18, 18)
                 .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(51, 51, 51)
+                .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTrash)
+                    .addComponent(lblProduced)
+                    .addComponent(lblTrashMake)
+                    .addComponent(lblProducedMake))
+                .addGap(256, 256, 256))
         );
 
         roll.setViewportView(pnlDetail);
@@ -153,14 +198,12 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -171,9 +214,9 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
         TreatmentsItem.speedRoll(roll);
     }//GEN-LAST:event_rollMouseWheelMoved
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new MakeTransDetailPrint().print(makeEster);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        new MakeTransDetailPrint().print(makeTrans);
+    }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,42 +255,43 @@ public class FrmMakeTransDetail extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblAmount;
+    private javax.swing.JLabel lblAmountProduct;
+    private javax.swing.JLabel lblNameTank;
+    private javax.swing.JLabel lblProduced;
+    private javax.swing.JLabel lblProducedMake;
     private javax.swing.JLabel lblTank;
+    private javax.swing.JLabel lblTrash;
+    private javax.swing.JLabel lblTrashMake;
     private javax.swing.JPanel pnlDetail;
     private javax.swing.JPanel pnlMatter;
     private javax.swing.JPanel pnlReact;
     private javax.swing.JScrollPane roll;
-    private javax.swing.JLabel txtAmount;
-    private javax.swing.JLabel txtTank;
     // End of variables declaration//GEN-END:variables
 
-    private void showDetail() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-//    private void showDetail() {
-//        addPanelMatter();
-//        addPanelReact();
-//        txtTank.setText(makeEster.getTank().getNameTank());
-//        txtAmount.setText(String.valueOf(makeEster.getAmountEster()));
-//    }
+    private void showDetail() {
+        addPanelMatter();
+        addPanelReact();
+        lblNameTank.setText(makeTrans.getTank().getNameTank());
+        lblAmountProduct.setText(String.valueOf(makeTrans.getAmountTrans()));
+    }
     
-//    private void addPanelMatter() {
-//        BoxLayout layoutMatter = new BoxLayout(pnlMatter, 1);
-//        makeEster.getMatterEster().forEach(matterEster -> {
-//            pnlMatter.setLayout(layoutMatter);
-//            pnlMatter.add(new PnlMatterDetail(matterEster.getProduct(), matterEster.getLiterMtEster())).setVisible(true);
-//        });
-//    }
+    private void addPanelMatter() {
+        BoxLayout layoutMatter = new BoxLayout(pnlMatter, 1);
+        makeTrans.getMatterTrans().forEach(matterEster -> {
+            pnlMatter.setLayout(layoutMatter);
+            pnlMatter.add(new PnlMatterDetail(matterEster.getProduct(), matterEster.getLiterMtTrans())).setVisible(true);
+        });
+    }
     
-//    private void addPanelReact() {
-//        BoxLayout layoutReact = new BoxLayout(pnlReact, 1);
-//        makeEster.getReactEsters().forEach(react -> {
-//            pnlReact.setLayout(layoutReact);
-//            pnlReact.add(new PnlReactEsterDetail(react)).setVisible(true);
-//        });
-//    }
+    private void addPanelReact() {
+        BoxLayout layoutReact = new BoxLayout(pnlReact, 1);
+        makeTrans.getReactTrans().forEach(react -> {
+            pnlReact.setLayout(layoutReact);
+            pnlReact.add(new PnlReactTransDetail(react)).setVisible(true);
+        });
+    }
     
 }

@@ -41,9 +41,12 @@ public class PnlCalcOleic extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(550, 150));
-        setMinimumSize(new java.awt.Dimension(550, 150));
-        setPreferredSize(new java.awt.Dimension(550, 150));
+        setMaximumSize(new java.awt.Dimension(592, 150));
+        setMinimumSize(new java.awt.Dimension(592, 150));
+        setPreferredSize(new java.awt.Dimension(592, 150));
+
+        pnlOleic.setMaximumSize(new java.awt.Dimension(590, 146));
+        pnlOleic.setMinimumSize(new java.awt.Dimension(590, 146));
 
         lblCalcTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCalcTitle.setText("ACIDEZ ÁCIDO GRAXO E BIODEISEL ESTEREFICADO");
@@ -59,19 +62,19 @@ public class PnlCalcOleic extends javax.swing.JPanel {
         pnlOleicLayout.setHorizontalGroup(
             pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOleicLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(63, 63, 63)
                 .addGroup(pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlOleicLayout.createSequentialGroup()
                         .addComponent(lblCalcTitle)
-                        .addContainerGap(45, Short.MAX_VALUE))
+                        .addContainerGap(54, Short.MAX_VALUE))
                     .addGroup(pnlOleicLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 64, Short.MAX_VALUE)
                         .addComponent(lblCalcValue)
                         .addGap(18, 18, 18)
                         .addComponent(lblCalcFixed)
                         .addGap(55, 55, 55)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(62, Short.MAX_VALUE))))
         );
         pnlOleicLayout.setVerticalGroup(
             pnlOleicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +102,7 @@ public class PnlCalcOleic extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlOleic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlOleic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

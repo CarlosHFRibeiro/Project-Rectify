@@ -21,7 +21,7 @@ public class FrmCharge extends javax.swing.JInternalFrame {
     public FrmCharge() {
         initComponents();
         TreatmentTheme.initTheme(pnlCharge);
-        new TreatmentProduct().addComboBox(cbxProduct);
+        new ProductTreatment().addComboBox(cbxProduct);
          ProviderTreatment.initComboBox(cbxProvider);
         TankTreatment.initComboBox(cbxTank);
         new AnalyzeTruckTreatment().initComboBoxAnalyze(cbxanalyzeTruck);

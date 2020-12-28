@@ -2,7 +2,6 @@ package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.LabTank;
 import dev.senzalla.rectify.entitys.ReactTrans;
-import dev.senzalla.rectify.frame.FrmTrans;
 import dev.senzalla.rectify.request.ReactTransRequest;
 import dev.senzalla.rectify.treatments.TreatmentLabTank;
 import dev.senzalla.theme.TreatmentTheme;
@@ -16,14 +15,14 @@ import java.util.Date;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class PnlReactTrans extends javax.swing.JPanel {
+public class PnlReactTransDetail extends javax.swing.JPanel {
 
     /**
      * Creates new form PnlReactEster
      *
      * @param trans
      */
-    public PnlReactTrans(FrmTrans trans) {
+    public PnlReactTransDetail(ReactTrans trans) {
         initComponents();
         TreatmentTheme.initTheme(pnlReact);
         new TreatmentLabTank().showComboBox(cbxanalyzeTruck);

@@ -1,10 +1,10 @@
 package dev.senzalla.rectify.treatments;
 
 import com.toedter.calendar.JDateChooser;
-import dev.senzalla.rectify.frame.FrmSealTbl;
 import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.entitys.Seal;
 import dev.senzalla.rectify.exception.EmptyField;
+import dev.senzalla.rectify.frame.FrmSealTbl;
 import dev.senzalla.rectify.request.RequestSeal;
 
 import javax.swing.*;

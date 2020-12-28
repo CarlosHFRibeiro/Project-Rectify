@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame.panel;
 
-import dev.senzalla.rectify.frame.FrmEster;
 import dev.senzalla.rectify.entitys.LabTank;
 import dev.senzalla.rectify.entitys.ReactEster;
 import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.frame.FrmEster;
 import dev.senzalla.rectify.request.RequestReactEster;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TreatmentLabTank;

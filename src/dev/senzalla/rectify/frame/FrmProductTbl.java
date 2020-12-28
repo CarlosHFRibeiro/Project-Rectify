@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentProduct;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -18,7 +18,8 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlProduct);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentProduct().showTable(tbl);
+        new ProductTreatment().showTable(tbl);
+        TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
     }
 
     /**
@@ -48,7 +49,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblTitle.setText("Produto");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,15 +57,44 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        roll.setBorder(null);
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(990, 600));
-        roll.setMinimumSize(new java.awt.Dimension(990, 600));
-        roll.setPreferredSize(new java.awt.Dimension(990, 600));
-
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
                 "Nome", "Densidade"
@@ -78,13 +108,13 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setMaximumSize(new java.awt.Dimension(990, 578));
-        tbl.setMinimumSize(new java.awt.Dimension(990, 578));
-        tbl.setPreferredSize(new java.awt.Dimension(990, 578));
         tbl.setShowGrid(true);
+        tbl.setShowVerticalLines(false);
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
+            tbl.getColumnModel().getColumn(0).setResizable(false);
             tbl.getColumnModel().getColumn(0).setPreferredWidth(500);
+            tbl.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout pnlProductLayout = new javax.swing.GroupLayout(pnlProduct);
@@ -92,14 +122,14 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         pnlProductLayout.setHorizontalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProductLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(455, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(384, 384, 384)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(pnlProductLayout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addComponent(roll)
+                .addContainerGap())
         );
         pnlProductLayout.setVerticalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,8 +138,9 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTitle)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,5 +171,4 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane roll;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
-
 }

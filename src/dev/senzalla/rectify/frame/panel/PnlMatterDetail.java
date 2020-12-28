@@ -39,24 +39,25 @@ public class PnlMatterDetail extends javax.swing.JPanel {
         txtProduct = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(473, 40));
-        setMinimumSize(new java.awt.Dimension(473, 40));
-        setPreferredSize(new java.awt.Dimension(473, 40));
+        setMaximumSize(new java.awt.Dimension(478, 50));
+        setMinimumSize(new java.awt.Dimension(478, 50));
+        setPreferredSize(new java.awt.Dimension(478, 50));
 
-        pnlMatter.setMaximumSize(new java.awt.Dimension(465, 36));
-        pnlMatter.setMinimumSize(new java.awt.Dimension(465, 36));
+        pnlMatter.setMaximumSize(new java.awt.Dimension(476, 48));
+        pnlMatter.setMinimumSize(new java.awt.Dimension(476, 48));
+        pnlMatter.setPreferredSize(new java.awt.Dimension(476, 48));
 
-        lblMatterProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMatterProduct.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblMatterProduct.setText("Produto");
 
-        lblMatterLiter.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMatterLiter.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblMatterLiter.setText("Litros");
 
         txtLitter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtLitter.setText("Tanque");
+        txtLitter.setText("Litros");
 
         txtProduct.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtProduct.setText("Tanque");
+        txtProduct.setText("Produto");
 
         javax.swing.GroupLayout pnlMatterLayout = new javax.swing.GroupLayout(pnlMatter);
         pnlMatter.setLayout(pnlMatterLayout);
@@ -67,33 +68,33 @@ public class PnlMatterDetail extends javax.swing.JPanel {
                 .addComponent(lblMatterProduct)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtProduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                 .addComponent(lblMatterLiter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLitter)
-                .addGap(116, 116, 116))
+                .addGap(59, 59, 59))
         );
         pnlMatterLayout.setVerticalGroup(
             pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMatterLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(16, 16, 16)
                 .addGroup(pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMatterProduct)
                     .addComponent(lblMatterLiter)
                     .addComponent(txtProduct)
                     .addComponent(txtLitter))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

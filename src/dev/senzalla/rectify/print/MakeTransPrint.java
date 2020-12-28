@@ -29,9 +29,10 @@ public class MakeTransPrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Transificação");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(esters.get(0).getDtTrans()));
+            setTable(convertDateUtil(esters.get(0).getMakeDateTrans()));
             document.add(pdfPTable);
 
             configuration(5, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -44,14 +45,14 @@ public class MakeTransPrint extends ModelPrint {
                 MakeTrans charge = esters.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
                 setTable(String.valueOf(charge.getIdTrans()));
-                setTable(convertDateUtil(charge.getDtTrans()));
+                setTable(convertDateUtil(charge.getMakeDateTrans()));
                 setTable(String.valueOf(charge.getTank().getNameTank()));
                 setTable(String.valueOf(charge.getProducedTrans()));
                 setTable(String.valueOf(charge.getTrashTrans()));
             }
             document.add(pdfPTable);
 
-            setLogo();
+
             document.close();
             Desktop.getDesktop().open(new File(archive));
         } catch (DocumentException | IOException e) {
