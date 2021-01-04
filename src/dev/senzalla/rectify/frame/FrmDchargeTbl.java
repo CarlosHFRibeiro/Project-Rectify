@@ -1,7 +1,6 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Discharge;
-import dev.senzalla.rectify.frame.detail.DischargeDetailFrame;
 import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.DchargePrint;
 import dev.senzalla.rectify.treatments.Access;

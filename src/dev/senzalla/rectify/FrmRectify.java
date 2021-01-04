@@ -23,7 +23,7 @@ public class FrmRectify extends JFrame {
         TreatmentTheme.initTheme(pnlMenu);
         Access.setDktMain(dktMain);
         ItemTreatment.visiblePanel(pnlMenu);
-        Access.checkFrame(new FrmStkTk());
+        Access.checkFrame(new StockTackViewFrame());
     }
 
     /**
@@ -548,7 +548,7 @@ public class FrmRectify extends JFrame {
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         retractPanel();
-        Access.checkFrame(new FrmStkTk());
+        Access.checkFrame(new StockTackViewFrame());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnLaboratoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratoryActionPerformed
@@ -609,7 +609,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnMakeEsterActionPerformed
 
     private void btnMakeTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeTransActionPerformed
-        Access.checkFrame(new FrmTransTbl());
+        Access.checkFrame(new MakeBiodieselTableFrame());
     }//GEN-LAST:event_btnMakeTransActionPerformed
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
@@ -637,7 +637,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnProviderActionPerformed
 
     private void btnTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankActionPerformed
-        Access.checkFrame(new FrmTankTbl());
+        Access.checkFrame(new TankTableFrame());
     }//GEN-LAST:event_btnTankActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
@@ -649,7 +649,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnSolutionActionPerformed
 
     private void btnThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemeActionPerformed
-        FrmTheme theme = new FrmTheme();
+        ThemeFrame theme = new ThemeFrame();
         theme.setMenu(pnlMenu);
         Access.checkFrame(theme);
     }//GEN-LAST:event_btnThemeActionPerformed

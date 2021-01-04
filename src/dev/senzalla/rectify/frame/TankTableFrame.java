@@ -9,12 +9,12 @@ import dev.senzalla.theme.TreatmentTheme;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmTankTbl extends javax.swing.JInternalFrame {
+public class TankTableFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmTankTbl
      */
-    public FrmTankTbl() {
+    public TankTableFrame() {
         initComponents();
         TreatmentTheme.initTheme(pnlTank);
         TreatmentTheme.initTableTheme(tbl);
@@ -78,13 +78,12 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
         pnlTankLayout.setHorizontalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addContainerGap(456, Short.MAX_VALUE)
+                .addContainerGap(455, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(389, 389, 389)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(roll)
                 .addContainerGap())
         );
@@ -117,7 +116,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToInternalFrame(this, new TankFrm());
+        Access.goToInternalFrame(this, new TankFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

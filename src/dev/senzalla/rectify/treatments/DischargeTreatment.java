@@ -24,36 +24,36 @@ public class DischargeTreatment {
     }
 
 
-    public static void setTableFilters(JTable tblDischarge, Long idDcharge, Date dateOf, Date dateUntil, Integer ticket, Integer note, Object product, Object provider) {
+    public static void setTableFilters(JTable tblDischarge, Long id, Date dateOf, Date dateUntil, Integer ticket, Integer note, Object product, Object provider) {
         List<String> clause = new ArrayList<>();
         Discharge dcharge = new Discharge();
-        if (idDcharge > 0) {
-            clause.add("idDcharge =");
-            dcharge.setIdDcharge(idDcharge);
+        if (id > 0) {
+            clause.add("id =");
+            dcharge.setId(id);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtOfDcharge between");
-            dcharge.setDateEntryDcharge(dateOf);
+            clause.add("dtOf between");
+            dcharge.setDateEntry(dateOf);
             clause.add("");
             dcharge.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtOfDcharge =");
-                dcharge.setDateEntryDcharge(dateOf);
+                clause.add("dtOf =");
+                dcharge.setDateEntry(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtOfDcharge =");
-                dcharge.setDateEntryDcharge(dateUntil);
+                clause.add("dtOf =");
+                dcharge.setDateEntry(dateUntil);
             }
         }
         if (ticket > 0) {
-            clause.add("ticketDcharge =");
-            dcharge.setTicketDcharge(ticket);
+            clause.add("ticket =");
+            dcharge.setTicket(ticket);
         }
         if (note > 0) {
-            clause.add("noteDcharge =");
-            dcharge.setNoteDcharge(note);
+            clause.add("note =");
+            dcharge.setNote(note);
         }
         if (!provider.equals("Fornecedor")) {
             clause.add("nameProvider =");
@@ -65,7 +65,6 @@ public class DischargeTreatment {
         }
         List<Discharge> dcharges = new DischargeRequest().select(clause, dcharge);
         if (!dcharges.isEmpty()) {
-            FrmDchargeTbl.query(dcharges);
             fillTable(tblDischarge, dcharges);
         } else {
             PopUp.searchNoResults("Carregamento");
@@ -77,30 +76,30 @@ public class DischargeTreatment {
         DefaultTableModel tableModel = (DefaultTableModel) tblDischarge.getModel();
         tableModel.setNumRows(0);
         discharges.forEach(discharge -> tableModel.addRow(new Object[]{
-                discharge.getIdDcharge(),
-                DateTreatment.convertDateUtil(discharge.getDateEntryDcharge()),
-                discharge.getTicketDcharge(),
+                discharge.getId(),
+                DateTreatment.convertDateUtil(discharge.getDateEntry()),
+                discharge.getTicket(),
                 discharge.getProvider(),
                 discharge.getProduct(),
-                discharge.getLiterDcharge()
+                discharge.getLiter()
         }));
     }
 
     public void saveDchage(Provider provider, Date dateEntry, String timeEntry, Integer note, Integer ticket, String CarPlatec, Driver driver, Date dateExit, String timeExit, Product product, AnalyzeTruck analyzeTruck, String burden, String liter, Tank tank) {
         Discharge dcharge = new Discharge();
         dcharge.setProvider(provider);
-        dcharge.setDateEntryDcharge(dateEntry);
-        dcharge.setTimeEntryDcharge(Time.valueOf(timeEntry));
-        dcharge.setNoteDcharge(note);
-        dcharge.setTicketDcharge(ticket);
-        dcharge.setCarPlateDcharge(CarPlatec);
+        dcharge.setDateEntry(dateEntry);
+        dcharge.setTimeEntry(Time.valueOf(timeEntry));
+        dcharge.setNote(note);
+        dcharge.setTicket(ticket);
+        dcharge.setCarPlate(CarPlatec);
         dcharge.setDriver(driver);
-        dcharge.setDateExitDcharge(dateExit);
-        dcharge.setTimeExitDcharge(Time.valueOf(timeExit));
+        dcharge.setDateExit(dateExit);
+        dcharge.setTimeExit(Time.valueOf(timeExit));
         dcharge.setProduct(product);
         dcharge.setAnalyzeTruck(analyzeTruck);
-        dcharge.setBurdenDcharge(Integer.parseInt(burden));
-        dcharge.setLiterDcharge(Integer.parseInt(liter));
+        dcharge.setBurden(Integer.parseInt(burden));
+        dcharge.setLiter(Integer.parseInt(liter));
         dcharge.setTank(tank);
         new DischargeRequest().insert(dcharge);
     }

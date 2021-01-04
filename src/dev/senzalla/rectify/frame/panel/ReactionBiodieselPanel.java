@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.AnalyzeTank;
-import dev.senzalla.rectify.frame.FrmTrans;
+import dev.senzalla.rectify.frame.MakeBiodieselFrame;
 import dev.senzalla.rectify.treatments.AnalyzeTankTreatment;
 import dev.senzalla.rectify.treatments.ReactionBiodieselTreatment;
 import dev.senzalla.theme.TreatmentTheme;
@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class ReactionBiodieselPanel extends javax.swing.JPanel {
 
-    public ReactionBiodieselPanel(FrmTrans trans) {
+    public ReactionBiodieselPanel(MakeBiodieselFrame trans) {
         initComponents();
         TreatmentTheme.initTheme(pnlReact);
         AnalyzeTankTreatment.initComboBox(cbxAnalyzeTank, null);

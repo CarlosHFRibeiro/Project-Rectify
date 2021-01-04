@@ -1,6 +1,5 @@
 package dev.senzalla.rectify.treatments;
 
-import com.toedter.calendar.JDateChooser;
 import dev.senzalla.rectify.entitys.*;
 import dev.senzalla.rectify.frame.FrmChargeTbl;
 import dev.senzalla.rectify.request.ChargeRequest;
@@ -28,31 +27,31 @@ public class ChargeTreatment {
         Charge charge = new Charge();
         if (idCharge > 0) {
             clause.add("idCharge =");
-            charge.setIdCharge(idCharge);
+            charge.setId(idCharge);
         }
         if (dateEntry != null && dateExit != null) {
             clause.add("dtOfCharge between");
-            charge.setDateEntryCharge(dateEntry);
+            charge.setDateEntry(dateEntry);
             clause.add("");
             charge.setDateBetween(dateExit);
 
         } else {
             if (dateEntry != null) {
                 clause.add("dtOfCharge =");
-                charge.setDateEntryCharge(dateEntry);
+                charge.setDateEntry(dateEntry);
             }
             if (dateExit != null) {
                 clause.add("dtOfCharge =");
-                charge.setDateEntryCharge(dateExit);
+                charge.setDateEntry(dateExit);
             }
         }
         if (ticket > 0) {
             clause.add("ticketCharge =");
-            charge.setTicketCharge(Integer.parseInt(ticket.toString()));
+            charge.setTicket(Integer.parseInt(ticket.toString()));
         }
         if (note > 0) {
             clause.add("noteCharge =");
-            charge.setNoteCharge(Integer.parseInt(note.toString()));
+            charge.setNote(Integer.parseInt(note.toString()));
         }
         if (!provider.equals("Fornecedor")) {
             clause.add("nameProvider =");
@@ -76,28 +75,28 @@ public class ChargeTreatment {
         tableModel.setNumRows(0);
         charges.forEach(c
                 -> tableModel.addRow(new Object[]{
-            c.getIdCharge(),
-            DateTreatment.convertDateUtil(c.getDateEntryCharge()),
-            c.getTicketCharge(),
+            c.getId(),
+            DateTreatment.convertDateUtil(c.getDateEntry()),
+            c.getTicket(),
             c.getProvider(),
             c.getProduct(),
-            c.getLiterCharge()
+            c.getLiter()
         })
         );
     }
 
     public void saveChage(Provider provider, Date dateEntry, String timeEntry, Integer note, Integer ticket, String carPlate, Driver driver, Date dateExit, String timeExit, Product product, AnalyzeTruck analyzeTruck, String burden, String litter, Tank tank) {
         Charge charge = new Charge();
-        charge.setDateEntryCharge(dateEntry);
-        charge.setTimeEntryCharge(Time.valueOf(timeEntry));
-        charge.setNoteCharge(Integer.parseInt(note.toString()));
-        charge.setTicketCharge(Integer.parseInt(ticket.toString()));
-        charge.setCarPlateCharge(carPlate);
+        charge.setDateEntry(dateEntry);
+        charge.setTimeEntry(Time.valueOf(timeEntry));
+        charge.setNote(Integer.parseInt(note.toString()));
+        charge.setTicket(Integer.parseInt(ticket.toString()));
+        charge.setCarPlate(carPlate);
         charge.setDriver(driver);
-        charge.setDateExitCharge(dateExit);
-        charge.setTimeExitCharge(Time.valueOf(timeExit));
-        charge.setBurdenCharge(Integer.parseInt(burden));
-        charge.setLiterCharge(Integer.parseInt(litter));
+        charge.setDateExit(dateExit);
+        charge.setTimeExit(Time.valueOf(timeExit));
+        charge.setBurden(Integer.parseInt(burden));
+        charge.setLiter(Integer.parseInt(litter));
         charge.setProduct(product);
         charge.setAnalyzeTruck(analyzeTruck);
         charge.setProvider(provider);

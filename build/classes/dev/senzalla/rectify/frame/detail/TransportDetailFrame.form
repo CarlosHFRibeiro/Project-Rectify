@@ -57,86 +57,86 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblDens" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAcid" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDtOf" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblProvider" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblNote" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblBoard" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDriver" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDtUp" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblProduct" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblAnalyse" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblBurden" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTank" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDensity" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelAcidity" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDateEntry" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelProvider" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelNote" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelCarPlate" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDriver" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDateExit" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelProduct" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelAnalyze" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelBurden" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelTank" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtProvider" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDriver" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtProduct" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProvider" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDriver" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProduct" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="txtDens" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDensity" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblTrash" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelTrash" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="txtAcid" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAcidity" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                          <Component id="lblSoap" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelSaponity" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtSoap" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTrash" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSaponity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTrash" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="txtTank" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTank" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtBoard" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblCarPlate" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblCnh" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelCnh" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtNote" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNote" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblTicket" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelTicket" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtDtUp" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDateExit" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblHrUp" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelTiemExit" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtDtOf" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDateEntry" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                          <Component id="lblHrOf" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jlabelTimeEntry" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtHrUp" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTicket" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtHrOf" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCnh" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTimeExit" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTicket" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTimeEntry" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCnh" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace pref="56" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txtBurden" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBurden" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblLiters" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlabelLiter" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtLiters" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLiter" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -155,78 +155,78 @@
                   <Component id="btnPrint" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelProvider" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblProvider" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtProvider" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDtOf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDtOf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblHrOf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtHrOf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDateEntry" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDateEntry" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelTimeEntry" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTimeEntry" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelNote" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNote" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNote" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTicket" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTicket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelTicket" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jlabelCnh" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCnh" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCnh" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblBoard" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtBoard" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jlabelCarPlate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCarPlate" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelDriver" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDriver" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDriver" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDtUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDtUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblHrUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtHrUp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDateExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDateExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelTiemExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTimeExit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelProduct" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblProduct" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtProduct" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="lblAnalyse" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlabelAnalyze" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAcid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAcid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblSoap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtSoap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelAcidity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAcidity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelSaponity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSaponity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDens" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDens" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelDensity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDensity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelTrash" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTrash" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTrash" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelBurden" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblBurden" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtBurden" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblLiters" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLiters" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlabelLiter" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblLiter" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlabelTank" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTank" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTank" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
@@ -234,23 +234,33 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JButton" name="btnPrint">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/static/img/pdf.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlabelProvider">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Fornecedor"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblProvider">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Fornecedor"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtProvider">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fornecedor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDtOf">
+        <Component class="javax.swing.JLabel" name="jlabelDateEntry">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -258,7 +268,7 @@
             <Property name="text" type="java.lang.String" value="Data Entrada"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtDtOf">
+        <Component class="javax.swing.JLabel" name="lblDateEntry">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -266,7 +276,7 @@
             <Property name="text" type="java.lang.String" value="Data Entrada"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblHrOf">
+        <Component class="javax.swing.JLabel" name="jlabelTimeEntry">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -274,7 +284,7 @@
             <Property name="text" type="java.lang.String" value="Hora Entrada"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtHrOf">
+        <Component class="javax.swing.JLabel" name="lblTimeEntry">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -282,7 +292,7 @@
             <Property name="text" type="java.lang.String" value="Hora Entrada"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNote">
+        <Component class="javax.swing.JLabel" name="jlabelNote">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -290,7 +300,7 @@
             <Property name="text" type="java.lang.String" value="Nota N&#xb0;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtNote">
+        <Component class="javax.swing.JLabel" name="lblNote">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -298,23 +308,23 @@
             <Property name="text" type="java.lang.String" value="Nota"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jlabelTicket">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ticket"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblTicket">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ticket"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtTicket">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ticket"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblBoard">
+        <Component class="javax.swing.JLabel" name="jlabelCarPlate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -322,7 +332,7 @@
             <Property name="text" type="java.lang.String" value="Placa"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtBoard">
+        <Component class="javax.swing.JLabel" name="lblCarPlate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -330,7 +340,7 @@
             <Property name="text" type="java.lang.String" value="Placa"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCnh">
+        <Component class="javax.swing.JLabel" name="jlabelCnh">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -338,7 +348,7 @@
             <Property name="text" type="java.lang.String" value="CNH"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtCnh">
+        <Component class="javax.swing.JLabel" name="lblCnh">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -346,23 +356,23 @@
             <Property name="text" type="java.lang.String" value="Cnh"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jlabelDriver">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Motorista"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblDriver">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Motorista"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtDriver">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Motorista"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDtUp">
+        <Component class="javax.swing.JLabel" name="jlabelDateExit">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -370,7 +380,7 @@
             <Property name="text" type="java.lang.String" value="Data Saida"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtDtUp">
+        <Component class="javax.swing.JLabel" name="lblDateExit">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
@@ -378,7 +388,7 @@
             <Property name="text" type="java.lang.String" value="Data Saida"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblHrUp">
+        <Component class="javax.swing.JLabel" name="jlabelTiemExit">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -386,31 +396,31 @@
             <Property name="text" type="java.lang.String" value="Hora Saida"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtHrUp">
+        <Component class="javax.swing.JLabel" name="lblTimeExit">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Hora Saida"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlabelProduct">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Produto"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblProduct">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Produto"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtProduct">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Produto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAnalyse">
+        <Component class="javax.swing.JLabel" name="jlabelAnalyze">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -418,7 +428,7 @@
             <Property name="text" type="java.lang.String" value="Analise"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblAcid">
+        <Component class="javax.swing.JLabel" name="jlabelAcidity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -426,7 +436,7 @@
             <Property name="text" type="java.lang.String" value="Acidez"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtAcid">
+        <Component class="javax.swing.JLabel" name="lblAcidity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -434,7 +444,7 @@
             <Property name="text" type="java.lang.String" value="Acidez"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSoap">
+        <Component class="javax.swing.JLabel" name="jlabelSaponity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -442,7 +452,7 @@
             <Property name="text" type="java.lang.String" value="Saponidade"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtSoap">
+        <Component class="javax.swing.JLabel" name="lblSaponity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -450,7 +460,7 @@
             <Property name="text" type="java.lang.String" value="Saponidade"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDens">
+        <Component class="javax.swing.JLabel" name="jlabelDensity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
@@ -458,47 +468,47 @@
             <Property name="text" type="java.lang.String" value="Densidade"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtDens">
+        <Component class="javax.swing.JLabel" name="lblDensity">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Densidade"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlabelTrash">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Impureza"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTrash">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Impureza"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtTrash">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Impureza"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jlabelBurden">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Peso"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblBurden">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Peso"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtBurden">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Peso"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblLiters">
+        <Component class="javax.swing.JLabel" name="jlabelLiter">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
@@ -506,39 +516,29 @@
             <Property name="text" type="java.lang.String" value="Litros"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txtLiters">
+        <Component class="javax.swing.JLabel" name="lblLiter">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Litros"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlabelTank">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tanque"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTank">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Tanque"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="txtTank">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tanque"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnPrint">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/static/img/pdf_24dp.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -10,14 +10,14 @@ import static dev.senzalla.theme.TreatmentTheme.*;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmTheme extends javax.swing.JInternalFrame {
+public class ThemeFrame extends javax.swing.JInternalFrame {
 
     private JPanel pnlMenu;
 
     /**
      * Creates new form FrmLabTqTbl
      */
-    public FrmTheme() {
+    public ThemeFrame() {
         initComponents();
         initTheme(pnl);
         initTableTheme(jTable1);

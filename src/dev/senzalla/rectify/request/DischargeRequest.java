@@ -19,22 +19,22 @@ public class DischargeRequest extends ConectionMySql {
     public void insert(Discharge dcharge) {
         try {
             super.connection();
-            final String sql = "INSERT INTO `tbl_discharge` (`noteDcharge`, `ticketDcharge`, `burdenDcharge`, `literDcharge`, `fkTankDcharge`, `fkProviderDcharge`, `fkProductDcharge`, `fkLabDcharge`, `fkDriverDcharge`, `boardDcharge`, `dtOfDcharge`, `dtUpDcharge`, `hrOfDcharge`, `hrUpDcharge`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_discharge` (`note`, `ticket`, `burden`, `liter`, `fkTank`, `fkProvider`, `fkProduct`, `fkLab`, `fkDriver`, `board`, `dtOf`, `dtUp`, `hrOf`, `hrUp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
-            stmt.setInt(1, dcharge.getNoteDcharge());
-            stmt.setInt(2, dcharge.getTicketDcharge());
-            stmt.setInt(3, dcharge.getBurdenDcharge());
-            stmt.setInt(4, dcharge.getLiterDcharge());
+            stmt.setInt(1, dcharge.getNote());
+            stmt.setInt(2, dcharge.getTicket());
+            stmt.setInt(3, dcharge.getBurden());
+            stmt.setInt(4, dcharge.getLiter());
             stmt.setLong(5, dcharge.getTank().getIdTank());
             stmt.setLong(6, dcharge.getProvider().getIdProvider());
             stmt.setLong(7, dcharge.getProduct().getIdProduct());
             stmt.setLong(8, dcharge.getAnalyzeTruck().getIdAnalyzeTruck());
             stmt.setLong(9, dcharge.getDriver().getIdDriver());
-            stmt.setString(10, dcharge.getCarPlateDcharge());
-            stmt.setDate(11, dcharge.getDateEntryDcharge());
-            stmt.setDate(12, dcharge.getDateExitDcharge());
-            stmt.setTime(13, dcharge.getTimeEntryDcharge());
-            stmt.setTime(14, dcharge.getTimeExitDcharge());
+            stmt.setString(10, dcharge.getCarPlate());
+            stmt.setDate(11, dcharge.getDateEntry());
+            stmt.setDate(12, dcharge.getDateExit());
+            stmt.setTime(13, dcharge.getTimeEntry());
+            stmt.setTime(14, dcharge.getTimeExit());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             DataBaseException.MsgErrorDataBase("Discharge: " + ex.getMessage());
@@ -44,7 +44,7 @@ public class DischargeRequest extends ConectionMySql {
     }
 
     public Discharge select(Discharge parameter) {
-        return selectAll("SELECT * FROM view_dcharge WHERE idDcharge = ?", parameter).get(0);
+        return selectAll("SELECT * FROM view_dcharge WHERE id = ?", parameter).get(0);
     }
 
 
@@ -62,16 +62,16 @@ public class DischargeRequest extends ConectionMySql {
             super.resultSet();
             while (rs.next()) {
                 Discharge dcharge = new Discharge();
-                dcharge.setIdDcharge(rs.getLong("idDcharge"));
-                dcharge.setTicketDcharge(rs.getInt("ticketDcharge"));
-                dcharge.setLiterDcharge(rs.getInt("literDcharge"));
-                dcharge.setDateEntryDcharge(rs.getDate("dateEntryDcharge"));
-                dcharge.setNoteDcharge(rs.getInt("noteDcharge"));
-                dcharge.setCarPlateDcharge(rs.getString("carPlateDcharge"));
-                dcharge.setBurdenDcharge(rs.getInt("burdenDcharge"));
-                dcharge.setDateExitDcharge(rs.getDate("dateExitDcharge"));
-                dcharge.setTimeEntryDcharge(rs.getTime("timeEntryDcharge"));
-                dcharge.setTimeExitDcharge(rs.getTime("timeExitDcharge"));
+                dcharge.setId(rs.getLong("id"));
+                dcharge.setTicket(rs.getInt("ticket"));
+                dcharge.setLiter(rs.getInt("liter"));
+                dcharge.setDateEntry(rs.getDate("dateEntry"));
+                dcharge.setNote(rs.getInt("note"));
+                dcharge.setCarPlate(rs.getString("carPlate"));
+                dcharge.setBurden(rs.getInt("burden"));
+                dcharge.setDateExit(rs.getDate("dateExit"));
+                dcharge.setTimeEntry(rs.getTime("timeEntry"));
+                dcharge.setTimeExit(rs.getTime("timeExit"));
                 dcharge.setProvider(new Provider(rs.getString("nameProvider")));
                 dcharge.setProduct(new Product(rs.getString("nameProduct")));
                 dcharge.setTank(new Tank(rs.getString("nameTank")));
@@ -101,20 +101,20 @@ public class DischargeRequest extends ConectionMySql {
     private void prepareStatement(Discharge parameter) throws SQLException {
         if (parameter != null) {
             int i = 1;
-            if (parameter.getIdDcharge() != null) {
-                stmt.setLong(i, parameter.getIdDcharge());
+            if (parameter.getId() != null) {
+                stmt.setLong(i, parameter.getId());
             }
-            if (parameter.getDateEntryDcharge() != null) {
-                stmt.setDate(i++, parameter.getDateEntryDcharge());
+            if (parameter.getDateEntry() != null) {
+                stmt.setDate(i++, parameter.getDateEntry());
             }
             if (parameter.getDateBetween() != null) {
                 stmt.setDate(i++, parameter.getDateBetween());
             }
-            if (parameter.getTicketDcharge() > 0) {
-                stmt.setInt(i++, parameter.getTicketDcharge());
+            if (parameter.getTicket() > 0) {
+                stmt.setInt(i++, parameter.getTicket());
             }
-            if (parameter.getNoteDcharge() > 0) {
-                stmt.setInt(i++, parameter.getNoteDcharge());
+            if (parameter.getNote() > 0) {
+                stmt.setInt(i++, parameter.getNote());
             }
             if (parameter.getProvider() != null) {
                 stmt.setString(i++, parameter.getProvider().getNameProvider());

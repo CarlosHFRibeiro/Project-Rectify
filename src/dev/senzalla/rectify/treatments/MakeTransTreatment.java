@@ -2,7 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.MakeBiodiesel;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.frame.FrmTransTbl;
+import dev.senzalla.rectify.frame.MakeBiodieselTableFrame;
 import dev.senzalla.rectify.frame.panel.ReactionBiodieselPanel;
 import dev.senzalla.rectify.request.MakeBiodieselRequest;
 
@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class MakeTransTreatment {
 
-    public static void setTableFilters(JTable tableMakeBiodiesel) {
+    public static void initTable(JTable tableMakeBiodiesel) {
         fillTable(tableMakeBiodiesel, new MakeBiodieselRequest().select(null, null));
     }
 
@@ -61,7 +61,7 @@ public class MakeTransTreatment {
     private static void fillTable(JTable tableMakeBiodiesel, List<MakeBiodiesel> makeBiodiesels) {
         DefaultTableModel tableModel = (DefaultTableModel) tableMakeBiodiesel.getModel();
         tableModel.setNumRows(0);
-        FrmTransTbl.query(makeBiodiesels);
+        MakeBiodieselTableFrame.query(makeBiodiesels);
         makeBiodiesels.forEach(make ->
                 tableModel.addRow(new Object[]{
                         make.getIdMakeBiodiesel(),

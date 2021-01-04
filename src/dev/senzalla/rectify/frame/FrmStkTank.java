@@ -173,7 +173,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToInternalFrame(this, new FrmStockTankAdd());
+        Access.goToInternalFrame(this, new StockTankAddFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

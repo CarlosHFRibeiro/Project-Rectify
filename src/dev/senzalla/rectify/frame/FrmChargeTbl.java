@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Charge;
-import dev.senzalla.rectify.frame.detail.FrmTranspDetail;
+import dev.senzalla.rectify.frame.detail.TransportDetailFrame;
 import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.ChargePrint;
 import dev.senzalla.rectify.treatments.Access;
@@ -186,7 +186,7 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
         if (tbl.getSelectedColumn() == 6) {
-            new FrmTranspDetail(tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
+            new TransportDetailFrame(tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
             tbl.clearSelection();
         }
     }//GEN-LAST:event_tblMouseClicked

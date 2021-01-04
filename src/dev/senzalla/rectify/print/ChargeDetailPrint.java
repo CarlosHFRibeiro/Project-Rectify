@@ -20,7 +20,7 @@ import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 public class ChargeDetailPrint extends ModelPrint {
     public void print(Charge charge) {
         try {
-            final String archive = String.format("%s\\Carregamento Detalhado_%d.pdf", DIR, charge.getIdCharge());
+            final String archive = String.format("%s\\Carregamento Detalhado_%d.pdf", DIR, charge.getId());
             setPdfPTable(archive);
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
@@ -28,7 +28,7 @@ public class ChargeDetailPrint extends ModelPrint {
             document.add(pdfPTable);
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(charge.getDateEntryCharge()));
+            setTable(convertDateUtil(charge.getDateEntry()));
             setParagraph(" ", FontEnum.FIELD);
             document.add(pdfPTable);
 
@@ -38,15 +38,15 @@ public class ChargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Data Entrada: ", FontEnum.BOLDFIELD);
-            setParagraph(convertDateUtil(charge.getDateEntryCharge()), FontEnum.FIELD);
+            setParagraph(convertDateUtil(charge.getDateEntry()), FontEnum.FIELD);
             setParagraph("Hora Entrada: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getTimeEntryCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getTimeEntry()), FontEnum.FIELD);
             setParagraph("Nota: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getNoteCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getNote()), FontEnum.FIELD);
             setParagraph("Ticket: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getTicketCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getTicket()), FontEnum.FIELD);
             setParagraph("Placa: ", FontEnum.BOLDFIELD);
-            setParagraph(charge.getCarPlateCharge(), FontEnum.FIELD);
+            setParagraph(charge.getCarPlate(), FontEnum.FIELD);
             setParagraph("CNH: ", FontEnum.BOLDFIELD);
             setParagraph(charge.getDriver().getCnhDriver(), FontEnum.FIELD);
             setParagraph("Motorista: ", FontEnum.BOLDFIELD);
@@ -54,9 +54,9 @@ public class ChargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Data Saida: ", FontEnum.BOLDFIELD);
-            setParagraph(convertDateUtil(charge.getDateExitCharge()), FontEnum.FIELD);
+            setParagraph(convertDateUtil(charge.getDateExit()), FontEnum.FIELD);
             setParagraph("Hora Saida: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getTimeExitCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getTimeExit()), FontEnum.FIELD);
             setParagraph("Produto: ", FontEnum.BOLDFIELD);
             setParagraph(charge.getProduct().getNameProduct(), FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
@@ -74,9 +74,9 @@ public class ChargeDetailPrint extends ModelPrint {
             setParagraph("Impureza: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getAnalyzeTruck().getTrashTruck()), FontEnum.FIELD);
             setParagraph("Peso: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getBurdenCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getBurden()), FontEnum.FIELD);
             setParagraph("Litros: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getLiterCharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getLiter()), FontEnum.FIELD);
             setParagraph("Tanque: ", FontEnum.BOLDFIELD);
             setParagraph(charge.getTank().getNameTank(), FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);

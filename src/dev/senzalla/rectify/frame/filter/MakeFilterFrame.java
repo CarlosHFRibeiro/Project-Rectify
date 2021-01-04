@@ -190,7 +190,7 @@ public class MakeFilterFrame extends javax.swing.JFrame {
         if (isMakeEster) {
             MakeEsterTreatment.initTable(tbl);
         } else {
-            MakeTransTreatment.setTableFilters(tbl);
+            MakeTransTreatment.initTable(tbl);
         }
         this.dispose();
     }//GEN-LAST:event_btnClearActionPerformed

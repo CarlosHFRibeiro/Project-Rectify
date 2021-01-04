@@ -27,7 +27,7 @@ public class DchargePrint extends ModelPrint {
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Descarregamento");
-            setTable(convertDateUtil(dcharges.get(0).getDateEntryDcharge()));
+            setTable(convertDateUtil(dcharges.get(0).getDateEntry()));
             document.add(pdfPTable);
 
             configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -39,12 +39,12 @@ public class DchargePrint extends ModelPrint {
             for (int i = 0; i < dcharges.size(); i++) {
                 Discharge dcharge = dcharges.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
-                setTable(String.valueOf(dcharge.getIdDcharge()));
-                setTable(convertDateUtil(dcharge.getDateEntryDcharge()));
-                setTable(String.valueOf(dcharge.getTicketDcharge()));
+                setTable(String.valueOf(dcharge.getId()));
+                setTable(convertDateUtil(dcharge.getDateEntry()));
+                setTable(String.valueOf(dcharge.getTicket()));
                 setTable(dcharge.getProvider().getNameProvider());
                 setTable(dcharge.getProduct().getNameProduct());
-                setTable(String.valueOf(dcharge.getLiterDcharge()));
+                setTable(String.valueOf(dcharge.getLiter()));
             }
             document.add(pdfPTable);
 

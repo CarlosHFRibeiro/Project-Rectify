@@ -4,7 +4,7 @@ import dev.senzalla.rectify.calc.CalcStockProduct;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockProduct;
 import dev.senzalla.rectify.frame.FrmStkProduct;
-import dev.senzalla.rectify.frame.FrmStockTankAdd;
+import dev.senzalla.rectify.frame.StockTankAddFrame;
 import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.request.StockProductRequest;
 import dev.senzalla.rectify.request.StockTankRequest;
@@ -76,7 +76,7 @@ public class StockProductTreatment {
                 saveStockProduct(tableStockProduct);
             } else {
                 PopUp.searchNoResults();
-                Access.goToInternalFrame(frmStkProduct, new FrmStockTankAdd());
+                Access.goToInternalFrame(frmStkProduct, new StockTankAddFrame());
             }
         } else {
             fillTable(tableStockProduct, stockProducts);

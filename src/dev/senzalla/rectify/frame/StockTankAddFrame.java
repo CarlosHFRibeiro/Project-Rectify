@@ -1,5 +1,6 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.StockTankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
@@ -9,12 +10,12 @@ import dev.senzalla.theme.TreatmentTheme;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmStockTankAdd extends javax.swing.JInternalFrame {
+public class StockTankAddFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmLabTqTbl
      */
-    public FrmStockTankAdd() {
+    public StockTankAddFrame() {
         initComponents();
         TreatmentTheme.initTheme(pnlStk);
         TreatmentTheme.initTableTheme(tbl);
@@ -42,15 +43,18 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         cbxProduct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setClosable(true);
-        setMaximumSize(new java.awt.Dimension(598, 460));
-        setMinimumSize(new java.awt.Dimension(598, 460));
-        setPreferredSize(new java.awt.Dimension(598, 460));
+        setMaximumSize(new java.awt.Dimension(1000, 680));
+        setMinimumSize(new java.awt.Dimension(1000, 680));
+        setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        roll.setBorder(null);
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(596, 385));
-        roll.setMinimumSize(new java.awt.Dimension(596, 385));
-        roll.setPreferredSize(new java.awt.Dimension(596, 385));
+        pnlStk.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlStk.setMinimumSize(new java.awt.Dimension(998, 658));
+
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
 
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,16 +72,10 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setColumnSelectionAllowed(true);
-        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
-        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
-        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
-        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
-        tbl.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(0).setPreferredWidth(250);
-            tbl.getColumnModel().getColumn(1).setPreferredWidth(250);
+            tbl.getColumnModel().getColumn(0).setPreferredWidth(300);
+            tbl.getColumnModel().getColumn(1).setPreferredWidth(300);
             tbl.getColumnModel().getColumn(1).setCellEditor(new javax.swing.DefaultCellEditor(cbxProduct)
             );
         }
@@ -86,16 +84,11 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         pnlStk.setLayout(pnlStkLayout);
         pnlStkLayout.setHorizontalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStkLayout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
         );
         pnlStkLayout.setVerticalGroup(
             pnlStkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlStkLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
 
         btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -129,15 +122,17 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlStk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlStk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(73, 73, 73)
                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(73, 73, 73)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(246, 246, 246))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,10 +140,9 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addComponent(pnlStk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
@@ -169,6 +163,10 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -21,20 +21,20 @@ public class ChargeRequest extends ConectionMySql {
             super.connection();
             final String sql = "INSERT INTO `tbl_charge` (`noteCharge`, `ticketCharge`, `burdenCharge`, `literCharge`, `fkTankCharge`, `fkProviderCharge`, `fkProductCharge`, `fkLabCharge`, `fkDriverCharge`, `boardCharge`, `dtOfCharge`, `dtUpCharge`, `hrOfCharge`, `hrUpCharge`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
-            stmt.setInt(1, charge.getNoteCharge());
-            stmt.setInt(2, charge.getTicketCharge());
-            stmt.setInt(3, charge.getBurdenCharge());
-            stmt.setInt(4, charge.getLiterCharge());
+            stmt.setInt(1, charge.getNote());
+            stmt.setInt(2, charge.getTicket());
+            stmt.setInt(3, charge.getBurden());
+            stmt.setInt(4, charge.getLiter());
             stmt.setLong(5, charge.getTank().getIdTank());
             stmt.setLong(6, charge.getProvider().getIdProvider());
             stmt.setLong(7, charge.getProduct().getIdProduct());
             stmt.setLong(8, charge.getAnalyzeTruck().getIdAnalyzeTruck());
             stmt.setLong(9, charge.getDriver().getIdDriver());
-            stmt.setString(10, charge.getCarPlateCharge());
-            stmt.setDate(11, charge.getDateEntryCharge());
-            stmt.setDate(12, charge.getDateExitCharge());
-            stmt.setTime(13, charge.getTimeEntryCharge());
-            stmt.setTime(14, charge.getTimeExitCharge());
+            stmt.setString(10, charge.getCarPlate());
+            stmt.setDate(11, charge.getDateEntry());
+            stmt.setDate(12, charge.getDateExit());
+            stmt.setTime(13, charge.getTimeEntry());
+            stmt.setTime(14, charge.getTimeExit());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             DataBaseException.MsgErrorDataBase("Carregamento" + ex.getMessage());
@@ -62,17 +62,17 @@ public class ChargeRequest extends ConectionMySql {
             super.resultSet();
             while (rs.next()) {
                 Charge charge = new Charge();
-                charge.setIdCharge(rs.getLong("idCharge"));
-                charge.setTicketCharge(rs.getInt("ticketCharge"));
-                charge.setLiterCharge(rs.getInt("literCharge"));
-                charge.setDateEntryCharge(rs.getDate("dtOfCharge"));
+                charge.setId(rs.getLong("idCharge"));
+                charge.setTicket(rs.getInt("ticketCharge"));
+                charge.setLiter(rs.getInt("literCharge"));
+                charge.setDateEntry(rs.getDate("dtOfCharge"));
 
-                charge.setNoteCharge(rs.getInt("noteCharge"));
-                charge.setCarPlateCharge(rs.getString("boardCharge"));
-                charge.setBurdenCharge(rs.getInt("burdenCharge"));
-                charge.setDateExitCharge(rs.getDate("dtUpCharge"));
-                charge.setTimeEntryCharge(rs.getTime("hrOfCharge"));
-                charge.setTimeExitCharge(rs.getTime("hrUpCharge"));
+                charge.setNote(rs.getInt("noteCharge"));
+                charge.setCarPlate(rs.getString("boardCharge"));
+                charge.setBurden(rs.getInt("burdenCharge"));
+                charge.setDateExit(rs.getDate("dtUpCharge"));
+                charge.setTimeEntry(rs.getTime("hrOfCharge"));
+                charge.setTimeExit(rs.getTime("hrUpCharge"));
 
                 charge.setProvider(new Provider(rs.getString("nameProvider")));
                 charge.setProduct(new Product(rs.getString("nameProduct")));
@@ -103,20 +103,20 @@ public class ChargeRequest extends ConectionMySql {
     private void prepareStatement(Charge parameter) throws SQLException {
         if (parameter != null) {
             int i = 1;
-            if (parameter.getIdCharge() != null) {
-                stmt.setLong(i, parameter.getIdCharge());
+            if (parameter.getId() != null) {
+                stmt.setLong(i, parameter.getId());
             }
-            if (parameter.getDateEntryCharge() != null) {
-                stmt.setDate(i++, parameter.getDateEntryCharge());
+            if (parameter.getDateEntry() != null) {
+                stmt.setDate(i++, parameter.getDateEntry());
             }
             if (parameter.getDateBetween() != null) {
                 stmt.setDate(i++, parameter.getDateBetween());
             }
-            if (parameter.getTicketCharge() > 0) {
-                stmt.setInt(i++, parameter.getTicketCharge());
+            if (parameter.getTicket() > 0) {
+                stmt.setInt(i++, parameter.getTicket());
             }
-            if (parameter.getNoteCharge() > 0) {
-                stmt.setInt(i++, parameter.getNoteCharge());
+            if (parameter.getNote() > 0) {
+                stmt.setInt(i++, parameter.getNote());
             }
             if (parameter.getProvider() != null) {
                 stmt.setString(i++, parameter.getProvider().getNameProvider());

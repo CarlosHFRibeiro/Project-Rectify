@@ -11,6 +11,7 @@ import java.util.Set;
  * @github github.com/Bomsalvez
  */
 public class MakeBiodiesel extends DateTreatment {
+
     private Long idMakeBiodiesel;
     private int amountMatterMakeBiodiesel;
     private int trashMakeBiodiesel;
@@ -19,6 +20,13 @@ public class MakeBiodiesel extends DateTreatment {
     private Tank tank;
     private Set<MatterMake> matterMakes;
     private Set<ReactionMakeBiodiesel> reactTrans;
+
+    public MakeBiodiesel() {
+    }
+
+    public MakeBiodiesel(Long idMakeBiodiesel) {
+        this.idMakeBiodiesel = idMakeBiodiesel;
+    }
 
     public Long getIdMakeBiodiesel() {
         return idMakeBiodiesel;
