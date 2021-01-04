@@ -6,11 +6,14 @@ package dev.senzalla.rectify.calc;
  * @github github.com/Bomsalvez
  */
 public class CalcAcidity {
+
     private final double acidity;
 
-    public CalcAcidity(double concentration, double volumeSolution , double sampleWeight) {
+    public CalcAcidity(double concentration, String volumeSolution, String sampleWeight) {
         final double conversionFactor = 28.2;
-        acidity = (concentration * conversionFactor * volumeSolution) / sampleWeight;
+        double solution = Double.parseDouble(volumeSolution.replace(",", "."));
+        double sample = Double.parseDouble(sampleWeight.replace(",", "."));
+        acidity = (concentration * conversionFactor * solution) / sample;
     }
 
     public String getAcidity() {
@@ -20,4 +23,6 @@ public class CalcAcidity {
     public String getIndice() {
         return String.format("%.3f", acidity * 1.9);
     }
+
+
 }

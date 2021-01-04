@@ -19,79 +19,74 @@ import java.util.List;
  */
 public class ChargeTreatment {
 
+    public static void initTable(JTable tableCharge) {
+        fillTable(tableCharge, new ChargeRequest().select(null, null));
+    }
 
-    public void initTableWithClause(JTable tbl, JSpinner spnCod, JDateChooser dtcDtOf, JDateChooser dtcDtUp, JSpinner spnTicket, JSpinner spnNote, JComboBox<Object> cbxProduct, JComboBox<Object> cbxProvider) {
+    public static void setTableFilters(JTable tableCharge, Long idCharge, Date dateEntry, Date dateExit, Integer ticket, Integer note, Object product, Object provider) {
         List<String> clause = new ArrayList<>();
         Charge charge = new Charge();
-        if (!spnCod.getValue().equals(0)) {
+        if (idCharge > 0) {
             clause.add("idCharge =");
-            charge.setIdCharge(Long.valueOf(spnCod.getValue().toString()));
+            charge.setIdCharge(idCharge);
         }
-        if (dtcDtOf.getDate() != null && dtcDtUp.getDate() != null) {
+        if (dateEntry != null && dateExit != null) {
             clause.add("dtOfCharge between");
-            charge.setDateEntryCharge(dtcDtOf.getDate());
+            charge.setDateEntryCharge(dateEntry);
             clause.add("");
-            charge.setDateBetween(dtcDtUp.getDate());
+            charge.setDateBetween(dateExit);
 
         } else {
-            if (dtcDtOf.getDate() != null) {
+            if (dateEntry != null) {
                 clause.add("dtOfCharge =");
-                charge.setDateEntryCharge(dtcDtOf.getDate());
+                charge.setDateEntryCharge(dateEntry);
             }
-            if (dtcDtUp.getDate() != null) {
+            if (dateExit != null) {
                 clause.add("dtOfCharge =");
-                charge.setDateEntryCharge(dtcDtUp.getDate());
+                charge.setDateEntryCharge(dateExit);
             }
         }
-        if (!spnTicket.getValue().equals(0)) {
+        if (ticket > 0) {
             clause.add("ticketCharge =");
-            charge.setTicketCharge(Integer.parseInt(spnTicket.getValue().toString()));
+            charge.setTicketCharge(Integer.parseInt(ticket.toString()));
         }
-        if (!spnNote.getValue().equals(0)) {
+        if (note > 0) {
             clause.add("noteCharge =");
-            charge.setNoteCharge(Integer.parseInt(spnNote.getValue().toString()));
+            charge.setNoteCharge(Integer.parseInt(note.toString()));
         }
-        if (cbxProvider.getSelectedIndex() > 0) {
+        if (!provider.equals("Fornecedor")) {
             clause.add("nameProvider =");
-            charge.setProvider((Provider) cbxProvider.getSelectedItem());
+            charge.setProvider((Provider) provider);
         }
-        if (cbxProduct.getSelectedIndex() > 0) {
+        if (!product.equals("Produto")) {
             clause.add("nameProduct =");
-            charge.setProduct((Product) cbxProduct.getSelectedItem());
+            charge.setProduct((Product) product);
         }
         List<Charge> charges = new ChargeRequest().select(clause, charge);
         if (!charges.isEmpty()) {
-            initTable(tbl, clause, charge);
+            fillTable(tableCharge, charges);
         } else {
-            PopUp.isEmpty("Carregamento");
+            PopUp.searchNoResults("Carregamento");
         }
     }
 
-    public void initTable(JTable tbl, List<String> clause, Charge charge) {
-        List<Charge> charges = new ChargeRequest().select(clause, charge);
+    private static void fillTable(JTable tableCharge, List<Charge> charges) {
         FrmChargeTbl.query(charges);
-        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-        charges.forEach(c ->
-                model.addRow(new Object[]{
-                        c.getIdCharge(),
-                        TreatmentDate.convertDateUtil(c.getDateEntryCharge()),
-                        c.getTicketCharge(),
-                        c.getProvider(),
-                        c.getProduct(),
-                        c.getLiterCharge()
-                })
+        DefaultTableModel tableModel = (DefaultTableModel) tableCharge.getModel();
+        tableModel.setNumRows(0);
+        charges.forEach(c
+                -> tableModel.addRow(new Object[]{
+            c.getIdCharge(),
+            DateTreatment.convertDateUtil(c.getDateEntryCharge()),
+            c.getTicketCharge(),
+            c.getProvider(),
+            c.getProduct(),
+            c.getLiterCharge()
+        })
         );
     }
 
-    public void clear(JPanel pnlCharge) {
-        TreatmentTxt.cleanTxt(pnlCharge);
-        CbxTreatment.cleanCbx(pnlCharge);
-        new TreatmentDtc().cleanDtc(pnlCharge);
-        new TreatmentSpn().cleanSpn(pnlCharge);
-    }
-
-    public void saveChage(JPanel pnlCharge, Object provider, Date dateEntry, String timeEntry, Object note, Object ticket, String carPlate, Driver driver, Date dateExit, String timeExit, Object product, Object analyzeTruck, String burden, String litter, Object tank) {
+    public void saveChage(Provider provider, Date dateEntry, String timeEntry, Integer note, Integer ticket, String carPlate, Driver driver, Date dateExit, String timeExit, Product product, AnalyzeTruck analyzeTruck, String burden, String litter, Tank tank) {
         Charge charge = new Charge();
         charge.setDateEntryCharge(dateEntry);
         charge.setTimeEntryCharge(Time.valueOf(timeEntry));
@@ -103,18 +98,11 @@ public class ChargeTreatment {
         charge.setTimeExitCharge(Time.valueOf(timeExit));
         charge.setBurdenCharge(Integer.parseInt(burden));
         charge.setLiterCharge(Integer.parseInt(litter));
-        charge.setProduct((Product) product);
-        charge.setanalyzeTruck((AnalyzeTruck) analyzeTruck);
-        charge.setProvider((Provider) provider);
-        charge.setTank((Tank) tank);
+        charge.setProduct(product);
+        charge.setAnalyzeTruck(analyzeTruck);
+        charge.setProvider(provider);
+        charge.setTank(tank);
         new ChargeRequest().insert(charge);
-        clear(pnlCharge);
-
-    }
-
-    public int calcLitter(Object selectedItem, int keyChar) {
-        AnalyzeTruck analyzeTruck = (AnalyzeTruck) selectedItem;
-        return (int) (keyChar / analyzeTruck.getDensityCar());
     }
 
 }

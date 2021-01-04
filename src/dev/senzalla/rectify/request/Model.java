@@ -25,9 +25,9 @@ public abstract class Model<T> extends ConectionMySql {
             prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg(ex.getMessage(), null);
+             DataBaseException.MsgErrorDataBase(ex.getMessage(), null);
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 

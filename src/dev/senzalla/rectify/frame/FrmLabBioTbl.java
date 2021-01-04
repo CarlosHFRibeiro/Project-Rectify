@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.enuns.Lab;
-import dev.senzalla.rectify.frame.filter.FrmFilterLab;
+import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentLabBio;
+import dev.senzalla.rectify.treatments.AnalyzeBiodieselTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -20,7 +20,7 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlLabBio);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentLabBio().showTable(tbl);
+        new AnalyzeBiodieselTreatment().showTable(tbl);
     }
 
     /**
@@ -144,7 +144,7 @@ public class FrmLabBioTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterLab(tbl, Lab.LABBIO));
+        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.LABBIO));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

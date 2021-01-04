@@ -15,26 +15,26 @@ import java.sql.SQLException;
 public class ConectionMySql {
 
     private static Connection connection = null;
-    public static PreparedStatement stmt = null;
-    public static ResultSet rs = null;
+    protected static PreparedStatement stmt = null;
+    protected static ResultSet rs = null;
 
-    public static void connection(){
+    protected void connection() {
         connection = ConnectionMySql.getConnection();
     }
 
-    public static void prepareStatement(String sql) throws SQLException {
+    protected void prepareStatement(String sql) throws SQLException {
         stmt = connection.prepareStatement(sql);
     }
 
-    public static void resultSet() throws SQLException {
+    protected void resultSet() throws SQLException {
         rs = stmt.executeQuery();
     }
 
-    public static void closeConnection() {
+    protected void closeConnection() {
         ConnectionMySql.closeConnection(connection, stmt);
     }
 
-    public static void closeConnectionRs() {
+    protected void closeConnectionRs() {
         ConnectionMySql.closeConnection(connection, stmt, rs);
     }
 }

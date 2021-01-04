@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.entitys;
 
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -10,22 +10,22 @@ import java.sql.Time;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class Discharge extends TreatmentDate {
+public class Discharge extends DateTreatment {
     private Long idDcharge;
-    private int noteDcharge;
-    private int ticketDcharge;
     private int burdenDcharge;
     private int literDcharge;
-    private String boardDcharge;
-    private Date dtOfDcharge;
-    private Date dtUpDcharge;
-    private Time hrOfDcharge;
-    private Time hrUpDcharge;
-    private Tank tank;
-    private Provider provider;
-    private Product product;
+    private int noteDcharge;
+    private int ticketDcharge;
+    private String carPlateDcharge;
+    private Date dateEntryDcharge;
+    private Date dateExitDcharge;
+    private Time timeEntryDcharge;
+    private Time timeExitDcharge;
     private AnalyzeTruck analyzeTruck;
     private Driver driver;
+    private Product product;
+    private Provider provider;
+    private Tank tank;
 
     public Long getIdDcharge() {
         return idDcharge;
@@ -33,22 +33,6 @@ public class Discharge extends TreatmentDate {
 
     public void setIdDcharge(Long idDcharge) {
         this.idDcharge = idDcharge;
-    }
-
-    public int getNoteDcharge() {
-        return noteDcharge;
-    }
-
-    public void setNoteDcharge(int noteDcharge) {
-        this.noteDcharge = noteDcharge;
-    }
-
-    public int getTicketDcharge() {
-        return ticketDcharge;
-    }
-
-    public void setTicketDcharge(int ticketDcharge) {
-        this.ticketDcharge = ticketDcharge;
     }
 
     public int getBurdenDcharge() {
@@ -67,60 +51,76 @@ public class Discharge extends TreatmentDate {
         this.literDcharge = literDcharge;
     }
 
-    public String getBoardDcharge() {
-        return boardDcharge;
+    public int getNoteDcharge() {
+        return noteDcharge;
     }
 
-    public void setBoardDcharge(String boardDcharge) {
-        this.boardDcharge = boardDcharge;
+    public void setNoteDcharge(int noteDcharge) {
+        this.noteDcharge = noteDcharge;
     }
 
-    public Date getDtOfDcharge() {
-        return dtOfDcharge;
+    public int getTicketDcharge() {
+        return ticketDcharge;
     }
 
-    public void setDtOfDcharge(java.util.Date dtOfDcharge) {
-        this.dtOfDcharge = convertDateSql(dtOfDcharge);
+    public void setTicketDcharge(int ticketDcharge) {
+        this.ticketDcharge = ticketDcharge;
     }
 
-    public Date getDtUpDcharge() {
-        return dtUpDcharge;
+    public String getCarPlateDcharge() {
+        return carPlateDcharge;
     }
 
-    public void setDtUpDcharge(java.util.Date dtUpDcharge) {
-        this.dtUpDcharge = convertDateSql(dtUpDcharge);
+    public void setCarPlateDcharge(String carPlateDcharge) {
+        this.carPlateDcharge = carPlateDcharge;
     }
 
-    public Time getHrOfDcharge() {
-        return hrOfDcharge;
+    public Date getDateEntryDcharge() {
+        return dateEntryDcharge;
     }
 
-    public void setHrOfDcharge(Time hrOfDcharge) {
-        this.hrOfDcharge = hrOfDcharge;
+    public void setDateEntryDcharge(java.util.Date dateEntryDcharge) {
+        this.dateEntryDcharge = convertDateSql(dateEntryDcharge);
     }
 
-    public Time getHrUpDcharge() {
-        return hrUpDcharge;
+    public Date getDateExitDcharge() {
+        return dateExitDcharge;
     }
 
-    public void setHrUpDcharge(Time hrUpDcharge) {
-        this.hrUpDcharge = hrUpDcharge;
+    public void setDateExitDcharge(java.util.Date dateExitDcharge) {
+        this.dateExitDcharge = convertDateSql(dateExitDcharge);
     }
 
-    public Tank getTank() {
-        return tank;
+    public Time getTimeEntryDcharge() {
+        return timeEntryDcharge;
     }
 
-    public void setTank(Tank tank) {
-        this.tank = tank;
+    public void setTimeEntryDcharge(Time timeEntryDcharge) {
+        this.timeEntryDcharge = timeEntryDcharge;
     }
 
-    public Provider getProvider() {
-        return provider;
+    public Time getTimeExitDcharge() {
+        return timeExitDcharge;
     }
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    public void setTimeExitDcharge(Time timeExitDcharge) {
+        this.timeExitDcharge = timeExitDcharge;
+    }
+
+    public AnalyzeTruck getAnalyzeTruck() {
+        return analyzeTruck;
+    }
+
+    public void setAnalyzeTruck(AnalyzeTruck analyzeTruck) {
+        this.analyzeTruck = analyzeTruck;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     public Product getProduct() {
@@ -131,19 +131,19 @@ public class Discharge extends TreatmentDate {
         this.product = product;
     }
 
-    public AnalyzeTruck getanalyzeTruck() {
-        return analyzeTruck;
+    public Provider getProvider() {
+        return provider;
     }
 
-    public void setanalyzeTruck(AnalyzeTruck analyzeTruck) {
-        this.analyzeTruck = analyzeTruck;
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public Tank getTank() {
+        return tank;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setTank(Tank tank) {
+        this.tank = tank;
     }
 }

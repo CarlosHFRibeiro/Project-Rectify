@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.entitys;
 
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 
@@ -10,43 +10,43 @@ import java.sql.Date;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class StockProduct extends TreatmentDate {
-    private Long idStkPd;
-    private int literStkPd;
-    private int percentStkPd;
-    private Date dtStkPd;
+public class StockProduct extends DateTreatment {
+    private Long idStockProduct;
+    private int literProduct;
+    private int percentProduct;
+    private Date dateStockProduct;
     private Product product;
 
-    public Long getIdStkPd() {
-        return idStkPd;
+    public Long getIdStockProduct() {
+        return idStockProduct;
     }
 
-    public void setIdStkPd(Long idStkPd) {
-        this.idStkPd = idStkPd;
+    public void setIdStockProduct(Long idStockProduct) {
+        this.idStockProduct = idStockProduct;
     }
 
-    public int getLiterStkPd() {
-        return literStkPd;
+    public int getLiterProduct() {
+        return literProduct;
     }
 
-    public void setLiterStkPd(int literStkPd) {
-        this.literStkPd = literStkPd;
+    public void setLiterProduct(int literProduct) {
+        this.literProduct = literProduct;
     }
 
-    public int getPercentStkPd() {
-        return percentStkPd;
+    public int getPercentProduct() {
+        return percentProduct;
     }
 
-    public void setPercentStkPd(int percentStkPd) {
-        this.percentStkPd = percentStkPd;
+    public void setPercentProduct(int percentProduct) {
+        this.percentProduct = percentProduct;
     }
 
-    public Date getDtStkPd() {
-        return dtStkPd;
+    public Date getDateStockProduct() {
+        return dateStockProduct;
     }
 
-    public void setDtStkPd(java.util.Date dtStkPd) {
-        this.dtStkPd = convertDateSql(dtStkPd);
+    public void setDateStockProduct(java.util.Date dateStockProduct) {
+        this.dateStockProduct = convertDateSql(dateStockProduct);
     }
 
     public Product getProduct() {

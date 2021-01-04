@@ -5,7 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import dev.senzalla.rectify.entitys.StockProduct;
 import dev.senzalla.rectify.enuns.FontEnum;
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +27,7 @@ public class StockProductPrint extends ModelPrint {
             document.add(pdfPTable);
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(TreatmentDate.convertDateUtil(stockProducts.get(0).getDtStkPd()));
+            setTable(DateTreatment.convertDateUtil(stockProducts.get(0).getDateStockProduct()));
             document.add(pdfPTable);
 
             configuration(3, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -40,8 +40,8 @@ public class StockProductPrint extends ModelPrint {
                 StockProduct stock = stockProducts.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
                 setTable(String.valueOf(stock.getProduct()));
-                setTable(String.valueOf(stock.getLiterStkPd()));
-                setTable(String.valueOf(stock.getPercentStkPd()));
+                setTable(String.valueOf(stock.getLiterProduct()));
+                setTable(String.valueOf(stock.getPercentProduct()));
             }
             document.add(pdfPTable);
 

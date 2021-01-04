@@ -1,12 +1,12 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Discharge;
-import dev.senzalla.rectify.frame.detail.FrmTranspDetailDcharge;
-import dev.senzalla.rectify.frame.filter.FrmFilterTransp;
+import dev.senzalla.rectify.frame.detail.DischargeDetailFrame;
+import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.DchargePrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
-import dev.senzalla.rectify.treatments.TreatmentDcharge;
+import dev.senzalla.rectify.treatments.DischargeTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlDcharge);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentDcharge().showTable(tbl);
+        new DischargeTreatment().showTable(tbl);
     }
 
     public static void query(List<Discharge> charges) {
@@ -178,7 +178,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterTransp(tbl, false));
+        Access.goToFrame(new TransportFilterFrame(tbl, false));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -187,7 +187,7 @@ public class FrmDchargeTbl extends javax.swing.JInternalFrame {
 
     private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
         if (tbl.getSelectedColumn() == 6) {
-            new FrmTranspDetailDcharge(tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
+            new DischargeDetailFrame(tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
         }
     }//GEN-LAST:event_tblMouseClicked
 

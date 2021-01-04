@@ -6,31 +6,31 @@ package dev.senzalla.rectify.entitys;
  * @github github.com/Bomsalvez
  */
 public class AnalyzeTruckSplit {
-    private Long idCarSplit;
-    private LabSplit labSplit;
+    private Long idAnalyzeTruckSplit;
+    private AnalyzeSplit analyzeSplit;
     private AnalyzeTruck analyzeTruck;
 
-    public Long getIdCarSplit() {
-        return idCarSplit;
+    public Long getIdAnalyzeTruckSplit() {
+        return idAnalyzeTruckSplit;
     }
 
-    public void setIdCarSplit(Long idCarSplit) {
-        this.idCarSplit = idCarSplit;
+    public void setIdAnalyzeTruckSplit(Long idAnalyzeTruckSplit) {
+        this.idAnalyzeTruckSplit = idAnalyzeTruckSplit;
     }
 
-    public LabSplit getLabSplit() {
-        return labSplit;
+    public AnalyzeSplit getAnalyzeSplit() {
+        return analyzeSplit;
     }
 
-    public void setLabSplit(LabSplit labSplit) {
-        this.labSplit = labSplit;
+    public void setAnalyzeSplit(AnalyzeSplit analyzeSplit) {
+        this.analyzeSplit = analyzeSplit;
     }
 
-    public AnalyzeTruck getanalyzeTruck() {
+    public AnalyzeTruck getAnalyzeTruck() {
         return analyzeTruck;
     }
 
-    public void setanalyzeTruck(AnalyzeTruck analyzeTruck) {
+    public void setAnalyzeTruck(AnalyzeTruck analyzeTruck) {
         this.analyzeTruck = analyzeTruck;
     }
 }

@@ -17,7 +17,7 @@ public class FrmAnalyzeTruck extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlLabCar);
         AnalyzeTruckTreatment.initComboBoxCollect(cbxCollect);
-        new TreatmentLabSplit().initComboBoxSplit(cbxSplit);
+        new AnalyzeSplitTreatment().initComboBoxSplit(cbxSplit);
     }
 
 
@@ -291,12 +291,21 @@ public class FrmAnalyzeTruck extends javax.swing.JInternalFrame {
 
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new AnalyzeTruckTreatment().checkAnalyzeTruck(pnlLabCar, txtAcid.getText(), txtSoap.getText(), txtDens.getText(), txtTrash.getText(), cbxCollect, cbxSplit);
+        if (TxtTreatment.isTextFieldEmpty(pnlLabCar) && cbxCollect.getSelectedIndex() > 0) {
+            new AnalyzeTruckTreatment().saveAnalyzeTruck(txtAcid.getText(), txtSoap.getText(), txtDens.getText(), txtTrash.getText(), cbxCollect.getSelectedIndex());
+            if (cbxSplit.getSelectedIndex() > 0) {
+                new AnalyzeTruckTreatment().saveAnalyzeTruckSplit((Long) cbxSplit.getSelectedItem());
+            }
+            TxtTreatment.cleanTextField(pnlLabCar);
+            ComboBoxTreatment.cleanCbx(pnlLabCar);
+        } else {
+            PopUp.fieldIsEmpty();
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        TreatmentTxt.cleanTxt(pnlLabCar);
-        CbxTreatment.cleanCbx(pnlLabCar);
+        TxtTreatment.cleanTextField(pnlLabCar);
+        ComboBoxTreatment.cleanCbx(pnlLabCar);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

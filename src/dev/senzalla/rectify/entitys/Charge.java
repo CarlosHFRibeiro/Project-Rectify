@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.entitys;
 
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -10,22 +10,22 @@ import java.sql.Time;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class Charge extends TreatmentDate {
+public class Charge extends DateTreatment {
     private Long idCharge;
-    private int noteCharge;
-    private int ticketCharge;
     private int burdenCharge;
     private int literCharge;
+    private int noteCharge;
+    private int ticketCharge;
     private String carPlateCharge;
     private Date dateEntryCharge;
     private Date dateExitCharge;
     private Time timeEntryCharge;
     private Time timeExitCharge;
-    private Tank tank;
-    private Provider provider;
-    private Product product;
     private AnalyzeTruck analyzeTruck;
     private Driver driver;
+    private Product product;
+    private Provider provider;
+    private Tank tank;
 
     public Long getIdCharge() {
         return idCharge;
@@ -33,22 +33,6 @@ public class Charge extends TreatmentDate {
 
     public void setIdCharge(Long idCharge) {
         this.idCharge = idCharge;
-    }
-
-    public int getNoteCharge() {
-        return noteCharge;
-    }
-
-    public void setNoteCharge(int noteCharge) {
-        this.noteCharge = noteCharge;
-    }
-
-    public int getTicketCharge() {
-        return ticketCharge;
-    }
-
-    public void setTicketCharge(int ticketCharge) {
-        this.ticketCharge = ticketCharge;
     }
 
     public int getBurdenCharge() {
@@ -65,6 +49,22 @@ public class Charge extends TreatmentDate {
 
     public void setLiterCharge(int literCharge) {
         this.literCharge = literCharge;
+    }
+
+    public int getNoteCharge() {
+        return noteCharge;
+    }
+
+    public void setNoteCharge(int noteCharge) {
+        this.noteCharge = noteCharge;
+    }
+
+    public int getTicketCharge() {
+        return ticketCharge;
+    }
+
+    public void setTicketCharge(int ticketCharge) {
+        this.ticketCharge = ticketCharge;
     }
 
     public String getCarPlateCharge() {
@@ -107,20 +107,20 @@ public class Charge extends TreatmentDate {
         this.timeExitCharge = timeExitCharge;
     }
 
-    public Tank getTank() {
-        return tank;
+    public AnalyzeTruck getAnalyzeTruck() {
+        return analyzeTruck;
     }
 
-    public void setTank(Tank tank) {
-        this.tank = tank;
+    public void setAnalyzeTruck(AnalyzeTruck analyzeTruck) {
+        this.analyzeTruck = analyzeTruck;
     }
 
-    public Provider getProvider() {
-        return provider;
+    public Driver getDriver() {
+        return driver;
     }
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 
     public Product getProduct() {
@@ -131,19 +131,19 @@ public class Charge extends TreatmentDate {
         this.product = product;
     }
 
-    public AnalyzeTruck getanalyzeTruck() {
-        return analyzeTruck;
+    public Provider getProvider() {
+        return provider;
     }
 
-    public void setanalyzeTruck(AnalyzeTruck analyzeTruck) {
-        this.analyzeTruck = analyzeTruck;
+    public void setProvider(Provider provider) {
+        this.provider = provider;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public Tank getTank() {
+        return tank;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setTank(Tank tank) {
+        this.tank = tank;
     }
 }

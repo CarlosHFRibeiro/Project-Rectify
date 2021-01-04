@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -28,7 +28,7 @@ public class DchargeDetailPrint extends ModelPrint {
             document.add(pdfPTable);
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(charge.getDtOfDcharge()));
+            setTable(convertDateUtil(charge.getDateEntryDcharge()));
             setParagraph(" ", FontEnum.FIELD);
             document.add(pdfPTable);
 
@@ -38,15 +38,15 @@ public class DchargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Data Entrada: ", FontEnum.BOLDFIELD);
-            setParagraph(convertDateUtil(charge.getDtOfDcharge()), FontEnum.FIELD);
+            setParagraph(convertDateUtil(charge.getDateEntryDcharge()), FontEnum.FIELD);
             setParagraph("Hora Entrada: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getHrOfDcharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getTimeEntryDcharge()), FontEnum.FIELD);
             setParagraph("Nota: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getNoteDcharge()), FontEnum.FIELD);
             setParagraph("Ticket: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getTicketDcharge()), FontEnum.FIELD);
             setParagraph("Placa: ", FontEnum.BOLDFIELD);
-            setParagraph(charge.getBoardDcharge(), FontEnum.FIELD);
+            setParagraph(charge.getCarPlateDcharge(), FontEnum.FIELD);
             setParagraph("CNH: ", FontEnum.BOLDFIELD);
             setParagraph(charge.getDriver().getCnhDriver(), FontEnum.FIELD);
             setParagraph("Motorista: ", FontEnum.BOLDFIELD);
@@ -54,9 +54,9 @@ public class DchargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Data Saida: ", FontEnum.BOLDFIELD);
-            setParagraph(convertDateUtil(charge.getDtUpDcharge()), FontEnum.FIELD);
+            setParagraph(convertDateUtil(charge.getDateExitDcharge()), FontEnum.FIELD);
             setParagraph("Hora Saida: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getHrUpDcharge()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getTimeExitDcharge()), FontEnum.FIELD);
             setParagraph("Produto: ", FontEnum.BOLDFIELD);
             setParagraph(charge.getProduct().getNameProduct(), FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
@@ -66,13 +66,13 @@ public class DchargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Acidez: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getAcidCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getAcidityTruck()), FontEnum.FIELD);
             setParagraph("Saponidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getSoapCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getSaponityTruck()), FontEnum.FIELD);
             setParagraph("Densidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getDensityCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getDensityTruck()), FontEnum.FIELD);
             setParagraph("Impureza: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getTrashCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getTrashTruck()), FontEnum.FIELD);
             setParagraph("Peso: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getBurdenDcharge()), FontEnum.FIELD);
             setParagraph("Litros: ", FontEnum.BOLDFIELD);

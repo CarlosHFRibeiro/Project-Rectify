@@ -7,7 +7,7 @@ package dev.senzalla.rectify.entitys;
  */
 public class Hcl {
     private Long idHcl;
-    private double valueHcl;
+    private double concentrationHcl;
 
     public Long getIdHcl() {
         return idHcl;
@@ -17,17 +17,17 @@ public class Hcl {
         this.idHcl = idHcl;
     }
 
-    public double getValueHcl() {
-        return valueHcl;
+    public double getConcentrationHcl() {
+        return concentrationHcl;
     }
 
-    public void setValueHcl(double valueHcl) {
-        this.valueHcl = valueHcl;
+    public void setConcentrationHcl(double concentrationHcl) {
+        this.concentrationHcl = concentrationHcl;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(getValueHcl());
+        return String.valueOf(getConcentrationHcl());
     }
     
 }

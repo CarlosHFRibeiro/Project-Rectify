@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.entitys;
 
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 import java.util.Set;
@@ -10,64 +10,54 @@ import java.util.Set;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class MakeEster extends TreatmentDate {
-    private Long idEster;
-    private int amountEster;
-    private int foreseenEster;
-    private int trashEster;
-    private int producedEster;
-    private Date dtEster;
+public class MakeEster extends DateTreatment {
+    private Long idMakeEster;
+    private int amountMatterMakeEster;
+    private int producedMakeEster;
+    private int trashMakeEster;
+    private Date dateMakeEster;
     private Tank tank;
-    private Set<MatterEster> matterEster;
-    private Set<ReactEster> reactEsters;
+    private Set<MatterMake> matterMake;
+    private Set<ReactionMakeEster> reactionMakeEster;
 
-    public Long getIdEster() {
-        return idEster;
+    public Long getIdMakeEster() {
+        return idMakeEster;
     }
 
-    public void setIdEster(Long idEster) {
-        this.idEster = idEster;
+    public void setIdMakeEster(Long idMakeEster) {
+        this.idMakeEster = idMakeEster;
     }
 
-
-    public int getAmountEster() {
-        return amountEster;
+    public int getAmountMatterMakeEster() {
+        return amountMatterMakeEster;
     }
 
-    public void setAmountEster(int amountEster) {
-        this.amountEster = amountEster;
+    public void setAmountMatterMakeEster(int amountMatterMakeEster) {
+        this.amountMatterMakeEster = amountMatterMakeEster;
     }
 
-    public int getForeseenEster() {
-        return foreseenEster;
+    public int getProducedMakeEster() {
+        return producedMakeEster;
     }
 
-    public void setForeseenEster(int foreseenEster) {
-        this.foreseenEster = foreseenEster;
+    public void setProducedMakeEster(int producedMakeEster) {
+        this.producedMakeEster = producedMakeEster;
     }
 
-    public int getTrashEster() {
-        return trashEster;
+    public int getTrashMakeEster() {
+        return trashMakeEster;
     }
 
-    public void setTrashEster(int trashEster) {
-        this.trashEster = trashEster;
+    public void setTrashMakeEster(int trashMakeEster) {
+        this.trashMakeEster = trashMakeEster;
     }
 
-    public int getProducedEster() {
-        return producedEster;
+    public Date getDateMakeEster() {
+        return dateMakeEster;
     }
 
-    public void setProducedEster(int producedEster) {
-        this.producedEster = producedEster;
-    }
-
-    public Date getDtEster() {
-        return dtEster;
-    }
-
-    public void setDtEster(java.util.Date dtEster) {
-        this.dtEster = convertDateSql(dtEster);
+    public void setDateMakeEster(java.util.Date dateMakeEster) {
+        this.dateMakeEster = convertDateSql(dateMakeEster);
     }
 
     public Tank getTank() {
@@ -78,19 +68,24 @@ public class MakeEster extends TreatmentDate {
         this.tank = tank;
     }
 
-    public Set<MatterEster> getMatterEster() {
-        return matterEster;
+    public Set<MatterMake> getMatterEster() {
+        return matterMake;
     }
 
-    public void setMatterEster(Set<MatterEster> matterEster) {
-        this.matterEster = matterEster;
+    public void setMatterEster(Set<MatterMake> matterMake) {
+        this.matterMake = matterMake;
     }
 
-    public Set<ReactEster> getReactEsters() {
-        return reactEsters;
+    public Set<ReactionMakeEster> getReactEster() {
+        return reactionMakeEster;
     }
 
-    public void setReactEsters(Set<ReactEster> reactEsters) {
-        this.reactEsters = reactEsters;
+    public void setReactEster(Set<ReactionMakeEster> reactionMakeEster) {
+        this.reactionMakeEster = reactionMakeEster;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getIdMakeEster());
     }
 }

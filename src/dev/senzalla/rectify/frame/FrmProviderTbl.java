@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Provider;
-import dev.senzalla.rectify.frame.filter.FrmFilterProvider;
+import dev.senzalla.rectify.frame.filter.ProviderFilterFrame;
 import dev.senzalla.rectify.request.ProviderRequest;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.ProviderTreatment;
@@ -151,7 +151,7 @@ public class FrmProviderTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterProvider(tblProvider));
+        Access.goToFrame(new ProviderFilterFrame(tblProvider));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

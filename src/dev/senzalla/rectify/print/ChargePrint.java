@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas

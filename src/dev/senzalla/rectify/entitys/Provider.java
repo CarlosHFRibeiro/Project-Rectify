@@ -1,6 +1,5 @@
 package dev.senzalla.rectify.entitys;
 
-
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
@@ -9,8 +8,8 @@ package dev.senzalla.rectify.entitys;
 public class Provider {
     private Long idProvider;
     private String cnpjProvider;
-    private String phoneProvider;
     private String nameProvider;
+    private String phoneProvider;
 
     public Provider() {
     }
@@ -35,6 +34,14 @@ public class Provider {
         this.cnpjProvider = cnpjProvider;
     }
 
+    public String getNameProvider() {
+        return nameProvider;
+    }
+
+    public void setNameProvider(String nameProvider) {
+        this.nameProvider = nameProvider;
+    }
+
     public String getPhoneProvider() {
         return phoneProvider;
     }
@@ -43,13 +50,6 @@ public class Provider {
         this.phoneProvider = phoneProvider;
     }
 
-    public String getNameProvider() {
-        return nameProvider;
-    }
-
-    public void setNameProvider(String nameProvider) {
-        this.nameProvider = nameProvider;
-    }
 
     @Override
     public String toString() {

@@ -10,7 +10,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -66,13 +66,13 @@ public class ChargeDetailPrint extends ModelPrint {
             setParagraph("", FontEnum.FIELD);
             setParagraph("", FontEnum.FIELD);
             setParagraph("Acidez: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getAcidCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getAcidityTruck()), FontEnum.FIELD);
             setParagraph("Saponidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getSoapCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getSaponityTruck()), FontEnum.FIELD);
             setParagraph("Densidade: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getDensityCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getDensityTruck()), FontEnum.FIELD);
             setParagraph("Impureza: ", FontEnum.BOLDFIELD);
-            setParagraph(String.valueOf(charge.getanalyzeTruck().getTrashCar()), FontEnum.FIELD);
+            setParagraph(String.valueOf(charge.getAnalyzeTruck().getTrashTruck()), FontEnum.FIELD);
             setParagraph("Peso: ", FontEnum.BOLDFIELD);
             setParagraph(String.valueOf(charge.getBurdenCharge()), FontEnum.FIELD);
             setParagraph("Litros: ", FontEnum.BOLDFIELD);

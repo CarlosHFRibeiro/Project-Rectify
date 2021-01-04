@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.entitys;
 
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 
@@ -10,43 +10,35 @@ import java.sql.Date;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class StockTank extends TreatmentDate {
-    private Long idStkTq;
-    private int literStkTq;
-    private Date dtStkTq;
-    private Tank tank;
+public class StockTank extends DateTreatment {
+    private Long idStockTank;
+    private int literProduct;
+    private Date dateStockTank;
     private Product product;
+    private Tank tank;
 
-    public Long getIdStkTq() {
-        return idStkTq;
+    public Long getIdStockTank() {
+        return idStockTank;
     }
 
-    public void setIdStkTq(Long idStkTq) {
-        this.idStkTq = idStkTq;
+    public void setIdStockTank(Long idStockTank) {
+        this.idStockTank = idStockTank;
     }
 
-    public int getLiterStkTq() {
-        return literStkTq;
+    public int getLiterProduct() {
+        return literProduct;
     }
 
-    public void setLiterStkTq(int literStkTq) {
-        this.literStkTq = literStkTq;
+    public void setLiterProduct(int literProduct) {
+        this.literProduct = literProduct;
     }
 
-    public Date getDtStkTq() {
-        return dtStkTq;
+    public Date getDateStockTank() {
+        return dateStockTank;
     }
 
-    public void setDtStkTq(java.util.Date dtStkTq) {
-        this.dtStkTq = convertDateSql(dtStkTq);
-    }
-
-    public Tank getTank() {
-        return tank;
-    }
-
-    public void setTank(Tank tank) {
-        this.tank = tank;
+    public void setDateStockTank(java.util.Date dateStockTank) {
+        this.dateStockTank = convertDateSql(dateStockTank);
     }
 
     public Product getProduct() {
@@ -55,5 +47,13 @@ public class StockTank extends TreatmentDate {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    public void setTank(Tank tank) {
+        this.tank = tank;
     }
 }

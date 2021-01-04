@@ -9,9 +9,6 @@ import java.awt.event.KeyEvent;
  */
 public class NumberField {
 
-    /**
-     * @param keyPressed {@link KeyEvent}
-     */
     public static void txtNumberInt(KeyEvent keyPressed) {
         String caracteres = "0987654321";
         if (!caracteres.contains(keyPressed.getKeyChar() + "")) {
@@ -19,10 +16,6 @@ public class NumberField {
         }
     }
 
-    /**
-     * @param numberTextField {@link String}
-     * @param keyPressed      {@link KeyEvent}
-     */
     public static void addNumber(String numberTextField, KeyEvent keyPressed) {
         boolean addLetter = true;
         if (numberTextField.contains(".") || numberTextField.contains(",")) {

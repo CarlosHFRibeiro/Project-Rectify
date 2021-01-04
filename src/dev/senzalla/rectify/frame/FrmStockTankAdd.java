@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.ProductTreatment;
-import dev.senzalla.rectify.treatments.TreatmentStockTank;
+import dev.senzalla.rectify.treatments.StockTankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -18,8 +18,8 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlStk);
         TreatmentTheme.initTableTheme(tbl);
-        new ProductTreatment().addComboBox(cbxProduct);
-        new TreatmentStockTank().tableTank(tbl);
+        new ProductTreatment().initComboBox(cbxProduct);
+        new StockTankTreatment().initTableAddStock(tbl);
     }
 
     /**
@@ -158,12 +158,12 @@ public class FrmStockTankAdd extends javax.swing.JInternalFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         tbl.editCellAt(0, 0);
-        new TreatmentStockTank().saveStockTank(tbl);
+        new StockTankTreatment().saveStockTank(tbl);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         tbl.editCellAt(0, 0);
-        new TreatmentStockTank().tableTank(tbl);
+        new StockTankTreatment().initTableAddStock(tbl);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

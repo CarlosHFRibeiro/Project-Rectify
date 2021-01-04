@@ -1,5 +1,6 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -244,12 +245,18 @@ public class FrmSeal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBrKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new TreatmentSeal().saveSeal(pnlSeal, txtSale, txtFactory, txtClient, txtBr, cbxProvider);
+        if (TxtTreatment.isTextFieldEmpty(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
+            new SampleTreatment().saveSample(txtSale.getText(), txtFactory.getText(), txtClient.getText(), txtBr.getText(), (Provider) cbxProvider.getSelectedItem());
+            TxtTreatment.cleanTextField(pnlSeal);
+            ComboBoxTreatment.cleanCbx(pnlSeal);
+        } else {
+            EmptyField.showMsg();
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        TreatmentTxt.cleanTxt(pnlSeal);
-        CbxTreatment.cleanCbx(pnlSeal);
+        TxtTreatment.cleanTextField(pnlSeal);
+        ComboBoxTreatment.cleanCbx(pnlSeal);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

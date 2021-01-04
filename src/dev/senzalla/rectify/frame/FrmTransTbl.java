@@ -2,16 +2,13 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.*;
 import dev.senzalla.rectify.frame.detail.FrmMakeTransDetail;
-import dev.senzalla.rectify.frame.filter.FrmFilterMake;
+import dev.senzalla.rectify.frame.filter.MakeFilterFrame;
 import dev.senzalla.rectify.print.MakeTransPrint;
-import dev.senzalla.rectify.request.*;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
-import dev.senzalla.rectify.treatments.TransTreatment;
+import dev.senzalla.rectify.treatments.MakeTransTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,7 +18,7 @@ import java.util.List;
  */
 public class FrmTransTbl extends javax.swing.JInternalFrame {
 
-    private static List<MakeTrans> makeTranses;
+    private static List<MakeBiodiesel> makeBiodiesels;
 
     /**
      * Creates new form FrmEsterTbl
@@ -33,12 +30,13 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
         TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
-        TransTreatment.initTable(tbl);
+        MakeTransTreatment.setTableFilters(tbl);
 
     }
 
-    public static void query(List<MakeTrans> makeTranses) {
-        FrmTransTbl.makeTranses = makeTranses;
+
+    public static void query(List<MakeBiodiesel> makeBiodiesels) {
+        FrmTransTbl.makeBiodiesels = makeBiodiesels;
     }
 
     /**
@@ -217,13 +215,13 @@ public class FrmTransTbl extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        if (!makeTranses.isEmpty()) {
-            new MakeTransPrint().print(makeTranses);
+        if (!makeBiodiesels.isEmpty()) {
+            new MakeTransPrint().print(makeBiodiesels);
         }
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterMake(tbl, false));
+        Access.goToFrame(new MakeFilterFrame(tbl, false));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

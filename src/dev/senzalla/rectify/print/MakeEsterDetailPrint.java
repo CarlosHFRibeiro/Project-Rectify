@@ -5,9 +5,9 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.enuns.FontEnum;
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -18,7 +18,7 @@ public class MakeEsterDetailPrint extends ModelPrint {
     public void print(MakeEster esters) {
         try {
 
-            final String archive = String.format("%s\\Esterificacao Detalhada_%d.pdf", DIR, esters.getIdEster());
+            final String archive = String.format("%s\\Esterificacao Detalhada_%d.pdf", DIR, esters.getIdMakeEster());
             setPdfPTable(archive);
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_CENTER);
@@ -27,7 +27,7 @@ public class MakeEsterDetailPrint extends ModelPrint {
 
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(esters.getDtEster()));
+            setTable(convertDateUtil(esters.getDateMakeEster()));
             document.add(pdfPTable);
 
             setPdf();
@@ -36,30 +36,30 @@ public class MakeEsterDetailPrint extends ModelPrint {
 
             esters.getMatterEster().forEach(matterEster -> {
                 setPhrase("Produto: ", matterEster.getProduct().getNameProduct());
-                setPhrase("Litros: ", String.valueOf(matterEster.getLiterMtEster()));
+                setPhrase("Litros: ", String.valueOf(matterEster.getLiterMatterMake()));
                 setEspace();
             });
 
-            setPhrase("Quantidade de Produto: ", String.valueOf(esters.getAmountEster()));
+            setPhrase("Quantidade de Produto: ", String.valueOf(esters.getAmountMatterMakeEster()));
             setEspace();
-            esters.getReactEsters().forEach(reactEster -> {
-                setPhrase("Data: ", TreatmentDate.convertDateUtil(reactEster.getDtRctEster()));
-                setPhrase("Hora Inicial: ", String.valueOf(reactEster.getHrStartRctEster()));
-                setPhrase("Metanol Puro: ", String.valueOf(reactEster.getPureRctEster()));
-                setPhrase("Metanol Recuperado: ", String.valueOf(reactEster.getRecoverRctEster()));
+            esters.getReactEster().forEach(reactEster -> {
+                setPhrase("Data: ", DateTreatment.convertDateUtil(reactEster.getDateReactionMakeEster()));
+                setPhrase("Hora Inicial: ", String.valueOf(reactEster.getTimeStartReactionMakeEster()));
+                setPhrase("Metanol Puro: ", String.valueOf(reactEster.getMethanolPureMakeEster()));
+                setPhrase("Metanol Recuperado: ", String.valueOf(reactEster.getMethanolRecoverMakeEster()));
                 setEspace();
-                setPhrase("Acidez: ", String.valueOf(reactEster.getFkLabStartRctEster().getAcidTq()));
-                setPhrase("Saponidade: ", String.valueOf(reactEster.getFkLabStartRctEster().getSoapTq()));
-                setPhrase("Impureza: ", String.valueOf(reactEster.getFkLabStartRctEster().getTrashTq()));
+                setPhrase("Acidez: ", String.valueOf(reactEster.getInitialAnalysysReactionMakeEster().getAcidityAnalyzeTank()));
+                setPhrase("Saponidade: ", String.valueOf(reactEster.getInitialAnalysysReactionMakeEster().getSaponityTank()));
+                setPhrase("Impureza: ", String.valueOf(reactEster.getInitialAnalysysReactionMakeEster().getTrashTank()));
                 setEspace();
-                setPhrase("Acidez: ", String.valueOf(reactEster.getFkLabFinalRctEster().getAcidTq()));
-                setPhrase("Saponidade: ", String.valueOf(reactEster.getFkLabFinalRctEster().getSoapTq()));
-                setPhrase("Impureza: ", String.valueOf(reactEster.getFkLabFinalRctEster().getTrashTq()));
+                setPhrase("Acidez: ", String.valueOf(reactEster.getFinalAnalysisReactionMakeEster().getAcidityAnalyzeTank()));
+                setPhrase("Saponidade: ", String.valueOf(reactEster.getFinalAnalysisReactionMakeEster().getSaponityTank()));
+                setPhrase("Impureza: ", String.valueOf(reactEster.getFinalAnalysisReactionMakeEster().getTrashTank()));
                 setEspace();
             });
 
-            setPhrase("Produzido: ", String.valueOf(esters.getProducedEster()));
-            setPhrase("Residuo: ", String.valueOf(esters.getTrashEster()));
+            setPhrase("Produzido: ", String.valueOf(esters.getProducedMakeEster()));
+            setPhrase("Residuo: ", String.valueOf(esters.getTrashMakeEster()));
 
 
             setLogo();

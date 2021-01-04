@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.entitys;
 
 import dev.senzalla.rectify.enuns.Collect;
-import dev.senzalla.rectify.treatments.TreatmentDate;
+import dev.senzalla.rectify.treatments.DateTreatment;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -11,70 +11,54 @@ import java.sql.Time;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class AnalyzeTruck extends TreatmentDate {
-    private Long idCar;
-    private int trashCar;
-    private double acidCar;
-    private double soapCar;
-    private double densityCar;
-    private Date dtCar;
-    private Time hrCar;
+public class AnalyzeTruck extends DateTreatment {
+    private Long idAnalyzeTruck;
+    private int trashTruck;
+    private double acidityTruck;
+    private double densityTruck;
+    private double saponityTruck;
     private Collect collect;
+    private Date dateAnalyzeTruck;
+    private Time timeAnalyzeTruck;
 
-    public Long getIdCar() {
-        return idCar;
+    public Long getIdAnalyzeTruck() {
+        return idAnalyzeTruck;
     }
 
-    public void setIdCar(Long idCar) {
-        this.idCar = idCar;
+    public void setIdAnalyzeTruck(Long idAnalyzeTruck) {
+        this.idAnalyzeTruck = idAnalyzeTruck;
     }
 
-    public int getTrashCar() {
-        return trashCar;
+    public int getTrashTruck() {
+        return trashTruck;
     }
 
-    public void setTrashCar(int trashCar) {
-        this.trashCar = trashCar;
+    public void setTrashTruck(int trashTruck) {
+        this.trashTruck = trashTruck;
     }
 
-    public double getAcidCar() {
-        return acidCar;
+    public double getAcidityTruck() {
+        return acidityTruck;
     }
 
-    public void setAcidCar(double acidCar) {
-        this.acidCar = acidCar;
+    public void setAcidityTruck(double acidityTruck) {
+        this.acidityTruck = acidityTruck;
     }
 
-    public double getSoapCar() {
-        return soapCar;
+    public double getDensityTruck() {
+        return densityTruck;
     }
 
-    public void setSoapCar(double soapCar) {
-        this.soapCar = soapCar;
+    public void setDensityTruck(double densityTruck) {
+        this.densityTruck = densityTruck;
     }
 
-    public double getDensityCar() {
-        return densityCar;
+    public double getSaponityTruck() {
+        return saponityTruck;
     }
 
-    public void setDensityCar(double densityCar) {
-        this.densityCar = densityCar;
-    }
-
-    public Date getDtCar() {
-        return dtCar;
-    }
-
-    public void setDtCar(java.util.Date dtCar) {
-        this.dtCar = convertDateSql(dtCar);
-    }
-
-    public Time getHrCar() {
-        return hrCar;
-    }
-
-    public void setHrCar(Time hrCar) {
-        this.hrCar = hrCar;
+    public void setSaponityTruck(double saponityTruck) {
+        this.saponityTruck = saponityTruck;
     }
 
     public Collect getCollect() {
@@ -102,8 +86,25 @@ public class AnalyzeTruck extends TreatmentDate {
         }
     }
 
+    public Date getDateAnalyzeTruck() {
+        return dateAnalyzeTruck;
+    }
+
+    public void setDateAnalyzeTruck(java.util.Date dateAnalyzeTruck) {
+        this.dateAnalyzeTruck = convertDateSql(dateAnalyzeTruck);
+    }
+
+    public Time getTimeAnalyzeTruck() {
+        return timeAnalyzeTruck;
+    }
+
+    public void setTimeAnalyzeTruck(Time timeAnalyzeTruck) {
+        this.timeAnalyzeTruck = timeAnalyzeTruck;
+    }
+
+
     @Override
     public String toString() {
-        return String.valueOf(getIdCar());
+        return String.valueOf(getIdAnalyzeTruck());
     }
 }

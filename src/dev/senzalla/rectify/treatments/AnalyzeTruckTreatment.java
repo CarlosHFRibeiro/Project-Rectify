@@ -1,21 +1,20 @@
 package dev.senzalla.rectify.treatments;
 
-import com.toedter.calendar.JDateChooser;
+import dev.senzalla.rectify.entitys.AnalyzeSplit;
 import dev.senzalla.rectify.entitys.AnalyzeTruck;
 import dev.senzalla.rectify.entitys.AnalyzeTruckSplit;
-import dev.senzalla.rectify.entitys.LabSplit;
 import dev.senzalla.rectify.enuns.Collect;
-import dev.senzalla.rectify.exception.EmptyField;
-import dev.senzalla.rectify.request.RequestAnalyzeTruck;
-import dev.senzalla.rectify.request.RequestAnalyzeTruckSplit;
+import dev.senzalla.rectify.request.AnalyzeTruckRequest;
+import dev.senzalla.rectify.request.AnalyzeTruckSplitRequest;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -23,8 +22,6 @@ import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
  * @github github.com/Bomsalvez
  */
 public class AnalyzeTruckTreatment {
-    private DefaultTableModel model;
-
 
     public static void initComboBoxCollect(JComboBox<Object> cbxCollect) {
         cbxCollect.removeAllItems();
@@ -35,94 +32,80 @@ public class AnalyzeTruckTreatment {
     public void initComboBoxAnalyze(JComboBox<Object> cbx) {
         cbx.removeAllItems();
         cbx.addItem("Cod. Analise");
-        new RequestAnalyzeTruck().select().forEach(cbx::addItem);
+        new AnalyzeTruckRequest().select(null, null).forEach(cbx::addItem);
     }
 
-    public void checkAnalyzeTruck(JPanel pnlAnalyzeTruck, String analyzeTruckAcid, String analyzeTruckSoap, String analyzeTruckDens, String analyzeTruckTrash, JComboBox<Object> cbxanalyzeTruckCollect, JComboBox<Object> cbxAnalyzeTruckSplit) {
-        if (TreatmentTxt.isTxtEmpty(pnlAnalyzeTruck) && cbxanalyzeTruckCollect.getSelectedIndex() > 0) {
-            saveAnalyzeTruck(analyzeTruckAcid, analyzeTruckSoap, analyzeTruckTrash, analyzeTruckDens, cbxanalyzeTruckCollect);
-
-            if (cbxAnalyzeTruckSplit.getSelectedIndex() > 0) {
-                saveAnalyzeTruckSplit(cbxAnalyzeTruckSplit);
-            }
-            
-            TreatmentTxt.cleanTxt(pnlAnalyzeTruck);
-            CbxTreatment.cleanCbx(pnlAnalyzeTruck);
-        } else {
-            EmptyField.showMsg();
-        }
+    public static void initTable(JTable tableAnalyzeTruck) {
+        fillTable(tableAnalyzeTruck, new AnalyzeTruckRequest().select(null, null));
     }
 
-    private void saveAnalyzeTruck(String analyzeTruckAcid, String analyzeTruckSoap, String analyzeTruckTrash, String analyzeTruckDens, JComboBox<Object> cbxanalyzeTruckCollect) {
-        AnalyzeTruck analyzeTruck = new AnalyzeTruck();
-        analyzeTruck.setAcidCar(Double.parseDouble(analyzeTruckAcid));
-        analyzeTruck.setSoapCar(Double.parseDouble(analyzeTruckSoap));
-        analyzeTruck.setDensityCar(Double.parseDouble(analyzeTruckDens));
-        analyzeTruck.setTrashCar(Integer.parseInt(analyzeTruckTrash));
-        analyzeTruck.setCollect(cbxanalyzeTruckCollect.getSelectedIndex());
-        new RequestAnalyzeTruck().insert(analyzeTruck);
-    }
-
-    private void saveAnalyzeTruckSplit(JComboBox<Object> cbxAnalyzeTruckSplit) {
-        LabSplit labSplit = new LabSplit();
-        labSplit.setIdSplit((long) cbxAnalyzeTruckSplit.getSelectedIndex());
-        AnalyzeTruckSplit analyzeTruckSplit = new AnalyzeTruckSplit();
-        analyzeTruckSplit.setLabSplit(labSplit);
-        new RequestAnalyzeTruckSplit().insert(analyzeTruckSplit);
-    }
-
-    public void showTable(JTable tbl) {
-        model = (DefaultTableModel) tbl.getModel();
-        model.setNumRows(0);
-        new RequestAnalyzeTruck().select().forEach(this::table);
-    }
-
-    public void showTable(JTable tbl, JSpinner spnCod, JDateChooser dtcDt, JDateChooser dtcDtAte) {
+    public static void setTableFilters(JTable tableAnalyzeTruck, Long idAnalyzeTruck, Date dateOf, Date dateUntil) {
         List<String> clause = new ArrayList<>();
         AnalyzeTruck analyzeTruck = new AnalyzeTruck();
-        if (!spnCod.getValue().equals(0)) {
+        if (idAnalyzeTruck > 0) {
             clause.add("idCar =");
-            analyzeTruck.setIdCar(Long.valueOf(spnCod.getValue().toString()));
+            analyzeTruck.setIdAnalyzeTruck(idAnalyzeTruck);
         }
 
-        if (dtcDtAte.getDate() != null && dtcDt.getDate() != null) {
+        if (dateUntil != null && dateOf != null) {
             clause.add("dtCar between");
-            analyzeTruck.setDtCar(dtcDt.getDate());
+            analyzeTruck.setDateAnalyzeTruck(dateOf);
             clause.add("");
-            analyzeTruck.setDateBetween(dtcDtAte.getDate());
+            analyzeTruck.setDateBetween(dateUntil);
 
         } else {
-            if (dtcDt.getDate() != null) {
+            if (dateOf != null) {
                 clause.add("dtCar =");
-                analyzeTruck.setDtCar(dtcDt.getDate());
+                analyzeTruck.setDateAnalyzeTruck(dateOf);
             }
-            if (dtcDtAte.getDate() != null) {
+            if (dateUntil != null) {
                 clause.add("dtCar =");
-                analyzeTruck.setDtCar(dtcDtAte.getDate());
+                analyzeTruck.setDateAnalyzeTruck(dateUntil);
             }
         }
 
-        if (!new RequestAnalyzeTruck().select(clause, analyzeTruck).isEmpty()) {
-            model = (DefaultTableModel) tbl.getModel();
-            model.setNumRows(0);
-            new RequestAnalyzeTruck().select(clause, analyzeTruck).forEach(this::table);
+        List<AnalyzeTruck> analyzeTrucks = new AnalyzeTruckRequest().select(clause, analyzeTruck);
+        if (!analyzeTrucks.isEmpty()) {
+            fillTable(tableAnalyzeTruck, analyzeTrucks);
         } else {
-            PopUp.isEmpty("Analise");
+            PopUp.searchNoResults("Analise");
         }
     }
 
-    private void table(AnalyzeTruck analyzeTruck) {
-        model.addRow(new Object[]{
-                analyzeTruck.getIdCar(),
-                analyzeTruck.getAcidCar(),
-                analyzeTruck.getSoapCar(),
-                analyzeTruck.getTrashCar(),
-                analyzeTruck.getDensityCar(),
-                convertDateUtil(analyzeTruck.getDtCar()),
-                analyzeTruck.getHrCar()
-        });
+    private static void fillTable(JTable tableAnalyzeTruck, List<AnalyzeTruck> analyzeTrucks) {
+        DefaultTableModel tableModel = (DefaultTableModel) tableAnalyzeTruck.getModel();
+        tableModel.setNumRows(0);
+        analyzeTrucks.forEach(analyzeTruck ->
+                tableModel.addRow(new Object[]{
+                        analyzeTruck.getIdAnalyzeTruck(),
+                        analyzeTruck.getAcidityTruck(),
+                        analyzeTruck.getSaponityTruck(),
+                        analyzeTruck.getTrashTruck(),
+                        analyzeTruck.getDensityTruck(),
+                        convertDateUtil(analyzeTruck.getDateAnalyzeTruck()),
+                        analyzeTruck.getTimeAnalyzeTruck()
+                }));
     }
 
+    public void saveAnalyzeTruck(String acidity, String Saponity, String density, String trash, int collect) {
+        AnalyzeTruck analyzeTruck = new AnalyzeTruck();
+        analyzeTruck.setAcidityTruck(Double.parseDouble(acidity));
+        analyzeTruck.setSaponityTruck(Double.parseDouble(Saponity));
+        analyzeTruck.setDensityTruck(Double.parseDouble(density));
+        analyzeTruck.setTrashTruck(Integer.parseInt(trash));
+        analyzeTruck.setCollect(collect);
+        new AnalyzeTruckRequest().insert(analyzeTruck);
+    }
+
+    public void saveAnalyzeTruckSplit(Long idAnalyzeSplit) {
+        AnalyzeTruckSplit analyzeTruckSplit = new AnalyzeTruckSplit();
+        analyzeTruckSplit.setAnalyzeSplit(new AnalyzeSplit(idAnalyzeSplit));
+        new AnalyzeTruckSplitRequest().insert(analyzeTruckSplit);
+    }
+
+    public static int calcLitter(AnalyzeTruck analyzeTruck, int burden) {
+        return (int) (burden / analyzeTruck.getDensityTruck());
+    }
 
 
 }

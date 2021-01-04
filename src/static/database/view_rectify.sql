@@ -1,159 +1,176 @@
-USE db_retifica;
+USE db_rectify;
 
-CREATE OR REPLACE VIEW view_labtank AS
-SELECT idTq, trashTq, acidTq, soapTq, dtTq, hrTq, nameTank
-FROM tbl_labtank
-         JOIN
-     tbl_tank ON fkTankTq = idTank
-ORDER BY idTq DESC;
-
-CREATE OR REPLACE VIEW view_seal AS
-SELECT idSeal, nameProvider, saleSeal, clientSeal, factorySeal, brSeal, dtSeal
-FROM db_retifica.tbl_seal
-         JOIN
-     tbl_provider ON fkProviderSeal = idProvider
-ORDER BY idSeal DESC;
-
-CREATE OR REPLACE VIEW view_sale AS
-SELECT saleSeal
-FROM tbl_seal;
-
-CREATE OR REPLACE VIEW view_stocktank AS
-SELECT dtStkTq,
+CREATE OR REPLACE VIEW view_analyze_tank AS
+SELECT acidityTank,
+       dateAnalyzeTank,
+       idAnalyzeTank,
        nameTank,
-       nameProduct,
-       literStkTq
-FROM tbl_stocktank
+       saponityTank,
+       timeAnalyzeTank,
+       trashTank
+FROM tbl_analyze_tank
          JOIN
-     tbl_tank ON fkTankStkTq = idTank
-         JOIN
-     tbl_product ON fkProductStkTq = idProduct;
+     tbl_tank ON fkTank = idTank
+ORDER BY idAnalyzeTank DESC;
 
-CREATE OR REPLACE VIEW view_stkProduct AS
-SELECT nameProduct,
-       literStkPd,
-       percentStkPd,
-       dtStkPd
-FROM tbl_stockproduct
+CREATE OR REPLACE VIEW view_sample AS
+SELECT auctionNumber,
+       clientSample,
+       dateSampleCollection,
+       factorySample,
+       idSample,
+       nameProvider,
+       petrobrasSample
+FROM tbl_sample
          JOIN
-     tbl_product ON fkProductStkPd = idProduct;
+     tbl_provider ON fkProvider = idProvider
+ORDER BY idSample DESC;
+
+CREATE OR REPLACE VIEW view_stock_tank AS
+SELECT dateStockTank,
+       literProduct,
+       nameProduct,
+       nameTank
+FROM tbl_stock_tank
+         JOIN
+     tbl_tank ON fkTank = idTank
+         JOIN
+     tbl_product ON fkProduct = idProduct;
+
+CREATE OR REPLACE VIEW view_stock_product AS
+SELECT dateStockProduct,
+       literProduct,
+       nameProduct,
+       percentProduct
+FROM tbl_stock_product
+         JOIN
+     tbl_product ON fkProduct = idProduct;
 
 CREATE OR REPLACE VIEW view_charge AS
-SELECT idCharge,
-       noteCharge,
-       ticketCharge,
+SELECT acidityTruck,
        burdenCharge,
+       carPlateCharge,
+       cnhDriver,
+       dateEntryCharge,
+       dateExitCharge,
+       densityProduct,
+       fkAnalyzeTruck,
+       idCharge,
        literCharge,
        nameTank,
        nameProvider,
        nameProduct,
-       fkLabCharge,
        nameDriver,
-       cnhDriver,
-       boardCharge,
-       dtOfCharge,
-       dtUpCharge,
-       hrOfCharge,
-       hrUpCharge,
-       acidCar,
-       trashCar,
-       soapCar,
-       densityCar
+       noteCharge,
+       ticketCharge,
+       timeEntryCharge,
+       timeExitCharge,
+       trashTruck,
+       saponityTruck
 FROM tbl_charge
-         JOIN tbl_product ON fkProductCharge = idProduct
-         JOIN tbl_tank ON fkTankCharge = idTank
-         JOIN tbl_provider ON fkProviderCharge = idProvider
-         JOIN tbl_driver ON fkDriverCharge = idDriver
-         JOIN tbl_analyzeTruck tl on tbl_charge.fkLabCharge = tl.idCar;
+         JOIN tbl_product ON fkProduct = idProduct
+         JOIN tbl_tank ON fkTank = idTank
+         JOIN tbl_provider ON fkProvider = idProvider
+         JOIN tbl_driver ON fkDriver = idDriver
+         JOIN tbl_analyze_truck tl on fkAnalyzeTruck = idAnalyzeTruck;
 
 CREATE OR REPLACE VIEW view_dcharge AS
-SELECT idDcharge,
-       noteDcharge,
-       ticketDcharge,
+SELECT acidityTruck,
        burdenDcharge,
+       carPlateDcharge,
+       cnhDriver,
+       dateEntryDcharge,
+       dateExitDcharge,
+       densityProduct,
+       fkAnalyzeTruck,
+       idDcharge,
        literDcharge,
        nameTank,
        nameProvider,
        nameProduct,
-       fkLabDcharge,
        nameDriver,
-       cnhDriver,
-       boardDcharge,
-       dtOfDcharge,
-       dtUpDcharge,
-       hrOfDcharge,
-       hrUpDcharge,
-       acidCar,
-       trashCar,
-       soapCar,
-       densityCar
+       noteDcharge,
+       ticketDcharge,
+       timeEntryDcharge,
+       timeExitDcharge,
+       trashTruck,
+       saponityTruck
 FROM tbl_discharge
-         JOIN tbl_product ON fkProductDcharge = idProduct
-         JOIN tbl_tank ON fkTankDcharge = idTank
-         JOIN tbl_provider ON fkProviderDcharge = idProvider
-         JOIN tbl_driver ON fkDriverDcharge = idDriver
-         JOIN tbl_analyzeTruck ON fkLabDcharge = idCar;
+         JOIN tbl_product ON fkProduct = idProduct
+         JOIN tbl_tank ON fkTank = idTank
+         JOIN tbl_provider ON fkProvider = idProvider
+         JOIN tbl_driver ON fkDriver = idDriver
+         JOIN tbl_analyze_truck ON fkAnalyzeTruck = idAnalyzeTruck;
 
-CREATE OR REPLACE VIEW view_makeester AS
-select me.idEster,
-       me.amountEster,
-       me.producedEster,
-       me.trashEster,
-       me.dtEster,
-       tt.nameTank
-from (db_retifica.tbl_makeester me
-         join db_retifica.tbl_tank tt on (tt.idTank = me.fkTankEster));
+CREATE OR REPLACE VIEW view_make_ester AS
+select amountMatterMakeEster,
+       dateMakeEster,
+       idMakeEster,
+       nameTank,
+       producedMakeEster,
+       trashMakeEster
+from tbl_make_ester
+         join tbl_tank on idTank = fkTank;
 
-CREATE OR REPLACE VIEW view_matterester AS
-SELECT tm.idMtEster, tm.literMtEster, tm.fkMtEster, tp.nameProduct
-FROM tbl_matterester tm
-         JOIN tbl_product tp on tp.idProduct = tm.fkProductMtEster;
-
-
-CREATE OR REPLACE VIEW view_reactester AS
-SELECT tr.dtRctEster
-     , tr.pureRctEster
-     , tr.recoverRctEster
-     , tr.sulfuricRctEster
-     , tr.hrFinalRctEster
-     , tr.hrStartRctEster
-     , tr.fkRctEster
-     , ts.acidTq  as acidInitial
-     , ts.soapTq  as soapInitial
-     , ts.trashTq as trashInitial
-     , tf.acidTq  as acidFinal
-     , tf.soapTq  as soapFinal
-     , tf.trashTq as trashFinal
-FROM tbl_reactester tr
-         join tbl_labtank ts on ts.idTq = tr.fkLabStartRctEster
-         join tbl_labtank tf on tf.idTq = tr.fkLabFinalRctEster;
-
-CREATE OR REPLACE VIEW view_maketrans AS
-select me.idTrans,
-       me.amountTrans,
-       me.producedTrans,
-       me.trashTrans,
-       me.dtTrans,
-       tt.nameTank
-from (db_retifica.tbl_maketrans me
-         join db_retifica.tbl_tank tt on (tt.idTank = me.fkTankTrans));
-
-CREATE OR REPLACE VIEW view_matterTransr AS
-SELECT tm.idMtTrans, tm.literMtTrans, tm.fkMtTrans, tp.nameProduct
-FROM tbl_mattertrans tm
-         JOIN tbl_product tp on tp.idProduct = tm.fkProductMtTrans;
+CREATE OR REPLACE VIEW view_matter_ester AS
+SELECT fkMakeEster,
+       idMatterEster,
+       literMatterEster,
+       nameProduct
+FROM tbl_matter_ester tm
+         JOIN tbl_product tp on idProduct = fkProduct;
 
 
-CREATE OR REPLACE VIEW view_reactTrans AS
-SELECT tr.idRctTrans
-     , tr.dtRctTrans
-     , tr.methylateRctTrans
-     , tr.pureRctTrans
-     , tr.hrFinalRctTrans
-     , tr.hrStartRctTrans
-     , tr.fkRctTrans
-     , ts.acidTq
-     , ts.soapTq
-     , ts.trashTq
-FROM tbl_reactTrans tr
-         join tbl_labtank ts on ts.idTq = tr.fkLabRctTrans;
+CREATE OR REPLACE VIEW view_reaction_ester AS
+SELECT dateReaction,
+       methanolPure,
+       methanolRecover,
+       sulfuricAcid,
+       timeFinal,
+       timeStart,
+       fkMakeEster,
+       labInit.acidityTank   AS acidityInitial,
+       labInit.saponityTank  AS saponityInitial,
+       labInit.trashTank     AS trashInitial,
+       labFinal.acidityTank  AS acidityFinal,
+       labFinal.saponityTank AS saponityFinal,
+       labFinal.trashTank    AS trashFinal
+FROM tbl_reaction_make_ester
+         join tbl_analyze_tank labInit on fkInitialAnalysys = labInit.idAnalyzeTank
+         join tbl_analyze_tank labFinal on fkFinalAnalysis = labFinal.idAnalyzeTank;
+
+CREATE OR REPLACE VIEW view_make_biodiesel AS
+select amountMatterMakeBiodiesel,
+       dateMakeBiodiesel,
+       idMakeBiodiesel,
+       nameTank,
+       producedMakeBiodiesel,
+       trashMakeBiodiesel
+from tbl_make_biodiesel
+         join tbl_tank tt on idTank = fkTank;
+
+CREATE OR REPLACE VIEW view_matter_biodiesel AS
+SELECT fkMakeBiodiesel,
+       idMatterBiodiesel,
+       literMatterBiodiesel,
+       nameProduct
+FROM tbl_matter_biodiesel tm
+         JOIN tbl_product tp on idProduct = fkProduct;
+
+
+CREATE OR REPLACE VIEW view_reaction_biodiesel AS
+SELECT
+       acidityTank,
+       dateReactionMakeBiodiesel,
+       fkMakeBiodiesel,
+       methanolMakeBiodiesel,
+       methylateMakeBiodiesel,
+       saponityTank,
+       timeFinal,
+       timeStart,
+       trashTank
+FROM tbl_reaction_biodiesel
+         join tbl_analyze_tank on fkAnalyzeTank = idAnalyzeTank;
+
+CREATE OR REPLACE view view_sum_product AS
+    SELECT SUM(literProduct) AS sumLiter, fkProduct FROM  tbl_stock_tank;

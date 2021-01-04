@@ -15,42 +15,38 @@ import java.util.List;
  */
 public class ProviderRequest extends ConectionMySql {
 
-    private List<Provider> providerList;
-    private String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_provider";
 
     public void insert(Provider provider) {
-        connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_provider` (`cnpjProvider`, `phoneProvider`, `nameProvider`) VALUES (?, ?, ?);";
-            prepareStatement(sql);
+            super.connection();
+            final String sql = "INSERT INTO `tbl_provider` (`cnpjProvider`, `phoneProvider`, `nameProvider`) VALUES (?, ?, ?);";
+            super.prepareStatement(sql);
             stmt.setString(1, provider.getCnpjProvider());
             stmt.setString(2, provider.getPhoneProvider());
             stmt.setString(3, provider.getNameProvider());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            new DataBaseException().processMsg("Fornecedor" + ex.getMessage(), provider.getNameProvider());
+            DataBaseException.MsgErrorDataBase("Provider: " + ex.getMessage(), provider.getNameProvider());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public List<Provider> select(Provider provider) {
+        String SELECT_QUERY = "SELECT * FROM tbl_provider";
         if (provider != null) {
             SELECT_QUERY += " WHERE UPPER(nameProvider) LIKE UPPER(?);";
         }
-        selectAll(SELECT_QUERY, provider);
-        return providerList;
+        return selectAll(SELECT_QUERY, provider);
     }
 
-    private void selectAll(String select, Provider clause) {
-        connection();
-        providerList = new ArrayList<>();
+    private List<Provider> selectAll(String select, Provider clause) {
+        super.connection();
+        List<Provider> providerList = new ArrayList<>();
         try {
-            prepareStatement(select);
-            if (clause != null) {
-                stmt.setString(1, clause.getNameProvider() + '%');
-            }
-            resultSet();
+            super.prepareStatement(select);
+            this.prepareStatement(clause);
+            super.resultSet();
             while (rs.next()) {
                 Provider provider = new Provider();
                 provider.setIdProvider(rs.getLong("idProvider"));
@@ -60,9 +56,16 @@ public class ProviderRequest extends ConectionMySql {
                 providerList.add(provider);
             }
         } catch (SQLException ex) {
-            new DataBaseException().processMsg("Fornecedor" + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Provider: " + ex.getMessage());
         } finally {
-            closeConnectionRs();
+            super.closeConnectionRs();
+        }
+        return providerList;
+    }
+
+    private void prepareStatement(Provider clause) throws SQLException {
+        if (clause != null) {
+            stmt.setString(1, clause.getNameProvider() + '%');
         }
     }
 }

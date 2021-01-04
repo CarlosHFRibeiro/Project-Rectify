@@ -18,7 +18,7 @@ public class FrmProductTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlProduct);
         TreatmentTheme.initTableTheme(tbl);
-        new ProductTreatment().showTable(tbl);
+        new ProductTreatment().initTable(tbl);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
     }
 

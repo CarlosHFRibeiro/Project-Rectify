@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dev.senzalla.rectify;
 
 import dev.senzalla.rectify.frame.*;
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -27,7 +22,7 @@ public class FrmRectify extends JFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlMenu);
         Access.setDktMain(dktMain);
-        TreatmentsItem.visiblePanel(pnlMenu);
+        ItemTreatment.visiblePanel(pnlMenu);
         Access.checkFrame(new FrmStkTk());
     }
 

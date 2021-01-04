@@ -3,7 +3,7 @@ package dev.senzalla.rectify.print;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
-import dev.senzalla.rectify.entitys.MakeTrans;
+import dev.senzalla.rectify.entitys.MakeBiodiesel;
 import dev.senzalla.rectify.enuns.FontEnum;
 
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -20,19 +20,19 @@ import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
  * @github github.com/Bomsalvez
  */
 public class MakeTransPrint extends ModelPrint {
-    public void print(List<MakeTrans> esters) {
+    public void print(List<MakeBiodiesel> esters) {
         try {
 
             final String archive = String.format("%s\\Transesterificacao.pdf", DIR);
             setPdfPTable(archive);
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable("Transificação");
+            setTable("Transesterificação");
             document.add(pdfPTable);
             setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(esters.get(0).getMakeDateTrans()));
+            setTable(convertDateUtil(esters.get(0).getDateMakeBiodiesel()));
             document.add(pdfPTable);
 
             configuration(5, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -42,13 +42,13 @@ public class MakeTransPrint extends ModelPrint {
 
             configuration(5, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
             for (int i = 0; i < esters.size(); i++) {
-                MakeTrans charge = esters.get(i);
+                MakeBiodiesel charge = esters.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
-                setTable(String.valueOf(charge.getIdTrans()));
-                setTable(convertDateUtil(charge.getMakeDateTrans()));
+                setTable(String.valueOf(charge.getIdMakeBiodiesel()));
+                setTable(convertDateUtil(charge.getDateMakeBiodiesel()));
                 setTable(String.valueOf(charge.getTank().getNameTank()));
-                setTable(String.valueOf(charge.getProducedTrans()));
-                setTable(String.valueOf(charge.getTrashTrans()));
+                setTable(String.valueOf(charge.getProducedMakeBiodiesel()));
+                setTable(String.valueOf(charge.getTrashMakeBiodiesel()));
             }
             document.add(pdfPTable);
 

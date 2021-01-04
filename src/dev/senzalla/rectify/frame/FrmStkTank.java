@@ -1,10 +1,10 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.StockTank;
-import dev.senzalla.rectify.frame.filter.FrmFilterStock;
+import dev.senzalla.rectify.frame.filter.StockFilterFrame;
 import dev.senzalla.rectify.print.StockTankPrint;
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentStockTank;
+import dev.senzalla.rectify.treatments.StockTankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlTranspCharge);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentStockTank().showTable(tbl);
+         StockTankTreatment.initTable(tbl);
     }
 
     /**
@@ -57,7 +57,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Estoque");
 
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +65,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
             }
         });
 
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf_24dp.png"))); // NOI18N
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf.png"))); // NOI18N
         btnPrint.setPreferredSize(new java.awt.Dimension(46, 40));
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +73,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +169,7 @@ public class FrmStkTank extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterStock(tbl));
+        Access.goToFrame(new StockFilterFrame(tbl));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

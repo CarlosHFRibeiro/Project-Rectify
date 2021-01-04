@@ -9,17 +9,17 @@ import javax.swing.*;
  */
 public class DataBaseException {
 
-    public static void processMsg(String ex, String element) {
+    public static void MsgErrorDataBase(String ex, String element) {
         if (ex.contains("Duplicate")) {
             String titulo = "Elemento Duplicado";
             String msg = String.format(" %s já existe no registro", element);
             showMsg(msg, titulo, JOptionPane.ERROR_MESSAGE);
         } else {
-            processMsg(ex);
+            MsgErrorDataBase(ex);
         }
     }
 
-    public static void processMsg(String ex) {
+    public static void MsgErrorDataBase(String ex) {
         String titulo = "Erro no banco";
         String msg = String.format("%s \nSe percistir o sintoma o suporte devera ser consultado", ex);
         showMsg(msg, titulo, JOptionPane.WARNING_MESSAGE);

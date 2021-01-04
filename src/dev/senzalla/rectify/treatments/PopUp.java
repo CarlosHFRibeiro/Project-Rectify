@@ -41,7 +41,7 @@ public class PopUp {
                 new JFrame(),
                 "Operação Cancelada!",
                 "Cancelamento",
-                JOptionPane.CANCEL_OPTION
+                JOptionPane.WARNING_MESSAGE
         );
     }
 
@@ -61,7 +61,7 @@ public class PopUp {
     /**
      * @param item {@link String}
      */
-    public static void isEmpty(String item) {
+    public static void searchNoResults(String item) {
         JOptionPane.showMessageDialog(
                 new JFrame(),
                 item + " não foi encontrado!",
@@ -70,11 +70,29 @@ public class PopUp {
         );
     }
 
-    public static void isEmpty() {
+    public static void searchNoResults() {
         JOptionPane.showMessageDialog(
                 new JFrame(),
-                "Não foi registrado estoque do tanque ainda",
+                "Não foi registrado estoque do tanque hoje",
                 "Sem Registro",
+                JOptionPane.WARNING_MESSAGE
+        );
+    }
+
+    public static void notValidNumber() {
+        JOptionPane.showMessageDialog(
+                new JFrame(),
+                "Não é um número valido!",
+                "Campos com Erro",
+                JOptionPane.WARNING_MESSAGE
+        );
+    }
+
+    public static void fieldIsEmpty() {
+        JOptionPane.showMessageDialog(
+                new JFrame(),
+                "Preencha todos os campos!",
+                "Campos Em Branco",
                 JOptionPane.WARNING_MESSAGE
         );
     }

@@ -117,7 +117,7 @@ public class FrmTankTbl extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToInternalFrame(this, new FrmTank());
+        Access.goToInternalFrame(this, new TankFrm());
     }//GEN-LAST:event_btnAddActionPerformed
 
 

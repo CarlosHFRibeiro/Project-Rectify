@@ -16,34 +16,20 @@ public class Access {
         Access.dktMain = dktMain;
     }
 
-    /**
-     * @param oldInternalFrame {@link JInternalFrame}
-     * @param newInternalFrame {@link JInternalFrame}
-     */
     public static void goToInternalFrame(JInternalFrame oldInternalFrame, JInternalFrame newInternalFrame) {
         frame = newInternalFrame;
         oldInternalFrame.dispose();
         goToInternalFrame(newInternalFrame);
     }
 
-    /**
-     * @param newInternalFrame {@link JInternalFrame}
-     */
     public static void goToInternalFrame(JInternalFrame newInternalFrame) {
         dktMain.add(newInternalFrame).setVisible(true);
     }
 
-    /**
-     * @param newFrame {@link JFrame}
-     */
     public static void goToFrame(JFrame newFrame) {
         newFrame.setVisible(true);
     }
 
-    /**
-     *
-     * @param newFrame {@link JInternalFrame}
-     */
     public static void checkFrame(JInternalFrame newFrame) {
         if (frame == null) {
             Access.goToInternalFrame(newFrame);

@@ -5,8 +5,8 @@ import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.request.HclRequest;
 import dev.senzalla.rectify.request.NaohRequest;
 import dev.senzalla.rectify.treatments.PopUp;
-import dev.senzalla.rectify.treatments.TreatmentHcl;
-import dev.senzalla.rectify.treatments.TreatmentNaoh;
+import dev.senzalla.rectify.treatments.HclTreatment;
+import dev.senzalla.rectify.treatments.NaohTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -24,8 +24,8 @@ public class FrmSolution extends javax.swing.JInternalFrame {
         TreatmentTheme.initTheme(pnlSolution);
         TreatmentTheme.initListTheme(lstSolHcl);
         TreatmentTheme.initListTheme(lstSolNaoh);
-        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
-        new TreatmentHcl().showSolutionHcl(lstSolHcl);
+        new NaohTreatment().initList(lstSolNaoh);
+        new HclTreatment().showSolutionHcl(lstSolHcl);
 //        preencher();
     }
 
@@ -275,59 +275,59 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSolNaohAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohAddActionPerformed
-        new TreatmentNaoh().addSolutionNaoh();
-        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
+        new NaohTreatment().addSolutionNaoh();
+        new NaohTreatment().initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohAddActionPerformed
 
     private void btnSolNaohChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohChangeActionPerformed
         if (lstSolNaoh.getSelectedIndex() >= 0) {
-            new TreatmentNaoh().updateSolutionNaoh(lstSolNaoh);
+            new NaohTreatment().updateSolutionNaoh(lstSolNaoh);
         } else {
             PopUp.selectField();
         }
-        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
+        new NaohTreatment().initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohChangeActionPerformed
 
     private void btnSolNaohDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteActionPerformed
         if (lstSolNaoh.getSelectedIndex() >= 0) {
-            new TreatmentNaoh().deleteSolutionNaoh(lstSolNaoh);
+            new NaohTreatment().deleteSolutionNaoh(lstSolNaoh);
         } else {
             PopUp.selectField();
         }
-        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
+        new NaohTreatment().initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteActionPerformed
 
     private void btnSolNaohDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteAllActionPerformed
-        new TreatmentNaoh().deleteAllSolutionNaoh();
-        new TreatmentNaoh().showSolutionNaoh(lstSolNaoh);
+        new NaohTreatment().deleteAllSolutionNaoh();
+        new NaohTreatment().initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteAllActionPerformed
 
     private void btnSolHclAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclAddActionPerformed
-        new TreatmentHcl().addSolutionHcl();
-        new TreatmentHcl().showSolutionHcl(lstSolHcl);
+        new HclTreatment().addSolutionHcl();
+        new HclTreatment().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclAddActionPerformed
 
     private void btnSolHclChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclChangeActionPerformed
         if (lstSolHcl.getSelectedIndex() >= 0) {
-            new TreatmentHcl().updateSolutionHcl(lstSolHcl);
+            new HclTreatment().updateSolutionHcl(lstSolHcl);
         } else {
             PopUp.selectField();
         }
-        new TreatmentHcl().showSolutionHcl(lstSolHcl);
+        new HclTreatment().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclChangeActionPerformed
 
     private void btnSolHclDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteActionPerformed
         if (lstSolHcl.getSelectedIndex() >= 0) {
-            new TreatmentHcl().deleteSolutionHcl(lstSolHcl);
+            new HclTreatment().deleteSolutionHcl(lstSolHcl);
         } else {
             PopUp.selectField();
         }
-        new TreatmentHcl().showSolutionHcl(lstSolHcl);
+        new HclTreatment().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclDeleteActionPerformed
 
     private void btnSolHclDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclDeleteAllActionPerformed
-        new TreatmentHcl().deleteAllSolutionHcl();
-        new TreatmentHcl().showSolutionHcl(lstSolHcl);
+        new HclTreatment().deleteAllSolutionHcl();
+        new HclTreatment().showSolutionHcl(lstSolHcl);
     }//GEN-LAST:event_btnSolHclDeleteAllActionPerformed
 
 
@@ -353,12 +353,12 @@ public class FrmSolution extends javax.swing.JInternalFrame {
     private void preencher() {
         for (int i = 0; i < 50; i++) {
             Naoh naoh = new Naoh();
-            naoh.setValueNaoh(i);
+            naoh.setConcentrationNaoh(i);
             new NaohRequest().insert(naoh);
         }
         for (int i = 0; i < 50; i++) {
             Hcl hcl = new Hcl();
-            hcl.setValueHcl(i);
+            hcl.setConcentrationHcl(i);
             new HclRequest().insert(hcl);
         }
     }

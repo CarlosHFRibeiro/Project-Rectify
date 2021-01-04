@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.enuns.Lab;
-import dev.senzalla.rectify.frame.filter.FrmFilterLab;
+import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.AnalyzeTruckTreatment;
 import dev.senzalla.theme.TreatmentTheme;
@@ -20,7 +20,7 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlLabCar);
         TreatmentTheme.initTableTheme(tbl);
-        new AnalyzeTruckTreatment().showTable(tbl);
+        new AnalyzeTruckTreatment().setTableFilters(tbl);
     }
 
     /**
@@ -145,7 +145,7 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterLab(tbl, Lab.ANALYZETRUCK));
+        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZETRUCK));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

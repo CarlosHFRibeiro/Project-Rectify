@@ -1,11 +1,16 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.treatments.CalcAcidityTreatment;
+import dev.senzalla.rectify.calc.CalcAcidity;
+import dev.senzalla.rectify.frame.panel.KohPanel;
+import dev.senzalla.rectify.frame.panel.OleicPanel;
+import dev.senzalla.rectify.treatments.ComboBoxTreatment;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TreatmentNaoh;
+import dev.senzalla.rectify.treatments.NaohTreatment;
+import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Bomsalvez Freitas
@@ -17,12 +22,13 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmCalcAcid
+     *
      * @param txtLabAcidity {@link JTextField}
      */
     public FrmCalcAcidity(JTextField txtLabAcidity) {
         initComponents();
         TreatmentTheme.initTheme(pnlCalcAcidity);
-        new TreatmentNaoh().showComboBox(cbxConcentration);
+        new NaohTreatment().initComboBox(cbxConcentration);
         FrmCalcAcidity.txtLabAcidity = txtLabAcidity;
     }
 
@@ -107,91 +113,105 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlCalcLayout = new javax.swing.GroupLayout(pnlCalc);
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
-            pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 594, Short.MAX_VALUE)
+                pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 594, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
-            pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+                pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 152, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlCalcAcidityLayout = new javax.swing.GroupLayout(pnlCalcAcidity);
         pnlCalcAcidity.setLayout(pnlCalcAcidityLayout);
         pnlCalcAcidityLayout.setHorizontalGroup(
-            pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitle)
-                .addGap(387, 387, 387))
-            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                .addGap(182, 182, 182)
-                                .addComponent(rbtnOther))
-                            .addComponent(rbtnBio)))
-                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(lblConcentration)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(lblSampleWeight)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(lblVolumeSolution)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 129, Short.MAX_VALUE))
+                pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTitle)
+                                .addGap(387, 387, 387))
+                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                                .addGap(325, 325, 325)
+                                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                                                .addGap(182, 182, 182)
+                                                                .addComponent(rbtnOther))
+                                                        .addComponent(rbtnBio)))
+                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                                .addGap(230, 230, 230)
+                                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                                .addGap(167, 167, 167)
+                                                .addComponent(lblConcentration)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(lblSampleWeight)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(lblVolumeSolution)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 129, Short.MAX_VALUE))
         );
         pnlCalcAcidityLayout.setVerticalGroup(
-            pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle)
-                .addGap(18, 18, 18)
-                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConcentration)
-                    .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSampleWeight)
-                    .addComponent(lblVolumeSolution)
-                    .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtnBio)
-                    .addComponent(rbtnOther))
-                .addGap(57, 57, 57)
-                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTitle)
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblConcentration)
+                                        .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblSampleWeight)
+                                        .addComponent(lblVolumeSolution)
+                                        .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(rbtnBio)
+                                        .addComponent(rbtnOther))
+                                .addGap(57, 57, 57)
+                                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(86, 86, 86)
+                                .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        new CalcAcidityTreatment().calcAcidity(pnlCalc, pnlCalcAcidity, btgCalcAcidity.getSelection(), cbxConcentration.getSelectedItem(), txtVolumeSolution.getText(), txtSampleWeight.getText(), txtLabAcidity, rbtnBio);
+        if (TxtTreatment.isTextFieldEmpty(pnlCalcAcidity) && btgCalcAcidity.getSelection() != null && ComboBoxTreatment.isCbxEmpty(pnlCalcAcidity)) {
+            if (pnlCalc.getComponents().length > 0) {
+                pnlCalc.removeAll();
+            }
+            pnlCalc.setLayout(new GridLayout());
+            CalcAcidity calcAcidity = new CalcAcidity((Double) cbxConcentration.getSelectedItem(), txtVolumeSolution.getText(), txtSampleWeight.getText());
+            if (rbtnBio.isSelected()) {
+                pnlCalc.add(new OleicPanel(calcAcidity.getAcidity())).setVisible(true);
+
+            } else {
+                pnlCalc.add(new KohPanel(calcAcidity.getIndice())).setVisible(true);
+            }
+            txtLabAcidity.setText(calcAcidity.getAcidity() != null ? calcAcidity.getAcidity() : calcAcidity.getIndice());
+
+        }
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void txtSampleWeightKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSampleWeightKeyTyped

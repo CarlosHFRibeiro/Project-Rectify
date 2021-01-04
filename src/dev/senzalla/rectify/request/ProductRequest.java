@@ -16,27 +16,27 @@ import java.util.List;
 public class ProductRequest extends ConectionMySql {
 
     public void insert(Product product) {
-        connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_product` (`densityProduct`, `nameProduct`) VALUES (?, ?);";
-            prepareStatement(sql);
+            super.connection();
+            final String sql = "INSERT INTO `tbl_product` (`densityProduct`, `nameProduct`) VALUES (?, ?);";
+            super.prepareStatement(sql);
             stmt.setDouble(1, product.getDensityProduct());
             stmt.setString(2, product.getNameProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("Produto" + ex.getMessage(), product.getNameProduct());
+            DataBaseException.MsgErrorDataBase("Product: " + ex.getMessage(), product.getNameProduct());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public List<Product> select() {
-        connection();
         List<Product> products = new ArrayList<>();
         try {
-            final String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_product";
-            prepareStatement(SELECT_QUERY);
-            resultSet();
+            super.connection();
+            final String SELECT_QUERY = "SELECT * FROM tbl_product";
+            super.prepareStatement(SELECT_QUERY);
+            super.resultSet();
             while (rs.next()) {
                 Product product = new Product();
                 product.setIdProduct(rs.getLong("idProduct"));
@@ -45,9 +45,9 @@ public class ProductRequest extends ConectionMySql {
                 products.add(product);
             }
         } catch (SQLException ex) {
-            DataBaseException.processMsg("Produto" + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Product: " + ex.getMessage());
         } finally {
-            closeConnectionRs();
+            super.closeConnectionRs();
         }
         return products;
     }

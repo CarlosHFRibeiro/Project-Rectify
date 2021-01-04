@@ -1,10 +1,10 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.StockProduct;
-import dev.senzalla.rectify.frame.filter.FrmFilterStock;
+import dev.senzalla.rectify.frame.filter.StockFilterFrame;
 import dev.senzalla.rectify.print.StockProductPrint;
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentStockProduct;
+import dev.senzalla.rectify.treatments.StockProductTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class FrmStkProduct extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlTranspCharge);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentStockProduct().showTable(this, tbl);
+        new StockProductTreatment().checkStockProduct(this, tbl);
     }
 
     public static void query(List<StockProduct> stockProducts) {
@@ -155,7 +155,7 @@ public class FrmStkProduct extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterStock(tbl, false));
+        Access.goToFrame(new StockFilterFrame(tbl, false));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

@@ -2,6 +2,7 @@ package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Hcl;
 import dev.senzalla.rectify.exception.DataBaseException;
+import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,97 +13,82 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class HclRequest extends Request<Hcl> {
+public class HclRequest extends ConectionMySql {
 
-    private List<Hcl> hcls;
-
-    @Override
     public void insert(Hcl hcl) {
-        connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_hcl` (`valueHcl`) VALUES (?);";
-            prepareStatement(sql);
-            stmt.setDouble(1, hcl.getValueHcl());
+            super.connection();
+            final String sql = "INSERT INTO `tbl_hcl` (`concentrationHcl`) VALUES (?);";
+            super.prepareStatement(sql);
+            stmt.setDouble(1, hcl.getConcentrationHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("HCl " + ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            DataBaseException.MsgErrorDataBase("HCl: " + ex.getMessage(), String.valueOf(hcl.getConcentrationHcl()));
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
-    @Override
     public List<Hcl> select() {
-        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_hcl;";
-        selectAll(SELECT_QUERY);
-        return hcls;
-    }
-
-    @Override
-    public List<Hcl> select(List<String> clause, Hcl hcl) {
-        return null;
-    }
-
-    private void selectAll(String select) {
-        connection();
-        if (hcls == null) {
-            hcls = new ArrayList<>();
-        }
+        List<Hcl> hcls = new ArrayList<>();
         try {
-            prepareStatement(select);
-            resultSet();
+            String SELECT_QUERY = "SELECT * FROM tbl_hcl;";
+            super.connection();
+            super.prepareStatement(SELECT_QUERY);
+            super.resultSet();
             while (rs.next()) {
                 Hcl hcl = new Hcl();
                 hcl.setIdHcl(rs.getLong("idHcl"));
-                hcl.setValueHcl(rs.getDouble("valueHcl"));
+                hcl.setConcentrationHcl(rs.getDouble("concentrationHcl"));
                 hcls.add(hcl);
             }
         } catch (SQLException ex) {
-            DataBaseException.processMsg("HCl " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("HCl: " + ex.getMessage());
         } finally {
-            closeConnectionRs();
+            super.closeConnectionRs();
         }
+        return hcls;
     }
 
     public void update(Hcl hcl) {
-        connection();
         try {
-            final String sql = "UPDATE `db_retifica`.`tbl_hcl` SET `valueHcl` = ? WHERE (`idHcl` = ?);";
-            prepareStatement(sql);
-            stmt.setDouble(1, hcl.getValueHcl());
+            super.connection();
+            final String sql = "UPDATE `tbl_hcl` SET `concentrationHcl` = ? WHERE (`idHcl` = ?);";
+            super.prepareStatement(sql);
+            stmt.setDouble(1, hcl.getConcentrationHcl());
             stmt.setLong(2, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("HCl " + ex.getMessage(), String.valueOf(hcl.getValueHcl()));
+            DataBaseException.MsgErrorDataBase("HCl: " + ex.getMessage(), String.valueOf(hcl.getConcentrationHcl()));
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public void delete(Hcl hcl) {
-        connection();
-        final String sql = "DELETE FROM `db_retifica`.`tbl_hcl` WHERE idHcl = ?;";
         try {
-            prepareStatement(sql);
+            super.connection();
+            final String sql = "DELETE FROM `tbl_hcl` WHERE idHcl = ?;";
+            super.prepareStatement(sql);
             stmt.setLong(1, hcl.getIdHcl());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("HCl " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("HCl: " + ex.getMessage());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public void deleteAll() {
-        connection();
-        final String sql = "TRUNCATE TABLE `db_retifica`.`tbl_hcl`;";
         try {
-            prepareStatement(sql);
+            final String sql = "TRUNCATE TABLE `tbl_hcl`;";
+            super.connection();
+            super.prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("HCl " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("HCl: " + ex.getMessage());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 }

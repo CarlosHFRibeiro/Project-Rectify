@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -31,7 +31,7 @@ public class MakeEsterPrint extends ModelPrint {
             document.add(pdfPTable);
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
-            setTable(convertDateUtil(esters.get(0).getDtEster()));
+            setTable(convertDateUtil(esters.get(0).getDateMakeEster()));
             document.add(pdfPTable);
 
             configuration(5, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -43,11 +43,11 @@ public class MakeEsterPrint extends ModelPrint {
             for (int i = 0; i < esters.size(); i++) {
                 MakeEster charge = esters.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
-                setTable(String.valueOf(charge.getIdEster()));
-                setTable(convertDateUtil(charge.getDtEster()));
+                setTable(String.valueOf(charge.getIdMakeEster()));
+                setTable(convertDateUtil(charge.getDateMakeEster()));
                 setTable(String.valueOf(charge.getTank().getNameTank()));
-                setTable(String.valueOf(charge.getProducedEster()));
-                setTable(String.valueOf(charge.getTrashEster()));
+                setTable(String.valueOf(charge.getProducedMakeEster()));
+                setTable(String.valueOf(charge.getTrashMakeEster()));
             }
             document.add(pdfPTable);
 

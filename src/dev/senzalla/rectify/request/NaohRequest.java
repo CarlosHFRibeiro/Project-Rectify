@@ -2,6 +2,7 @@ package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.exception.DataBaseException;
+import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,97 +13,83 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class NaohRequest extends Request<Naoh> {
+public class NaohRequest extends ConectionMySql {
 
-    private List<Naoh> naohs;
 
-    @Override
     public void insert(Naoh naoh) {
-        connection();
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_naoh` (`valueNaoh`) VALUES (?);";
-            prepareStatement(sql);
-            stmt.setDouble(1, naoh.getValueNaoh());
+            super.connection();
+            final String sql = "INSERT INTO `tbl_naoh` (`concentrationNaoh`) VALUES (?);";
+            super.prepareStatement(sql);
+            stmt.setDouble(1, naoh.getConcentrationNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("NaOH " + ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            DataBaseException.MsgErrorDataBase("NaOH: " + ex.getMessage(), String.valueOf(naoh.getConcentrationNaoh()));
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
-    @Override
     public List<Naoh> select() {
-        String SELECT_QUERY = "SELECT * FROM db_retifica.tbl_naoh;";
-        selectAll(SELECT_QUERY);
-        return naohs;
-    }
-
-    @Override
-    public List<Naoh> select(List<String> clause, Naoh naoh) {
-        return null;
-    }
-
-    private void selectAll(String select) {
-        connection();
-        if (naohs == null) {
-            naohs = new ArrayList<>();
-        }
+        List<Naoh> naohs = new ArrayList<>();
         try {
-            prepareStatement(select);
-            resultSet();
+            String SELECT_QUERY = "SELECT * FROM tbl_naoh;";
+            super.connection();
+            super.prepareStatement(SELECT_QUERY);
+            super.resultSet();
             while (rs.next()) {
                 Naoh naoh = new Naoh();
                 naoh.setIdNaoh(rs.getLong("idNaoh"));
-                naoh.setValueNaoh(rs.getDouble("valueNaoh"));
+                naoh.setConcentrationNaoh(rs.getDouble("concentrationNaoh"));
                 naohs.add(naoh);
             }
         } catch (SQLException ex) {
-            DataBaseException.processMsg("NaOH " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("NaOH: " + ex.getMessage());
         } finally {
-            closeConnectionRs();
+            super.closeConnectionRs();
         }
+        return naohs;
     }
 
     public void update(Naoh naoh) {
-        connection();
         try {
-            final String sql = "UPDATE `db_retifica`.`tbl_naoh` SET `valueNaoh` = ? WHERE (`idNaoh` = ?);";
-            prepareStatement(sql);
-            stmt.setDouble(1, naoh.getValueNaoh());
+            super.connection();
+            final String sql = "UPDATE `tbl_naoh` SET `concentrationNaoh` = ? WHERE (`idNaoh` = ?);";
+            super.prepareStatement(sql);
+            stmt.setDouble(1, naoh.getConcentrationNaoh());
             stmt.setLong(2, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("NaOH " + ex.getMessage(), String.valueOf(naoh.getValueNaoh()));
+            DataBaseException.MsgErrorDataBase("NaOH: " + ex.getMessage(), String.valueOf(naoh.getConcentrationNaoh()));
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public void delete(Naoh naoh) {
-        connection();
-        final String sql = "DELETE FROM `db_retifica`.`tbl_naoh` WHERE idNaoh = ?;";
         try {
-            prepareStatement(sql);
+            final String sql = "DELETE FROM `tbl_naoh` WHERE idNaoh = ?;";
+            super.connection();
+            super.prepareStatement(sql);
             stmt.setLong(1, naoh.getIdNaoh());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("NaOH " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("NaOH: " + ex.getMessage());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
     public void deleteAll() {
-        connection();
-        final String sql = "TRUNCATE TABLE `db_retifica`.`tbl_naoh`;";
         try {
-            prepareStatement(sql);
+            super.connection();
+            final String sql = "TRUNCATE TABLE `tbl_naoh`;";
+            super.prepareStatement(sql);
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg("NaO" + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("NaOH: " + ex.getMessage());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 }

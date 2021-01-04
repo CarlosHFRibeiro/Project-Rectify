@@ -11,7 +11,7 @@ import dev.senzalla.rectify.print.ChargeDetailPrint;
 import dev.senzalla.rectify.request.ChargeRequest;
 import dev.senzalla.theme.TreatmentTheme;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez
@@ -473,10 +473,10 @@ public class FrmTranspDetail extends javax.swing.JFrame {
         txtDtUp.setText(convertDateUtil(charge.getDateExitCharge()));
         txtHrUp.setText(String.valueOf(charge.getTimeExitCharge()));
         txtProduct.setText(charge.getProduct().getNameProduct());
-        txtAcid.setText(String.valueOf(charge.getanalyzeTruck().getAcidCar()));
-        txtSoap.setText(String.valueOf(charge.getanalyzeTruck().getSoapCar()));
-        txtDens.setText(String.valueOf(charge.getanalyzeTruck().getDensityCar()));
-        txtTrash.setText(String.valueOf(charge.getanalyzeTruck().getTrashCar()));
+        txtAcid.setText(String.valueOf(charge.getAnalyzeTruck().getAcidityTruck()));
+        txtSoap.setText(String.valueOf(charge.getAnalyzeTruck().getSaponityTruck()));
+        txtDens.setText(String.valueOf(charge.getAnalyzeTruck().getDensityTruck()));
+        txtTrash.setText(String.valueOf(charge.getAnalyzeTruck().getTrashTruck()));
         txtBurden.setText(String.valueOf(charge.getBurdenCharge()));
         txtBurden.setText(String.valueOf(charge.getLiterCharge()));
         txtTank.setText(charge.getTank().getNameTank());

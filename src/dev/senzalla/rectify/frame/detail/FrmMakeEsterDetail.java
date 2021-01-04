@@ -6,11 +6,11 @@
 package dev.senzalla.rectify.frame.detail;
 
 import dev.senzalla.rectify.entitys.MakeEster;
-import dev.senzalla.rectify.frame.panel.PnlMatterDetail;
-import dev.senzalla.rectify.frame.panel.PnlReactEsterDetail;
+import dev.senzalla.rectify.frame.panel.MatterPanelDetail;
+import dev.senzalla.rectify.frame.panel.ReactionEsterPanelDetail;
 import dev.senzalla.rectify.print.MakeEsterDetailPrint;
-import dev.senzalla.rectify.request.RequestMakeEster;
-import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.rectify.request.MakeEsterRequest;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -35,8 +35,8 @@ public class FrmMakeEsterDetail extends javax.swing.JFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlDetail);
         MakeEster ester = new MakeEster();
-        ester.setIdEster(Long.valueOf(cod.toString()));
-        makeEster = new RequestMakeEster().select(ester);
+        ester.setIdMakeEster(Long.valueOf(cod.toString()));
+        makeEster = new MakeEsterRequest().select(ester);
         showDetail();
     }
 
@@ -172,7 +172,7 @@ public class FrmMakeEsterDetail extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
-        TreatmentsItem.speedRoll(roll);
+        ItemTreatment.speedRoll(roll);
     }//GEN-LAST:event_rollMouseWheelMoved
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -229,22 +229,22 @@ public class FrmMakeEsterDetail extends javax.swing.JFrame {
         addPanelMatter();
         addPanelReact();
         txtTank.setText(makeEster.getTank().getNameTank());
-        txtAmount.setText(String.valueOf(makeEster.getAmountEster()));
+        txtAmount.setText(String.valueOf(makeEster.getAmountMatterMakeEster()));
     }
     
     private void addPanelMatter() {
         BoxLayout layoutMatter = new BoxLayout(pnlMatter, 1);
         makeEster.getMatterEster().forEach(matterEster -> {
             pnlMatter.setLayout(layoutMatter);
-            pnlMatter.add(new PnlMatterDetail(matterEster.getProduct(), matterEster.getLiterMtEster())).setVisible(true);
+            pnlMatter.add(new MatterPanelDetail(matterEster.getProduct(), matterEster.getLiterMatterMake())).setVisible(true);
         });
     }
     
     private void addPanelReact() {
         BoxLayout layoutReact = new BoxLayout(pnlReact, 1);
-        makeEster.getReactEsters().forEach(react -> {
+        makeEster.getReactEster().forEach(react -> {
             pnlReact.setLayout(layoutReact);
-            pnlReact.add(new PnlReactEsterDetail(react)).setVisible(true);
+            pnlReact.add(new ReactionEsterPanelDetail(react)).setVisible(true);
         });
     }
     

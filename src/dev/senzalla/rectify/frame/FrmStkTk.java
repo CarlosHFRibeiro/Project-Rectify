@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.StockTank;
-import dev.senzalla.rectify.frame.panel.PnlStkTk;
-import dev.senzalla.rectify.request.RequestStockTank;
-import dev.senzalla.rectify.treatments.TreatmentsItem;
+import dev.senzalla.rectify.frame.panel.StockTankPanel;
+import dev.senzalla.rectify.request.StockTankRequest;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.awt.*;
@@ -28,13 +28,13 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
     }
 
     private void showPanel() {
-        List<StockTank> stockTank = new RequestStockTank().select();
+        List<StockTank> stockTank = new StockTankRequest().select();
         if (!stockTank.isEmpty()) {
             GridLayout layout = new GridLayout();
             layout.setRows(stockTank.size()/4);
             jPanel1.setLayout(layout);
             stockTank.forEach(stock -> {
-                jPanel1.add(new PnlStkTk(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterStkTq())).setVisible(true);
+                jPanel1.add(new StockTankPanel(stock.getTank().getNameTank(), stock.getProduct().getNameProduct(), stock.getLiterProduct())).setVisible(true);
             });
         } else {
             lblEmpty.setVisible(true);
@@ -126,7 +126,7 @@ public class FrmStkTk extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
-        TreatmentsItem.speedRoll(roll);
+        ItemTreatment.speedRoll(roll);
     }//GEN-LAST:event_rollMouseWheelMoved
 
 

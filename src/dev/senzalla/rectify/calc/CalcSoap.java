@@ -7,7 +7,11 @@ package dev.senzalla.rectify.calc;
  */
 public class CalcSoap {
 
-    public String getSoap(double concentration, double volumeSolution, double sampleWeight) {
+    public static String calcSoap(String concentration, String volumeSolution, String sampleWeight) {
+        return getSoap(Double.parseDouble(concentration), Double.parseDouble(volumeSolution), Double.parseDouble(sampleWeight));
+    }
+
+    public static String getSoap(double concentration, double volumeSolution, double sampleWeight) {
         final double conversionFactor = 304447;
         return String.format("%.3f", ((conversionFactor * volumeSolution * concentration) / sampleWeight));
     }

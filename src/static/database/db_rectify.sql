@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `db_retifica`;
-CREATE SCHEMA IF NOT EXISTS `db_retifica`;
-USE `db_retifica`;
+DROP DATABASE IF EXISTS `db_rectify`;
+CREATE SCHEMA IF NOT EXISTS `db_rectify`;
+USE `db_rectify`;
 
 DROP TABLE IF EXISTS `tbl_tank`;
 CREATE TABLE IF NOT EXISTS `tbl_tank`
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `tbl_tank`
     capacityTank INT         NOT NULL,
     nameTank     VARCHAR(35) NOT NULL,
     PRIMARY KEY (idTank),
-    CONSTRAINT `Nome_Tanque` UNIQUE (nameTank)
+    CONSTRAINT `NOME_TANQUE` UNIQUE (nameTank)
 );
 
 DROP TABLE IF EXISTS `tbl_provider`;
@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS `tbl_provider`
 (
     idProvider    INT         NOT NULL AUTO_INCREMENT,
     cnpjProvider  CHAR(14)    NOT NULL,
-    phoneProvider CHAR(11)    NOT NULL,
     nameProvider  VARCHAR(35) NOT NULL,
+    phoneProvider CHAR(11)    NOT NULL,
     PRIMARY KEY (idProvider),
-    CONSTRAINT `CNPJ Parceiro` UNIQUE (cnpjProvider)
+    CONSTRAINT `CNPJ_FONECEDOR` UNIQUE (cnpjProvider)
 );
 DROP TABLE IF EXISTS `tbl_product`;
 CREATE TABLE IF NOT EXISTS `tbl_product`
@@ -29,20 +29,20 @@ CREATE TABLE IF NOT EXISTS `tbl_product`
     densityProduct DOUBLE      NOT NULL,
     nameProduct    VARCHAR(35) NOT NULL,
     PRIMARY KEY (idProduct),
-    CONSTRAINT `Nome Produto` UNIQUE (nameProduct)
+    CONSTRAINT `NOME_PRODUTO` UNIQUE (nameProduct)
 );
 
-DROP TABLE IF EXISTS `tbl_labSplit`;
-CREATE TABLE IF NOT EXISTS `tbl_labSplit`
+DROP TABLE IF EXISTS tbl_analyze_split;
+CREATE TABLE IF NOT EXISTS tbl_analyze_split
 (
-    idSplit       INT  NOT NULL AUTO_INCREMENT,
-    oilSplit      INT  NOT NULL DEFAULT 0,
-    sludgeSplit   INT  NOT NULL DEFAULT 0,
-    glycerinSplit INT  NOT NULL DEFAULT 0,
-    trashSplit    INT  NOT NULL DEFAULT 0,
-    dtSplit       DATE NOT NULL DEFAULT (CURRENT_DATE()),
-    hrSplit       TIME NOT NULL DEFAULT (CURRENT_TIME()),
-    PRIMARY KEY (idSplit)
+    idAnalyzeSplit        INT    NOT NULL AUTO_INCREMENT,
+    fattyAcidPercentSplit DOUBLE NOT NULL DEFAULT 0,
+    glycerinPercentSplit  DOUBLE NOT NULL DEFAULT 0,
+    sludgePercentSplit    DOUBLE NOT NULL DEFAULT 0,
+    trashPercentSplit     DOUBLE NOT NULL DEFAULT 0,
+    dateAnalyzeSplit      DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    timeAnalyzeSplit      TIME   NOT NULL DEFAULT (CURRENT_TIME()),
+    PRIMARY KEY (idAnalyzeSplit)
 );
 
 DROP TABLE IF EXISTS `tbl_driver`;
@@ -52,286 +52,283 @@ CREATE TABLE IF NOT EXISTS `tbl_driver`
     cnhDriver  CHAR(11)     NOT NULL,
     nameDriver VARCHAR(255) NOT NULL,
     PRIMARY KEY (idDriver),
-    CONSTRAINT `CNH Motorista` UNIQUE (cnhDriver)
+    CONSTRAINT `CNH_MOTORISTA` UNIQUE (cnhDriver)
 );
 
-DROP TABLE IF EXISTS `tbl_analyzeTruck`;
-CREATE TABLE IF NOT EXISTS `tbl_analyzeTruck`
+DROP TABLE IF EXISTS tbl_analyze_truck;
+CREATE TABLE IF NOT EXISTS tbl_analyze_truck
 (
-    idCar      INT    NOT NULL AUTO_INCREMENT,
-    trashCar   INT    NOT NULL DEFAULT 0,
-    collectCar INT    NOT NULL,
-    acidCar    DOUBLE NOT NULL DEFAULT 0,
-    soapCar    DOUBLE NOT NULL DEFAULT 0,
-    densityCar DOUBLE NOT NULL,
-    dtCar      DATE   NOT NULL DEFAULT (CURRENT_DATE()),
-    hrCar      TIME   NOT NULL DEFAULT (CURRENT_TIME()),
-    PRIMARY KEY (idCar)
+    idAnalyzeTruck   INT    NOT NULL AUTO_INCREMENT,
+    collect          INT    NOT NULL,
+    trashTruck       INT    NOT NULL DEFAULT 0,
+    acidityTruck     DOUBLE NOT NULL DEFAULT 0,
+    densityTruck     DOUBLE NOT NULL,
+    saponityTruck    DOUBLE NOT NULL DEFAULT 0,
+    dateAnalyzeTruck DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    timeAnalyzeTruck TIME   NOT NULL DEFAULT (CURRENT_TIME()),
+    PRIMARY KEY (idAnalyzeTruck)
 );
 
-DROP TABLE IF EXISTS `tbl_analyzeTrucksplit`;
-CREATE TABLE IF NOT EXISTS `tbl_analyzeTrucksplit`
+DROP TABLE IF EXISTS `tbl_analyze_truck_split`;
+CREATE TABLE IF NOT EXISTS tbl_analyze_truck_split
 (
-    idCarSplit INT NOT NULL AUTO_INCREMENT,
-    fkanalyzeTruck   INT NOT NULL,
-    fkLabSplit INT NOT NULL,
-    PRIMARY KEY (idCarSplit),
-    CONSTRAINT `FK_Analise_Caminhao` FOREIGN KEY (fkanalyzeTruck)
-        REFERENCES `tbl_analyzeTruck` (idCar),
-    CONSTRAINT `FK_Tridecante` FOREIGN KEY (fkLabSplit)
-        REFERENCES `tbl_labSplit` (idSplit)
+    idAnalyzeTruckSplit INT NOT NULL AUTO_INCREMENT,
+    fkAnalyzeSplit      INT NOT NULL,
+    fkAnalyzeTruck      INT NOT NULL,
+    PRIMARY KEY (idAnalyzeTruckSplit),
+    CONSTRAINT `FK_ANALISE_CAMINHAO` FOREIGN KEY (fkAnalyzeSplit)
+        REFERENCES tbl_analyze_truck (idAnalyzeTruck),
+    CONSTRAINT `FK_TRIDECANTE` FOREIGN KEY (fkAnalyzeTruck)
+        REFERENCES tbl_analyze_split (idAnalyzeSplit)
 );
 
-DROP TABLE IF EXISTS `tbl_labBio`;
-CREATE TABLE IF NOT EXISTS `tbl_labBio`
+DROP TABLE IF EXISTS tbl_analyze_biodiesel;
+CREATE TABLE IF NOT EXISTS tbl_analyze_biodiesel
 (
-    idBio        INT    NOT NULL AUTO_INCREMENT,
-    acidBio      DOUBLE NOT NULL DEFAULT 0,
-    densityBio   DOUBLE NOT NULL,
-    density20Bio DOUBLE NOT NULL,
-    tempBio      DOUBLE NOT NULL,
-    factorBio    DOUBLE NOT NULL,
-    dtBio        DATE   NOT NULL DEFAULT (CURRENT_DATE()),
-    hrBio        TIME   NOT NULL DEFAULT (CURRENT_TIME()),
-    PRIMARY KEY (idBio)
+    idAnalyzeBiodiesel        INT    NOT NULL AUTO_INCREMENT,
+    acidityBiodiesel          DOUBLE NOT NULL DEFAULT 0,
+    densityBiodiesel          DOUBLE NOT NULL,
+    densityBiodiesel20Degress DOUBLE NOT NULL,
+    correctionFactorBiodiesel DOUBLE NOT NULL,
+    temperatureBiodiesel      DOUBLE NOT NULL,
+    dateAnalyzeBiodiesel      DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    timeAnalyzeBiodiesel      TIME   NOT NULL DEFAULT (CURRENT_TIME()),
+    PRIMARY KEY (idAnalyzeBiodiesel)
 );
 
-DROP TABLE IF EXISTS `tbl_labTank`;
-CREATE TABLE IF NOT EXISTS `tbl_labTank`
+DROP TABLE IF EXISTS tbl_analyze_tank;
+CREATE TABLE IF NOT EXISTS tbl_analyze_tank
 (
-    idTq     INT    NOT NULL AUTO_INCREMENT,
-    trashTq  INT    NOT NULL DEFAULT 0,
-    fkTankTq INT    NOT NULL,
-    acidTq   DOUBLE NOT NULL DEFAULT 0,
-    soapTq   DOUBLE NOT NULL DEFAULT 0,
-    dtTq     DATE   NOT NULL DEFAULT (CURRENT_DATE()),
-    hrTq     TIME   NOT NULL DEFAULT (CURRENT_TIME()),
-    PRIMARY KEY (idTq),
-    CONSTRAINT `FK_Tanque_Tanque` FOREIGN KEY (fkTankTq)
+    idAnalyzeTank   INT    NOT NULL AUTO_INCREMENT,
+    trashTank       INT    NOT NULL DEFAULT 0,
+    fkTank          INT    NOT NULL,
+    acidityTank     DOUBLE NOT NULL DEFAULT 0,
+    saponityTank    DOUBLE NOT NULL DEFAULT 0,
+    dateAnalyzeTank DATE   NOT NULL DEFAULT (CURRENT_DATE()),
+    timeAnalyzeTank TIME   NOT NULL DEFAULT (CURRENT_TIME()),
+    PRIMARY KEY (idAnalyzeTank),
+    CONSTRAINT `FK_TANQUE_ANALISADO` FOREIGN KEY (fkTank)
         REFERENCES `tbl_Tank` (idTank)
 );
 
 DROP TABLE IF EXISTS `tbl_charge`;
 CREATE TABLE IF NOT EXISTS `tbl_charge`
 (
-    idCharge         INT     NOT NULL AUTO_INCREMENT,
-    noteCharge       INT     NOT NULL,
-    ticketCharge     INT     NOT NULL,
-    burdenCharge     INT     NOT NULL,
-    literCharge      INT     NOT NULL,
-    fkTankCharge     INT     NOT NULL,
-    fkProviderCharge INT     NOT NULL,
-    fkProductCharge  INT     NOT NULL,
-    fkLabCharge      INT     NOT NULL,
-    fkDriverCharge   INT     NOT NULL,
-    boardCharge      CHAR(7) NOT NULL,
-    dtOfCharge       DATE    NOT NULL,
-    dtUpCharge       DATE    NOT NULL,
-    hrOfCharge       TIME    NOT NULL,
-    hrUpCharge       TIME    NOT NULL,
+    idCharge        INT     NOT NULL AUTO_INCREMENT,
+    burdenCharge    INT     NOT NULL,
+    literCharge     INT     NOT NULL,
+    noteCharge      INT     NOT NULL,
+    ticketCharge    INT     NOT NULL,
+    fkTank          INT     NOT NULL,
+    fkProvider      INT     NOT NULL,
+    fkProduct       INT     NOT NULL,
+    fkAnalyzeTruck  INT     NOT NULL,
+    fkDriver        INT     NOT NULL,
+    carPlateCharge  CHAR(7) NOT NULL,
+    dateEntryCharge DATE    NOT NULL,
+    dateExitCharge  DATE    NOT NULL,
+    timeEntryCharge TIME    NOT NULL,
+    timeExitCharge  TIME    NOT NULL,
     PRIMARY KEY (idCharge),
-    CONSTRAINT `FK_Tanque_Carregamento` FOREIGN KEY (fkTankCharge)
+    CONSTRAINT `FK_TANQUE_CARGA` FOREIGN KEY (fkTank)
         REFERENCES `tbl_tank` (idTank),
-    CONSTRAINT `FK_Fornecedor_Carregamento` FOREIGN KEY (fkProviderCharge)
+    CONSTRAINT `FK_COMPRADOR` FOREIGN KEY (fkProvider)
         REFERENCES `tbl_provider` (idProvider),
-    CONSTRAINT `FK_Produto_Carregamento` FOREIGN KEY (fkProductCharge)
+    CONSTRAINT `FK_PRODUTO_CARGA` FOREIGN KEY (fkProduct)
         REFERENCES `tbl_product` (idProduct),
-    CONSTRAINT `FK_Motorista_Carregamento` FOREIGN KEY (fkDriverCharge)
+    CONSTRAINT `FK_MOTORISTA_CARGA` FOREIGN KEY (fkDriver)
         REFERENCES tbl_driver (idDriver),
-    CONSTRAINT `FK_Analise_Carregamento` FOREIGN KEY (fkLabCharge)
-        REFERENCES tbl_analyzeTruck (idCar)
+    CONSTRAINT `FK_AANALISE_CARGA` FOREIGN KEY (fkAnalyzeTruck)
+        REFERENCES tbl_analyze_truck (idAnalyzeTruck)
 );
 
 DROP TABLE IF EXISTS `tbl_discharge`;
 CREATE TABLE IF NOT EXISTS `tbl_discharge`
 (
-    idDcharge         INT     NOT NULL AUTO_INCREMENT,
-    noteDcharge       INT     NOT NULL,
-    ticketDcharge     INT     NOT NULL,
-    burdenDcharge     INT     NOT NULL,
-    literDcharge      INT     NOT NULL,
-    fkTankDcharge     INT     NOT NULL,
-    fkProviderDcharge INT     NOT NULL,
-    fkProductDcharge  INT     NOT NULL,
-    fkLabDcharge      INT     NOT NULL,
-    fkDriverDcharge   INT     NOT NULL,
-    boardDcharge      CHAR(7) NOT NULL,
-    dtOfDcharge       DATE    NOT NULL,
-    dtUpDcharge       DATE    NOT NULL,
-    hrOfDcharge       TIME    NOT NULL,
-    hrUpDcharge       TIME    NOT NULL,
+    idDcharge        INT     NOT NULL AUTO_INCREMENT,
+    burdenDcharge    INT     NOT NULL,
+    literDcharge     INT     NOT NULL,
+    noteDcharge      INT     NOT NULL,
+    ticketDcharge    INT     NOT NULL,
+    fkTank           INT     NOT NULL,
+    fkProvider       INT     NOT NULL,
+    fkProduct        INT     NOT NULL,
+    fkAnalyzeTruck   INT     NOT NULL,
+    fkDriver         INT     NOT NULL,
+    carPlateDcharge  CHAR(7) NOT NULL,
+    dateEntryDcharge DATE    NOT NULL,
+    dateExitDcharge  DATE    NOT NULL,
+    timeEntryDcharge TIME    NOT NULL,
+    timeExitDcharge  TIME    NOT NULL,
     PRIMARY KEY (idDcharge),
-    CONSTRAINT `FK_Tanque_Descarregamento` FOREIGN KEY (fkTankDcharge)
+    CONSTRAINT `FK_TANQUE_DESCARGA` FOREIGN KEY (fkTank)
         REFERENCES `tbl_tank` (idTank),
-    CONSTRAINT `FK_Fornecedor_Descarregamento` FOREIGN KEY (fkProviderDcharge)
+    CONSTRAINT `FK_FORNECEDOR` FOREIGN KEY (fkProvider)
         REFERENCES `tbl_provider` (idProvider),
-    CONSTRAINT `FK_Produto_Descarregamento` FOREIGN KEY (fkProductDcharge)
+    CONSTRAINT `FK_PRODUTO_DESCARGA` FOREIGN KEY (fkProduct)
         REFERENCES `tbl_product` (idProduct),
-    CONSTRAINT `FK_Motorista_Descarregamento` FOREIGN KEY (fkDriverDcharge)
+    CONSTRAINT `FK_MOTORISTA_DESCARGA` FOREIGN KEY (fkDriver)
         REFERENCES tbl_driver (idDriver),
-    CONSTRAINT `FK_Analise_Descarregamento` FOREIGN KEY (fkLabDcharge)
-        REFERENCES tbl_analyzeTruck (idCar)
+    CONSTRAINT `FK_ANALISE_DESCARGA` FOREIGN KEY (fkAnalyzeTruck)
+        REFERENCES tbl_analyze_truck (idAnalyzeTruck)
 );
 
-DROP TABLE IF EXISTS `tbl_stocktank`;
-CREATE TABLE IF NOT EXISTS tbl_stocktank
+DROP TABLE IF EXISTS tbl_stock_tank;
+CREATE TABLE IF NOT EXISTS tbl_stock_tank
 (
-    idStkTq        INT  NOT NULL AUTO_INCREMENT,
-    literStkTq     INT  NOT NULL,
-    fkTankStkTq    INT  NOT NULL,
-    fkProductStkTq INT  NOT NULL,
-    dtStkTq        DATE NOT NULL DEFAULT (curdate()),
-    PRIMARY KEY (idStkTq),
-    CONSTRAINT `FK_Tanque_Estoque` FOREIGN KEY (fkTankStkTq)
+    idStockTank   INT  NOT NULL AUTO_INCREMENT,
+    fkTank        INT  NOT NULL,
+    fkProduct     INT  NOT NULL,
+    literProduct  INT  NOT NULL,
+    dateStockTank DATE NOT NULL DEFAULT (curdate()),
+    PRIMARY KEY (idStockTank),
+    CONSTRAINT `FK_TANQUE_ESTOQUE` FOREIGN KEY (fkTank)
         REFERENCES tbl_tank (idTank),
-    CONSTRAINT `FK_Produto_Estoque_Tanque` FOREIGN KEY (fkProductStkTq)
+    CONSTRAINT `FK_PRODUTO_TANQUE` FOREIGN KEY (fkProduct)
         REFERENCES tbl_product (idProduct)
 );
 
-DROP TABLE IF EXISTS `tbl_stockproduct`;
-CREATE TABLE IF NOT EXISTS tbl_stockproduct
+DROP TABLE IF EXISTS `tbl_stock_product`;
+CREATE TABLE IF NOT EXISTS tbl_stock_product
 (
-    idStkPd        INT  NOT NULL AUTO_INCREMENT,
-    literStkPd     INT  NOT NULL,
-    percentStkPd   INT  NOT NULL,
-    fkProductStkPd INT  NOT NULL,
-    dtStkPd        DATE NOT NULL DEFAULT (curdate()),
-    PRIMARY KEY (idStkPd),
-    CONSTRAINT `FK_Produto_Estoque_Produto` FOREIGN KEY (fkProductStkPd)
+    idStockProduct   INT  NOT NULL AUTO_INCREMENT,
+    fkProduct        INT  NOT NULL,
+    literProduct     INT  NOT NULL,
+    percentProduct   INT  NOT NULL,
+    dateStockProduct DATE NOT NULL DEFAULT (curdate()),
+    PRIMARY KEY (idStockProduct),
+    CONSTRAINT `FK_PRODUTO_ESTOCADO` FOREIGN KEY (fkProduct)
         REFERENCES tbl_product (idProduct)
 );
 
-DROP TABLE IF EXISTS `tbl_seal`;
-CREATE TABLE IF NOT EXISTS tbl_seal
+DROP TABLE IF EXISTS tbl_sample;
+CREATE TABLE IF NOT EXISTS tbl_sample
 (
-    idSeal         INT  NOT NULL AUTO_INCREMENT,
-    saleSeal       INT  NOT NULL,
-    clientSeal     INT  NOT NULL,
-    factorySeal    INT  NOT NULL,
-    brSeal         INT  NOT NULL,
-    fkProviderSeal INT  NOT NULL,
-    dtSeal         DATE NOT NULL DEFAULT (curdate()),
-    PRIMARY KEY (idSeal),
-    CONSTRAINT `Selo_Cliente` UNIQUE (clientSeal),
-    CONSTRAINT `Selo_Fabrica` UNIQUE (factorySeal),
-    CONSTRAINT `Selo_Petrobras` UNIQUE (brSeal),
-    CONSTRAINT `FK_Parceiro_Selo` FOREIGN KEY (fkProviderSeal)
+    idSample             INT  NOT NULL AUTO_INCREMENT,
+    auctionNumber        INT  NOT NULL,
+    clientSample         INT  NOT NULL,
+    factorySample        INT  NOT NULL,
+    fkProvider           INT  NOT NULL,
+    petrobrasSample      INT  NOT NULL,
+    dateSampleCollection DATE NOT NULL DEFAULT (curdate()),
+    PRIMARY KEY (idSample),
+    CONSTRAINT `AMOSTRA_CLIENTE` UNIQUE (clientSample),
+    CONSTRAINT `AMOSTRA_FABRICA` UNIQUE (factorySample),
+    CONSTRAINT `AMOSTRA_PETROBRAS` UNIQUE (petrobrasSample),
+    CONSTRAINT `FK_AMOSTRA_CLIENTE` FOREIGN KEY (fkProvider)
         REFERENCES tbl_provider (idProvider)
 );
 
-DROP TABLE IF EXISTS `tbl_makeEster`;
-CREATE TABLE IF NOT EXISTS `tbl_makeEster`
+DROP TABLE IF EXISTS `tbl_make_ester`;
+CREATE TABLE IF NOT EXISTS tbl_make_ester
 (
-    idEster       INT  NOT NULL AUTO_INCREMENT,
-    fkTankEster   INT  NOT NULL,
-    amountEster   INT  NOT NULL,
-    trashEster    INT  NOT NULL,
-    producedEster INT  NOT NULL,
-    dtEster       DATE NOT NULL,
-    PRIMARY KEY (idEster),
-    CONSTRAINT `FK_Tanque_Esterificacao` FOREIGN KEY (fkTankEster)
+    idMakeEster           INT  NOT NULL AUTO_INCREMENT,
+    amountMatterMakeEster INT  NOT NULL,
+    fkTank                INT  NOT NULL,
+    producedMakeEster     INT  NOT NULL,
+    trashMakeEster        INT  NOT NULL,
+    dateMakeEster         DATE NOT NULL,
+    PRIMARY KEY (idMakeEster),
+    CONSTRAINT `FK_TANQUE_ESTERIFICACAO` FOREIGN KEY (fkTank)
         REFERENCES tbl_tank (idTank)
 );
 
-DROP TABLE IF EXISTS `tbl_matterEster`;
-CREATE TABLE IF NOT EXISTS `tbl_matterEster`
+DROP TABLE IF EXISTS `tbl_matter_ester`;
+CREATE TABLE IF NOT EXISTS `tbl_matter_ester`
 (
-    idMtEster        INT NOT NULL AUTO_INCREMENT,
-    literMtEster     INT NOT NULL,
-    fkProductMtEster INT NOT NULL,
-    fkMtEster        INT NOT NULL,
-    PRIMARY KEY (idMtEster),
-    CONSTRAINT `FK_Produto_Esterificacao` FOREIGN KEY (fkProductMtEster)
+    idMatterEster    INT NOT NULL AUTO_INCREMENT,
+    fkProduct        INT NOT NULL,
+    fkMakeEster      INT NOT NULL,
+    literMatterEster INT NOT NULL,
+    PRIMARY KEY (idMatterEster),
+    CONSTRAINT `FK_PRODUTO_ESTERIFICACAO` FOREIGN KEY (fkProduct)
         REFERENCES tbl_product (idProduct),
-    CONSTRAINT `FK_Materia_Esterificacao` FOREIGN KEY (fkMtEster)
-        REFERENCES tbl_makeEster (idEster)
+    CONSTRAINT `FK_ESTERIFICACAO_MATERIA` FOREIGN KEY (fkMakeEster)
+        REFERENCES tbl_make_ester (idMakeEster)
 );
 
-DROP TABLE IF EXISTS `tbl_reactEster`;
-CREATE TABLE IF NOT EXISTS `tbl_reactEster`
+DROP TABLE IF EXISTS tbl_reaction_make_ester;
+CREATE TABLE IF NOT EXISTS tbl_reaction_make_ester
 (
-    idRctEster         INT  NOT NULL AUTO_INCREMENT,
-    fkLabStartRctEster INT  NOT NULL,
-    fkRctEster         INT  NOT NULL,
-    sulfuricRctEster   INT  NOT NULL,
-    pureRctEster       INT  NOT NULL,
-    recoverRctEster    INT  NOT NULL,
-    fkLabFinalRctEster INT  NOT NULL,
-    dtRctEster         DATE NOT NULL,
-    hrStartRctEster    TIME NOT NULL,
-    hrFinalRctEster    TIME NOT NULL,
-    PRIMARY KEY (idRctEster),
-    CONSTRAINT `FK_Analise_Inicial_Esterificacao` FOREIGN KEY (fkLabStartRctEster)
-        REFERENCES tbl_labTank (idTq),
-    CONSTRAINT `FK_Reacao_Esterificacao` FOREIGN KEY (fkRctEster)
-        REFERENCES tbl_makeEster (idEster),
-    CONSTRAINT `FK_Analise_Final_Esterificacao` FOREIGN KEY (fkLabFinalRctEster)
-        REFERENCES tbl_labTank (idTq)
+    idReaction        INT  NOT NULL AUTO_INCREMENT,
+    fkFinalAnalysis   INT  NOT NULL,
+    fkInitialAnalysys INT  NOT NULL,
+    fkMakeEster       INT  NOT NULL,
+    methanolPure      INT  NOT NULL,
+    methanolRecover   INT  NOT NULL,
+    sulfuricAcid      INT  NOT NULL,
+    dateReaction      DATE NOT NULL,
+    timeStart         TIME NOT NULL,
+    timeFinal         TIME NOT NULL,
+    PRIMARY KEY (idReaction),
+    CONSTRAINT `FK_ANALISE_INICIAL_ESTERIFICACAO` FOREIGN KEY (fkInitialAnalysys)
+        REFERENCES tbl_analyze_tank (idAnalyzeTank),
+    CONSTRAINT `FK_ESTERIFICACAO_REACAO` FOREIGN KEY (fkMakeEster)
+        REFERENCES tbl_make_ester (idMakeEster),
+    CONSTRAINT `FK_ANALISE_FINAL_ESTERIFICACAO` FOREIGN KEY (fkFinalAnalysis)
+        REFERENCES tbl_analyze_tank (idAnalyzeTank)
 );
 
-DROP TABLE IF EXISTS `tbl_makeTrans`;
-CREATE TABLE IF NOT EXISTS `tbl_makeTrans`
+DROP TABLE IF EXISTS `tbl_make_biodiesel`;
+CREATE TABLE IF NOT EXISTS tbl_make_biodiesel
 (
-    idTrans       INT  NOT NULL AUTO_INCREMENT,
-    fkTankTrans   INT  NOT NULL,
-    amountTrans   INT  NOT NULL,
-    trashTrans    INT  NOT NULL,
-    producedTrans INT  NOT NULL,
-    dtTrans       DATE NOT NULL,
-    PRIMARY KEY (idTrans),
-    CONSTRAINT `FK_Tanque_Transesterificacao` FOREIGN KEY (fkTankTrans)
+    idMakeBiodiesel           INT  NOT NULL AUTO_INCREMENT,
+    amountMatterMakeBiodiesel INT  NOT NULL,
+    fkTank                    INT  NOT NULL,
+    trashMakeBiodiesel        INT  NOT NULL,
+    producedMakeBiodiesel     INT  NOT NULL,
+    dateMakeBiodiesel         DATE NOT NULL,
+    PRIMARY KEY (idMakeBiodiesel),
+    CONSTRAINT `FK_TANQUE_TRASESTERIFICACAO` FOREIGN KEY (fkTank)
         REFERENCES tbl_tank (idTank)
 );
 
-DROP TABLE IF EXISTS `tbl_matterTrans`;
-CREATE TABLE IF NOT EXISTS `tbl_matterTrans`
+DROP TABLE IF EXISTS `tbl_matter_biodiesel`;
+CREATE TABLE IF NOT EXISTS tbl_matter_biodiesel
 (
-    idMtTrans        INT NOT NULL AUTO_INCREMENT,
-    literMtTrans     INT NOT NULL,
-    fkProductMtTrans INT NOT NULL,
-    fkMtTrans        INT NOT NULL,
-    PRIMARY KEY (idMtTrans),
-    CONSTRAINT `FK_Produto_Transesterificacao` FOREIGN KEY (fkProductMtTrans)
+    idMatterBiodiesel    INT NOT NULL AUTO_INCREMENT,
+    fkProduct            INT NOT NULL,
+    fkMakeBiodiesel      INT NOT NULL,
+    literMatterBiodiesel INT NOT NULL,
+    PRIMARY KEY (idMatterBiodiesel),
+    CONSTRAINT `FK_PRODUTO_TRASESTERIFICACAO` FOREIGN KEY (fkProduct)
         REFERENCES tbl_product (idProduct),
-    CONSTRAINT `FK_Materia_Transesterificacao` FOREIGN KEY (fkMtTrans)
-        REFERENCES tbl_makeTrans (idTrans)
+    CONSTRAINT `FK_TRASESTERIFICACAO_MATERIA` FOREIGN KEY (fkMakeBiodiesel)
+        REFERENCES tbl_make_biodiesel (idMakeBiodiesel)
 );
 
-DROP TABLE IF EXISTS `tbl_reactTrans`;
-CREATE TABLE IF NOT EXISTS `tbl_reactTrans`
+DROP TABLE IF EXISTS `tbl_reaction_biodiesel`;
+CREATE TABLE IF NOT EXISTS tbl_reaction_biodiesel
 (
-    idRctTrans        INT  NOT NULL AUTO_INCREMENT,
-    fkLabRctTrans     INT  NOT NULL,
-    fkRctTrans        INT  NOT NULL,
-    methylateRctTrans INT  NOT NULL,
-    pureRctTrans      INT  NOT NULL,
-    dtRctTrans        DATE NOT NULL,
-    hrStartRctTrans   TIME NOT NULL,
-    hrFinalRctTrans   TIME NOT NULL,
-    PRIMARY KEY (idRctTrans),
-    CONSTRAINT `FK_Analise_Inicial_Transesterificacao` FOREIGN KEY (fkLabRctTrans)
-        REFERENCES tbl_labTank (idTq),
-    CONSTRAINT `FK_Reacao_Transesterificacao` FOREIGN KEY (fkRctTrans)
-        REFERENCES tbl_makeTrans (idTrans)
+    idReactionMakeBiodiesel          INT  NOT NULL AUTO_INCREMENT,
+    fkAnalyzeTank                    INT  NOT NULL,
+    fkMakeBiodiesel                  INT  NOT NULL,
+    methanolMakeBiodiesel            INT  NOT NULL,
+    methylateMakeBiodiesel           INT  NOT NULL,
+    dateReactionMakeBiodiesel        DATE NOT NULL,
+    timeStart TIME NOT NULL,
+    timeFinal   TIME NOT NULL,
+    PRIMARY KEY (idReactionMakeBiodiesel),
+    CONSTRAINT `FK_ANALISE_TRASESTERIFICACAO` FOREIGN KEY (fkAnalyzeTank)
+        REFERENCES tbl_analyze_tank (idAnalyzeTank),
+    CONSTRAINT `FK_TRASESTERIFICACAO_REACAO` FOREIGN KEY (fkMakeBiodiesel)
+        REFERENCES tbl_make_biodiesel (idMakeBiodiesel)
 );
 
 DROP TABLE IF EXISTS `tbl_naoh`;
 CREATE TABLE IF NOT EXISTS tbl_naoh
 (
     idNaoh    INT    NOT NULL AUTO_INCREMENT,
-    valueNaoh DOUBLE NOT NULL,
+    concentrationNaoh DOUBLE NOT NULL,
     PRIMARY KEY (idNaoh),
-    CONSTRAINT `Concentracao_Solucao_Naoh` UNIQUE (valueNaoh)
+    CONSTRAINT `CONCENTRACAO_NAOH` UNIQUE (concentrationNaoh)
 );
 
 DROP TABLE IF EXISTS `tbl_hcl`;
 CREATE TABLE IF NOT EXISTS tbl_hcl
 (
     idHcl    INT    NOT NULL AUTO_INCREMENT,
-    valueHcl DOUBLE NOT NULL,
+    concentrationHcl DOUBLE NOT NULL,
     PRIMARY KEY (idHcl),
-    CONSTRAINT `Concentracao_Solucao_HCl` UNIQUE (valueHcl)
+    CONSTRAINT `CONCENTRACAO_HCL` UNIQUE (concentrationHcl)
 );
-
-
-# ('Boca'),('Sonda'),('Dreno'),('Bomba');

@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.enuns.Lab;
-import dev.senzalla.rectify.frame.filter.FrmFilterLab;
+import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
-import dev.senzalla.rectify.treatments.TreatmentLabSplit;
+import dev.senzalla.rectify.treatments.AnalyzeSplitTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -20,7 +20,7 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlLabSplit);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentLabSplit().showTable(tbl);
+        new AnalyzeSplitTreatment().showTable(tbl);
     }
 
 
@@ -147,7 +147,7 @@ public class FrmLabSplitTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterLab(tbl, Lab.LABSPLIT));
+        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.LABSPLIT));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

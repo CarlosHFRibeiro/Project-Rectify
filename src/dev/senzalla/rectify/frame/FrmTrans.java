@@ -1,7 +1,8 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.frame.panel.PnlMatter;
-import dev.senzalla.rectify.frame.panel.PnlReactTrans;
+import dev.senzalla.rectify.entitys.Tank;
+import dev.senzalla.rectify.frame.panel.MatterPanel;
+import dev.senzalla.rectify.frame.panel.ReactionBiodieselPanel;
 import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -20,8 +21,8 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     private int countReact;
     private BoxLayout layoutMatter;
     private BoxLayout layoutReact;
-    private List<PnlMatter> pnlMatter;
-    private List<PnlReactTrans> pnlReact;
+    private List<MatterPanel> pnlMatter;
+    private List<ReactionBiodieselPanel> pnlReact;
 
     /**
      * Creates new form FrmTrans
@@ -91,12 +92,12 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlMatterTransLayout = new javax.swing.GroupLayout(pnlMatterTrans);
         pnlMatterTrans.setLayout(pnlMatterTransLayout);
         pnlMatterTransLayout.setHorizontalGroup(
-            pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+                pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 616, Short.MAX_VALUE)
         );
         pnlMatterTransLayout.setVerticalGroup(
-            pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
 
         btnMatterTransAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -126,12 +127,12 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlReactTransLayout = new javax.swing.GroupLayout(pnlReactTrans);
         pnlReactTrans.setLayout(pnlReactTransLayout);
         pnlReactTransLayout.setHorizontalGroup(
-            pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+                pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 616, Short.MAX_VALUE)
         );
         pnlReactTransLayout.setVerticalGroup(
-            pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+                pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
         );
 
         btnReactTransAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -198,101 +199,101 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlTransLayout = new javax.swing.GroupLayout(pnlTrans);
         pnlTrans.setLayout(pnlTransLayout);
         pnlTransLayout.setHorizontalGroup(
-            pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTransLayout.createSequentialGroup()
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
-                        .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(lblTransAmount)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(261, 261, 261)
-                                .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
-                                .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTransLayout.createSequentialGroup()
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
+                                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                                .addGap(238, 238, 238)
+                                                                .addComponent(lblTransAmount)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                                .addGap(261, 261, 261)
+                                                                .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(61, 61, 61)
+                                                                .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(62, 62, 62)
+                                                                .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                .addGap(190, 190, 190)
+                                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
+                                                                .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(0, 0, Short.MAX_VALUE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
+                                                                .addComponent(btnMatterTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(btnMatterTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addComponent(lblTransTrash)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(141, 141, 141)
+                                                                .addComponent(lblTransProduced)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(26, 26, 26))
+                                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                                .addComponent(btnReactTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(btnReactTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(181, 181, 181))
+                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                .addGap(276, 276, 276)
+                                                .addComponent(lblTank)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                                .addGap(388, 388, 388)
+                                                .addComponent(lblTitle)))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
-                                .addComponent(btnMatterTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnMatterTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblTransTrash)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(lblTransProduced)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addComponent(btnReactTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnReactTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(181, 181, 181))
-            .addGroup(pnlTransLayout.createSequentialGroup()
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(lblTank)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(388, 388, 388)
-                        .addComponent(lblTitle)))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlTransLayout.setVerticalGroup(
-            pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTransLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle)
-                .addGap(30, 30, 30)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTank)
-                    .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMatterTransRmv)
-                    .addComponent(btnMatterTransAdd))
-                .addGap(24, 24, 24)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransAmount)
-                    .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReactTransAdd)
-                    .addComponent(btnReactTransRmv))
-                .addGap(24, 24, 24)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransTrash)
-                    .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTransProduced)
-                    .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlTransLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTitle)
+                                .addGap(30, 30, 30)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblTank)
+                                        .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnMatterTransRmv)
+                                        .addComponent(btnMatterTransAdd))
+                                .addGap(24, 24, 24)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblTransAmount)
+                                        .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(40, 40, 40)
+                                .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnReactTransAdd)
+                                        .addComponent(btnReactTransRmv))
+                                .addGap(24, 24, 24)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblTransTrash)
+                                        .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblTransProduced)
+                                        .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25))
         );
 
         roll.setViewportView(pnlTrans);
@@ -300,14 +301,14 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -354,8 +355,16 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnReactTransRmvActionPerformed
 
     private void btnTransSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransSaveActionPerformed
-        new TransTreatment().checkTransToSave(pnlTrans, pnlMatter, pnlReact, cbxTank.getSelectedItem(), txtTransAmount.getText(), txtTransProduced.getText(), txtTransTrash.getText(), this);
+        boolean matter = checkMatter();
+        boolean react = checkReact();
+        if (matter && react && TxtTreatment.isTextFieldEmpty(pnlTrans)) {
+            new MakeTransTreatment().saveMakeBiodiesel((Tank) cbxTank.getSelectedItem(), txtTransAmount.getText(), txtTransProduced.getText(), txtTransTrash.getText(), pnlReact.get(0).getDate());
+            pnlMatter.forEach(MatterPanel::saveMatter);
+            pnlReact.forEach(ReactionBiodieselPanel::saveReact);
+            Access.goToInternalFrame(this, new FrmTrans());
+        }
     }//GEN-LAST:event_btnTransSaveActionPerformed
+
 
     private void btnTransClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransClearActionPerformed
         Access.goToInternalFrame(this, new FrmTrans());
@@ -366,7 +375,7 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnTransCancelActionPerformed
 
     private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
-        TreatmentsItem.speedRoll(roll);
+        ItemTreatment.speedRoll(roll);
     }//GEN-LAST:event_rollMouseWheelMoved
 
 
@@ -401,7 +410,7 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     }
 
     private void addPanelMatter() {
-        PnlMatter panel = new PnlMatter(txtTransAmount, countMatter++);
+        MatterPanel panel = new MatterPanel(txtTransAmount, countMatter++);
         this.pnlMatterTrans.setLayout(layoutMatter);
         this.pnlMatter.add(panel);
         this.pnlMatterTrans.add(panel).setVisible(true);
@@ -414,7 +423,7 @@ public class FrmTrans extends javax.swing.JInternalFrame {
     }
 
     private void addPanelReact() {
-        PnlReactTrans panel = new PnlReactTrans(this);
+        ReactionBiodieselPanel panel = new ReactionBiodieselPanel(this);
         this.pnlReactTrans.setLayout(layoutReact);
         this.pnlReact.add(panel);
         this.pnlReactTrans.add(panel).setVisible(true);
@@ -433,6 +442,14 @@ public class FrmTrans extends javax.swing.JInternalFrame {
         defineButton(btnReactTransRmv, false);
 
         TankTreatment.initComboBox(cbxTank);
-        TreatmentPnlMatter.initEster();
+        PnlMatterTreatment.initEster();
+    }
+
+    private boolean checkMatter() {
+        return pnlMatter.stream().anyMatch(pnl -> TxtTreatment.isTextFieldEmpty(pnl.getPanel()) || ComboBoxTreatment.isCbxEmpty(pnl.getPanel()));
+    }
+
+    private boolean checkReact() {
+        return pnlReact.stream().anyMatch(pnl -> TxtTreatment.isTextFieldEmpty(pnl.getNamePanel()) && ComboBoxTreatment.isCbxEmpty(pnl.getNamePanel()) && DateChooserTreatment.isDateChooserNull(pnl.getNamePanel()));
     }
 }

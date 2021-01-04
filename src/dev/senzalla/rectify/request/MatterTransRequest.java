@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.request;
 
-import dev.senzalla.rectify.entitys.MakeTrans;
-import dev.senzalla.rectify.entitys.MatterTrans;
+import dev.senzalla.rectify.entitys.MakeBiodiesel;
+import dev.senzalla.rectify.entitys.MatterMake;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.exception.DataBaseException;
 import dev.senzalla.rectify.setting.ConectionMySql;
@@ -17,42 +17,42 @@ import java.util.Set;
  */
 public class MatterTransRequest extends ConectionMySql {
 
-    public void insert(MatterTrans matterester) {
-        connection();
+    public void insert(MatterMake matterMake) {
         try {
-            final String sql = "INSERT INTO `db_retifica`.`tbl_mattertrans` (`literMtTrans`, `fkProductMtTrans`) VALUES (?, ?);";
-            prepareStatement(sql);
-            stmt.setInt(1, matterester.getLiterMtTrans());
-            stmt.setLong(2, matterester.getProduct().getIdProduct());
+            super.connection();
+            final String sql = "INSERT INTO `tbl_matter_biodiesel` (`literMatterBiodiesel`, `fkProduct`) VALUES (?, ?);";
+            super.prepareStatement(sql);
+            stmt.setInt(1, matterMake.getLiterMatterMake());
+            stmt.setLong(2, matterMake.getProduct().getIdProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.processMsg(ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Matter Biodiesel: " + ex.getMessage());
         } finally {
-            closeConnection();
+            super.closeConnection();
         }
     }
 
-    public MakeTrans select(MakeTrans makeester) {
+    public MakeBiodiesel select(MakeBiodiesel makeBiodiesel) {
         try {
-            final String SELECT_QUERY = "SELECT * FROM db_retifica.view_matterTransr WHERE fkMtTrans = ?";
-            connection();
-            Set<MatterTrans> matterTranss = new HashSet<>();
-            prepareStatement(SELECT_QUERY);
-            stmt.setLong(1, makeester.getIdTrans());
-            resultSet();
+            final String SELECT_QUERY = "SELECT * FROM view_matter_biodiesel WHERE fkMakeBiodiesel = ?";
+            super.connection();
+            Set<MatterMake> matterMakes = new HashSet<>();
+            super.prepareStatement(SELECT_QUERY);
+            stmt.setLong(1, makeBiodiesel.getIdMakeBiodiesel());
+            super.resultSet();
             while (rs.next()) {
-                MatterTrans matterester = new MatterTrans();
-                matterester.setIdMtTrans(rs.getLong("idMtTrans"));
-                matterester.setLiterMtTrans(rs.getInt("literMtTrans"));
+                MatterMake matterester = new MatterMake();
+                matterester.setIdMatterMake(rs.getLong("idMatterBiodiesel"));
+                matterester.setLiterMatterMake(rs.getInt("literMatterBiodiesel"));
                 matterester.setProduct(new Product(rs.getString("nameProduct")));
-                matterTranss.add(matterester);
+                matterMakes.add(matterester);
             }
-            makeester.setMatterTrans(matterTranss);
+            makeBiodiesel.setMatterMakes(matterMakes);
         } catch (SQLException ex) {
-            DataBaseException.processMsg("Materia Trans " + ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Matter Biodiesel: " + ex.getMessage());
         } finally {
-            closeConnectionRs();
+            super.closeConnectionRs();
         }
-        return makeester;
+        return makeBiodiesel;
     }
 }

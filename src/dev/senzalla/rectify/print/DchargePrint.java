@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.senzalla.rectify.treatments.TreatmentDate.convertDateUtil;
+import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
  * @author Bomsalvez Freitas
@@ -27,7 +27,7 @@ public class DchargePrint extends ModelPrint {
 
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Descarregamento");
-            setTable(convertDateUtil(dcharges.get(0).getDtOfDcharge()));
+            setTable(convertDateUtil(dcharges.get(0).getDateEntryDcharge()));
             document.add(pdfPTable);
 
             configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
@@ -40,7 +40,7 @@ public class DchargePrint extends ModelPrint {
                 Discharge dcharge = dcharges.get(i);
                 configuration(i % 2 == 0 ? BaseColor.GRAY : BaseColor.LIGHT_GRAY);
                 setTable(String.valueOf(dcharge.getIdDcharge()));
-                setTable(convertDateUtil(dcharge.getDtOfDcharge()));
+                setTable(convertDateUtil(dcharge.getDateEntryDcharge()));
                 setTable(String.valueOf(dcharge.getTicketDcharge()));
                 setTable(dcharge.getProvider().getNameProvider());
                 setTable(dcharge.getProduct().getNameProduct());

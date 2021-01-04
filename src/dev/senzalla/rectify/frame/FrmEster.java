@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.frame.panel.PnlMatter;
-import dev.senzalla.rectify.frame.panel.PnlReactEster;
+import dev.senzalla.rectify.frame.panel.MatterPanel;
+import dev.senzalla.rectify.frame.panel.ReactionEsterPanel;
 import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -21,8 +21,8 @@ public class FrmEster extends javax.swing.JInternalFrame {
     private int countReact;
     private BoxLayout layoutMatter;
     private BoxLayout layoutReact;
-    private List<PnlMatter> pnlMatter;
-    private List<PnlReactEster> pnlReact;
+    private List<MatterPanel> pnlMatter;
+    private List<ReactionEsterPanel> pnlReact;
 
     /**
      * Creates new form FrmLabTqTbl
@@ -35,7 +35,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
         this.defineButton(btnReactEsterRmv, false);
         TreatmentTheme.initTheme(pnlEster);
         TankTreatment.initComboBox(cbxTank);
-        TreatmentPnlMatter.initEster();
+        PnlMatterTreatment.initEster();
     }
 
     /**
@@ -324,8 +324,18 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnReactEsterRmvActionPerformed
 
     private void btnEsterSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterSaveActionPerformed
-        new TreatmentEster().save(pnlEster, pnlMatter, pnlReact, cbxTank, txtEsterAmount, txtEsterProduced, txtEsterTrash, this);
+        boolean react = ReactionEsterTreatment.checkReact(pnlReact);
+        boolean matter = checkMatter();
+        if (matter && react && TxtTreatment.isTextFieldEmpty(pnlEster)) {
+            new MakeEsterTreatment().saveMakeEster((Tank) cbxTank.getSelectedItem(), txtEsterAmount.getText(), txtEsterProduced.getText(), txtEsterTrash.getText(), pnlReact.get(0).getDate());
+            pnlMatter.forEach(MatterPanel::saveEster);
+            pnlReact.forEach(ReactionEsterPanel::save);
+            Access.goToInternalFrame(this, new FrmEster());
+        } else {
+            PopUp.fieldIsEmpty();
+        }
     }//GEN-LAST:event_btnEsterSaveActionPerformed
+
 
     private void btnEsterClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterClearActionPerformed
         Access.goToInternalFrame(this, new FrmEster());
@@ -336,7 +346,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEsterCancelActionPerformed
 
     private void rollEsterMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollEsterMouseWheelMoved
-        TreatmentsItem.speedRoll(rollEster);
+        ItemTreatment.speedRoll(rollEster);
     }//GEN-LAST:event_rollEsterMouseWheelMoved
 
 
@@ -371,7 +381,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }
 
     private void addPanelMatter() {
-        PnlMatter panel = new PnlMatter(txtEsterAmount, countMatter++);
+        MatterPanel panel = new MatterPanel(txtEsterAmount, countMatter++);
         this.pnlMatterEster.setLayout(layoutMatter);
         this.pnlMatter.add(panel);
         this.pnlMatterEster.add(panel).setVisible(true);
@@ -384,7 +394,7 @@ public class FrmEster extends javax.swing.JInternalFrame {
     }
 
     private void addPanelReact() {
-        PnlReactEster panel = new PnlReactEster(this);
+        ReactionEsterPanel panel = new ReactionEsterPanel(this);
         this.pnlReactEster.setLayout(layoutReact);
         this.pnlReact.add(panel);
         this.pnlReactEster.add(panel).setVisible(true);
@@ -401,5 +411,10 @@ public class FrmEster extends javax.swing.JInternalFrame {
             return (Tank) cbxTank.getSelectedItem();
         }
         return null;
+    }
+
+
+    private boolean checkMatter() {
+        return pnlMatter.stream().anyMatch(pnl -> TxtTreatment.isTextFieldEmpty(pnl.getPanel()) || ComboBoxTreatment.isCbxEmpty(pnl.getPanel()));
     }
 }

@@ -2,7 +2,7 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Charge;
 import dev.senzalla.rectify.frame.detail.FrmTranspDetail;
-import dev.senzalla.rectify.frame.filter.FrmFilterTransp;
+import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.ChargePrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.ChargeTreatment;
@@ -26,7 +26,7 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlCharge);
         TreatmentTheme.initTableTheme(tbl);
-        new ChargeTreatment().initTable(tbl, null, null);
+        new ChargeTreatment().initTable(tbl);
     }
 
     public static void query(List<Charge> charges) {
@@ -177,7 +177,7 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new FrmFilterTransp(tbl, true));
+        Access.goToFrame(new TransportFilterFrame(tbl, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

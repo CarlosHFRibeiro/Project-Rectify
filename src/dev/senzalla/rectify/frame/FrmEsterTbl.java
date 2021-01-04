@@ -2,11 +2,11 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.frame.detail.FrmMakeEsterDetail;
-import dev.senzalla.rectify.frame.filter.FrmFilterMake;
+import dev.senzalla.rectify.frame.filter.MakeFilterFrame;
 import dev.senzalla.rectify.print.MakeEsterPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
-import dev.senzalla.rectify.treatments.TreatmentEster;
+import dev.senzalla.rectify.treatments.MakeEsterTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlDcharge);
         TreatmentTheme.initTableTheme(tbl);
-        new TreatmentEster().initTable(tbl);
+        new MakeEsterTreatment().initTable(tbl, spnCod.getValue(), dtcDtOf.getDate(), dtcDtUp.getDate(), (Tank) cbxTank.getSelectedItem());
     }
 
     public static void query(List<MakeEster> makeEsters) {
@@ -186,7 +186,7 @@ public class FrmEsterTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-         Access.goToFrame(new FrmFilterMake(tbl, true));
+         Access.goToFrame(new MakeFilterFrame(tbl, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

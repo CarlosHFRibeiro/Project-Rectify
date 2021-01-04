@@ -1,8 +1,9 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TreatmentLabSplit;
-import dev.senzalla.rectify.treatments.TreatmentTxt;
+import dev.senzalla.rectify.treatments.AnalyzeSplitTreatment;
+import dev.senzalla.rectify.treatments.PopUp;
+import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -224,12 +225,16 @@ public class FrmLabSplit extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTrashKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        new TreatmentLabSplit().saveSplit(pnlLabSplit,txtOil,txtSludge,txtGlycerin,txtTrash);
-        TreatmentTxt.cleanTxt(pnlLabSplit);
+        if (TxtTreatment.isTextFieldEmpty(pnlLabSplit)) {
+            new AnalyzeSplitTreatment().checkAnalyzeSplit(txtOil.getText(), txtSludge.getText(), txtGlycerin.getText(), txtTrash.getText());
+            TxtTreatment.cleanTextField(pnlLabSplit);
+        } else {
+            PopUp.fieldIsEmpty();
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        TreatmentTxt.cleanTxt(pnlLabSplit);
+        TxtTreatment.cleanTextField(pnlLabSplit);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

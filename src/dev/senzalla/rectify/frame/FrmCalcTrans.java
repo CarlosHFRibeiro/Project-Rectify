@@ -1,9 +1,8 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.calc.CalcTrans;
-import dev.senzalla.rectify.exception.EmptyField;
 import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TreatmentTxt;
+import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -244,7 +243,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         CalcTrans calcTrans = new CalcTrans();
-        if (TreatmentTxt.isTxtEmpty(pnlCalcTrans)) {
+        if (TxtTreatment.isTextFieldEmpty(pnlCalcTrans)) {
             calcTrans.calcular(
                     cbxAcid.getSelectedIndex(), Double.parseDouble(txtCalc.getText())
             );

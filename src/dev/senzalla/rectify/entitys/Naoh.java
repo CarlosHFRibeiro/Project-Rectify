@@ -8,7 +8,7 @@ package dev.senzalla.rectify.entitys;
 public class Naoh {
 
     private Long idNaoh;
-    private double valueNaoh;
+    private double concentrationNaoh;
 
     public Long getIdNaoh() {
         return idNaoh;
@@ -18,17 +18,17 @@ public class Naoh {
         this.idNaoh = idNaoh;
     }
 
-    public double getValueNaoh() {
-        return valueNaoh;
+    public double getConcentrationNaoh() {
+        return concentrationNaoh;
     }
 
-    public void setValueNaoh(double valueNaoh) {
-        this.valueNaoh = valueNaoh;
+    public void setConcentrationNaoh(double concentrationNaoh) {
+        this.concentrationNaoh = concentrationNaoh;
     }
 
     @Override
     public String toString() {
-        return String.valueOf(getValueNaoh());
+        return String.valueOf(getConcentrationNaoh());
     }
 
 }

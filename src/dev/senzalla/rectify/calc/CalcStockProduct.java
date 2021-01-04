@@ -1,24 +1,30 @@
 package dev.senzalla.rectify.calc;
 
 import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.request.RequestStockTank;
+import dev.senzalla.rectify.request.StockTankRequest;
 
 /**
  * @author Bomsalvez Freitas
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class   CalcStockProduct {
+public class CalcStockProduct {
     private int litters;
     private int percent;
+    private Product product;
 
-    public void setLitters(Product product) {
-        litters = new RequestStockTank().selectSum(product);
+    public CalcStockProduct(Product product) {
+        this.product = product;
+        setLitters();
         setPercent();
     }
 
+    private void setLitters() {
+        litters = new StockTankRequest().selectSum(product);
+    }
+
     private void setPercent() {
-        int total = new RequestStockTank().selectSum(null);
+        int total = new StockTankRequest().selectSum(null);
         percent = (100 * litters / total);
     }
 
