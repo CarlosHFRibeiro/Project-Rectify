@@ -2,7 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.frame.FrmEsterTbl;
+import dev.senzalla.rectify.frame.MakeEsterTableFrame;
 import dev.senzalla.rectify.request.MakeEsterRequest;
 
 import javax.swing.*;
@@ -59,7 +59,7 @@ public class MakeEsterTreatment {
 
 
     private static void fillTable(JTable tableMakeEster, List<MakeEster> makeEsters) {
-        FrmEsterTbl.query(makeEsters);
+        MakeEsterTableFrame.query(makeEsters);
         DefaultTableModel tableModel = (DefaultTableModel) tableMakeEster.getModel();
         tableModel.setNumRows(0);
         makeEsters.forEach(makeEster ->

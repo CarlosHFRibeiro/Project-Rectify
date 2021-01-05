@@ -2,7 +2,7 @@ package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.AnalyzeTank;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.frame.FrmEster;
+import dev.senzalla.rectify.frame.MakeEsterFrame;
 import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -16,14 +16,14 @@ import java.util.Date;
  */
 public class ReactionEsterPanel extends javax.swing.JPanel {
 
-    private final FrmEster ester;
+    private final MakeEsterFrame ester;
 
     /**
      * Creates new form PnlReactEster
      *
      * @param ester
      */
-    public ReactionEsterPanel(FrmEster ester) {
+    public ReactionEsterPanel(MakeEsterFrame ester) {
         initComponents();
         TreatmentTheme.initTheme(pnlReact);
         AnalyzeTankTreatment.initComboBox(cbxAnalyzeTankInitial, null);

@@ -23,7 +23,7 @@ public class FrmRectify extends JFrame {
         TreatmentTheme.initTheme(pnlMenu);
         Access.setDktMain(dktMain);
         ItemTreatment.visiblePanel(pnlMenu);
-        Access.checkFrame(new StockTackViewFrame());
+        Access.checkFrame(new StockTankViewFrame());
     }
 
     /**
@@ -118,7 +118,7 @@ public class FrmRectify extends JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBarLayout.createSequentialGroup()
                 .addGap(467, 467, 467)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 377, Short.MAX_VALUE)
                 .addComponent(btnHide, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -548,7 +548,7 @@ public class FrmRectify extends JFrame {
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         retractPanel();
-        Access.checkFrame(new StockTackViewFrame());
+        Access.checkFrame(new StockTankViewFrame());
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnLaboratoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLaboratoryActionPerformed
@@ -560,20 +560,20 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnanalyzeTruckActionPerformed
 
     private void btnAnalyzeTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyzeTankActionPerformed
-        Access.checkFrame(new FrmLabTqTbl());
+        Access.checkFrame(new AnalyzeTankTableFrame());
     }//GEN-LAST:event_btnAnalyzeTankActionPerformed
 
     private void btnAnalyzeBiodieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyzeBiodieselActionPerformed
-        Access.checkFrame(new FrmLabBioTbl());
+        Access.checkFrame(new AnalyzeBiodieselTableFrame());
     }//GEN-LAST:event_btnAnalyzeBiodieselActionPerformed
 
     private void btnAnalyzeSplitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyzeSplitActionPerformed
-        Access.checkFrame(new FrmLabSplitTbl());
+        Access.checkFrame(new AnalyzeSplitTableFrame());
     }//GEN-LAST:event_btnAnalyzeSplitActionPerformed
 
     private void btnSampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSampleActionPerformed
         retractPanel();
-        Access.checkFrame(new FrmSealTbl());
+        Access.checkFrame(new SampleTableFrame());
     }//GEN-LAST:event_btnSampleActionPerformed
 
     private void btnTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransportActionPerformed
@@ -585,7 +585,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnChargeActionPerformed
 
     private void btnDischargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDischargeActionPerformed
-        Access.checkFrame(new FrmDchargeTbl());
+        Access.checkFrame(new DeschargeTableFrame());
     }//GEN-LAST:event_btnDischargeActionPerformed
 
     private void btnStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStockActionPerformed
@@ -593,11 +593,11 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnStockActionPerformed
 
     private void btnProductStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductStockActionPerformed
-        Access.checkFrame(new FrmStkProduct());
+        Access.checkFrame(new StockProductTableFrame());
     }//GEN-LAST:event_btnProductStockActionPerformed
 
     private void btnTankStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankStockActionPerformed
-        Access.checkFrame(new FrmStkTank());
+        Access.checkFrame(new StockTankTableFrame());
     }//GEN-LAST:event_btnTankStockActionPerformed
 
     private void btnMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeActionPerformed
@@ -605,7 +605,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnMakeActionPerformed
 
     private void btnMakeEsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeEsterActionPerformed
-        Access.checkFrame(new FrmEsterTbl());
+        Access.checkFrame(new MakeEsterTableFrame());
     }//GEN-LAST:event_btnMakeEsterActionPerformed
 
     private void btnMakeTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeTransActionPerformed
@@ -633,7 +633,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnSetupActionPerformed
 
     private void btnProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderActionPerformed
-        Access.checkFrame(new FrmProviderTbl());
+        Access.checkFrame(new ProviderTableFrame());
     }//GEN-LAST:event_btnProviderActionPerformed
 
     private void btnTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTankActionPerformed
@@ -641,11 +641,11 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnTankActionPerformed
 
     private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
-        Access.checkFrame(new FrmProductTbl());
+        Access.checkFrame(new ProductTableFrame());
     }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolutionActionPerformed
-        Access.checkFrame(new FrmSolution());
+        Access.checkFrame(new SolutionFrame());
     }//GEN-LAST:event_btnSolutionActionPerformed
 
     private void btnThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemeActionPerformed

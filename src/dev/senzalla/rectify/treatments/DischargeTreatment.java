@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.*;
-import dev.senzalla.rectify.frame.FrmDchargeTbl;
+import dev.senzalla.rectify.frame.DeschargeTableFrame;
 import dev.senzalla.rectify.request.DischargeRequest;
 
 import javax.swing.*;
@@ -72,7 +72,7 @@ public class DischargeTreatment {
     }
 
     private static void fillTable(JTable tblDischarge, List<Discharge> discharges) {
-        FrmDchargeTbl.query(discharges);
+        DeschargeTableFrame.query(discharges);
         DefaultTableModel tableModel = (DefaultTableModel) tblDischarge.getModel();
         tableModel.setNumRows(0);
         discharges.forEach(discharge -> tableModel.addRow(new Object[]{

@@ -42,7 +42,7 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlDcharge = new javax.swing.JPanel();
+        pnlMake = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
@@ -55,9 +55,9 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(1000, 680));
         setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        pnlDcharge.setMaximumSize(new java.awt.Dimension(998, 658));
-        pnlDcharge.setMinimumSize(new java.awt.Dimension(998, 658));
-        pnlDcharge.setPreferredSize(new java.awt.Dimension(998, 658));
+        pnlMake.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlMake.setMinimumSize(new java.awt.Dimension(998, 658));
+        pnlMake.setPreferredSize(new java.awt.Dimension(998, 658));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblTitle.setText("Transesterificação");
@@ -148,7 +148,7 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(1).setPreferredWidth(50);
-            tbl.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tbl.getColumnModel().getColumn(2).setPreferredWidth(300);
             tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(5).setResizable(false);
@@ -156,11 +156,11 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
             tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
 
-        javax.swing.GroupLayout pnlDchargeLayout = new javax.swing.GroupLayout(pnlDcharge);
-        pnlDcharge.setLayout(pnlDchargeLayout);
-        pnlDchargeLayout.setHorizontalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlMakeLayout = new javax.swing.GroupLayout(pnlMake);
+        pnlMake.setLayout(pnlMakeLayout);
+        pnlMakeLayout.setHorizontalGroup(
+            pnlMakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMakeLayout.createSequentialGroup()
                 .addGap(390, 390, 390)
                 .addComponent(lblTitle)
                 .addGap(232, 232, 232)
@@ -170,15 +170,15 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 16, Short.MAX_VALUE))
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
+            .addGroup(pnlMakeLayout.createSequentialGroup()
                 .addComponent(roll)
                 .addContainerGap())
         );
-        pnlDchargeLayout.setVerticalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
+        pnlMakeLayout.setVerticalGroup(
+            pnlMakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMakeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlMakeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle)
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,13 +194,13 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlDcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlMake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlDcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMake, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -234,18 +234,18 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPanel pnlDcharge;
+    private javax.swing.JPanel pnlMake;
     private javax.swing.JScrollPane roll;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
-        TreatmentTheme.initTheme(pnlDcharge);
+        TreatmentTheme.initTheme(pnlMake);
         TreatmentTheme.initTableTheme(tbl);
+        MakeTransTreatment.initTable(tbl);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
         TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
-        MakeTransTreatment.initTable(tbl);
     }
 
 }

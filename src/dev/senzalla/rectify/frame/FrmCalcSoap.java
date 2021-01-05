@@ -28,7 +28,7 @@ public class FrmCalcSoap extends javax.swing.JInternalFrame {
     public FrmCalcSoap(JTextField txtLabSoap) {
         initComponents();
         TreatmentTheme.initTheme(pnlCalcSoap);
-        new HclTreatment().showComboBox(cbxConcentration);
+         HclTreatment.initComboBox(cbxConcentration);
         FrmCalcSoap.txtLabSoap = txtLabSoap;
     }
 

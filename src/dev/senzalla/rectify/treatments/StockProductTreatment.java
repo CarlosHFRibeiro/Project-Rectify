@@ -3,7 +3,7 @@ package dev.senzalla.rectify.treatments;
 import dev.senzalla.rectify.calc.CalcStockProduct;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockProduct;
-import dev.senzalla.rectify.frame.FrmStkProduct;
+import dev.senzalla.rectify.frame.StockProductTableFrame;
 import dev.senzalla.rectify.frame.StockTankAddFrame;
 import dev.senzalla.rectify.request.ProductRequest;
 import dev.senzalla.rectify.request.StockProductRequest;
@@ -60,7 +60,7 @@ public class StockProductTreatment {
     private static void fillTable(JTable tbl, List<StockProduct> stockProduct) {
         DefaultTableModel model = (DefaultTableModel) tbl.getModel();
         model.setNumRows(0);
-        FrmStkProduct.query(stockProduct);
+        StockProductTableFrame.query(stockProduct);
         stockProduct.forEach(stock ->
                 model.addRow(new Object[]{
                         stock.getProduct(),
@@ -69,7 +69,7 @@ public class StockProductTreatment {
                 }));
     }
 
-    public void checkStockProduct(FrmStkProduct frmStkProduct, JTable tableStockProduct) {
+    public void checkStockProduct(StockProductTableFrame frmStkProduct, JTable tableStockProduct) {
         List<StockProduct> stockProducts = new StockProductRequest().select(null, null);
         if (stockProducts.isEmpty()) {
             if (!new StockTankRequest().select(null, null).isEmpty()) {

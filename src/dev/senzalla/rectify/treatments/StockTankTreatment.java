@@ -3,7 +3,7 @@ package dev.senzalla.rectify.treatments;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.entitys.Tank;
-import dev.senzalla.rectify.frame.FrmStkTank;
+import dev.senzalla.rectify.frame.StockTankTableFrame;
 import dev.senzalla.rectify.request.StockTankRequest;
 import dev.senzalla.rectify.request.TankRequest;
 
@@ -60,7 +60,7 @@ public class StockTankTreatment {
     }
 
     private static void fillTable(JTable tableStockTank, List<StockTank> stockTanks) {
-        FrmStkTank.queryFilter(stockTanks);
+        StockTankTableFrame.queryFilter(stockTanks);
         DefaultTableModel tankModel = (DefaultTableModel) tableStockTank.getModel();
         tankModel.setNumRows(0);
         stockTanks.forEach(stock ->

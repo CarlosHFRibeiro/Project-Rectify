@@ -11,6 +11,7 @@ import java.awt.*;
  */
 
 public class IconTable extends DefaultTableCellRenderer {
+    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Icon icon = new ImageIcon(getClass().getResource("/static/img/visibility.png"));

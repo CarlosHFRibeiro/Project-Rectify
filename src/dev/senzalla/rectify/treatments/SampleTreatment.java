@@ -2,7 +2,7 @@ package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.entitys.Sample;
-import dev.senzalla.rectify.frame.FrmSealTbl;
+import dev.senzalla.rectify.frame.SampleTableFrame;
 import dev.senzalla.rectify.request.SampleRequest;
 
 import javax.swing.*;
@@ -62,7 +62,7 @@ public class SampleTreatment {
     }
 
     private static void fillTable(JTable tableSample, List<Sample> sampleList) {
-        FrmSealTbl.query(sampleList);
+        SampleTableFrame.query(sampleList);
         DefaultTableModel tableModel = (DefaultTableModel) tableSample.getModel();
         tableModel.setNumRows(0);
         sampleList.forEach(sample ->

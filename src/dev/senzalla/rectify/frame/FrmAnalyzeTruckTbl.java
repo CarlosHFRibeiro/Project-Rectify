@@ -18,9 +18,9 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
      */
     public FrmAnalyzeTruckTbl() {
         initComponents();
-        TreatmentTheme.initTheme(pnlLabCar);
+        TreatmentTheme.initTheme(pnlanalyzeTruck);
         TreatmentTheme.initTableTheme(tbl);
-        new AnalyzeTruckTreatment().setTableFilters(tbl);
+         AnalyzeTruckTreatment.initTable(tbl);
     }
 
     /**
@@ -33,7 +33,7 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlLabCar = new javax.swing.JPanel();
+        pnlanalyzeTruck = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
@@ -45,14 +45,14 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(598, 460));
         setPreferredSize(new java.awt.Dimension(598, 460));
 
-        pnlLabCar.setMaximumSize(new java.awt.Dimension(596, 438));
-        pnlLabCar.setMinimumSize(new java.awt.Dimension(596, 438));
+        pnlanalyzeTruck.setMaximumSize(new java.awt.Dimension(596, 438));
+        pnlanalyzeTruck.setMinimumSize(new java.awt.Dimension(596, 438));
 
         lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Analise Caminhão");
 
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add_36dp.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
         btnAdd.setPreferredSize(new java.awt.Dimension(46, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter_24dp.png"))); // NOI18N
+        btnFilter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/filter.png"))); // NOI18N
         btnFilter.setPreferredSize(new java.awt.Dimension(46, 40));
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,11 +97,11 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
         tbl.setShowGrid(true);
         roll.setViewportView(tbl);
 
-        javax.swing.GroupLayout pnlLabCarLayout = new javax.swing.GroupLayout(pnlLabCar);
-        pnlLabCar.setLayout(pnlLabCarLayout);
-        pnlLabCarLayout.setHorizontalGroup(
-            pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabCarLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlanalyzeTruckLayout = new javax.swing.GroupLayout(pnlanalyzeTruck);
+        pnlanalyzeTruck.setLayout(pnlanalyzeTruckLayout);
+        pnlanalyzeTruckLayout.setHorizontalGroup(
+            pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlanalyzeTruckLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(101, 101, 101)
@@ -109,15 +109,15 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabCarLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlanalyzeTruckLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        pnlLabCarLayout.setVerticalGroup(
-            pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLabCarLayout.createSequentialGroup()
+        pnlanalyzeTruckLayout.setVerticalGroup(
+            pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlLabCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle)
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,11 +130,11 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLabCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlanalyzeTruck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLabCar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlanalyzeTruck, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -153,7 +153,7 @@ public class FrmAnalyzeTruckTbl extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnFilter;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPanel pnlLabCar;
+    private javax.swing.JPanel pnlanalyzeTruck;
     private javax.swing.JScrollPane roll;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables

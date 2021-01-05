@@ -2,6 +2,7 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.calc.CalcTrans;
 import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -252,7 +253,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
             lblLitersMetilato.setText(calcTrans.getReact(2));
             lblLitersMetilato1.setText(calcTrans.getReact(3));
         } else {
-            EmptyField.showMsg();
+            PopUp.fieldIsEmpty();
         }
     }//GEN-LAST:event_btnCalcActionPerformed
 

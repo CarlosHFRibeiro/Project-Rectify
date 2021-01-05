@@ -29,7 +29,7 @@ public class AnalyzeTruckTreatment {
         Arrays.stream(Collect.values()).map(Collect::getDescricao).forEach(cbxCollect::addItem);
     }
 
-    public void initComboBoxAnalyze(JComboBox<Object> cbx) {
+    public static void initComboBoxAnalyze(JComboBox<Object> cbx) {
         cbx.removeAllItems();
         cbx.addItem("Cod. Analise");
         new AnalyzeTruckRequest().select(null, null).forEach(cbx::addItem);
@@ -75,16 +75,16 @@ public class AnalyzeTruckTreatment {
     private static void fillTable(JTable tableAnalyzeTruck, List<AnalyzeTruck> analyzeTrucks) {
         DefaultTableModel tableModel = (DefaultTableModel) tableAnalyzeTruck.getModel();
         tableModel.setNumRows(0);
-        analyzeTrucks.forEach(analyzeTruck ->
-                tableModel.addRow(new Object[]{
-                        analyzeTruck.getIdAnalyzeTruck(),
-                        analyzeTruck.getAcidityTruck(),
-                        analyzeTruck.getSaponityTruck(),
-                        analyzeTruck.getTrashTruck(),
-                        analyzeTruck.getDensityTruck(),
-                        convertDateUtil(analyzeTruck.getDateAnalyzeTruck()),
-                        analyzeTruck.getTimeAnalyzeTruck()
-                }));
+        analyzeTrucks.forEach(analyzeTruck
+                -> tableModel.addRow(new Object[]{
+            analyzeTruck.getIdAnalyzeTruck(),
+            analyzeTruck.getAcidityTruck(),
+            analyzeTruck.getSaponityTruck(),
+            analyzeTruck.getTrashTruck(),
+            analyzeTruck.getDensityTruck(),
+            convertDateUtil(analyzeTruck.getDateAnalyzeTruck()),
+            analyzeTruck.getTimeAnalyzeTruck()
+        }));
     }
 
     public void saveAnalyzeTruck(String acidity, String Saponity, String density, String trash, int collect) {
@@ -106,6 +106,5 @@ public class AnalyzeTruckTreatment {
     public static int calcLitter(AnalyzeTruck analyzeTruck, int burden) {
         return (int) (burden / analyzeTruck.getDensityTruck());
     }
-
 
 }
