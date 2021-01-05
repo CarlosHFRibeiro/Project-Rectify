@@ -57,19 +57,18 @@ public class MakeEsterTreatment {
         }
     }
 
-
     private static void fillTable(JTable tableMakeEster, List<MakeEster> makeEsters) {
         MakeEsterTableFrame.query(makeEsters);
         DefaultTableModel tableModel = (DefaultTableModel) tableMakeEster.getModel();
         tableModel.setNumRows(0);
-        makeEsters.forEach(makeEster ->
-                tableModel.addRow(new Object[]{
-                        makeEster,
-                        DateTreatment.convertDateUtil(makeEster.getDateMakeEster()),
-                        makeEster.getTank(),
-                        makeEster.getProducedMakeEster(),
-                        makeEster.getTrashMakeEster()
-                }));
+        makeEsters.forEach(makeEster
+                -> tableModel.addRow(new Object[]{
+            makeEster,
+            DateTreatment.convertDateUtil(makeEster.getDateMakeEster()),
+            makeEster.getTank(),
+            makeEster.getProducedMakeEster(),
+            makeEster.getTrashMakeEster()
+        }));
     }
 
     public void saveMakeEster(Tank tank, String amount, String produced, String trash, Date dateMakeEster) {

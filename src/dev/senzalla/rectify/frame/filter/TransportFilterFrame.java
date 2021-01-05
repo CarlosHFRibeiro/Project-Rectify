@@ -3,9 +3,9 @@ package dev.senzalla.rectify.frame.filter;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.Provider;
 import dev.senzalla.rectify.treatments.ChargeTreatment;
-import dev.senzalla.rectify.treatments.ProviderTreatment;
 import dev.senzalla.rectify.treatments.DischargeTreatment;
 import dev.senzalla.rectify.treatments.ProductTreatment;
+import dev.senzalla.rectify.treatments.ProviderTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;

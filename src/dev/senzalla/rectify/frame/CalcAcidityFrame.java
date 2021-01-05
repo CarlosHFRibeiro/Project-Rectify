@@ -4,8 +4,8 @@ import dev.senzalla.rectify.calc.CalcAcidity;
 import dev.senzalla.rectify.frame.panel.KohPanel;
 import dev.senzalla.rectify.frame.panel.OleicPanel;
 import dev.senzalla.rectify.treatments.ComboBoxTreatment;
-import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.NaohTreatment;
+import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -17,7 +17,8 @@ import java.awt.*;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmCalcAcidity extends javax.swing.JInternalFrame {
+public class CalcAcidityFrame extends javax.swing.JInternalFrame {
+
     private static JTextField txtLabAcidity;
 
     /**
@@ -25,11 +26,9 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
      *
      * @param txtLabAcidity {@link JTextField}
      */
-    public FrmCalcAcidity(JTextField txtLabAcidity) {
+    public CalcAcidityFrame(JTextField txtLabAcidity) {
         initComponents();
-        TreatmentTheme.initTheme(pnlCalcAcidity);
-        new NaohTreatment().initComboBox(cbxConcentration);
-        FrmCalcAcidity.txtLabAcidity = txtLabAcidity;
+        initPanel(txtLabAcidity);
     }
 
     /**
@@ -113,84 +112,84 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlCalcLayout = new javax.swing.GroupLayout(pnlCalc);
         pnlCalc.setLayout(pnlCalcLayout);
         pnlCalcLayout.setHorizontalGroup(
-                pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 594, Short.MAX_VALUE)
+            pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 594, Short.MAX_VALUE)
         );
         pnlCalcLayout.setVerticalGroup(
-                pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 152, Short.MAX_VALUE)
+            pnlCalcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 152, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnlCalcAcidityLayout = new javax.swing.GroupLayout(pnlCalcAcidity);
         pnlCalcAcidity.setLayout(pnlCalcAcidityLayout);
         pnlCalcAcidityLayout.setHorizontalGroup(
-                pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTitle)
-                                .addGap(387, 387, 387))
-                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                                .addGap(325, 325, 325)
-                                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                                                .addGap(182, 182, 182)
-                                                                .addComponent(rbtnOther))
-                                                        .addComponent(rbtnBio)))
-                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                                .addGap(230, 230, 230)
-                                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                                .addGap(167, 167, 167)
-                                                .addComponent(lblConcentration)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(61, 61, 61)
-                                                .addComponent(lblSampleWeight)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(61, 61, 61)
-                                                .addComponent(lblVolumeSolution)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 129, Short.MAX_VALUE))
+            pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitle)
+                .addGap(387, 387, 387))
+            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                                .addGap(182, 182, 182)
+                                .addComponent(rbtnOther))
+                            .addComponent(rbtnBio)))
+                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(lblConcentration)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(lblSampleWeight)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(lblVolumeSolution)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 129, Short.MAX_VALUE))
         );
         pnlCalcAcidityLayout.setVerticalGroup(
-                pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblTitle)
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblConcentration)
-                                        .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblSampleWeight)
-                                        .addComponent(lblVolumeSolution)
-                                        .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30)
-                                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(rbtnBio)
-                                        .addComponent(rbtnOther))
-                                .addGap(57, 57, 57)
-                                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(86, 86, 86)
-                                .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(125, Short.MAX_VALUE))
+            pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addGap(18, 18, 18)
+                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblConcentration)
+                    .addComponent(cbxConcentration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSampleWeight)
+                    .addComponent(lblVolumeSolution)
+                    .addComponent(txtSampleWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVolumeSolution, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtnBio)
+                    .addComponent(rbtnOther))
+                .addGap(57, 57, 57)
+                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlCalcAcidity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -241,6 +240,12 @@ public class FrmCalcAcidity extends javax.swing.JInternalFrame {
     void setRbt() {
         rbtnBio.setSelected(true);
         rbtnOther.setVisible(false);
+    }
+
+    private void initPanel(JTextField txtLabAcidity) {
+        TreatmentTheme.initTheme(pnlCalcAcidity);
+        NaohTreatment.initComboBox(cbxConcentration);
+        CalcAcidityFrame.txtLabAcidity = txtLabAcidity;
     }
 
 }

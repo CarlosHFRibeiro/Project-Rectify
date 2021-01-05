@@ -1,9 +1,9 @@
 package dev.senzalla.rectify.frame.filter;
 
-import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.rectify.treatments.StockProductTreatment;
 import dev.senzalla.rectify.treatments.StockTankTreatment;
+import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;

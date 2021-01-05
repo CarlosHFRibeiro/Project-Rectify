@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -17,8 +18,8 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
     public TankTableFrame() {
         initComponents();
         TreatmentTheme.initTheme(pnlTank);
-        TreatmentTheme.initTableTheme(tbl);
-        TankTreatment.initTable(tbl);
+        TreatmentTheme.initTableTheme(tblTank);
+        TankTreatment.initTable(tblTank);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
     }
 
@@ -34,8 +35,8 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
         pnlTank = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        rollTank = new javax.swing.JScrollPane();
+        tblTank = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -46,7 +47,7 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
         pnlTank.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlTank.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Tanque");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -57,8 +58,15 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
+        rollTank.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollTank.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollTankMouseWheelMoved(evt);
+            }
+        });
+
+        tblTank.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tblTank.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -66,11 +74,11 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
                 "Nome", "Capacidade"
             }
         ));
-        tbl.setShowGrid(true);
-        tbl.setShowVerticalLines(false);
-        roll.setViewportView(tbl);
-        if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(0).setPreferredWidth(500);
+        tblTank.setShowGrid(true);
+        tblTank.setShowVerticalLines(false);
+        rollTank.setViewportView(tblTank);
+        if (tblTank.getColumnModel().getColumnCount() > 0) {
+            tblTank.getColumnModel().getColumn(0).setPreferredWidth(500);
         }
 
         javax.swing.GroupLayout pnlTankLayout = new javax.swing.GroupLayout(pnlTank);
@@ -78,13 +86,13 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
         pnlTankLayout.setHorizontalGroup(
             pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addContainerGap(455, Short.MAX_VALUE)
+                .addContainerGap(445, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(389, 389, 389)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(12, 12, 12))
             .addGroup(pnlTankLayout.createSequentialGroup()
-                .addComponent(roll)
+                .addComponent(rollTank)
                 .addContainerGap())
         );
         pnlTankLayout.setVerticalGroup(
@@ -95,7 +103,7 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(lblTitle)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(rollTank, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -119,13 +127,17 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
         Access.goToInternalFrame(this, new TankFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void rollTankMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollTankMouseWheelMoved
+        ItemTreatment.speedRoll(rollTank);
+    }//GEN-LAST:event_rollTankMouseWheelMoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlTank;
-    private javax.swing.JScrollPane roll;
-    private javax.swing.JTable tbl;
+    private javax.swing.JScrollPane rollTank;
+    private javax.swing.JTable tblTank;
     // End of variables declaration//GEN-END:variables
 
 }

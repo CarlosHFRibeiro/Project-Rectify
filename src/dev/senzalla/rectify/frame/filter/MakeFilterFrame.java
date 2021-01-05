@@ -1,8 +1,8 @@
 package dev.senzalla.rectify.frame.filter;
 
-import dev.senzalla.rectify.treatments.TankTreatment;
-import dev.senzalla.rectify.treatments.MakeTransTreatment;
 import dev.senzalla.rectify.treatments.MakeEsterTreatment;
+import dev.senzalla.rectify.treatments.MakeTransTreatment;
+import dev.senzalla.rectify.treatments.TankTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;

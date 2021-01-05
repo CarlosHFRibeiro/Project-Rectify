@@ -2,9 +2,11 @@ package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.MatterMake;
 import dev.senzalla.rectify.entitys.Product;
-import dev.senzalla.rectify.request.MatterTransRequest;
 import dev.senzalla.rectify.request.MatterEsterRequest;
-import dev.senzalla.rectify.treatments.*;
+import dev.senzalla.rectify.request.MatterTransRequest;
+import dev.senzalla.rectify.treatments.NumberField;
+import dev.senzalla.rectify.treatments.PnlMatterTreatment;
+import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;

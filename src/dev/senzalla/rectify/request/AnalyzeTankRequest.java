@@ -36,11 +36,11 @@ public class AnalyzeTankRequest extends ConectionMySql {
     }
 
     public List<AnalyzeTank> select(List<String> query, AnalyzeTank analyzeTank) {
-        String SELECT_QUERY = "SELECT * FROM view_labtank";
+        String SELECT_QUERY = "view_analyze_tank";
         if (query != null) {
             SELECT_QUERY = QueryTreatment.createQuery(SELECT_QUERY, query);
         } else if (analyzeTank != null) {
-            SELECT_QUERY = "SELECT * FROM view_labtank WHERE nameTank = ?";
+            SELECT_QUERY = "SELECT * FROM view_analyze_tank WHERE nameTank = ?";
         }
         return selectAll(SELECT_QUERY, analyzeTank);
     }

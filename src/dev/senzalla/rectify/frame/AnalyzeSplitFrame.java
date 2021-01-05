@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.AnalyzeSplitTreatment;
+import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.rectify.treatments.TxtTreatment;
 import dev.senzalla.theme.TreatmentTheme;

@@ -25,6 +25,7 @@ public class DateChooserTreatment {
     }
 
     public static boolean isDateChooserNull(JPanel pnl) {
+
         List<Date> dtcChooser = new ArrayList<>();
         for (Component c : pnl.getComponents()) {
             if (c instanceof JDateChooser) {
@@ -32,6 +33,7 @@ public class DateChooserTreatment {
                 dtcChooser.add(dtc.getDate());
             }
         }
+
         return dtcChooser.stream().noneMatch(Objects::isNull);
     }
 }

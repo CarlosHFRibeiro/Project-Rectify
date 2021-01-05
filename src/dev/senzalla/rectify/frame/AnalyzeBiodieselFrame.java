@@ -240,7 +240,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAcidKeyTyped
 
     private void btnAcidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcidActionPerformed
-        FrmCalcAcidity frmCalcAcidity = new FrmCalcAcidity(txtAcid);
+        CalcAcidityFrame frmCalcAcidity = new CalcAcidityFrame(txtAcid);
         frmCalcAcidity.setRbt();
         Access.goToInternalFrame(frmCalcAcidity);
     }//GEN-LAST:event_btnAcidActionPerformed

@@ -11,12 +11,12 @@ import dev.senzalla.theme.TreatmentTheme;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmCalcTrans extends javax.swing.JInternalFrame {
+public class CalcTransesterificationFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmCalcTrans
      */
-    public FrmCalcTrans() {
+    public CalcTransesterificationFrame() {
         initComponents();
         TreatmentTheme.initTheme(pnlCalcTrans);
     }
@@ -49,29 +49,29 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         lblLitersMetilato1 = new javax.swing.JLabel();
 
         setClosable(true);
-        setMaximumSize(new java.awt.Dimension(598, 460));
-        setMinimumSize(new java.awt.Dimension(598, 460));
-        setPreferredSize(new java.awt.Dimension(598, 460));
+        setMaximumSize(new java.awt.Dimension(1000, 680));
+        setMinimumSize(new java.awt.Dimension(1000, 680));
+        setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        pnlCalcTrans.setMaximumSize(new java.awt.Dimension(596, 438));
-        pnlCalcTrans.setMinimumSize(new java.awt.Dimension(596, 438));
-        pnlCalcTrans.setPreferredSize(new java.awt.Dimension(596, 438));
+        pnlCalcTrans.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlCalcTrans.setMinimumSize(new java.awt.Dimension(998, 658));
+        pnlCalcTrans.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTitle.setText("Calculadora Saponidade");
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setText("Calculadora de Transesterificação");
 
-        lblAcid.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAcid.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAcid.setText("Acidez");
 
-        cbxAcid.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbxAcid.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cbxAcid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "3.0", "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "4.0", "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "5.0" }));
         cbxAcid.setPreferredSize(new java.awt.Dimension(100, 27));
 
-        lblLiters.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblLiters.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblLiters.setText("Litros");
 
         txtCalc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtCalc.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtCalc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtCalc.setPreferredSize(new java.awt.Dimension(70, 27));
         txtCalc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -81,7 +81,9 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
         btnCalc.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         btnCalc.setText("Calcular");
-        btnCalc.setPreferredSize(new java.awt.Dimension(500, 90));
+        btnCalc.setMaximumSize(new java.awt.Dimension(986, 130));
+        btnCalc.setMinimumSize(new java.awt.Dimension(986, 130));
+        btnCalc.setPreferredSize(new java.awt.Dimension(986, 130));
         btnCalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcActionPerformed(evt);
@@ -89,6 +91,9 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         });
 
         pnlResult.setBorder(javax.swing.BorderFactory.createTitledBorder("1° Reação"));
+        pnlResult.setMaximumSize(new java.awt.Dimension(986, 160));
+        pnlResult.setMinimumSize(new java.awt.Dimension(986, 160));
+        pnlResult.setPreferredSize(new java.awt.Dimension(986, 160));
 
         lblMetanol.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblMetanol.setText("Litros Metanol");
@@ -107,17 +112,17 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         pnlResultLayout.setHorizontalGroup(
             pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlResultLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(175, 175, 175)
                 .addComponent(lblLitersMetanol)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblLitersMetilato)
-                .addGap(133, 133, 133))
+                .addGap(175, 175, 175))
             .addGroup(pnlResultLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(117, 117, 117)
                 .addComponent(lblMetanol)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMetilato)
-                .addGap(55, 55, 55))
+                .addGap(115, 115, 115))
         );
         pnlResultLayout.setVerticalGroup(
             pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +131,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
                 .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMetilato)
                     .addComponent(lblMetanol))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 67, Short.MAX_VALUE)
                 .addGroup(pnlResultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLitersMetanol)
                     .addComponent(lblLitersMetilato))
@@ -134,6 +139,9 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         );
 
         pnlResult1.setBorder(javax.swing.BorderFactory.createTitledBorder("2° Reação"));
+        pnlResult1.setMaximumSize(new java.awt.Dimension(986, 160));
+        pnlResult1.setMinimumSize(new java.awt.Dimension(986, 160));
+        pnlResult1.setPreferredSize(new java.awt.Dimension(986, 160));
 
         lblMetanol1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblMetanol1.setText("Litros Metanol");
@@ -152,17 +160,17 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         pnlResult1Layout.setHorizontalGroup(
             pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlResult1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(175, 175, 175)
                 .addComponent(lblLitersMetanol1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblLitersMetilato1)
-                .addGap(133, 133, 133))
+                .addGap(175, 175, 175))
             .addGroup(pnlResult1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(114, 114, 114)
                 .addComponent(lblMetanol1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMetilato1)
-                .addGap(55, 55, 55))
+                .addGap(115, 115, 115))
         );
         pnlResult1Layout.setVerticalGroup(
             pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +179,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
                 .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMetilato1)
                     .addComponent(lblMetanol1))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 67, Short.MAX_VALUE)
                 .addGroup(pnlResult1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLitersMetanol1)
                     .addComponent(lblLitersMetilato1))
@@ -182,53 +190,55 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
         pnlCalcTrans.setLayout(pnlCalcTransLayout);
         pnlCalcTransLayout.setHorizontalGroup(
             pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addComponent(lblTitle)
-                .addContainerGap(188, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcTransLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+            .addGroup(pnlCalcTransLayout.createSequentialGroup()
                 .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnCalc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(249, 249, 249)
                         .addComponent(lblAcid)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(153, 153, 153)
                         .addComponent(lblLiters)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25))
+                        .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCalcTransLayout.createSequentialGroup()
+                        .addGap(300, 300, 300)
+                        .addComponent(lblTitle)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlCalcTransLayout.setVerticalGroup(
             pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
                 .addGroup(pnlCalcTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAcid)
                     .addComponent(cbxAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLiters)
                     .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(pnlResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlResult1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalcTrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlCalcTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,9 +255,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         CalcTrans calcTrans = new CalcTrans();
         if (TxtTreatment.isTextFieldEmpty(pnlCalcTrans)) {
-            calcTrans.calcular(
-                    cbxAcid.getSelectedIndex(), Double.parseDouble(txtCalc.getText())
-            );
+            calcTrans.calcular(cbxAcid.getSelectedIndex(), Double.parseDouble(txtCalc.getText()));
             lblLitersMetanol.setText(calcTrans.getReact(0));
             lblLitersMetanol1.setText(calcTrans.getReact(1));
             lblLitersMetilato.setText(calcTrans.getReact(2));
@@ -260,7 +268,7 @@ public class FrmCalcTrans extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalc;
-    private javax.swing.JComboBox<Object> cbxAcid;
+    private javax.swing.JComboBox<String> cbxAcid;
     private javax.swing.JLabel lblAcid;
     private javax.swing.JLabel lblLiters;
     private javax.swing.JLabel lblLitersMetanol;

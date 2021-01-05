@@ -4,6 +4,7 @@ import dev.senzalla.rectify.entitys.Sample;
 import dev.senzalla.rectify.frame.filter.SampleFilterFrame;
 import dev.senzalla.rectify.print.SealPrint;
 import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.SampleTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -44,8 +45,8 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
         btnAdd = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        rollSample = new javax.swing.JScrollPane();
+        tblSample = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -56,7 +57,7 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
         pnlSample.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlSample.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Etiqueta Biodiesel");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -83,7 +84,13 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
+        rollSample.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollSampleMouseWheelMoved(evt);
+            }
+        });
+
+        tblSample.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -99,16 +106,18 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        roll.setViewportView(tbl);
+        tblSample.setShowGrid(true);
+        tblSample.setShowVerticalLines(false);
+        rollSample.setViewportView(tblSample);
 
         javax.swing.GroupLayout pnlSampleLayout = new javax.swing.GroupLayout(pnlSample);
         pnlSample.setLayout(pnlSampleLayout);
         pnlSampleLayout.setHorizontalGroup(
             pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSampleLayout.createSequentialGroup()
-                .addGap(394, 394, 394)
+                .addGap(370, 370, 370)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,8 +125,7 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(pnlSampleLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(roll)
+                .addComponent(rollSample)
                 .addContainerGap())
         );
         pnlSampleLayout.setVerticalGroup(
@@ -131,7 +139,8 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+                .addComponent(rollSample, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,12 +166,16 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new SampleFilterFrame(tbl));
+        Access.goToFrame(new SampleFilterFrame(tblSample));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToInternalFrame(this, new SampleFrame());
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void rollSampleMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollSampleMouseWheelMoved
+        ItemTreatment.speedRoll(rollSample);
+    }//GEN-LAST:event_rollSampleMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -171,14 +184,14 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlSample;
-    private javax.swing.JScrollPane roll;
-    private javax.swing.JTable tbl;
+    private javax.swing.JScrollPane rollSample;
+    private javax.swing.JTable tblSample;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
         TreatmentTheme.initTheme(pnlSample);
-        TreatmentTheme.initTableTheme(tbl);
-        SampleTreatment.initTable(tbl);
+        TreatmentTheme.initTableTheme(tblSample);
+        SampleTreatment.initTable(tblSample);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
         TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");

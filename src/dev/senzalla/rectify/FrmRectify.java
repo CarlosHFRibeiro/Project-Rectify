@@ -556,7 +556,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnLaboratoryActionPerformed
 
     private void btnanalyzeTruckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnanalyzeTruckActionPerformed
-        Access.checkFrame(new FrmAnalyzeTruckTbl());
+        Access.checkFrame(new AnalyzeTruckTableFrame());
     }//GEN-LAST:event_btnanalyzeTruckActionPerformed
 
     private void btnAnalyzeTankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalyzeTankActionPerformed
@@ -581,7 +581,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnTransportActionPerformed
 
     private void btnChargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChargeActionPerformed
-        Access.checkFrame(new FrmChargeTbl());
+        Access.checkFrame(new ChargeTableFrame());
     }//GEN-LAST:event_btnChargeActionPerformed
 
     private void btnDischargeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDischargeActionPerformed
@@ -617,15 +617,15 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void btnCalcAcidityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcAcidityActionPerformed
-        Access.checkFrame(new FrmCalcAcidity(null));
+        Access.checkFrame(new CalcAcidityFrame(null));
     }//GEN-LAST:event_btnCalcAcidityActionPerformed
 
     private void btnCalcSoapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcSoapActionPerformed
-        Access.checkFrame(new FrmCalcSoap(null));
+        Access.checkFrame(new CalcSaponityFrame(null));
     }//GEN-LAST:event_btnCalcSoapActionPerformed
 
     private void btnCalcTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcTransActionPerformed
-        Access.checkFrame(new FrmCalcTrans());
+        Access.checkFrame(new CalcTransesterificationFrame());
     }//GEN-LAST:event_btnCalcTransActionPerformed
 
     private void btnSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupActionPerformed
@@ -655,7 +655,7 @@ public class FrmRectify extends JFrame {
     }//GEN-LAST:event_btnThemeActionPerformed
 
     private void btnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAboutActionPerformed
-        Access.checkFrame(new FrmAbout());
+        Access.checkFrame(new AboutFrame());
     }//GEN-LAST:event_btnAboutActionPerformed
 
     /**

@@ -144,7 +144,7 @@ public class AnalyzeTankTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.LABTANK));
+        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZETANK));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

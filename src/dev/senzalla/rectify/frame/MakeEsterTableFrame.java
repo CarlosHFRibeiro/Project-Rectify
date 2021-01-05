@@ -6,6 +6,7 @@ import dev.senzalla.rectify.frame.filter.MakeFilterFrame;
 import dev.senzalla.rectify.print.MakeEsterPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.MakeEsterTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -25,7 +26,7 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
      */
     public MakeEsterTableFrame() {
         initComponents();
-       initPanel();
+        initPanel();
     }
 
     public static void query(List<MakeEster> makeEsters) {
@@ -41,24 +42,24 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlDcharge = new javax.swing.JPanel();
+        pnlMakeEster = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        rollMakeEster = new javax.swing.JScrollPane();
+        tblMakeEster = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
         setMinimumSize(new java.awt.Dimension(1000, 680));
         setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        pnlDcharge.setMaximumSize(new java.awt.Dimension(998, 658));
-        pnlDcharge.setMinimumSize(new java.awt.Dimension(998, 658));
-        pnlDcharge.setPreferredSize(new java.awt.Dimension(998, 658));
+        pnlMakeEster.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlMakeEster.setMinimumSize(new java.awt.Dimension(998, 658));
+        pnlMakeEster.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Esterificação");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -85,13 +86,18 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        roll.setBorder(null);
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(990, 600));
-        roll.setMinimumSize(new java.awt.Dimension(990, 600));
-        roll.setPreferredSize(new java.awt.Dimension(990, 600));
+        rollMakeEster.setBorder(null);
+        rollMakeEster.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollMakeEster.setMaximumSize(new java.awt.Dimension(990, 600));
+        rollMakeEster.setMinimumSize(new java.awt.Dimension(990, 600));
+        rollMakeEster.setPreferredSize(new java.awt.Dimension(990, 600));
+        rollMakeEster.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMakeEsterMouseWheelMoved(evt);
+            }
+        });
 
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
+        tblMakeEster.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -107,55 +113,55 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setMaximumSize(new java.awt.Dimension(990, 578));
-        tbl.setMinimumSize(new java.awt.Dimension(990, 578));
-        tbl.setPreferredSize(new java.awt.Dimension(990, 578));
-        tbl.setShowGrid(true);
-        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblMakeEster.setMaximumSize(new java.awt.Dimension(990, 578));
+        tblMakeEster.setMinimumSize(new java.awt.Dimension(990, 578));
+        tblMakeEster.setPreferredSize(new java.awt.Dimension(990, 578));
+        tblMakeEster.setShowGrid(true);
+        tblMakeEster.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMouseClicked(evt);
+                tblMakeEsterMouseClicked(evt);
             }
         });
-        roll.setViewportView(tbl);
-        if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(0).setPreferredWidth(50);
-            tbl.getColumnModel().getColumn(2).setPreferredWidth(200);
-            tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
-            tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
-            tbl.getColumnModel().getColumn(5).setResizable(false);
-            tbl.getColumnModel().getColumn(5).setPreferredWidth(1);
-            tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
+        rollMakeEster.setViewportView(tblMakeEster);
+        if (tblMakeEster.getColumnModel().getColumnCount() > 0) {
+            tblMakeEster.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tblMakeEster.getColumnModel().getColumn(2).setPreferredWidth(200);
+            tblMakeEster.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblMakeEster.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tblMakeEster.getColumnModel().getColumn(5).setResizable(false);
+            tblMakeEster.getColumnModel().getColumn(5).setPreferredWidth(1);
+            tblMakeEster.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
 
-        javax.swing.GroupLayout pnlDchargeLayout = new javax.swing.GroupLayout(pnlDcharge);
-        pnlDcharge.setLayout(pnlDchargeLayout);
-        pnlDchargeLayout.setHorizontalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDchargeLayout.createSequentialGroup()
-                .addContainerGap(599, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlMakeEsterLayout = new javax.swing.GroupLayout(pnlMakeEster);
+        pnlMakeEster.setLayout(pnlMakeEsterLayout);
+        pnlMakeEsterLayout.setHorizontalGroup(
+            pnlMakeEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMakeEsterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(112, 112, 112)
+                .addGap(241, 241, 241)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
-                .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnlMakeEsterLayout.createSequentialGroup()
+                .addComponent(rollMakeEster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 8, Short.MAX_VALUE))
         );
-        pnlDchargeLayout.setVerticalGroup(
-            pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDchargeLayout.createSequentialGroup()
+        pnlMakeEsterLayout.setVerticalGroup(
+            pnlMakeEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMakeEsterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
+                .addGroup(pnlMakeEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
+                .addComponent(rollMakeEster, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,14 +170,14 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlDcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMakeEster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlDcharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlMakeEster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -183,19 +189,23 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new MakeFilterFrame(tbl, true));
+        Access.goToFrame(new MakeFilterFrame(tblMakeEster, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToInternalFrame(this, new MakeEsterFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
-        if (tbl.getSelectedColumn() == 5) {
-            new MakeEsterDetailFrame((MakeEster) tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
-            tbl.clearSelection();
+    private void tblMakeEsterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMakeEsterMouseClicked
+        if (tblMakeEster.getSelectedColumn() == 5) {
+            new MakeEsterDetailFrame((MakeEster) tblMakeEster.getValueAt(tblMakeEster.getSelectedRow(), 0)).setVisible(true);
+            tblMakeEster.clearSelection();
         }
-    }//GEN-LAST:event_tblMouseClicked
+    }//GEN-LAST:event_tblMakeEsterMouseClicked
+
+    private void rollMakeEsterMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMakeEsterMouseWheelMoved
+        ItemTreatment.speedRoll(rollMakeEster);
+    }//GEN-LAST:event_rollMakeEsterMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -203,15 +213,15 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPanel pnlDcharge;
-    private javax.swing.JScrollPane roll;
-    private javax.swing.JTable tbl;
+    private javax.swing.JPanel pnlMakeEster;
+    private javax.swing.JScrollPane rollMakeEster;
+    private javax.swing.JTable tblMakeEster;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
-         TreatmentTheme.initTheme(pnlDcharge);
-        TreatmentTheme.initTableTheme(tbl);
-        MakeEsterTreatment.initTable(tbl);
+        TreatmentTheme.initTheme(pnlMakeEster);
+        TreatmentTheme.initTableTheme(tblMakeEster);
+        MakeEsterTreatment.initTable(tblMakeEster);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
     }

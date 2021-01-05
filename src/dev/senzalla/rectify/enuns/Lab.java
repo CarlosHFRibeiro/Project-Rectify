@@ -7,9 +7,9 @@ package dev.senzalla.rectify.enuns;
  */
 public enum Lab {
     ANALYZETRUCK(1, "Carro"),
-    LABBIO(2, "Biodiesel"),
-    LABSPLIT(3, "Cisão"),
-    LABTANK(4, "Tanque");
+    ANALYZEBIODIESEL(2, "Biodiesel"),
+    ANALYZESPLIT(3, "Cisão"),
+    ANALYZETANK(4, "Tanque");
 
     private final int valor;
     private final String descricao;

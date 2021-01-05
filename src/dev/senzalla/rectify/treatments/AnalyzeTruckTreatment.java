@@ -103,8 +103,4 @@ public class AnalyzeTruckTreatment {
         new AnalyzeTruckSplitRequest().insert(analyzeTruckSplit);
     }
 
-    public static int calcLitter(AnalyzeTruck analyzeTruck, int burden) {
-        return (int) (burden / analyzeTruck.getDensityTruck());
-    }
-
 }

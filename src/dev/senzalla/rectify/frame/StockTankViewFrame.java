@@ -4,6 +4,7 @@ import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.frame.panel.StockEmpty;
 import dev.senzalla.rectify.frame.panel.StockView;
 import dev.senzalla.rectify.request.StockTankRequest;
+
 import java.util.List;
 
 /**
@@ -20,7 +21,6 @@ public class StockTankViewFrame extends javax.swing.JInternalFrame {
         initComponents();
         fillPanel();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,13 +53,11 @@ public class StockTankViewFrame extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-
-
     private void fillPanel() {
         List<StockTank> stockTank = new StockTankRequest().select(null, null);
         if (!stockTank.isEmpty()) {
             add(new StockView(stockTank)).setVisible(true);
-        }else{
+        } else {
             add(new StockEmpty()).setVisible(true);
         }
     }

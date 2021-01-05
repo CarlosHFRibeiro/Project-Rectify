@@ -1,7 +1,6 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Charge;
-import dev.senzalla.rectify.frame.detail.TransportDetailFrame;
 import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.ChargePrint;
 import dev.senzalla.rectify.treatments.Access;
@@ -16,22 +15,20 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmChargeTbl extends javax.swing.JInternalFrame {
+public class ChargeTableFrame extends javax.swing.JInternalFrame {
 
     private static List<Charge> charges;
 
     /**
      * Creates new form FrmLabTqTbl
      */
-    public FrmChargeTbl() {
+    public ChargeTableFrame() {
         initComponents();
-        TreatmentTheme.initTheme(pnlCharge);
-        TreatmentTheme.initTableTheme(tbl);
-        new ChargeTreatment().initTable(tbl);
+        initPanel();
     }
 
     public static void query(List<Charge> charges) {
-        FrmChargeTbl.charges = charges;
+        ChargeTableFrame.charges = charges;
     }
 
     /**
@@ -55,11 +52,15 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
         btnDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/baseline_remove_red_eye_black_18dp.png"))); // NOI18N
 
         setClosable(true);
-        setMaximumSize(new java.awt.Dimension(598, 460));
-        setMinimumSize(new java.awt.Dimension(598, 460));
-        setPreferredSize(new java.awt.Dimension(598, 460));
+        setMaximumSize(new java.awt.Dimension(1000, 680));
+        setMinimumSize(new java.awt.Dimension(1000, 680));
+        setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        pnlCharge.setMaximumSize(new java.awt.Dimension(998, 658));
+        pnlCharge.setMinimumSize(new java.awt.Dimension(998, 658));
+        pnlCharge.setPreferredSize(new java.awt.Dimension(998, 658));
+
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblTitle.setText("Carregamento");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -86,12 +87,6 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
             }
         });
 
-        roll.setBorder(null);
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.setMaximumSize(new java.awt.Dimension(596, 385));
-        roll.setMinimumSize(new java.awt.Dimension(596, 385));
-        roll.setPreferredSize(new java.awt.Dimension(596, 385));
-
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -108,18 +103,11 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setMaximumSize(new java.awt.Dimension(592, 363));
-        tbl.setMinimumSize(new java.awt.Dimension(592, 363));
-        tbl.setPreferredSize(new java.awt.Dimension(592, 363));
-        tbl.setShowGrid(true);
-        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMouseClicked(evt);
-            }
-        });
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(6).setPreferredWidth(5);
+            tbl.getColumnModel().getColumn(3).setPreferredWidth(200);
+            tbl.getColumnModel().getColumn(4).setPreferredWidth(200);
+            tbl.getColumnModel().getColumn(6).setPreferredWidth(1);
             tbl.getColumnModel().getColumn(6).setCellRenderer(new IconTable());
         }
 
@@ -128,28 +116,30 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
         pnlChargeLayout.setHorizontalGroup(
             pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlChargeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(67, 67, 67)
+                .addGap(256, 256, 256)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlChargeLayout.createSequentialGroup()
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 992, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlChargeLayout.setVerticalGroup(
             pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlChargeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTitle))
+                .addGap(18, 18, 18)
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,15 +171,8 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        Access.goToInternalFrame(this, new FrmCharge());
+        Access.goToInternalFrame(this, new ChargeFrame());
     }//GEN-LAST:event_btnAddActionPerformed
-
-    private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
-        if (tbl.getSelectedColumn() == 6) {
-            new TransportDetailFrame((Long) tbl.getValueAt(tbl.getSelectedRow(), 0), true).setVisible(true);
-            tbl.clearSelection();
-        }
-    }//GEN-LAST:event_tblMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -202,5 +185,14 @@ public class FrmChargeTbl extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane roll;
     private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
+
+    private void initPanel() {
+        TreatmentTheme.initTheme(pnlCharge);
+        TreatmentTheme.initTableTheme(tbl);
+        ChargeTreatment.initTable(tbl);
+        TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
+        TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
+        TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
+    }
 
 }

@@ -49,7 +49,7 @@ public class ProductFrame extends javax.swing.JInternalFrame {
         pnlProduct.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlProduct.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Cadastrar Produto");
 
         lblName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -69,7 +69,7 @@ public class ProductFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnSave.setText("Salvar");
         btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class ProductFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnCancel.setText("Cancelar");
         btnCancel.setMaximumSize(new java.awt.Dimension(78, 37));
         btnCancel.setMinimumSize(new java.awt.Dimension(78, 37));
@@ -89,7 +89,7 @@ public class ProductFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnClear.setText("Limpar");
         btnClear.setMaximumSize(new java.awt.Dimension(78, 37));
         btnClear.setMinimumSize(new java.awt.Dimension(78, 37));
@@ -107,7 +107,7 @@ public class ProductFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlProductLayout.createSequentialGroup()
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlProductLayout.createSequentialGroup()
-                        .addGap(397, 397, 397)
+                        .addGap(367, 367, 367)
                         .addComponent(lblTitle))
                     .addGroup(pnlProductLayout.createSequentialGroup()
                         .addGap(263, 263, 263)
@@ -142,12 +142,12 @@ public class ProductFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDensity)
                     .addComponent(txtDensity, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

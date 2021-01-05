@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.ProductTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -31,8 +32,8 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
         pnlProduct = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        rollProduct = new javax.swing.JScrollPane();
+        tblProduct = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -43,7 +44,7 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
         pnlProduct.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlProduct.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Produto");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -54,8 +55,15 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
+        rollProduct.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollProduct.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollProductMouseWheelMoved(evt);
+            }
+        });
+
+        tblProduct.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -71,13 +79,13 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl.setShowGrid(true);
-        tbl.setShowVerticalLines(false);
-        roll.setViewportView(tbl);
-        if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(0).setResizable(false);
-            tbl.getColumnModel().getColumn(0).setPreferredWidth(500);
-            tbl.getColumnModel().getColumn(1).setResizable(false);
+        tblProduct.setShowGrid(true);
+        tblProduct.setShowVerticalLines(false);
+        rollProduct.setViewportView(tblProduct);
+        if (tblProduct.getColumnModel().getColumnCount() > 0) {
+            tblProduct.getColumnModel().getColumn(0).setResizable(false);
+            tblProduct.getColumnModel().getColumn(0).setPreferredWidth(500);
+            tblProduct.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout pnlProductLayout = new javax.swing.GroupLayout(pnlProduct);
@@ -85,13 +93,13 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
         pnlProductLayout.setHorizontalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProductLayout.createSequentialGroup()
-                .addContainerGap(453, Short.MAX_VALUE)
+                .addContainerGap(432, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(384, 384, 384)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(pnlProductLayout.createSequentialGroup()
-                .addComponent(roll)
+                .addComponent(rollProduct)
                 .addContainerGap())
         );
         pnlProductLayout.setVerticalGroup(
@@ -102,7 +110,7 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(lblTitle)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addComponent(rollProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -126,19 +134,23 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
         Access.goToInternalFrame(this, new ProductFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void rollProductMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollProductMouseWheelMoved
+        ItemTreatment.speedRoll(rollProduct);
+    }//GEN-LAST:event_rollProductMouseWheelMoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlProduct;
-    private javax.swing.JScrollPane roll;
-    private javax.swing.JTable tbl;
+    private javax.swing.JScrollPane rollProduct;
+    private javax.swing.JTable tblProduct;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
         TreatmentTheme.initTheme(pnlProduct);
-        TreatmentTheme.initTableTheme(tbl);
-        ProductTreatment.initTable(tbl);
+        TreatmentTheme.initTableTheme(tblProduct);
+        ProductTreatment.initTable(tblProduct);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
     }
 }

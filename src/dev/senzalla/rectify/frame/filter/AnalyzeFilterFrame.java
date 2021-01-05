@@ -170,20 +170,23 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
                     AnalyzeTruckTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
-            case LABTANK:
+            case ANALYZETANK:
                 if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
                     AnalyzeTankTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
-            case LABBIO:
+            case ANALYZEBIODIESEL:
                 if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
                     AnalyzeBiodieselTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
-            case LABSPLIT:
-                if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
+            case ANALYZESPLIT:
+                System.out.println(DateChooserTreatment.isDateChooserNull(pnlLab) );
+                System.out.println(!spnCod.getValue().equals(0));
+//                if (DateChooserTreatment.isDateChooserNull(pnlLab) || !spnCod.getValue().equals(0)) {
+//                    System.out.println("teste");
                     AnalyzeSplitTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
-                }
+//                }
                 break;
         }
         this.dispose();
@@ -194,13 +197,13 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
             case ANALYZETRUCK:
                 AnalyzeTruckTreatment.initTable(tbl);
                 break;
-            case LABTANK:
+            case ANALYZETANK:
                 AnalyzeTankTreatment.initTable(tbl);
                 break;
-            case LABBIO:
+            case ANALYZEBIODIESEL:
                 AnalyzeBiodieselTreatment.initTable(tbl);
                 break;
-            case LABSPLIT:
+            case ANALYZESPLIT:
                 AnalyzeSplitTreatment.initTable(tbl);
                 break;
         }

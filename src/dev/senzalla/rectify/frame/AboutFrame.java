@@ -12,12 +12,12 @@ import java.net.URISyntaxException;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class FrmAbout extends javax.swing.JInternalFrame {
+public class AboutFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmAbout
      */
-    public FrmAbout() {
+    public AboutFrame() {
         initComponents();
         TreatmentTheme.initTheme(pnlAbout);
         resetLabel();
@@ -58,7 +58,7 @@ public class FrmAbout extends javax.swing.JInternalFrame {
         pnlAbout.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlAbout.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblTitle.setText("Sobre");
 
         lblProgramming.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
@@ -124,80 +124,79 @@ public class FrmAbout extends javax.swing.JInternalFrame {
         javax.swing.GroupLayout pnlAboutLayout = new javax.swing.GroupLayout(pnlAbout);
         pnlAbout.setLayout(pnlAboutLayout);
         pnlAboutLayout.setHorizontalGroup(
-                pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAboutLayout.createSequentialGroup()
-                                .addContainerGap(192, Short.MAX_VALUE)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlAboutLayout.createSequentialGroup()
-                                                .addGap(115, 115, 115)
-                                                .addComponent(lblTitle))
-                                        .addGroup(pnlAboutLayout.createSequentialGroup()
-                                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lblVersion)
-                                                        .addComponent(lblFactory)
-                                                        .addComponent(lblDeveloper)
-                                                        .addComponent(lblProgramming)
-                                                        .addComponent(lblLinkedin)
-                                                        .addComponent(lblGithub)
-                                                        .addComponent(lblMail))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(lblProgrammingName)
-                                                        .addComponent(lblFactoryName)
-                                                        .addComponent(lblDeveloperName)
-                                                        .addComponent(lblNumberVersion)
-                                                        .addComponent(lblLinkedinLink)
-                                                        .addComponent(lblMailLink)
-                                                        .addComponent(lblGithubLink))))
-                                .addGap(251, 251, 251))
+            pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAboutLayout.createSequentialGroup()
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblVersion)
+                    .addComponent(lblFactory)
+                    .addComponent(lblDeveloper)
+                    .addComponent(lblProgramming)
+                    .addComponent(lblLinkedin)
+                    .addComponent(lblGithub)
+                    .addComponent(lblMail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblProgrammingName)
+                    .addComponent(lblFactoryName)
+                    .addComponent(lblDeveloperName)
+                    .addComponent(lblNumberVersion)
+                    .addComponent(lblLinkedinLink)
+                    .addComponent(lblMailLink)
+                    .addComponent(lblGithubLink))
+                .addGap(251, 251, 251))
+            .addGroup(pnlAboutLayout.createSequentialGroup()
+                .addGap(447, 447, 447)
+                .addComponent(lblTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlAboutLayout.setVerticalGroup(
-                pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlAboutLayout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(lblTitle)
-                                .addGap(78, 78, 78)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblProgramming)
-                                        .addComponent(lblProgrammingName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblVersion)
-                                        .addComponent(lblNumberVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, 0)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblFactory)
-                                        .addComponent(lblFactoryName))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblDeveloper)
-                                        .addComponent(lblDeveloperName))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblLinkedin)
-                                        .addComponent(lblLinkedinLink))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblGithub)
-                                        .addComponent(lblGithubLink))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblMail)
-                                        .addComponent(lblMailLink))
-                                .addContainerGap(150, Short.MAX_VALUE))
+            pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAboutLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(lblTitle)
+                .addGap(111, 111, 111)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProgramming)
+                    .addComponent(lblProgrammingName, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVersion)
+                    .addComponent(lblNumberVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFactory)
+                    .addComponent(lblFactoryName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDeveloper)
+                    .addComponent(lblDeveloperName))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLinkedin)
+                    .addComponent(lblLinkedinLink))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGithub)
+                    .addComponent(lblGithubLink))
+                .addGap(18, 18, 18)
+                .addGroup(pnlAboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMail)
+                    .addComponent(lblMailLink))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlAbout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlAbout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addComponent(pnlAbout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(pnlAbout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

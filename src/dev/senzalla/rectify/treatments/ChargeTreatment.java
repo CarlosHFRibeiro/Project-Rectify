@@ -1,7 +1,7 @@
 package dev.senzalla.rectify.treatments;
 
 import dev.senzalla.rectify.entitys.*;
-import dev.senzalla.rectify.frame.FrmChargeTbl;
+import dev.senzalla.rectify.frame.ChargeTableFrame;
 import dev.senzalla.rectify.request.ChargeRequest;
 
 import javax.swing.*;
@@ -70,7 +70,7 @@ public class ChargeTreatment {
     }
 
     private static void fillTable(JTable tableCharge, List<Charge> charges) {
-        FrmChargeTbl.query(charges);
+        ChargeTableFrame.query(charges);
         DefaultTableModel tableModel = (DefaultTableModel) tableCharge.getModel();
         tableModel.setNumRows(0);
         charges.forEach(c

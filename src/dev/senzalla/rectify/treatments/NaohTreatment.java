@@ -36,6 +36,7 @@ public class NaohTreatment {
             }
         } catch (NumberFormatException ex) {
             PopUp.notValidNumber();
+            new NaohTreatment().addSolutionNaoh();
         }
     }
 
@@ -50,6 +51,7 @@ public class NaohTreatment {
             }
         } catch (NumberFormatException ex) {
             PopUp.notValidNumber();
+            new NaohTreatment().updateSolutionNaoh(listSolNaoh);
         }
     }
 

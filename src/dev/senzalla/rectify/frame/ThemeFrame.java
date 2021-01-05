@@ -53,10 +53,10 @@ public class ThemeFrame extends javax.swing.JInternalFrame {
         pnl.setMinimumSize(new java.awt.Dimension(998, 658));
         pnl.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblFrmAddTankTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblFrmAddTankTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblFrmAddTankTitle.setText("Tema");
 
-        btnDark.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnDark.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnDark.setText("Escuro");
         btnDark.setPreferredSize(new java.awt.Dimension(100, 45));
         btnDark.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +65,7 @@ public class ThemeFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnLigth.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnLigth.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnLigth.setText("Claro");
         btnLigth.setPreferredSize(new java.awt.Dimension(100, 45));
         btnLigth.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +77,7 @@ public class ThemeFrame extends javax.swing.JInternalFrame {
         jComboBox1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2" }));
 
-        jButton5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jButton5.setText("Botão");
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -140,18 +140,18 @@ public class ThemeFrame extends javax.swing.JInternalFrame {
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayout.createSequentialGroup()
                 .addComponent(lblFrmAddTankTitle)
-                .addGap(28, 28, 28)
+                .addGap(67, 67, 67)
                 .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLigth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(114, 114, 114)
+                .addGap(93, 93, 93)
                 .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

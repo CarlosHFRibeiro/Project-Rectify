@@ -1,6 +1,6 @@
 package dev.senzalla.rectify.frame;
 
-import dev.senzalla.rectify.entitys.*;
+import dev.senzalla.rectify.entitys.MakeBiodiesel;
 import dev.senzalla.rectify.frame.detail.MakeBiodieselDetaisFrame;
 import dev.senzalla.rectify.frame.filter.MakeFilterFrame;
 import dev.senzalla.rectify.print.MakeTransPrint;

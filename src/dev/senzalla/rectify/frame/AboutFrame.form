@@ -62,43 +62,40 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="192" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblVersion" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFactory" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDeveloper" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblProgramming" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblLinkedin" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGithub" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblMail" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                          <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblVersion" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFactory" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDeveloper" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblProgramming" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLinkedin" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGithub" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblMail" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblProgrammingName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFactoryName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDeveloperName" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNumberVersion" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblLinkedinLink" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblMailLink" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblGithubLink" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="lblProgrammingName" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblFactoryName" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDeveloperName" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNumberVersion" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblLinkedinLink" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblMailLink" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGithubLink" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
+                  <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblProgramming" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblProgrammingName" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
@@ -133,7 +130,7 @@
                       <Component id="lblMail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblMailLink" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="150" max="32767" attributes="0"/>
+                  <EmptySpace pref="157" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +139,7 @@
         <Component class="javax.swing.JLabel" name="lblTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="24" style="1"/>
+              <Font name="Dialog" size="36" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>

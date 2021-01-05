@@ -5,7 +5,6 @@ import dev.senzalla.rectify.exception.DataBaseException;
 import dev.senzalla.rectify.setting.ConectionMySql;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @author Bomsalvez Freitas

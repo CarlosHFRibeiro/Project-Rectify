@@ -7,7 +7,8 @@ package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.StockTank;
 import dev.senzalla.rectify.treatments.ItemTreatment;
-import java.awt.GridLayout;
+
+import java.awt.*;
 import java.util.List;
 
 /**

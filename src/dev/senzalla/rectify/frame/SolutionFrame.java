@@ -4,9 +4,9 @@ import dev.senzalla.rectify.entitys.Hcl;
 import dev.senzalla.rectify.entitys.Naoh;
 import dev.senzalla.rectify.request.HclRequest;
 import dev.senzalla.rectify.request.NaohRequest;
-import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.rectify.treatments.HclTreatment;
 import dev.senzalla.rectify.treatments.NaohTreatment;
+import dev.senzalla.rectify.treatments.PopUp;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -64,7 +64,7 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
         pnlSolution.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlSolution.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Soluções");
 
         pnlSolutionNaoh.setBorder(javax.swing.BorderFactory.createTitledBorder("NaoH"));
@@ -243,7 +243,7 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
                 .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(pnlSolutionLayout.createSequentialGroup()
-                .addGap(444, 444, 444)
+                .addGap(432, 432, 432)
                 .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -255,7 +255,7 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlSolutionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlSolutionHcl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlSolutionNaoh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,7 +274,7 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
 
     private void btnSolNaohAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohAddActionPerformed
         new NaohTreatment().addSolutionNaoh();
-        new NaohTreatment().initList(lstSolNaoh);
+        NaohTreatment.initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohAddActionPerformed
 
     private void btnSolNaohChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohChangeActionPerformed
@@ -283,7 +283,7 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
         } else {
             PopUp.selectField();
         }
-        new NaohTreatment().initList(lstSolNaoh);
+        NaohTreatment.initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohChangeActionPerformed
 
     private void btnSolNaohDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteActionPerformed
@@ -292,12 +292,12 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
         } else {
             PopUp.selectField();
         }
-        new NaohTreatment().initList(lstSolNaoh);
+        NaohTreatment.initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteActionPerformed
 
     private void btnSolNaohDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolNaohDeleteAllActionPerformed
         new NaohTreatment().deleteAllSolutionNaoh();
-        new NaohTreatment().initList(lstSolNaoh);
+        NaohTreatment.initList(lstSolNaoh);
     }//GEN-LAST:event_btnSolNaohDeleteAllActionPerformed
 
     private void btnSolHclAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolHclAddActionPerformed
@@ -347,17 +347,4 @@ public class SolutionFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane rollSolHcl;
     private javax.swing.JScrollPane rollSolNaoh;
     // End of variables declaration//GEN-END:variables
-
-    private void preencher() {
-        for (int i = 0; i < 50; i++) {
-            Naoh naoh = new Naoh();
-            naoh.setConcentrationNaoh(i);
-            new NaohRequest().insert(naoh);
-        }
-        for (int i = 0; i < 50; i++) {
-            Hcl hcl = new Hcl();
-            hcl.setConcentrationHcl(i);
-            new HclRequest().insert(hcl);
-        }
-    }
 }

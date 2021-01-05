@@ -44,8 +44,8 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
         lblTitle = new javax.swing.JLabel();
         btnPrint = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
-        tbl = new javax.swing.JTable();
+        rollStockProduct = new javax.swing.JScrollPane();
+        tblStockProduct = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -56,7 +56,7 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
         pnlTranspCharge.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlTranspCharge.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Estoque Produto");
 
         btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/pdf.png"))); // NOI18N
@@ -75,14 +75,14 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+        rollStockProduct.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollStockProduct.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                rollMouseWheelMoved(evt);
+                rollStockProductMouseWheelMoved(evt);
             }
         });
 
-        tbl.setModel(new javax.swing.table.DefaultTableModel(
+        tblStockProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,9 +98,11 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        roll.setViewportView(tbl);
-        if (tbl.getColumnModel().getColumnCount() > 0) {
-            tbl.getColumnModel().getColumn(0).setPreferredWidth(350);
+        tblStockProduct.setShowGrid(true);
+        tblStockProduct.setShowVerticalLines(false);
+        rollStockProduct.setViewportView(tblStockProduct);
+        if (tblStockProduct.getColumnModel().getColumnCount() > 0) {
+            tblStockProduct.getColumnModel().getColumn(0).setPreferredWidth(350);
         }
 
         javax.swing.GroupLayout pnlTranspChargeLayout = new javax.swing.GroupLayout(pnlTranspCharge);
@@ -108,15 +110,15 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
         pnlTranspChargeLayout.setHorizontalGroup(
             pnlTranspChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTranspChargeLayout.createSequentialGroup()
-                .addContainerGap(420, Short.MAX_VALUE)
+                .addContainerGap(379, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(308, 308, 308)
+                .addGap(269, 269, 269)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTranspChargeLayout.createSequentialGroup()
-                .addComponent(roll)
+                .addComponent(rollStockProduct)
                 .addContainerGap())
         );
         pnlTranspChargeLayout.setVerticalGroup(
@@ -128,7 +130,8 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+                .addComponent(rollStockProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,8 +140,7 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(pnlTranspCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(pnlTranspCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,12 +158,12 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new StockFilterFrame(tbl, false));
+        Access.goToFrame(new StockFilterFrame(tblStockProduct, false));
     }//GEN-LAST:event_btnFilterActionPerformed
 
-    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
-        ItemTreatment.speedRoll(roll);
-    }//GEN-LAST:event_rollMouseWheelMoved
+    private void rollStockProductMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollStockProductMouseWheelMoved
+        ItemTreatment.speedRoll(rollStockProduct);
+    }//GEN-LAST:event_rollStockProductMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -169,14 +171,14 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlTranspCharge;
-    private javax.swing.JScrollPane roll;
-    private javax.swing.JTable tbl;
+    private javax.swing.JScrollPane rollStockProduct;
+    private javax.swing.JTable tblStockProduct;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
         TreatmentTheme.initTheme(pnlTranspCharge);
-        TreatmentTheme.initTableTheme(tbl);
-        new StockProductTreatment().checkStockProduct(this, tbl);
+        TreatmentTheme.initTableTheme(tblStockProduct);
+        new StockProductTreatment().checkStockProduct(this, tblStockProduct);
         TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
     }

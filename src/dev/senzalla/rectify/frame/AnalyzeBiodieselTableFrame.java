@@ -132,7 +132,7 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.LABBIO));
+        Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZEBIODIESEL));
     }//GEN-LAST:event_btnFilterActionPerformed
 
 

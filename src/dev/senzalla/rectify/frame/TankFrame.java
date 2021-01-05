@@ -51,7 +51,7 @@ public class TankFrame extends javax.swing.JInternalFrame {
         pnlTank.setName(""); // NOI18N
         pnlTank.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Cadastrar Parceiro");
 
         lblName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -71,7 +71,7 @@ public class TankFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnSave.setText("Salvar");
         btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class TankFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnClear.setText("Limpar");
         btnClear.setMaximumSize(new java.awt.Dimension(78, 37));
         btnClear.setMinimumSize(new java.awt.Dimension(78, 37));
@@ -91,7 +91,7 @@ public class TankFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnCancel.setText("Cancelar");
         btnCancel.setMaximumSize(new java.awt.Dimension(78, 37));
         btnCancel.setMinimumSize(new java.awt.Dimension(78, 37));
@@ -142,12 +142,12 @@ public class TankFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCapacity)
                     .addComponent(txtCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
                 .addGroup(pnlTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

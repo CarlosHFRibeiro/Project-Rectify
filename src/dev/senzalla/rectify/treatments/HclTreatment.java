@@ -36,9 +36,9 @@ public class HclTreatment {
             }
         } catch (NumberFormatException ex) {
             PopUp.notValidNumber();
+            new HclTreatment().addSolutionHcl();
         }
     }
-
 
     public void updateSolutionHcl(JList<Hcl> lstSolHcl) {
         try {
@@ -51,10 +51,9 @@ public class HclTreatment {
             }
         } catch (NumberFormatException ex) {
             PopUp.notValidNumber();
+            new HclTreatment().updateSolutionHcl(lstSolHcl);
         }
     }
-
-
 
     public void deleteSolutionHcl(JList<Hcl> lstSolHcl) {
         String del = PopUp.panelDelete("");
@@ -77,8 +76,8 @@ public class HclTreatment {
     }
 
     private Long getIdHcl(JList<Hcl> lstSolHcl) {
-        return new HclRequest().select().stream().filter(naoh ->
-                naoh.getConcentrationHcl() == Double.parseDouble(String.valueOf(lstSolHcl.getSelectedValue())))
+        return new HclRequest().select().stream().filter(naoh
+                -> naoh.getConcentrationHcl() == Double.parseDouble(String.valueOf(lstSolHcl.getSelectedValue())))
                 .findFirst().map(Hcl::getIdHcl)
                 .orElse(null);
     }

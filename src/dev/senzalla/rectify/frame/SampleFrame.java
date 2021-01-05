@@ -34,17 +34,17 @@ public class SampleFrame extends javax.swing.JInternalFrame {
         lblProvider = new javax.swing.JLabel();
         cbxProvider = new javax.swing.JComboBox<>();
         lblSale = new javax.swing.JLabel();
-        txtSale = new javax.swing.JFormattedTextField();
         lblSeal = new javax.swing.JLabel();
         lblClient = new javax.swing.JLabel();
-        txtClient = new javax.swing.JFormattedTextField();
         lblFactory = new javax.swing.JLabel();
-        txtFactory = new javax.swing.JFormattedTextField();
         lblBr = new javax.swing.JLabel();
-        txtBr = new javax.swing.JFormattedTextField();
         btnSave = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        txtSale = new javax.swing.JTextField();
+        txtClient = new javax.swing.JTextField();
+        txtFactory = new javax.swing.JTextField();
+        txtBr = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -55,7 +55,7 @@ public class SampleFrame extends javax.swing.JInternalFrame {
         pnlSeal.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlSeal.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Etiqueta BioDiesel");
 
         lblProvider.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -66,15 +66,6 @@ public class SampleFrame extends javax.swing.JInternalFrame {
         lblSale.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblSale.setText("Leilão");
 
-        txtSale.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtSale.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtSale.setPreferredSize(new java.awt.Dimension(100, 27));
-        txtSale.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSaleKeyTyped(evt);
-            }
-        });
-
         lblSeal.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         lblSeal.setForeground(new java.awt.Color(255, 0, 0));
         lblSeal.setText("Lacres");
@@ -82,40 +73,13 @@ public class SampleFrame extends javax.swing.JInternalFrame {
         lblClient.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblClient.setText("Cliente");
 
-        txtClient.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtClient.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtClient.setPreferredSize(new java.awt.Dimension(100, 27));
-        txtClient.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtClientKeyTyped(evt);
-            }
-        });
-
         lblFactory.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblFactory.setText("Fabrica");
-
-        txtFactory.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtFactory.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtFactory.setPreferredSize(new java.awt.Dimension(100, 27));
-        txtFactory.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFactoryKeyTyped(evt);
-            }
-        });
 
         lblBr.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBr.setText("Petrobras");
 
-        txtBr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtBr.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtBr.setPreferredSize(new java.awt.Dimension(100, 27));
-        txtBr.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBrKeyTyped(evt);
-            }
-        });
-
-        btnSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSave.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnSave.setText("Salvar");
         btnSave.setPreferredSize(new java.awt.Dimension(120, 60));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +88,7 @@ public class SampleFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnClear.setText("Limpar");
         btnClear.setPreferredSize(new java.awt.Dimension(120, 60));
         btnClear.addActionListener(new java.awt.event.ActionListener() {
@@ -133,12 +97,44 @@ public class SampleFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnCancel.setText("Cancelar");
         btnCancel.setPreferredSize(new java.awt.Dimension(120, 60));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
+            }
+        });
+
+        txtSale.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSale.setPreferredSize(new java.awt.Dimension(100, 32));
+        txtSale.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaleKeyTyped(evt);
+            }
+        });
+
+        txtClient.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtClient.setPreferredSize(new java.awt.Dimension(100, 32));
+        txtClient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtClientKeyTyped(evt);
+            }
+        });
+
+        txtFactory.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtFactory.setPreferredSize(new java.awt.Dimension(100, 32));
+        txtFactory.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFactoryKeyTyped(evt);
+            }
+        });
+
+        txtBr.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtBr.setPreferredSize(new java.awt.Dimension(100, 32));
+        txtBr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBrKeyTyped(evt);
             }
         });
 
@@ -156,32 +152,32 @@ public class SampleFrame extends javax.swing.JInternalFrame {
                             .addComponent(lblSeal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlSealLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(lblClient)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(lblFactory)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFactory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(lblBr)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlSealLayout.createSequentialGroup()
+                        .addGap(367, 367, 367)
+                        .addComponent(lblTitle))
                     .addGroup(pnlSealLayout.createSequentialGroup()
                         .addGap(253, 253, 253)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
                         .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlSealLayout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(lblClient)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(lblFactory)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFactory, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(lblBr)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBr, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlSealLayout.createSequentialGroup()
-                        .addGap(394, 394, 394)
-                        .addComponent(lblTitle)))
-                .addContainerGap(246, Short.MAX_VALUE))
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         pnlSealLayout.setVerticalGroup(
             pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,22 +192,22 @@ public class SampleFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSale)
                     .addComponent(txtSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addComponent(lblSeal)
                 .addGap(35, 35, 35)
                 .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblClient)
-                    .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFactory)
-                    .addComponent(txtFactory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBr)
+                    .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFactory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addGroup(pnlSealLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,22 +223,6 @@ public class SampleFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtSaleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaleKeyTyped
-        NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtSaleKeyTyped
-
-    private void txtClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClientKeyTyped
-        NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtClientKeyTyped
-
-    private void txtFactoryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFactoryKeyTyped
-        NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtFactoryKeyTyped
-
-    private void txtBrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBrKeyTyped
-        NumberField.txtNumberInt(evt);
-    }//GEN-LAST:event_txtBrKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if (TxtTreatment.isTextFieldEmpty(pnlSeal) && cbxProvider.getSelectedIndex() > 0) {
@@ -263,6 +243,22 @@ public class SampleFrame extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void txtSaleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaleKeyTyped
+       NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtSaleKeyTyped
+
+    private void txtClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClientKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtClientKeyTyped
+
+    private void txtFactoryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFactoryKeyTyped
+        NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtFactoryKeyTyped
+
+    private void txtBrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBrKeyTyped
+       NumberField.txtNumberInt(evt);
+    }//GEN-LAST:event_txtBrKeyTyped
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnClear;
@@ -276,10 +272,10 @@ public class SampleFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblSeal;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlSeal;
-    private javax.swing.JFormattedTextField txtBr;
-    private javax.swing.JFormattedTextField txtClient;
-    private javax.swing.JFormattedTextField txtFactory;
-    private javax.swing.JFormattedTextField txtSale;
+    private javax.swing.JTextField txtBr;
+    private javax.swing.JTextField txtClient;
+    private javax.swing.JTextField txtFactory;
+    private javax.swing.JTextField txtSale;
     // End of variables declaration//GEN-END:variables
 
 }

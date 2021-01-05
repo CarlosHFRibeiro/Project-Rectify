@@ -2,6 +2,7 @@ package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.frame.filter.ProviderFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.rectify.treatments.ProviderTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -33,7 +34,7 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
-        roll = new javax.swing.JScrollPane();
+        rollProvider = new javax.swing.JScrollPane();
         tblProvider = new javax.swing.JTable();
 
         setClosable(true);
@@ -45,7 +46,7 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         pnlProvider.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlProvider.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Fornecedor");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -61,6 +62,13 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFilterActionPerformed(evt);
+            }
+        });
+
+        rollProvider.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        rollProvider.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollProviderMouseWheelMoved(evt);
             }
         });
 
@@ -83,7 +91,7 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         });
         tblProvider.setShowGrid(true);
         tblProvider.setShowVerticalLines(false);
-        roll.setViewportView(tblProvider);
+        rollProvider.setViewportView(tblProvider);
         if (tblProvider.getColumnModel().getColumnCount() > 0) {
             tblProvider.getColumnModel().getColumn(0).setResizable(false);
             tblProvider.getColumnModel().getColumn(0).setPreferredWidth(500);
@@ -96,15 +104,15 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         pnlProviderLayout.setHorizontalGroup(
             pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProviderLayout.createSequentialGroup()
-                .addContainerGap(424, Short.MAX_VALUE)
+                .addContainerGap(415, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(332, 332, 332)
+                .addGap(308, 308, 308)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(pnlProviderLayout.createSequentialGroup()
-                .addComponent(roll)
+                .addComponent(rollProvider)
                 .addContainerGap())
         );
         pnlProviderLayout.setVerticalGroup(
@@ -116,7 +124,7 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addComponent(rollProvider, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -148,13 +156,17 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
         Access.goToFrame(new ProviderFilterFrame(tblProvider));
     }//GEN-LAST:event_btnFilterActionPerformed
 
+    private void rollProviderMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollProviderMouseWheelMoved
+        ItemTreatment.speedRoll(rollProvider);
+    }//GEN-LAST:event_rollProviderMouseWheelMoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnFilter;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlProvider;
-    private javax.swing.JScrollPane roll;
+    private javax.swing.JScrollPane rollProvider;
     private javax.swing.JTable tblProvider;
     // End of variables declaration//GEN-END:variables
 

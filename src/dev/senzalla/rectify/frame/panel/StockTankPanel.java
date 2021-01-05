@@ -2,9 +2,8 @@ package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.theme.TreatmentTheme;
 
-import java.awt.Color;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Bomsalvez Freitas
