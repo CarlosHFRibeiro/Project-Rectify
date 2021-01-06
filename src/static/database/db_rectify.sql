@@ -76,9 +76,9 @@ CREATE TABLE IF NOT EXISTS tbl_analyze_truck_split
     fkAnalyzeSplit      INT NOT NULL,
     fkAnalyzeTruck      INT NOT NULL,
     PRIMARY KEY (idAnalyzeTruckSplit),
-    CONSTRAINT `FK_ANALISE_CAMINHAO` FOREIGN KEY (fkAnalyzeSplit)
+    CONSTRAINT `FK_ANALISE_CAMINHAO` FOREIGN KEY (fkAnalyzeTruck)
         REFERENCES tbl_analyze_truck (idAnalyzeTruck),
-    CONSTRAINT `FK_TRIDECANTE` FOREIGN KEY (fkAnalyzeTruck)
+    CONSTRAINT `FK_TRIDECANTE` FOREIGN KEY (fkAnalyzeSplit)
         REFERENCES tbl_analyze_split (idAnalyzeSplit)
 );
 

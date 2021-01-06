@@ -3,7 +3,7 @@ USE db_rectify;
 CREATE TRIGGER tr_truck_split
     BEFORE INSERT
     ON tbl_analyze_truck_split
-    FOR EACH ROW SET new.fkanalyzeTruck = (SELECT MAX(idAnalyzeTruck)
+    FOR EACH ROW SET new.fkAnalyzeTruck = (SELECT MAX(idAnalyzeTruck)
                                            FROM tbl_analyze_truck);
 
 CREATE TRIGGER tr_matter_ester

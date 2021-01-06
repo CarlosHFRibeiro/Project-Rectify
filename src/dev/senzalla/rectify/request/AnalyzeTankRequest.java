@@ -39,10 +39,14 @@ public class AnalyzeTankRequest extends ConectionMySql {
         String SELECT_QUERY = "view_analyze_tank";
         if (query != null) {
             SELECT_QUERY = QueryTreatment.createQuery(SELECT_QUERY, query);
+            return selectAll(SELECT_QUERY, analyzeTank);
         } else if (analyzeTank != null) {
             SELECT_QUERY = "SELECT * FROM view_analyze_tank WHERE nameTank = ?";
+            return selectAll(SELECT_QUERY, analyzeTank);
+        }else {
+            SELECT_QUERY = QueryTreatment.createQuery(SELECT_QUERY, query);
+            return selectAll(SELECT_QUERY, analyzeTank);
         }
-        return selectAll(SELECT_QUERY, analyzeTank);
     }
 
     private List<AnalyzeTank> selectAll(String query, AnalyzeTank parameter) {

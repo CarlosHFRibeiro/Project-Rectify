@@ -43,23 +43,23 @@ public class AnalyzeTruckTreatment {
         List<String> clause = new ArrayList<>();
         AnalyzeTruck analyzeTruck = new AnalyzeTruck();
         if (idAnalyzeTruck > 0) {
-            clause.add("idCar =");
+            clause.add("idAnalyzeTruck =");
             analyzeTruck.setIdAnalyzeTruck(idAnalyzeTruck);
         }
 
         if (dateUntil != null && dateOf != null) {
-            clause.add("dtCar between");
+            clause.add("dateAnalyzeTruck between");
             analyzeTruck.setDateAnalyzeTruck(dateOf);
             clause.add("");
             analyzeTruck.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtCar =");
+                clause.add("dateAnalyzeTruck =");
                 analyzeTruck.setDateAnalyzeTruck(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtCar =");
+                clause.add("dateAnalyzeTruck =");
                 analyzeTruck.setDateAnalyzeTruck(dateUntil);
             }
         }

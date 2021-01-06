@@ -9,10 +9,11 @@ public class CalcAcidity {
 
     private final double acidity;
 
-    public CalcAcidity(double concentration, String volumeSolution, String sampleWeight) {
+    public CalcAcidity(String concentrationSolution, String volumeSolution, String sampleWeight) {
         final double conversionFactor = 28.2;
         double solution = Double.parseDouble(volumeSolution.replace(",", "."));
         double sample = Double.parseDouble(sampleWeight.replace(",", "."));
+        double concentration = Double.parseDouble(concentrationSolution);
         acidity = (concentration * conversionFactor * solution) / sample;
     }
 

@@ -15,7 +15,7 @@ public class AnalyzeTruckSplitRequest extends ConectionMySql {
     public void insert(AnalyzeTruckSplit analyzeTruckSplit) {
         try {
             super.connection();
-            final String sql = "INSERT INTO `tbl_analyzeTrucksplit` (`fkAnalyzeSplit`) VALUES (?);";
+            final String sql = "INSERT INTO `tbl_analyze_truck_split` (`fkAnalyzeSplit`) VALUES (?);";
             prepareStatement(sql);
             stmt.setLong(1, analyzeTruckSplit.getAnalyzeSplit().getIdAnalyzeSplit());
             stmt.executeUpdate();

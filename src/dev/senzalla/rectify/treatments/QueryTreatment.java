@@ -9,12 +9,12 @@ import java.util.List;
  */
 
 public class QueryTreatment {
-    private static String where;
 
     public static String createQuery(String tableOrView, List<String> query) {
+        final String[] where = {""};
         if (query != null) {
-            query.forEach(s -> where += String.format(" %s ? AND", s));
-            return String.format("SELECT * FROM %s WHERE %s", tableOrView, where.substring(0, where.length() - 3));
+            query.forEach(s -> where[0] += String.format(" %s ? AND", s));
+            return String.format("SELECT * FROM %s WHERE %s", tableOrView, where[0].substring(0, where[0].length() - 3));
         }
         return String.format("SELECT * FROM %s", tableOrView);
     }

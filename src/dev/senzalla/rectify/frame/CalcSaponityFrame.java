@@ -59,7 +59,7 @@ public class CalcSaponityFrame extends javax.swing.JInternalFrame {
         pnlCalcSoap.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlCalcSoap.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Calculadora Saponidade");
 
         lblConcentration.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -87,7 +87,7 @@ public class CalcSaponityFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCalculate.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        btnCalculate.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnCalculate.setText("Calcular");
         btnCalculate.setPreferredSize(new java.awt.Dimension(500, 90));
         btnCalculate.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class CalcSaponityFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlCalcSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcSoapLayout.createSequentialGroup()
                         .addComponent(lblTitle)
-                        .addGap(358, 358, 358))
+                        .addGap(325, 325, 325))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCalcSoapLayout.createSequentialGroup()
                         .addGroup(pnlCalcSoapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,7 +158,7 @@ public class CalcSaponityFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
                 .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,7 +189,7 @@ public class CalcSaponityFrame extends javax.swing.JInternalFrame {
             if (pnlCalc.getComponents().length > 0) {
                 pnlCalc.removeAll();
             }
-            String soap = CalcSoap.calcSoap((String) cbxConcentration.getSelectedItem(), txtBulk.getText(), txtMass.getText());
+            String soap = CalcSoap.calcSoap(cbxConcentration.getSelectedItem().toString(), txtBulk.getText(), txtMass.getText());
             pnlCalc.setLayout(new GridLayout());
             pnlCalc.add(new SaponityPanel(soap)).setVisible(true);
             txtLabSoap.setText(soap);

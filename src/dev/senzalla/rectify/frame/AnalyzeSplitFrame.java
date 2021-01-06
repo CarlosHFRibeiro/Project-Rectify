@@ -53,7 +53,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
         pnlSplit.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlSplit.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Analise Cisão");
 
         lblOil.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -61,7 +61,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
 
         txtOil.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtOil.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtOil.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtOil.setPreferredSize(new java.awt.Dimension(150, 32));
         txtOil.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtOilKeyTyped(evt);
@@ -73,7 +73,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
 
         txtSludge.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtSludge.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtSludge.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtSludge.setPreferredSize(new java.awt.Dimension(150, 32));
         txtSludge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSludgeKeyTyped(evt);
@@ -85,7 +85,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
 
         txtGlycerin.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtGlycerin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtGlycerin.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtGlycerin.setPreferredSize(new java.awt.Dimension(150, 32));
         txtGlycerin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtGlycerinKeyTyped(evt);
@@ -97,7 +97,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
 
         txtTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtTrash.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtTrash.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtTrash.setPreferredSize(new java.awt.Dimension(150, 32));
         txtTrash.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTrashKeyTyped(evt);
@@ -158,7 +158,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlSplitLayout.createSequentialGroup()
-                        .addGap(422, 422, 422)
+                        .addGap(401, 401, 401)
                         .addComponent(lblTitle)))
                 .addContainerGap())
         );
@@ -183,7 +183,7 @@ public class AnalyzeSplitFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlSplitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTrash)
                     .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addGroup(pnlSplitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

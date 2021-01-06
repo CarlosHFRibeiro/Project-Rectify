@@ -33,23 +33,23 @@ public class AnalyzeTankTreatment {
         List<String> clause = new ArrayList<>();
         AnalyzeTank analyzeTank = new AnalyzeTank();
         if (idAnalyzeTank > 0) {
-            clause.add("idTq =");
+            clause.add("idAnalyzeTank =");
             analyzeTank.setIdAnalyzeTank(idAnalyzeTank);
         }
 
         if (dateUntil != null && dateOf != null) {
-            clause.add("dtTq between");
+            clause.add("dateAnalyzeTank between");
             analyzeTank.setDateAnalyzeTank(dateOf);
             clause.add("");
             analyzeTank.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtTq =");
+                clause.add("dateAnalyzeTank =");
                 analyzeTank.setDateAnalyzeTank(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtTq =");
+                clause.add("dateAnalyzeTank =");
                 analyzeTank.setDateAnalyzeTank(dateUntil);
             }
         }

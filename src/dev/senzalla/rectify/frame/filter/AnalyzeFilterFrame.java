@@ -166,27 +166,24 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         switch (lab) {
             case ANALYZETRUCK:
-                if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
-                    AnalyzeTruckTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
+                if (DateChooserTreatment.isDateChooserFilterNull(pnlLab) || !spnCod.getValue().equals(0)) {
+                    AnalyzeTruckTreatment.setTableFilters(tbl, Long.valueOf(spnCod.getValue().toString()), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
             case ANALYZETANK:
-                if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
-                    AnalyzeTankTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
+                if (DateChooserTreatment.isDateChooserFilterNull(pnlLab) ||!spnCod.getValue().equals(0)) {
+                    AnalyzeTankTreatment.setTableFilters(tbl, Long.valueOf(spnCod.getValue().toString()), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
             case ANALYZEBIODIESEL:
-                if (DateChooserTreatment.isDateChooserNull(pnlLab) && !spnCod.getValue().equals(0)) {
-                    AnalyzeBiodieselTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
+                if (DateChooserTreatment.isDateChooserFilterNull(pnlLab) || !spnCod.getValue().equals(0)) {
+                    AnalyzeBiodieselTreatment.setTableFilters(tbl, Long.valueOf(spnCod.getValue().toString()), dtcDt.getDate(), dtcDtAte.getDate());
                 }
                 break;
             case ANALYZESPLIT:
-                System.out.println(DateChooserTreatment.isDateChooserNull(pnlLab) );
-                System.out.println(!spnCod.getValue().equals(0));
-//                if (DateChooserTreatment.isDateChooserNull(pnlLab) || !spnCod.getValue().equals(0)) {
-//                    System.out.println("teste");
-                    AnalyzeSplitTreatment.setTableFilters(tbl, (Long) spnCod.getValue(), dtcDt.getDate(), dtcDtAte.getDate());
-//                }
+                if (DateChooserTreatment.isDateChooserFilterNull(pnlLab) || !spnCod.getValue().equals(0)) {
+                    AnalyzeSplitTreatment.setTableFilters(tbl, Long.valueOf(spnCod.getValue().toString()), dtcDt.getDate(), dtcDtAte.getDate());
+                }
                 break;
         }
         this.dispose();

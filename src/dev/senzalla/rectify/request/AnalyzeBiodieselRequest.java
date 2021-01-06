@@ -19,7 +19,7 @@ public class AnalyzeBiodieselRequest extends ConectionMySql {
     public void insert(AnalyzeBiodiesel analyzeBiodiesel) {
         super.connection();
         try {
-            final String sql = "INSERT INTO `tbl_labbio` (`acidBio`, `densityBio`, `density20Bio`, `tempBio`, `factorBio`) VALUES (?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_analyze_biodiesel` (`acidityBiodiesel`, `densityBiodiesel`, `densityBiodiesel20Degress`, `temperatureBiodiesel`, `correctionFactorBiodiesel`) VALUES (?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
             stmt.setDouble(1, analyzeBiodiesel.getAcidityBiodiesel());
             stmt.setDouble(2, analyzeBiodiesel.getDensityBiodiesel());
@@ -42,16 +42,17 @@ public class AnalyzeBiodieselRequest extends ConectionMySql {
             super.prepareStatement(SELECT_QUERY);
             this.prepareStatement(parameter);
             super.resultSet();
+            System.out.println(stmt);
             while (rs.next()) {
                 AnalyzeBiodiesel analyzeBiodiesel = new AnalyzeBiodiesel();
-                analyzeBiodiesel.setIdAnalyzeBiodiesel(rs.getLong("idBio"));
-                analyzeBiodiesel.setAcidityBiodiesel(rs.getDouble("acidBio"));
-                analyzeBiodiesel.setDensityBiodiesel(rs.getDouble("densityBio"));
-                analyzeBiodiesel.setDensityBiodiesel20Degress(rs.getDouble("density20Bio"));
-                analyzeBiodiesel.setTemperatureBiodiesel(rs.getDouble("tempBio"));
-                analyzeBiodiesel.setCorrectionFactorBiodiesel(rs.getDouble("factorBio"));
-                analyzeBiodiesel.setDateAnalyzeBiodiesel(rs.getDate("dtBio"));
-                analyzeBiodiesel.setTimeAnalyzeBiodiesel(rs.getTime("hrBio"));
+                analyzeBiodiesel.setIdAnalyzeBiodiesel(rs.getLong("idAnalyzeBiodiesel"));
+                analyzeBiodiesel.setAcidityBiodiesel(rs.getDouble("acidityBiodiesel"));
+                analyzeBiodiesel.setDensityBiodiesel(rs.getDouble("densityBiodiesel"));
+                analyzeBiodiesel.setDensityBiodiesel20Degress(rs.getDouble("densityBiodiesel20Degress"));
+                analyzeBiodiesel.setTemperatureBiodiesel(rs.getDouble("temperatureBiodiesel"));
+                analyzeBiodiesel.setCorrectionFactorBiodiesel(rs.getDouble("correctionFactorBiodiesel"));
+                analyzeBiodiesel.setDateAnalyzeBiodiesel(rs.getDate("dateAnalyzeBiodiesel"));
+                analyzeBiodiesel.setTimeAnalyzeBiodiesel(rs.getTime("timeAnalyzeBiodiesel"));
 
                 analyzeBiodiesels.add(analyzeBiodiesel);
             }

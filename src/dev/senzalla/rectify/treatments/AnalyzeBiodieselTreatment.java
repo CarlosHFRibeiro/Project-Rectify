@@ -23,26 +23,27 @@ public class AnalyzeBiodieselTreatment {
     }
 
     public static void setTableFilters(JTable tableAnalyzeBiodiesel, Long idAnalyzeBiodiesel, Date dateOf, Date dateUntil) {
+        System.out.println("teste");
         List<String> clause = new ArrayList<>();
         AnalyzeBiodiesel analyzeBiodiesel = new AnalyzeBiodiesel();
         if (idAnalyzeBiodiesel > 0) {
-            clause.add("idBio =");
+            clause.add("idAnalyzeBiodiesel =");
             analyzeBiodiesel.setIdAnalyzeBiodiesel(idAnalyzeBiodiesel);
         }
 
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtBio between");
+            clause.add("dateAnalyzeBiodiesel between");
             analyzeBiodiesel.setDateAnalyzeBiodiesel(dateOf);
             clause.add("");
             analyzeBiodiesel.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtBio =");
+                clause.add("dateAnalyzeBiodiesel =");
                 analyzeBiodiesel.setDateAnalyzeBiodiesel(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtBio =");
+                clause.add("dateAnalyzeBiodiesel =");
                 analyzeBiodiesel.setDateAnalyzeBiodiesel(dateUntil);
             }
         }

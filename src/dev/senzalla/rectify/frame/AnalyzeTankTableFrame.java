@@ -9,6 +9,7 @@ import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.AnalyzeTankTreatment;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -70,6 +71,14 @@ public class AnalyzeTankTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
+
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -86,6 +95,8 @@ public class AnalyzeTankTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(4).setPreferredWidth(300);
@@ -146,6 +157,10 @@ public class AnalyzeTankTableFrame extends javax.swing.JInternalFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZETANK));
     }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

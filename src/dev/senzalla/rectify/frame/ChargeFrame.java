@@ -78,7 +78,7 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
         pnlCharge.setMaximumSize(new java.awt.Dimension(750, 765));
         pnlCharge.setMinimumSize(new java.awt.Dimension(750, 765));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Carregamento");
 
         lblProvider.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -109,14 +109,14 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
 
         spnNote.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         spnNote.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        spnNote.setPreferredSize(new java.awt.Dimension(70, 27));
+        spnNote.setPreferredSize(new java.awt.Dimension(70, 32));
 
         lblTicket.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTicket.setText("Ticket");
 
         spnTicket.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         spnTicket.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        spnTicket.setPreferredSize(new java.awt.Dimension(70, 27));
+        spnTicket.setPreferredSize(new java.awt.Dimension(70, 32));
 
         lblBoard.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBoard.setText("Placa");
@@ -242,7 +242,7 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlChargeLayout.createSequentialGroup()
                 .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlChargeLayout.createSequentialGroup()
-                        .addGap(176, 176, 176)
+                        .addGap(155, 155, 155)
                         .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblDtOf)
                             .addComponent(lblProvider)
@@ -266,16 +266,16 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
                                         .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(spnNote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(txtBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(107, 107, Short.MAX_VALUE)
+                                        .addGap(157, 164, Short.MAX_VALUE)
                                         .addGroup(pnlChargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblCnh, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(lblTicket, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(pnlChargeLayout.createSequentialGroup()
-                                        .addComponent(dtcDtUp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dtcDtUp, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblHrUp))
                                     .addGroup(pnlChargeLayout.createSequentialGroup()
-                                        .addComponent(dtcDtOf, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dtcDtOf, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblHrOf)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

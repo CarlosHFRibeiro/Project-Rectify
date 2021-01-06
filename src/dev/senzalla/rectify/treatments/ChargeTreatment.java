@@ -30,18 +30,18 @@ public class ChargeTreatment {
             charge.setId(idCharge);
         }
         if (dateEntry != null && dateExit != null) {
-            clause.add("dtOfCharge between");
+            clause.add("dateEntryCharge between");
             charge.setDateEntry(dateEntry);
             clause.add("");
             charge.setDateBetween(dateExit);
 
         } else {
             if (dateEntry != null) {
-                clause.add("dtOfCharge =");
+                clause.add("dateEntryCharge =");
                 charge.setDateEntry(dateEntry);
             }
             if (dateExit != null) {
-                clause.add("dtOfCharge =");
+                clause.add("dateEntryCharge =");
                 charge.setDateEntry(dateExit);
             }
         }

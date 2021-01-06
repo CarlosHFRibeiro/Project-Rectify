@@ -53,14 +53,14 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
         pnlLabBio.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlLabBio.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Analise Biodiesel");
 
         lblAcid.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAcid.setText("Acidez");
 
         txtAcid.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAcid.setPreferredSize(new java.awt.Dimension(130, 27));
+        txtAcid.setPreferredSize(new java.awt.Dimension(130, 32));
         txtAcid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAcidKeyTyped(evt);
@@ -78,7 +78,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
         lblDens.setText("Densidade");
 
         txtDens.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtDens.setPreferredSize(new java.awt.Dimension(130, 27));
+        txtDens.setPreferredSize(new java.awt.Dimension(130, 32));
         txtDens.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDensKeyTyped(evt);
@@ -89,7 +89,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
         lblDens20.setText("Densidade a 20° C");
 
         txtDens20.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtDens20.setPreferredSize(new java.awt.Dimension(130, 27));
+        txtDens20.setPreferredSize(new java.awt.Dimension(130, 32));
         txtDens20.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDens20KeyTyped(evt);
@@ -100,7 +100,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
         lblTemp.setText("Temperatura");
 
         txtTemp.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtTemp.setPreferredSize(new java.awt.Dimension(130, 27));
+        txtTemp.setPreferredSize(new java.awt.Dimension(130, 32));
         txtTemp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTempKeyTyped(evt);
@@ -111,7 +111,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
         lblFactor.setText("Fator de Correção");
 
         txtFactor.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtFactor.setPreferredSize(new java.awt.Dimension(130, 27));
+        txtFactor.setPreferredSize(new java.awt.Dimension(130, 32));
         txtFactor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFactorKeyTyped(evt);
@@ -152,24 +152,6 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlLabBioLayout.createSequentialGroup()
                 .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlLabBioLayout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDens20)
-                            .addComponent(lblAcid)
-                            .addComponent(lblDens)
-                            .addComponent(lblTemp)
-                            .addComponent(lblFactor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlLabBioLayout.createSequentialGroup()
-                                .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtDens20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFactor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlLabBioLayout.createSequentialGroup()
                         .addGap(261, 261, 261)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
@@ -177,25 +159,42 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlLabBioLayout.createSequentialGroup()
-                        .addGap(420, 420, 420)
-                        .addComponent(lblTitle)))
+                        .addGap(290, 290, 290)
+                        .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlLabBioLayout.createSequentialGroup()
+                                .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblDens20)
+                                    .addComponent(lblAcid)
+                                    .addComponent(lblDens)
+                                    .addComponent(lblTemp)
+                                    .addComponent(lblFactor))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlLabBioLayout.createSequentialGroup()
+                                        .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDens20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFactor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlLabBioLayout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(lblTitle)))))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
         pnlLabBioLayout.setVerticalGroup(
             pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabBioLayout.createSequentialGroup()
-                .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlLabBioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitle)
-                        .addGap(115, 115, 115)
-                        .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAcid)
-                            .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabBioLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(btnAcid)))
-                .addGap(34, 34, 34)
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addGap(107, 107, 107)
+                .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblAcid)
+                        .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAcid))
+                .addGap(35, 35, 35)
                 .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDens)
                     .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,7 +210,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
                 .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFactor)
                     .addComponent(txtFactor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(pnlLabBioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,6 +263,7 @@ public class AnalyzeBiodieselFrame extends javax.swing.JInternalFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if (TxtTreatment.isTextFieldEmpty(pnlLabBio)) {
             new AnalyzeBiodieselTreatment().saveAnalyzeBiodiesel(txtAcid.getText(), txtDens.getText(), txtDens20.getText(), txtTemp.getText(), txtFactor.getText());
+            TxtTreatment.cleanTextField(pnlLabBio);
         } else {
             PopUp.fieldIsEmpty();
         }

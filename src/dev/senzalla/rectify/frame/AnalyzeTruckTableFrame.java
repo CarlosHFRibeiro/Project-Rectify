@@ -4,6 +4,7 @@ import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.AnalyzeTruckTreatment;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -46,7 +47,7 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
         pnlanalyzeTruck.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlanalyzeTruck.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Analise Caminhão");
 
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
@@ -66,6 +67,14 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
+
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -82,6 +91,8 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlanalyzeTruckLayout = new javax.swing.GroupLayout(pnlanalyzeTruck);
@@ -89,7 +100,7 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
         pnlanalyzeTruckLayout.setHorizontalGroup(
             pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlanalyzeTruckLayout.createSequentialGroup()
-                .addContainerGap(415, Short.MAX_VALUE)
+                .addContainerGap(325, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(305, 305, 305)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,6 +144,10 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZETRUCK));
     }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,7 @@ import dev.senzalla.rectify.enuns.Lab;
 import dev.senzalla.rectify.frame.filter.AnalyzeFilterFrame;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.AnalyzeBiodieselTreatment;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 /**
@@ -46,7 +47,7 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
         pnlAnalyze.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlAnalyze.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Analise Biodiesel");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -65,6 +66,14 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
+
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -81,6 +90,8 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
+        tbl.setShowGrid(true);
         roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlAnalyzeLayout = new javax.swing.GroupLayout(pnlAnalyze);
@@ -88,9 +99,9 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
         pnlAnalyzeLayout.setHorizontalGroup(
             pnlAnalyzeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAnalyzeLayout.createSequentialGroup()
-                .addContainerGap(399, Short.MAX_VALUE)
+                .addContainerGap(376, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(290, 290, 290)
+                .addGap(266, 266, 266)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,6 +145,10 @@ public class AnalyzeBiodieselTableFrame extends javax.swing.JInternalFrame {
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         Access.goToFrame(new AnalyzeFilterFrame(tbl, Lab.ANALYZEBIODIESEL));
     }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

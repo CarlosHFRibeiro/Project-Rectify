@@ -29,7 +29,7 @@ public class DriverRequest extends ConectionMySql {
     }
 
     public Driver selectCnh(String parameter) {
-        Driver driver = new Driver();
+        Driver driver = null;
         try {
             final String SELECT_QUERY = "SELECT * FROM tbl_driver WHERE cnhDriver = ?";
             super.connection();
@@ -37,6 +37,7 @@ public class DriverRequest extends ConectionMySql {
             stmt.setString(1, parameter);
             super.resultSet();
             if (rs.next()) {
+                driver = new Driver();
                 driver.setNameDriver(rs.getString("nameDriver"));
                 driver.setCnhDriver(rs.getString("cnhDriver"));
                 driver.setIdDriver(rs.getLong("idDriver"));

@@ -27,7 +27,7 @@ public class AnalyzeSplitRequest extends ConectionMySql {
             stmt.setDouble(4, analyzeSplit.getTrashPercentSplit());
             stmt.executeUpdate();
         } catch (SQLException ex) {
-            DataBaseException.MsgErrorDataBase(ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Split: " + ex.getMessage());
         } finally {
             super.closeConnection();
         }
@@ -64,7 +64,7 @@ public class AnalyzeSplitRequest extends ConectionMySql {
                 analyzeSplits.add(analyzeSplit);
             }
         } catch (SQLException ex) {
-            DataBaseException.MsgErrorDataBase(ex.getMessage());
+            DataBaseException.MsgErrorDataBase("Split: " + ex.getMessage());
         } finally {
             super.closeConnectionRs();
         }

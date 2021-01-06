@@ -32,22 +32,22 @@ public class AnalyzeSplitTreatment {
         List<String> clause = new ArrayList<>();
         AnalyzeSplit analyzeSplit = new AnalyzeSplit();
         if (idAnalyzeSplit > 0) {
-            clause.add("idSplit =");
+            clause.add("idAnalyzeSplit =");
             analyzeSplit.setIdAnalyzeSplit(idAnalyzeSplit);
         }
         if (dateUntil != null && dateOf != null) {
-            clause.add("dtSplit between");
+            clause.add("dateAnalyzeSplit between");
             analyzeSplit.setDateAnalyzeSplit(dateOf);
             clause.add("");
             analyzeSplit.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtSplit =");
+                clause.add("dateAnalyzeSplit =");
                 analyzeSplit.setDateAnalyzeSplit(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtSplit =");
+                clause.add("dateAnalyzeSplit =");
                 analyzeSplit.setDateAnalyzeSplit(dateUntil);
             }
         }
@@ -62,6 +62,7 @@ public class AnalyzeSplitTreatment {
 
     private static void fillTable(JTable tableAnalyzeSplit, List<AnalyzeSplit> analyzeSplits) {
         DefaultTableModel tableModel = (DefaultTableModel) tableAnalyzeSplit.getModel();
+        tableModel.setNumRows(0);
         analyzeSplits.forEach(analyzeSplit -> tableModel.addRow(new Object[]{
                 analyzeSplit.getIdAnalyzeSplit(),
                 analyzeSplit.getFattyAcidPercentSplit(),

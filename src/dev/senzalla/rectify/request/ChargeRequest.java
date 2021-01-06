@@ -19,7 +19,7 @@ public class ChargeRequest extends ConectionMySql {
     public void insert(Charge charge) {
         try {
             super.connection();
-            final String sql = "INSERT INTO `tbl_charge` (`noteCharge`, `ticketCharge`, `burdenCharge`, `literCharge`, `fkTankCharge`, `fkProviderCharge`, `fkProductCharge`, `fkLabCharge`, `fkDriverCharge`, `boardCharge`, `dtOfCharge`, `dtUpCharge`, `hrOfCharge`, `hrUpCharge`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_charge` (`noteCharge`, `ticketCharge`, `burdenCharge`, `literCharge`, `fkTank`, `fkProvider`, `fkProduct`, `fkAnalyzeTruck`, `fkDriver`, `carPlateCharge`, `dateEntryCharge`, `dateExitCharge`, `timeEntryCharge`, `timeExitCharge`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
             stmt.setInt(1, charge.getNote());
             stmt.setInt(2, charge.getTicket());
@@ -60,19 +60,20 @@ public class ChargeRequest extends ConectionMySql {
             super.prepareStatement(query);
             this.prepareStatement(parameter);
             super.resultSet();
+            System.out.println(stmt);
             while (rs.next()) {
                 Charge charge = new Charge();
                 charge.setId(rs.getLong("idCharge"));
                 charge.setTicket(rs.getInt("ticketCharge"));
                 charge.setLiter(rs.getInt("literCharge"));
-                charge.setDateEntry(rs.getDate("dtOfCharge"));
+                charge.setDateEntry(rs.getDate("dateEntryCharge"));
 
                 charge.setNote(rs.getInt("noteCharge"));
-                charge.setCarPlate(rs.getString("boardCharge"));
+                charge.setCarPlate(rs.getString("carPlateCharge"));
                 charge.setBurden(rs.getInt("burdenCharge"));
-                charge.setDateExit(rs.getDate("dtUpCharge"));
-                charge.setTimeEntry(rs.getTime("hrOfCharge"));
-                charge.setTimeExit(rs.getTime("hrUpCharge"));
+                charge.setDateExit(rs.getDate("dateExitCharge"));
+                charge.setTimeEntry(rs.getTime("timeEntryCharge"));
+                charge.setTimeExit(rs.getTime("timeExitCharge"));
 
                 charge.setProvider(new Provider(rs.getString("nameProvider")));
                 charge.setProduct(new Product(rs.getString("nameProduct")));

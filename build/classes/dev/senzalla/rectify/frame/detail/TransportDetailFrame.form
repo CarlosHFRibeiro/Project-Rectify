@@ -129,7 +129,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="56" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblBurden" min="-2" max="-2" attributes="0"/>
@@ -249,7 +249,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Fornecedor"/>
+            <Property name="text" type="java.lang.String" value="Fornecedor:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblProvider">
@@ -265,7 +265,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Data Entrada"/>
+            <Property name="text" type="java.lang.String" value="Data Entrada:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDateEntry">
@@ -281,7 +281,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hora Entrada"/>
+            <Property name="text" type="java.lang.String" value="Hora Entrada:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTimeEntry">
@@ -297,7 +297,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nota N&#xb0;"/>
+            <Property name="text" type="java.lang.String" value="Nota N&#xb0;:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNote">
@@ -313,7 +313,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ticket"/>
+            <Property name="text" type="java.lang.String" value="Ticket:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTicket">
@@ -329,7 +329,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Placa"/>
+            <Property name="text" type="java.lang.String" value="Placa:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCarPlate">
@@ -345,7 +345,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CNH"/>
+            <Property name="text" type="java.lang.String" value="CNH:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCnh">
@@ -361,7 +361,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Motorista"/>
+            <Property name="text" type="java.lang.String" value="Motorista:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDriver">
@@ -377,7 +377,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Data Saida"/>
+            <Property name="text" type="java.lang.String" value="Data Saida:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDateExit">
@@ -393,7 +393,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Hora Saida"/>
+            <Property name="text" type="java.lang.String" value="Hora Saida:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTimeExit">
@@ -409,7 +409,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Produto"/>
+            <Property name="text" type="java.lang.String" value="Produto:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblProduct">
@@ -433,7 +433,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Acidez"/>
+            <Property name="text" type="java.lang.String" value="Acidez:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAcidity">
@@ -449,7 +449,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Saponidade"/>
+            <Property name="text" type="java.lang.String" value="Saponidade:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSaponity">
@@ -465,7 +465,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Densidade"/>
+            <Property name="text" type="java.lang.String" value="Densidade:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDensity">
@@ -481,7 +481,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Impureza"/>
+            <Property name="text" type="java.lang.String" value="Impureza:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTrash">
@@ -497,7 +497,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Peso"/>
+            <Property name="text" type="java.lang.String" value="Peso:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblBurden">
@@ -513,7 +513,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Litros"/>
+            <Property name="text" type="java.lang.String" value="Litros:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLiter">
@@ -529,7 +529,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Tanque"/>
+            <Property name="text" type="java.lang.String" value="Tanque:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTank">

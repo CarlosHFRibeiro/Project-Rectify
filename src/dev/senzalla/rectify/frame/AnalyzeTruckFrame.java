@@ -56,14 +56,14 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         pnlanalyzeTruck.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlanalyzeTruck.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Analise Caminhão");
 
         lblAcid.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAcid.setText("Acidez");
 
         txtAcid.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAcid.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtAcid.setPreferredSize(new java.awt.Dimension(150, 32));
         txtAcid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAcidKeyTyped(evt);
@@ -82,7 +82,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         lblSoap.setText("Saponidade");
 
         txtSoap.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtSoap.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtSoap.setPreferredSize(new java.awt.Dimension(150, 32));
         txtSoap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSoapKeyTyped(evt);
@@ -101,7 +101,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         lblDens.setText("Densidade");
 
         txtDens.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtDens.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtDens.setPreferredSize(new java.awt.Dimension(150, 32));
         txtDens.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDensKeyTyped(evt);
@@ -113,7 +113,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
 
         txtTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtTrash.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtTrash.setPreferredSize(new java.awt.Dimension(150, 27));
+        txtTrash.setPreferredSize(new java.awt.Dimension(150, 32));
         txtTrash.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTrashKeyTyped(evt);
@@ -172,55 +172,55 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                         .addGap(332, 332, 332)
-                        .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSoap)
-                            .addComponent(lblTrash)
-                            .addComponent(lblCollect)
-                            .addComponent(lblSplit)
-                            .addComponent(lblDens)
-                            .addComponent(lblAcid))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbxCollect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbxSplit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlanalyzeTruckLayout.createSequentialGroup()
-                                    .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlanalyzeTruckLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitle)
-                        .addGap(146, 146, 146)))
-                .addGap(97, 249, Short.MAX_VALUE))
+                            .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
+                                .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblSoap)
+                                    .addComponent(lblTrash)
+                                    .addComponent(lblCollect)
+                                    .addComponent(lblSplit)
+                                    .addComponent(lblDens)
+                                    .addComponent(lblAcid))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
+                                        .addComponent(txtSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxCollect, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
+                                        .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(lblTitle)))))
+                .addGap(219, 249, Short.MAX_VALUE))
         );
         pnlanalyzeTruckLayout.setVerticalGroup(
             pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(23, 23, 23)
+                .addGap(29, 29, 29)
                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblSplit)
                     .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                         .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAcid)
-                            .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblAcid)))
-                        .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
+                                .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAcid)
+                                    .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblAcid)))
                                 .addGap(37, 37, 37)
                                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtSoap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblSoap)))
-                            .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSoap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +235,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
                             .addComponent(lblCollect))
                         .addGap(36, 36, 36)
                         .addComponent(cbxSplit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(131, 131, 131)
+                .addGap(107, 107, 107)
                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +293,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         if (TxtTreatment.isTextFieldEmpty(pnlanalyzeTruck) && cbxCollect.getSelectedIndex() > 0) {
             new AnalyzeTruckTreatment().saveAnalyzeTruck(txtAcid.getText(), txtSoap.getText(), txtDens.getText(), txtTrash.getText(), cbxCollect.getSelectedIndex());
             if (cbxSplit.getSelectedIndex() > 0) {
-                new AnalyzeTruckTreatment().saveAnalyzeTruckSplit((Long) cbxSplit.getSelectedItem());
+                new AnalyzeTruckTreatment().saveAnalyzeTruckSplit(Long.valueOf(cbxSplit.getSelectedItem().toString()));
             }
             TxtTreatment.cleanTextField(pnlanalyzeTruck);
             ComboBoxTreatment.cleanCbx(pnlanalyzeTruck);

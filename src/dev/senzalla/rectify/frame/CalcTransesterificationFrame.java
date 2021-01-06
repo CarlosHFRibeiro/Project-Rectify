@@ -57,7 +57,7 @@ public class CalcTransesterificationFrame extends javax.swing.JInternalFrame {
         pnlCalcTrans.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlCalcTrans.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Calculadora de Transesterificação");
 
         lblAcid.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -209,7 +209,7 @@ public class CalcTransesterificationFrame extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlCalcTransLayout.createSequentialGroup()
-                        .addGap(300, 300, 300)
+                        .addGap(252, 252, 252)
                         .addComponent(lblTitle)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

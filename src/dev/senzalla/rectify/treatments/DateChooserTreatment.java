@@ -24,16 +24,23 @@ public class DateChooserTreatment {
         }
     }
 
-    public static boolean isDateChooserNull(JPanel pnl) {
 
+    public static boolean isDateChooserNull(JPanel panel) {
+        return dtcChooser(panel).stream().noneMatch(Objects::isNull);
+    }
+
+    public static boolean isDateChooserFilterNull(JPanel panel) {
+        return dtcChooser(panel).stream().anyMatch(Objects::nonNull);
+    }
+
+    private static List<Date> dtcChooser(JPanel panel) {
         List<Date> dtcChooser = new ArrayList<>();
-        for (Component c : pnl.getComponents()) {
+        for (Component c : panel.getComponents()) {
             if (c instanceof JDateChooser) {
                 JDateChooser dtc = (JDateChooser) c;
                 dtcChooser.add(dtc.getDate());
             }
         }
-
-        return dtcChooser.stream().noneMatch(Objects::isNull);
+        return dtcChooser;
     }
 }

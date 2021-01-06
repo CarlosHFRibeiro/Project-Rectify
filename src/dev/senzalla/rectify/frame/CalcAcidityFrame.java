@@ -3,10 +3,7 @@ package dev.senzalla.rectify.frame;
 import dev.senzalla.rectify.calc.CalcAcidity;
 import dev.senzalla.rectify.frame.panel.KohPanel;
 import dev.senzalla.rectify.frame.panel.OleicPanel;
-import dev.senzalla.rectify.treatments.ComboBoxTreatment;
-import dev.senzalla.rectify.treatments.NaohTreatment;
-import dev.senzalla.rectify.treatments.NumberField;
-import dev.senzalla.rectify.treatments.TxtTreatment;
+import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
@@ -63,7 +60,7 @@ public class CalcAcidityFrame extends javax.swing.JInternalFrame {
         pnlCalcAcidity.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlCalcAcidity.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Calculadora Acidez");
 
         lblConcentration.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -97,7 +94,7 @@ public class CalcAcidityFrame extends javax.swing.JInternalFrame {
         btgCalcAcidity.add(rbtnOther);
         rbtnOther.setText("Demais Produtos");
 
-        btnCalc.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        btnCalc.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnCalc.setText("Calcular");
         btnCalc.setPreferredSize(new java.awt.Dimension(500, 90));
         btnCalc.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +124,7 @@ public class CalcAcidityFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(387, 387, 387))
+                .addGap(360, 360, 360))
             .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
                 .addGroup(pnlCalcAcidityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCalcAcidityLayout.createSequentialGroup()
@@ -178,7 +175,7 @@ public class CalcAcidityFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
                 .addComponent(pnlCalc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -196,20 +193,22 @@ public class CalcAcidityFrame extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
-        if (TxtTreatment.isTextFieldEmpty(pnlCalcAcidity) && btgCalcAcidity.getSelection() != null && ComboBoxTreatment.isCbxEmpty(pnlCalcAcidity)) {
+        if (TxtTreatment.isTextFieldEmpty(pnlCalcAcidity) && btgCalcAcidity.getSelection() != null && cbxConcentration.getSelectedIndex() >= 0) {
             if (pnlCalc.getComponents().length > 0) {
                 pnlCalc.removeAll();
             }
             pnlCalc.setLayout(new GridLayout());
-            CalcAcidity calcAcidity = new CalcAcidity((Double) cbxConcentration.getSelectedItem(), txtVolumeSolution.getText(), txtSampleWeight.getText());
+            CalcAcidity calcAcidity = new CalcAcidity(cbxConcentration.getSelectedItem().toString(), txtVolumeSolution.getText(), txtSampleWeight.getText());
             if (rbtnBio.isSelected()) {
                 pnlCalc.add(new OleicPanel(calcAcidity.getAcidity())).setVisible(true);
-
             } else {
                 pnlCalc.add(new KohPanel(calcAcidity.getIndice())).setVisible(true);
             }
-            txtLabAcidity.setText(calcAcidity.getAcidity() != null ? calcAcidity.getAcidity() : calcAcidity.getIndice());
-
+            if (txtLabAcidity != null) {
+                txtLabAcidity.setText(calcAcidity.getAcidity() != null ? calcAcidity.getAcidity() : calcAcidity.getIndice());
+            }
+        } else {
+            PopUp.fieldIsEmpty();
         }
     }//GEN-LAST:event_btnCalcActionPerformed
 

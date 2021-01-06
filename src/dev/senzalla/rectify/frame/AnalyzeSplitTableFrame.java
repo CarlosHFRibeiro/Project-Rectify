@@ -91,8 +91,8 @@ public class AnalyzeSplitTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
         tbl.setShowGrid(true);
-        tbl.setShowVerticalLines(false);
         roll.setViewportView(tbl);
 
         javax.swing.GroupLayout pnlLabSplitLayout = new javax.swing.GroupLayout(pnlLabSplit);
