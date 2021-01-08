@@ -18,6 +18,9 @@ import java.util.List;
  */
 public class StockTankRequest extends ConectionMySql {
 
+
+
+
     public void insert(StockTank stockTank) {
         try {
             super.connection();

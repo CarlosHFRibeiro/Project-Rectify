@@ -32,26 +32,25 @@ public class MatterPanelDetail extends javax.swing.JPanel {
         jlabelLiter = new javax.swing.JLabel();
         lblLiter = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(600, 60));
-        setMinimumSize(new java.awt.Dimension(600, 60));
-        setPreferredSize(new java.awt.Dimension(600, 60));
+        setMaximumSize(new java.awt.Dimension(580, 80));
+        setMinimumSize(new java.awt.Dimension(580, 80));
+        setPreferredSize(new java.awt.Dimension(580, 80));
 
         pnlMatter.setBorder(javax.swing.BorderFactory.createTitledBorder("Produto"));
         pnlMatter.setMaximumSize(new java.awt.Dimension(476, 48));
         pnlMatter.setMinimumSize(new java.awt.Dimension(476, 48));
         pnlMatter.setPreferredSize(new java.awt.Dimension(476, 48));
 
-        jlabelProduct.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jlabelProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelProduct.setText("Produto");
 
-        lblProduct.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProduct.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblProduct.setText("Produto");
 
-        jlabelLiter.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jlabelLiter.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelLiter.setText("Litros");
 
-        lblLiter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblLiter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblLiter.setText("Litros");
 
         javax.swing.GroupLayout pnlMatterLayout = new javax.swing.GroupLayout(pnlMatter);
@@ -63,11 +62,11 @@ public class MatterPanelDetail extends javax.swing.JPanel {
                 .addComponent(jlabelProduct)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblProduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addComponent(jlabelLiter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLiter)
-                .addGap(89, 89, 89))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         pnlMatterLayout.setVerticalGroup(
             pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,20 +77,20 @@ public class MatterPanelDetail extends javax.swing.JPanel {
                     .addComponent(jlabelLiter)
                     .addComponent(lblProduct)
                     .addComponent(lblLiter))
-                .addGap(12, 12, 12))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

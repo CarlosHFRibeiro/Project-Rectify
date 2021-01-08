@@ -229,6 +229,7 @@ public class SampleFrame extends javax.swing.JInternalFrame {
             new SampleTreatment().saveSample(txtSale.getText(), txtFactory.getText(), txtClient.getText(), txtBr.getText(), (Provider) cbxProvider.getSelectedItem());
             TxtTreatment.cleanTextField(pnlSeal);
             ComboBoxTreatment.cleanCbx(pnlSeal);
+            
         } else {
             PopUp.fieldIsEmpty();
         }

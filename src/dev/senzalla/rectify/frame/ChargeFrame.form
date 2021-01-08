@@ -118,7 +118,7 @@
                                   <Component id="cbxProduct" alignment="0" max="32767" attributes="0"/>
                                   <Component id="cbxProvider" alignment="0" max="32767" attributes="0"/>
                                   <Component id="cbxTank" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbxanalyzeTruck" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="cbxAnalyzeTruck" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -201,7 +201,7 @@
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblanalyzeTruck" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbxanalyzeTruck" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxAnalyzeTruck" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -470,7 +470,7 @@
                 <Property name="text" type="java.lang.String" value="Analise"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbxanalyzeTruck">
+            <Component class="javax.swing.JComboBox" name="cbxAnalyzeTruck">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="1"/>
@@ -479,6 +479,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cbxAnalyzeTruckFocusGained"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
               </AuxValues>
@@ -541,6 +544,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cbxTankFocusGained"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Object&gt;"/>
               </AuxValues>

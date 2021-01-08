@@ -93,6 +93,9 @@ public class TransportDetailFrame extends javax.swing.JFrame {
         lblTank = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(550, 615));
+        setMinimumSize(new java.awt.Dimension(550, 615));
+        setPreferredSize(new java.awt.Dimension(550, 615));
         setResizable(false);
 
         pnlDetail.setMaximumSize(new java.awt.Dimension(400, 765));
@@ -106,115 +109,115 @@ public class TransportDetailFrame extends javax.swing.JFrame {
             }
         });
 
-        jlabelProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelProvider.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelProvider.setText("Fornecedor:");
 
-        lblProvider.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProvider.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblProvider.setText("Fornecedor");
 
-        jlabelDateEntry.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelDateEntry.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelDateEntry.setText("Data Entrada:");
 
-        lblDateEntry.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDateEntry.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDateEntry.setText("Data Entrada");
 
-        jlabelTimeEntry.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelTimeEntry.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelTimeEntry.setText("Hora Entrada:");
 
-        lblTimeEntry.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTimeEntry.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTimeEntry.setText("Hora Entrada");
 
-        jlabelNote.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelNote.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelNote.setText("Nota N°:");
 
-        lblNote.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNote.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblNote.setText("Nota");
 
-        jlabelTicket.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelTicket.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelTicket.setText("Ticket:");
 
-        lblTicket.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTicket.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTicket.setText("Ticket");
 
-        jlabelCarPlate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelCarPlate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelCarPlate.setText("Placa:");
 
-        lblCarPlate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCarPlate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCarPlate.setText("Placa");
 
-        jlabelCnh.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelCnh.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelCnh.setText("CNH:");
 
-        lblCnh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCnh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCnh.setText("Cnh");
 
-        jlabelDriver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelDriver.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelDriver.setText("Motorista:");
 
-        lblDriver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDriver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDriver.setText("Motorista");
 
-        jlabelDateExit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelDateExit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelDateExit.setText("Data Saida:");
 
-        lblDateExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDateExit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDateExit.setText("Data Saida");
 
-        jlabelTiemExit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelTiemExit.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelTiemExit.setText("Hora Saida:");
 
-        lblTimeExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTimeExit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTimeExit.setText("Hora Saida");
 
-        jlabelProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelProduct.setText("Produto:");
 
-        lblProduct.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblProduct.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblProduct.setText("Produto");
 
-        jlabelAnalyze.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelAnalyze.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jlabelAnalyze.setText("Analise");
 
-        jlabelAcidity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlabelAcidity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelAcidity.setText("Acidez:");
 
-        lblAcidity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblAcidity.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAcidity.setText("Acidez");
 
-        jlabelSaponity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlabelSaponity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jlabelSaponity.setText("Saponidade:");
 
-        lblSaponity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblSaponity.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblSaponity.setText("Saponidade");
 
-        jlabelDensity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlabelDensity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelDensity.setText("Densidade:");
 
-        lblDensity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDensity.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDensity.setText("Densidade");
 
-        jlabelTrash.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jlabelTrash.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jlabelTrash.setText("Impureza:");
 
-        lblTrash.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblTrash.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTrash.setText("Impureza");
 
-        jlabelBurden.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelBurden.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelBurden.setText("Peso:");
 
-        lblBurden.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBurden.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblBurden.setText("Peso");
 
-        jlabelLiter.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelLiter.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelLiter.setText("Litros:");
 
-        lblLiter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblLiter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblLiter.setText("Litros");
 
-        jlabelTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelTank.setText("Tanque:");
 
-        lblTank.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTank.setText("Tanque");
 
         javax.swing.GroupLayout pnlDetailLayout = new javax.swing.GroupLayout(pnlDetail);
@@ -251,7 +254,7 @@ public class TransportDetailFrame extends javax.swing.JFrame {
                                         .addComponent(jlabelTrash))
                                     .addGroup(pnlDetailLayout.createSequentialGroup()
                                         .addComponent(lblAcidity)
-                                        .addGap(45, 45, 45)
+                                        .addGap(78, 78, 78)
                                         .addComponent(jlabelSaponity)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +285,7 @@ public class TransportDetailFrame extends javax.swing.JFrame {
                                     .addComponent(lblTicket)
                                     .addComponent(lblTimeEntry)
                                     .addComponent(lblCnh))))
-                        .addContainerGap(48, Short.MAX_VALUE))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(pnlDetailLayout.createSequentialGroup()
                         .addComponent(lblBurden)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -304,19 +307,19 @@ public class TransportDetailFrame extends javax.swing.JFrame {
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelProvider)
                     .addComponent(lblProvider))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelDateEntry)
                     .addComponent(lblDateEntry)
                     .addComponent(jlabelTimeEntry)
                     .addComponent(lblTimeEntry))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelNote)
                     .addComponent(lblNote)
                     .addComponent(lblTicket)
                     .addComponent(jlabelTicket))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlabelCnh)
@@ -324,21 +327,21 @@ public class TransportDetailFrame extends javax.swing.JFrame {
                     .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jlabelCarPlate)
                         .addComponent(lblCarPlate)))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelDriver)
                     .addComponent(lblDriver))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelDateExit)
                     .addComponent(lblDateExit)
                     .addComponent(jlabelTiemExit)
                     .addComponent(lblTimeExit))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelProduct)
                     .addComponent(lblProduct))
-                .addGap(27, 27, 27)
+                .addGap(21, 21, 21)
                 .addComponent(jlabelAnalyze)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -352,31 +355,28 @@ public class TransportDetailFrame extends javax.swing.JFrame {
                     .addComponent(lblDensity)
                     .addComponent(jlabelTrash)
                     .addComponent(lblTrash))
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelBurden)
                     .addComponent(lblBurden)
                     .addComponent(jlabelLiter)
                     .addComponent(lblLiter))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(pnlDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabelTank)
                     .addComponent(lblTank))
-                .addGap(27, 27, 27))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(pnlDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(pnlDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
+            .addComponent(pnlDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 615, Short.MAX_VALUE)
         );
 
         pack();

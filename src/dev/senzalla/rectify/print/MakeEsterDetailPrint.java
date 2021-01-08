@@ -7,6 +7,10 @@ import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.enuns.FontEnum;
 import dev.senzalla.rectify.treatments.DateTreatment;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
 /**
@@ -64,8 +68,8 @@ public class MakeEsterDetailPrint extends ModelPrint {
 
             setLogo();
             document.close();
-//            Desktop.getDesktop().open(new File(archive));
-        } catch (DocumentException e) {
+            Desktop.getDesktop().open(new File(archive));
+        } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
     }

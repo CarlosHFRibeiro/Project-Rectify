@@ -58,34 +58,36 @@ public class SampleFilterFrame extends javax.swing.JFrame {
 
         pnlSample.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Filtro de Amostras");
 
-        lblAuction.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAuction.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblAuction.setText("Leilão");
 
-        cbxAuction.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cbxAuction.setPreferredSize(new java.awt.Dimension(34, 27));
+        cbxAuction.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        cbxAuction.setPreferredSize(new java.awt.Dimension(34, 30));
 
-        lblProvider.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblProvider.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblProvider.setText("Parceira");
 
-        cbxProvider.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cbxProvider.setPreferredSize(new java.awt.Dimension(34, 27));
+        cbxProvider.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        cbxProvider.setPreferredSize(new java.awt.Dimension(34, 30));
 
-        lblDateOf.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDateOf.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblDateOf.setText("De");
 
         dtcDateOf.setDateFormatString("dd/MM/yyyy");
+        dtcDateOf.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         dtcDateOf.setMaxSelectableDate(new java.util.Date(253370782899000L));
 
-        lblDataUntil.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDataUntil.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblDataUntil.setText("Ate");
 
         dtcDateUntil.setDateFormatString("dd/MM/yyyy");
+        dtcDateUntil.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         dtcDateUntil.setMaxSelectableDate(new java.util.Date(253370782899000L));
 
-        btnSearch.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSearch.setText("Buscar");
         btnSearch.setPreferredSize(new java.awt.Dimension(97, 35));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +96,7 @@ public class SampleFilterFrame extends javax.swing.JFrame {
             }
         });
 
-        btnClean.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClean.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnClean.setText("Limpar");
         btnClean.setPreferredSize(new java.awt.Dimension(97, 35));
         btnClean.addActionListener(new java.awt.event.ActionListener() {
@@ -106,73 +108,73 @@ public class SampleFilterFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout pnlSampleLayout = new javax.swing.GroupLayout(pnlSample);
         pnlSample.setLayout(pnlSampleLayout);
         pnlSampleLayout.setHorizontalGroup(
-                pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                                .addGap(20, 20, 20)
-                                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(lblProvider)
-                                                        .addComponent(lblAuction)
-                                                        .addComponent(lblDateOf))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(cbxAuction, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(dtcDateOf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                                .addGap(90, 90, 90)
-                                                .addComponent(lblTitle))
-                                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                                .addGap(50, 50, 50)
-                                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                                                .addComponent(lblDataUntil)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(dtcDateUntil, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(20, 20, 20))
+            pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSampleLayout.createSequentialGroup()
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlSampleLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblProvider)
+                            .addComponent(lblAuction)
+                            .addComponent(lblDateOf))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxAuction, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dtcDateOf, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlSampleLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlSampleLayout.createSequentialGroup()
+                                .addComponent(lblDataUntil)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dtcDateUntil, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlSampleLayout.createSequentialGroup()
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSampleLayout.createSequentialGroup()
+                .addComponent(lblTitle)
+                .addGap(66, 66, 66))
         );
         pnlSampleLayout.setVerticalGroup(
-                pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlSampleLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(lblTitle)
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblAuction)
-                                        .addComponent(cbxAuction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblProvider)
-                                        .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDateOf)
-                                        .addComponent(dtcDateOf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblDataUntil)
-                                        .addComponent(dtcDateUntil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)
-                                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30))
+            pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSampleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addGap(27, 27, 27)
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAuction)
+                    .addComponent(cbxAuction, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProvider)
+                    .addComponent(cbxProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDateOf)
+                    .addComponent(dtcDateOf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDataUntil)
+                    .addComponent(dtcDateUntil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(pnlSampleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlSample, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlSample, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnlSample, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlSample, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

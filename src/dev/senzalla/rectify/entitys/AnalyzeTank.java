@@ -12,6 +12,8 @@ import java.sql.Time;
  * @github github.com/Bomsalvez
  */
 public class AnalyzeTank extends DateTreatment {
+
+    
     private Long idAnalyzeTank;
     private int trashTank;
     private double acidityTank;

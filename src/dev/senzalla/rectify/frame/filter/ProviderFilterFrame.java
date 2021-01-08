@@ -51,13 +51,15 @@ public class ProviderFilterFrame extends javax.swing.JFrame {
 
         pnlProvider.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Filtro de Fornecedor");
 
-        lblName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblName.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblName.setText("Nome");
 
-        btnSearch.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtName.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSearch.setText("Buscar");
         btnSearch.setPreferredSize(new java.awt.Dimension(97, 35));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +68,7 @@ public class ProviderFilterFrame extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnCancel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnCancel.setText("Limpar");
         btnCancel.setPreferredSize(new java.awt.Dimension(97, 35));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +84,7 @@ public class ProviderFilterFrame extends javax.swing.JFrame {
             .addGroup(pnlProviderLayout.createSequentialGroup()
                 .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlProviderLayout.createSequentialGroup()
-                        .addGap(89, 89, 89)
+                        .addGap(68, 68, 68)
                         .addComponent(lblTitle))
                     .addGroup(pnlProviderLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -101,9 +103,9 @@ public class ProviderFilterFrame extends javax.swing.JFrame {
         pnlProviderLayout.setVerticalGroup(
             pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProviderLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(29, 29, 29)
+                .addGap(21, 21, 21)
                 .addGroup(pnlProviderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -26,6 +26,7 @@ public class StockTankPrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Estoque do Tanque");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable(DateTreatment.convertDateUtil(stockTanks.get(0).getDateStockTank()));
@@ -46,7 +47,6 @@ public class StockTankPrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
             document.close();
         } catch (DocumentException e) {
             e.printStackTrace();

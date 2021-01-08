@@ -25,6 +25,7 @@ public class StockProductPrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Estoque do Produto");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable(DateTreatment.convertDateUtil(stockProducts.get(0).getDateStockProduct()));
@@ -45,7 +46,6 @@ public class StockProductPrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
             document.close();
         } catch (DocumentException e) {
             e.printStackTrace();

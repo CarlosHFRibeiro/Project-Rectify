@@ -102,6 +102,19 @@ public class StockTankTreatment {
         }));
     }
 
+    public static List<StockTank> setFilterComboBoxTank(Product product, Date dateEntry, Date dateExit) {
+        List<String> clause = new ArrayList<>();
+        StockTank stockTank = new StockTank();
+        clause.add("nameProduct =");
+        stockTank.setProduct(product);
+        clause.add("dateStockTank between");
+        stockTank.setDateStockTank(dateEntry);
+        clause.add("");
+        stockTank.setDateBetween(dateExit);
+        System.out.println(stockTank);
+        return new StockTankRequest().select(clause, stockTank);
+    }
+
     private int litter(JTable tableStockTankAdd, int i, Tank tank) {
         final int colummLiter = 2;
         Object litterTbl = tableStockTankAdd.getValueAt(i, colummLiter);

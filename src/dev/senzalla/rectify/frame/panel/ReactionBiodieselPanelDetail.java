@@ -44,7 +44,6 @@ public class ReactionBiodieselPanelDetail extends javax.swing.JPanel {
         jlabelTrash = new javax.swing.JLabel();
         lblTrash = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setMaximumSize(new java.awt.Dimension(600, 224));
         setMinimumSize(new java.awt.Dimension(600, 224));
         setPreferredSize(new java.awt.Dimension(600, 224));
@@ -173,7 +172,7 @@ public class ReactionBiodieselPanelDetail extends javax.swing.JPanel {
                     .addComponent(lblMethylate)
                     .addComponent(jlabelTimeFinal)
                     .addComponent(lblTimeFinal))
-                .addGap(18, 24, Short.MAX_VALUE)
+                .addGap(18, 28, Short.MAX_VALUE)
                 .addComponent(jlabelAnlyze)
                 .addGap(8, 8, 8)
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,11 +192,11 @@ public class ReactionBiodieselPanelDetail extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE)
+            .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlReact, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(pnlReact, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

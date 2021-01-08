@@ -57,21 +57,22 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
 
         pnlLab.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTitle.setText("Filtro Analise");
 
-        lblCod.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCod.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblCod.setText("Cod.");
 
-        spnCod.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        spnCod.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         spnCod.setPreferredSize(new java.awt.Dimension(70, 27));
 
-        lblDt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDt.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblDt.setText("De");
 
         dtcDt.setDateFormatString("dd/MM/yyyy");
+        dtcDt.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
-        btnSearch.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSearch.setText("Buscar");
         btnSearch.setPreferredSize(new java.awt.Dimension(97, 35));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +81,7 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
             }
         });
 
-        btnClean.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnClean.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnClean.setText("Limpar");
         btnClean.setPreferredSize(new java.awt.Dimension(97, 35));
         btnClean.addActionListener(new java.awt.event.ActionListener() {
@@ -89,10 +90,11 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
             }
         });
 
-        lblDtAte.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDtAte.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         lblDtAte.setText("Ate");
 
         dtcDtAte.setDateFormatString("dd/MM/yyyy");
+        dtcDtAte.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout pnlLabLayout = new javax.swing.GroupLayout(pnlLab);
         pnlLab.setLayout(pnlLabLayout);
@@ -106,9 +108,7 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
                             .addGroup(pnlLabLayout.createSequentialGroup()
                                 .addComponent(lblCod)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTitle)
-                                    .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlLabLayout.createSequentialGroup()
                                 .addComponent(lblDt)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,15 +121,18 @@ public class AnalyzeFilterFrame extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLabLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lblTitle)))
                 .addGap(21, 21, 21))
         );
         pnlLabLayout.setVerticalGroup(
             pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(pnlLabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCod)
                     .addComponent(spnCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

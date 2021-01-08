@@ -12,6 +12,7 @@ import java.sql.Time;
  * @github github.com/Bomsalvez
  */
 public class AnalyzeTruck extends DateTreatment {
+
     private Long idAnalyzeTruck;
     private int trashTruck;
     private double acidityTruck;
@@ -21,6 +22,13 @@ public class AnalyzeTruck extends DateTreatment {
     private Date dateAnalyzeTruck;
     private Time timeAnalyzeTruck;
     private Product product;
+
+    public AnalyzeTruck() {
+    }
+
+    public AnalyzeTruck(Product product) {
+        this.product = product;
+    }
 
     public Long getIdAnalyzeTruck() {
         return idAnalyzeTruck;

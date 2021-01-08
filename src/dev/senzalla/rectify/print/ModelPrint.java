@@ -35,7 +35,6 @@ public class ModelPrint {
 
     protected void setPdfPTable(String archive) {
         try {
-
             DIR.mkdir();
             document = new Document();
             document.setMargins(-35, -40, 30, 5);
@@ -77,14 +76,6 @@ public class ModelPrint {
         pdfPTable.addCell(cell);
     }
 
-    protected void setParagraph(String key, FontEnum fontKey) {
-        PdfPCell cell = new PdfPCell();
-        cell.addElement(new Phrase(key, getFonts(fontKey)));
-        cell.setBorder(Rectangle.NO_BORDER);
-        cell.setHorizontalAlignment(align);
-        pdfPTable.addCell(cell);
-    }
-
     protected void setPhrase(String key, String value) {
         try {
             Paragraph paragraph = new Paragraph();
@@ -115,6 +106,5 @@ public class ModelPrint {
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
-
     }
 }

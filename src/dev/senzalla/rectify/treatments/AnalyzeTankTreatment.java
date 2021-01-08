@@ -24,7 +24,7 @@ public class AnalyzeTankTreatment {
         comboBoxAnalyze.addItem("Cod Analise");
         new AnalyzeTankRequest().select(null, analyzeTank).forEach(comboBoxAnalyze::addItem);
     }
-
+    
     public static void initTable(JTable tableAnalyzeTank) {
         fillTable(tableAnalyzeTank, new AnalyzeTankRequest().select(null, null));
     }
@@ -75,6 +75,8 @@ public class AnalyzeTankTreatment {
             analyzeTank.getTimeAnalyzeTank()
         }));
     }
+
+   
 
     public void saveLabTank(Tank tank, String acidity, String saponity, String trash) {
         AnalyzeTank analyzeTank = new AnalyzeTank();

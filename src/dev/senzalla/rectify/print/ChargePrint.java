@@ -28,6 +28,7 @@ public class ChargePrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Carregameto");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable(convertDateUtil(charges.get(0).getDateEntry()));
@@ -51,7 +52,7 @@ public class ChargePrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
+
             document.close();
             Desktop.getDesktop().open(new File(archive));
         } catch (DocumentException | IOException e) {

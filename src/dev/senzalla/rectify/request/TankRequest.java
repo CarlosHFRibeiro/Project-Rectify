@@ -1,10 +1,12 @@
 package dev.senzalla.rectify.request;
 
+import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.exception.DataBaseException;
 import dev.senzalla.rectify.setting.ConectionMySql;
 import dev.senzalla.rectify.treatments.QueryTreatment;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

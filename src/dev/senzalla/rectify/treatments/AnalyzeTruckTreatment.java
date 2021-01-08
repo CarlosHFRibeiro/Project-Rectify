@@ -10,10 +10,7 @@ import dev.senzalla.rectify.request.AnalyzeTruckSplitRequest;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static dev.senzalla.rectify.treatments.DateTreatment.convertDateUtil;
 
@@ -34,6 +31,13 @@ public class AnalyzeTruckTreatment {
         cbx.removeAllItems();
         cbx.addItem("Cod. Analise");
         new AnalyzeTruckRequest().select(null, null).forEach(cbx::addItem);
+    }
+    
+    
+    public static void setFilterComboBox(JComboBox<Object> cbxTank, Product product) {
+        cbxTank.removeAllItems();
+        cbxTank.addItem("Cod. Analise");
+        new AnalyzeTruckRequest().select(Collections.singletonList("nameProduct ="), new AnalyzeTruck(product)).forEach(cbxTank::addItem);
     }
 
     public static void initTable(JTable tableAnalyzeTruck) {
@@ -88,6 +92,7 @@ public class AnalyzeTruckTreatment {
             analyzeTruck.getTimeAnalyzeTruck()
         }));
     }
+
 
     public void saveAnalyzeTruck(String acidity, String Saponity, String density, String trash, int collect, Product product) {
         AnalyzeTruck analyzeTruck = new AnalyzeTruck();

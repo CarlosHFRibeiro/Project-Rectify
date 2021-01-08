@@ -62,6 +62,7 @@ public class AnalyzeTruckRequest extends ConectionMySql {
             super.prepareStatement(query);
             this.prepareStatement(parameter);
             super.resultSet();
+            System.out.println(stmt);
             while (rs.next()) {
                 AnalyzeTruck analyzeTruck = new AnalyzeTruck();
                 analyzeTruck.setIdAnalyzeTruck(rs.getLong("idAnalyzeTruck"));
@@ -93,7 +94,10 @@ public class AnalyzeTruckRequest extends ConectionMySql {
                 stmt.setDate(i++, parameter.getDateAnalyzeTruck());
             }
             if (parameter.getDateBetween() != null) {
-                stmt.setDate(i, parameter.getDateBetween());
+                stmt.setDate(i++, parameter.getDateBetween());
+            }
+            if (parameter.getProduct() != null) {
+                stmt.setLong(i, parameter.getProduct().getIdProduct());
             }
         }
     }

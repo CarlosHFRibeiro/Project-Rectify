@@ -82,10 +82,10 @@ public class MakeBiodieselDetaisFrame extends javax.swing.JFrame {
             }
         });
 
-        lblTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTank.setText("Tanque");
 
-        lblNameTank.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNameTank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblNameTank.setText("Tanque");
 
         javax.swing.GroupLayout pnlMatterLayout = new javax.swing.GroupLayout(pnlMatter);
@@ -99,10 +99,10 @@ public class MakeBiodieselDetaisFrame extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lblAmount.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAmount.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAmount.setText("Quantidade Produto");
 
-        lblAmountProduct.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAmountProduct.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAmountProduct.setText("Quantidade");
 
         javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
@@ -116,16 +116,16 @@ public class MakeBiodieselDetaisFrame extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        lblProduced.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblProduced.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblProduced.setText("Produzido");
 
-        lblAmountProduced.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAmountProduced.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAmountProduced.setText("Produzido");
 
-        lblTrash.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTrash.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTrash.setText("Residuo");
 
-        lblAmountTrash.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblAmountTrash.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAmountTrash.setText("Trash");
 
         javax.swing.GroupLayout pnlDetailLayout = new javax.swing.GroupLayout(pnlDetail);
@@ -195,7 +195,7 @@ public class MakeBiodieselDetaisFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

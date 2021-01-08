@@ -29,6 +29,7 @@ public class DchargePrint extends ModelPrint {
             setTable("Descarregamento");
             setTable(convertDateUtil(dcharges.get(0).getDateEntry()));
             document.add(pdfPTable);
+            setLogo();
 
             configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
             List<String> header = Arrays.asList("Cod", "Data Entrada", "Ticket", "Fornecedor", "Produto", "Litros");
@@ -48,7 +49,7 @@ public class DchargePrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
+
             document.close();
             Desktop.getDesktop().open(new File(archive));
         } catch (DocumentException | IOException e) {

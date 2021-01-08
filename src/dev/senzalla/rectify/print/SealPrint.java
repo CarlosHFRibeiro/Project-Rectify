@@ -26,6 +26,7 @@ public class SealPrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Coletas de Biodiesel");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(6, FontEnum.SUBTITLE, BaseColor.LIGHT_GRAY, Element.ALIGN_CENTER);
             List<String> header = Arrays.asList("Leilão", "Empresa", "Fabrica", "Petrobras", "Cliente", "Data");
@@ -46,7 +47,7 @@ public class SealPrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
+
             document.close();
         } catch (DocumentException e) {
             e.printStackTrace();

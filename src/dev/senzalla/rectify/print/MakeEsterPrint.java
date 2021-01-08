@@ -29,6 +29,7 @@ public class MakeEsterPrint extends ModelPrint {
             configuration(1, FontEnum.TITLE, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable("Esterificação");
             document.add(pdfPTable);
+            setLogo();
 
             configuration(1, FontEnum.FIELD, BaseColor.WHITE, Element.ALIGN_RIGHT);
             setTable(convertDateUtil(esters.get(0).getDateMakeEster()));
@@ -51,7 +52,7 @@ public class MakeEsterPrint extends ModelPrint {
             }
             document.add(pdfPTable);
 
-            setLogo();
+
             document.close();
             Desktop.getDesktop().open(new File(archive));
         } catch (DocumentException | IOException e) {

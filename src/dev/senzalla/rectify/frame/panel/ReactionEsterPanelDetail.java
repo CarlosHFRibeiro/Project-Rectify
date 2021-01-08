@@ -53,73 +53,91 @@ public class ReactionEsterPanelDetail extends javax.swing.JPanel {
         jabelTrashFinal = new javax.swing.JLabel();
         lblTrashFinal = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(540, 235));
-        setMinimumSize(new java.awt.Dimension(540, 235));
-        setPreferredSize(new java.awt.Dimension(540, 235));
+        setMaximumSize(new java.awt.Dimension(580, 420));
+        setMinimumSize(new java.awt.Dimension(580, 420));
+        setPreferredSize(new java.awt.Dimension(580, 420));
 
+        pnlReact.setBorder(javax.swing.BorderFactory.createTitledBorder("Reação"));
         pnlReact.setMaximumSize(new java.awt.Dimension(540, 233));
         pnlReact.setMinimumSize(new java.awt.Dimension(540, 233));
         pnlReact.setPreferredSize(new java.awt.Dimension(540, 233));
 
-        jlabelDate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlabelDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jlabelDate.setText("Data");
 
+        lblDate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDate.setText("data");
 
-        jabelTimeInitial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelTimeInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelTimeInitial.setText("Hora Inicial");
 
+        lblTimeInitial.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTimeInitial.setText("Hora");
 
-        jabelMethanolPure.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelMethanolPure.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelMethanolPure.setText("Metanol Puro");
 
+        lblMethanolPure.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblMethanolPure.setText("jLabel16");
 
-        jabelMethanolRecover.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelMethanolRecover.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelMethanolRecover.setText("Metanol Recuperado");
 
+        lblMethanolRecover.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblMethanolRecover.setText("jLabel17");
 
-        jabelSulfuric.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelSulfuric.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelSulfuric.setText("Sufurico");
 
+        lblSaulfuric.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblSaulfuric.setText("jLabel3");
 
-        jabelTimeFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelTimeFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelTimeFinal.setText("Hora Final");
 
+        lblTimeFinal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTimeFinal.setText("jLabel18");
 
-        jabelAnalyzeInitial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelAnalyzeInitial.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jabelAnalyzeInitial.setText("Analise Inicial");
 
+        jabelAcidityInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelAcidityInitial.setText("Acidez");
 
+        lblAcidityInitial.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAcidityInitial.setText("jLabel5");
 
+        jabelSaponityInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelSaponityInitial.setText("Saponidade");
 
+        lblSaponityInitial.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblSaponityInitial.setText("jLabel7");
 
+        jabelTrashInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelTrashInitial.setText("Impureza");
 
+        lblTrashInitial.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTrashInitial.setText("jLabel9");
 
-        jabelAnalyzeFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jabelAnalyzeFinal.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jabelAnalyzeFinal.setText("Analise Final");
 
+        jabelAcidityFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelAcidityFinal.setText("Acidez");
 
+        lblAcidityFinal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAcidityFinal.setText("jLabel5");
 
+        jabelSaponityFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelSaponityFinal.setText("Saponidade");
 
+        lblSaponityFinal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblSaponityFinal.setText("jLabel7");
 
+        jabelTrashFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jabelTrashFinal.setText("Impureza");
 
+        lblTrashFinal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTrashFinal.setText("jLabel9");
 
         javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
@@ -127,136 +145,129 @@ public class ReactionEsterPanelDetail extends javax.swing.JPanel {
         pnlReactLayout.setHorizontalGroup(
             pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlReactLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jabelAnalyzeInitial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jabelAnalyzeFinal)
+                .addGap(101, 101, 101))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jabelMethanolRecover)
+                .addGap(364, 364, 364))
+            .addGroup(pnlReactLayout.createSequentialGroup()
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlReactLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(52, 52, 52)
                         .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlReactLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jabelAnalyzeFinal))
+                                .addComponent(jabelTimeFinal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTimeFinal))
                             .addGroup(pnlReactLayout.createSequentialGroup()
-                                .addGap(93, 93, 93)
+                                .addGap(166, 166, 166)
+                                .addComponent(lblMethanolRecover)
+                                .addGap(107, 107, 107)
+                                .addComponent(jabelSulfuric)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblSaulfuric))
+                            .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
                                 .addComponent(jlabelDate)
-                                .addGap(132, 132, 132)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDate))
+                            .addGroup(pnlReactLayout.createSequentialGroup()
                                 .addComponent(jabelTimeInitial)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTimeInitial))
-                            .addGroup(pnlReactLayout.createSequentialGroup()
-                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlReactLayout.createSequentialGroup()
-                                        .addComponent(jabelAcidityFinal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblAcidityFinal)
-                                        .addGap(79, 79, 79)
-                                        .addComponent(jabelSaponityFinal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblSaponityFinal))
-                                    .addGroup(pnlReactLayout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jabelAnalyzeInitial)
-                                            .addGroup(pnlReactLayout.createSequentialGroup()
-                                                .addComponent(jabelAcidityInitial)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lblAcidityInitial)
-                                                .addGap(70, 70, 70)
-                                                .addComponent(jabelSaponityInitial)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(lblSaponityInitial)))))
-                                .addGap(76, 76, 76)
-                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlReactLayout.createSequentialGroup()
-                                        .addComponent(jabelTrashInitial)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTrashInitial))
-                                    .addGroup(pnlReactLayout.createSequentialGroup()
-                                        .addComponent(jabelTrashFinal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTrashFinal))))))
-                    .addGroup(pnlReactLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jabelMethanolPure)
-                            .addComponent(jabelSulfuric))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDate)
-                            .addGroup(pnlReactLayout.createSequentialGroup()
-                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMethanolPure)
-                                    .addComponent(lblSaulfuric))
-                                .addGap(76, 76, 76)
-                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlReactLayout.createSequentialGroup()
-                                        .addComponent(jabelTimeFinal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTimeFinal))
-                                    .addComponent(jabelMethanolRecover))
+                                .addComponent(lblTimeInitial)
+                                .addGap(114, 114, 114)
+                                .addComponent(jabelMethanolPure)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblMethanolRecover)))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                                .addComponent(lblMethanolPure))))
+                    .addGroup(pnlReactLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jabelSaponityInitial)
+                            .addComponent(jabelAcidityInitial)
+                            .addComponent(jabelTrashInitial))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addComponent(lblTrashInitial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jabelTrashFinal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTrashFinal))
+                            .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addComponent(lblAcidityInitial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jabelAcidityFinal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblAcidityFinal))
+                            .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addComponent(lblSaponityInitial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                                .addComponent(jabelSaponityFinal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblSaponityFinal)))))
+                .addGap(50, 50, 50))
         );
         pnlReactLayout.setVerticalGroup(
             pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlReactLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jabelTimeInitial)
-                        .addComponent(lblTimeInitial))
-                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jlabelDate)
-                        .addComponent(lblDate)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jabelMethanolPure)
-                    .addComponent(jabelMethanolRecover)
-                    .addComponent(lblMethanolPure)
-                    .addComponent(lblMethanolRecover))
                 .addGap(18, 18, 18)
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlabelDate)
+                    .addComponent(lblDate))
+                .addGap(24, 24, 24)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTimeInitial)
+                    .addComponent(jabelTimeInitial)
+                    .addComponent(jabelMethanolPure)
+                    .addComponent(lblMethanolPure))
+                .addGap(21, 21, 21)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jabelMethanolRecover)
+                    .addComponent(lblMethanolRecover)
                     .addComponent(jabelSulfuric)
-                    .addComponent(lblSaulfuric)
+                    .addComponent(lblSaulfuric))
+                .addGap(21, 21, 21)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jabelTimeFinal)
                     .addComponent(lblTimeFinal))
-                .addGap(18, 18, 18)
-                .addComponent(jabelAnalyzeInitial)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jabelTrashInitial)
-                        .addComponent(lblTrashInitial))
-                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jabelAcidityInitial)
-                        .addComponent(lblAcidityInitial)
-                        .addComponent(jabelSaponityInitial)
-                        .addComponent(lblSaponityInitial)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jabelAnalyzeFinal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(38, 38, 38)
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jabelAnalyzeInitial)
+                    .addComponent(jabelAnalyzeFinal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAcidityInitial)
+                    .addComponent(jabelAcidityInitial)
                     .addComponent(jabelAcidityFinal)
-                    .addComponent(lblAcidityFinal)
-                    .addComponent(jabelSaponityFinal)
+                    .addComponent(lblAcidityFinal))
+                .addGap(20, 20, 20)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jabelSaponityInitial)
+                    .addComponent(lblSaponityInitial)
                     .addComponent(lblSaponityFinal)
-                    .addComponent(jabelTrashFinal)
-                    .addComponent(lblTrashFinal))
-                .addGap(24, 24, 24))
+                    .addComponent(jabelSaponityFinal))
+                .addGap(21, 21, 21)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTrashInitial)
+                    .addComponent(jabelTrashInitial)
+                    .addComponent(lblTrashFinal)
+                    .addComponent(jabelTrashFinal))
+                .addGap(330, 330, 330))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlReact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(pnlReact, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 231, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
