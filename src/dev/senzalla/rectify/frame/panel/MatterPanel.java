@@ -3,7 +3,7 @@ package dev.senzalla.rectify.frame.panel;
 import dev.senzalla.rectify.entitys.MatterMake;
 import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.request.MatterEsterRequest;
-import dev.senzalla.rectify.request.MatterTransRequest;
+import dev.senzalla.rectify.request.MatterBiodieselRequest;
 import dev.senzalla.rectify.treatments.NumberField;
 import dev.senzalla.rectify.treatments.PnlMatterTreatment;
 import dev.senzalla.rectify.treatments.ProductTreatment;
@@ -54,13 +54,13 @@ public class MatterPanel extends javax.swing.JPanel {
         txtLiter = new javax.swing.JFormattedTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(614, 58));
-        setMinimumSize(new java.awt.Dimension(614, 58));
-        setPreferredSize(new java.awt.Dimension(614, 58));
+        setMaximumSize(new java.awt.Dimension(700, 60));
+        setMinimumSize(new java.awt.Dimension(700, 60));
+        setPreferredSize(new java.awt.Dimension(700, 60));
 
-        pnlMatter.setMaximumSize(new java.awt.Dimension(610, 54));
-        pnlMatter.setMinimumSize(new java.awt.Dimension(610, 54));
-        pnlMatter.setPreferredSize(new java.awt.Dimension(610, 54));
+        pnlMatter.setMaximumSize(new java.awt.Dimension(698, 58));
+        pnlMatter.setMinimumSize(new java.awt.Dimension(698, 58));
+        pnlMatter.setPreferredSize(new java.awt.Dimension(698, 58));
 
         lblProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblProduct.setText("Produto");
@@ -72,7 +72,7 @@ public class MatterPanel extends javax.swing.JPanel {
 
         txtLiter.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtLiter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtLiter.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtLiter.setPreferredSize(new java.awt.Dimension(120, 32));
         txtLiter.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtLiterFocusLost(evt);
@@ -93,11 +93,11 @@ public class MatterPanel extends javax.swing.JPanel {
                 .addComponent(lblProduct)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbxProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(113, 113, 113)
                 .addComponent(lblLiter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLiter, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlMatterLayout.setVerticalGroup(
             pnlMatterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,18 +108,22 @@ public class MatterPanel extends javax.swing.JPanel {
                     .addComponent(lblProduct)
                     .addComponent(lblLiter)
                     .addComponent(txtLiter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, 696, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMatter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlMatter, javax.swing.GroupLayout.PREFERRED_SIZE, 56, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,16 +164,18 @@ public class MatterPanel extends javax.swing.JPanel {
     }
 
     public void saveEster() {
-        MatterMake matterMake = new MatterMake();
-        matterMake.setProduct((Product) cbxProduct.getSelectedItem());
-        matterMake.setLiterMatterMake(Integer.parseInt(txtLiter.getText()));
-        new MatterEsterRequest().insert(matterMake);
+        new MatterEsterRequest().insert(getMatter());
     }
 
+
     public void saveMatter() {
+        new MatterBiodieselRequest().insert(getMatter());
+    }
+
+    private MatterMake getMatter() {
         MatterMake matterMake = new MatterMake();
         matterMake.setProduct((Product) cbxProduct.getSelectedItem());
         matterMake.setLiterMatterMake(Integer.parseInt(txtLiter.getText()));
-        new MatterTransRequest().insert(matterMake);
+        return matterMake;
     }
 }

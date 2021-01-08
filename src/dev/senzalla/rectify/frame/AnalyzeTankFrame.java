@@ -251,7 +251,7 @@ public class AnalyzeTankFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtTrashKeyTyped
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        if (TxtTreatment.isTextFieldEmpty(pnlLabTk) && ComboBoxTreatment.isCbxEmpty(pnlLabTk)) {
+        if (TxtTreatment.isTextFieldEmpty(pnlLabTk) && ComboBoxTreatment.isCbxFilterEmpty(pnlLabTk)) {
             new AnalyzeTankTreatment().saveLabTank((Tank) cbxTank.getSelectedItem(), txtAcid.getText(), txtSoap.getText(), txtTrash.getText());
             TxtTreatment.cleanTextField(pnlLabTk);
             ComboBoxTreatment.cleanCbx(pnlLabTk);

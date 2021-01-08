@@ -50,18 +50,18 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
         pnlMatterTrans = new javax.swing.JPanel();
         btnMatterTransAdd = new javax.swing.JButton();
         btnMatterTransRmv = new javax.swing.JButton();
-        lblTransAmount = new javax.swing.JLabel();
-        txtTransAmount = new javax.swing.JFormattedTextField();
+        lblEsterAmount = new javax.swing.JLabel();
+        txtAmount = new javax.swing.JFormattedTextField();
         pnlReactTrans = new javax.swing.JPanel();
         btnReactTransAdd = new javax.swing.JButton();
         btnReactTransRmv = new javax.swing.JButton();
-        lblTransTrash = new javax.swing.JLabel();
-        txtTransTrash = new javax.swing.JFormattedTextField();
-        lblTransProduced = new javax.swing.JLabel();
-        txtTransProduced = new javax.swing.JFormattedTextField();
-        btnTransSave = new javax.swing.JButton();
-        btnTransClear = new javax.swing.JButton();
-        btnTransCancel = new javax.swing.JButton();
+        lblEsterTrash = new javax.swing.JLabel();
+        txtTrash = new javax.swing.JFormattedTextField();
+        lblEsterProduced = new javax.swing.JLabel();
+        txtProduced = new javax.swing.JFormattedTextField();
+        btnEsterSave = new javax.swing.JButton();
+        btnEsterClear = new javax.swing.JButton();
+        btnEsterCancel = new javax.swing.JButton();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -78,29 +78,17 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Transesterificação");
 
         lblTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTank.setText("Tanque");
 
-        cbxTank.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        cbxTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        pnlMatterTrans.setMaximumSize(new java.awt.Dimension(616, 420));
-        pnlMatterTrans.setMinimumSize(new java.awt.Dimension(616, 0));
+        pnlMatterTrans.setLayout(new javax.swing.BoxLayout(pnlMatterTrans, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout pnlMatterTransLayout = new javax.swing.GroupLayout(pnlMatterTrans);
-        pnlMatterTrans.setLayout(pnlMatterTransLayout);
-        pnlMatterTransLayout.setHorizontalGroup(
-            pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
-        );
-        pnlMatterTransLayout.setVerticalGroup(
-            pnlMatterTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        btnMatterTransAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMatterTransAdd.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnMatterTransAdd.setText("Adicionar Produto");
         btnMatterTransAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +96,7 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnMatterTransRmv.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMatterTransRmv.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnMatterTransRmv.setText("Eliminar Produto");
         btnMatterTransRmv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,26 +104,19 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        lblTransAmount.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTransAmount.setText("Quantidade Total");
+        lblEsterAmount.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEsterAmount.setText("Quantidade Total");
 
-        txtTransAmount.setEditable(false);
-        txtTransAmount.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtTransAmount.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtTransAmount.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtAmount.setEditable(false);
+        txtAmount.setBackground(new java.awt.Color(69, 73, 74));
+        txtAmount.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtAmount.setFocusable(false);
+        txtAmount.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAmount.setPreferredSize(new java.awt.Dimension(120, 32));
 
-        javax.swing.GroupLayout pnlReactTransLayout = new javax.swing.GroupLayout(pnlReactTrans);
-        pnlReactTrans.setLayout(pnlReactTransLayout);
-        pnlReactTransLayout.setHorizontalGroup(
-            pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
-        );
-        pnlReactTransLayout.setVerticalGroup(
-            pnlReactTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        pnlReactTrans.setLayout(new javax.swing.BoxLayout(pnlReactTrans, javax.swing.BoxLayout.LINE_AXIS));
 
-        btnReactTransAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnReactTransAdd.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnReactTransAdd.setText("Adicionar Reação");
         btnReactTransAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +124,7 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnReactTransRmv.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnReactTransRmv.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnReactTransRmv.setText("Eliminar Reação");
         btnReactTransRmv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,48 +132,44 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        lblTransTrash.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTransTrash.setText("Residuo");
+        lblEsterTrash.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEsterTrash.setText("Residuo");
 
-        txtTransTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtTransTrash.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        txtTransTrash.setMaximumSize(new java.awt.Dimension(100, 28));
-        txtTransTrash.setMinimumSize(new java.awt.Dimension(100, 28));
-        txtTransTrash.setPreferredSize(new java.awt.Dimension(100, 28));
+        txtTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtTrash.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTrash.setPreferredSize(new java.awt.Dimension(100, 32));
 
-        lblTransProduced.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblTransProduced.setText("Total Produzido");
+        lblEsterProduced.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEsterProduced.setText("Total Produzido");
 
-        txtTransProduced.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtTransProduced.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        txtTransProduced.setMaximumSize(new java.awt.Dimension(100, 28));
-        txtTransProduced.setMinimumSize(new java.awt.Dimension(100, 28));
-        txtTransProduced.setPreferredSize(new java.awt.Dimension(100, 28));
+        txtProduced.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtProduced.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtProduced.setPreferredSize(new java.awt.Dimension(100, 32));
 
-        btnTransSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnTransSave.setText("Salvar");
-        btnTransSave.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnTransSave.addActionListener(new java.awt.event.ActionListener() {
+        btnEsterSave.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEsterSave.setText("Salvar");
+        btnEsterSave.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnEsterSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransSaveActionPerformed(evt);
+                btnEsterSaveActionPerformed(evt);
             }
         });
 
-        btnTransClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnTransClear.setText("Limpar");
-        btnTransClear.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnTransClear.addActionListener(new java.awt.event.ActionListener() {
+        btnEsterClear.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEsterClear.setText("Limpar");
+        btnEsterClear.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnEsterClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransClearActionPerformed(evt);
+                btnEsterClearActionPerformed(evt);
             }
         });
 
-        btnTransCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        btnTransCancel.setText("Cancelar");
-        btnTransCancel.setPreferredSize(new java.awt.Dimension(120, 60));
-        btnTransCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnEsterCancel.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        btnEsterCancel.setText("Cancelar");
+        btnEsterCancel.setPreferredSize(new java.awt.Dimension(120, 60));
+        btnEsterCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransCancelActionPerformed(evt);
+                btnEsterCancelActionPerformed(evt);
             }
         });
 
@@ -201,61 +178,53 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
         pnlTransLayout.setHorizontalGroup(
             pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTransLayout.createSequentialGroup()
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(lblTransAmount)
+                                .addComponent(lblEsterAmount)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(261, 261, 261)
-                                .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(53, 53, 53)
+                                .addComponent(lblEsterTrash)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107)
+                                .addComponent(lblEsterProduced)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlTransLayout.createSequentialGroup()
+                            .addComponent(btnEsterSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(62, 62, 62)
+                            .addComponent(btnEsterClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(62, 62, 62)
+                            .addComponent(btnEsterCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
-                                .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTransLayout.createSequentialGroup()
-                                .addComponent(btnMatterTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnMatterTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblTransTrash)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141)
-                                .addComponent(lblTransProduced)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
-                            .addGroup(pnlTransLayout.createSequentialGroup()
-                                .addComponent(btnReactTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnReactTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(181, 181, 181))
-            .addGroup(pnlTransLayout.createSequentialGroup()
-                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnReactTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                        .addComponent(btnReactTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(276, 276, 276)
+                        .addGap(75, 75, 75)
                         .addComponent(lblTank)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlTransLayout.createSequentialGroup()
-                        .addGap(388, 388, 388)
-                        .addComponent(lblTitle)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btnMatterTransAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMatterTransRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(309, 309, 309))
+            .addGroup(pnlTransLayout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(lblTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTransLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlReactTrans, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+                    .addComponent(pnlMatterTrans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(239, 239, 239))
         );
         pnlTransLayout.setVerticalGroup(
             pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,32 +237,32 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
                     .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(pnlMatterTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
+                .addGap(27, 27, 27)
                 .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMatterTransRmv)
-                    .addComponent(btnMatterTransAdd))
+                    .addComponent(btnMatterTransAdd)
+                    .addComponent(btnMatterTransRmv))
                 .addGap(24, 24, 24)
                 .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransAmount)
-                    .addComponent(txtTransAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(lblEsterAmount)
+                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addComponent(pnlReactTrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReactTransAdd)
                     .addComponent(btnReactTransRmv))
-                .addGap(24, 24, 24)
+                .addGap(27, 27, 27)
                 .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransTrash)
-                    .addComponent(txtTransTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTransProduced)
-                    .addComponent(txtTransProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(lblEsterTrash)
+                    .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEsterProduced)
+                    .addComponent(txtProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlTransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTransSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTransClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTransCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addComponent(btnEsterClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEsterCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEsterSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
         roll.setViewportView(pnlTrans);
@@ -313,6 +282,11 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
     private void btnMatterTransAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatterTransAddActionPerformed
         if (countMatter <= 1) {
@@ -354,52 +328,50 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
         this.pnlReact.remove(countReact);
     }//GEN-LAST:event_btnReactTransRmvActionPerformed
 
-    private void btnTransSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransSaveActionPerformed
+    private void btnEsterSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterSaveActionPerformed
         boolean matter = checkMatter();
         boolean react = checkReact();
         if (matter && react && TxtTreatment.isTextFieldEmpty(pnlTrans)) {
-            new MakeTransTreatment().saveMakeBiodiesel((Tank) cbxTank.getSelectedItem(), txtTransAmount.getText(), txtTransProduced.getText(), txtTransTrash.getText(), pnlReact.get(0).getDate());
+            new MakeBiodieselTreatment().saveMakeBiodiesel((Tank) cbxTank.getSelectedItem(), txtAmount.getText(), txtProduced.getText(), txtTrash.getText(), pnlReact.get(0).getDate());
             pnlMatter.forEach(MatterPanel::saveMatter);
             pnlReact.forEach(ReactionBiodieselPanel::saveReact);
             Access.goToInternalFrame(this, new MakeBiodieselFrame());
+
+        } else {
+            PopUp.fieldIsEmpty();
         }
-    }//GEN-LAST:event_btnTransSaveActionPerformed
+    }//GEN-LAST:event_btnEsterSaveActionPerformed
 
+    private void btnEsterClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterClearActionPerformed
+       Access.goToInternalFrame(this, new MakeBiodieselFrame());
+    }//GEN-LAST:event_btnEsterClearActionPerformed
 
-    private void btnTransClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransClearActionPerformed
-        Access.goToInternalFrame(this, new MakeBiodieselFrame());
-    }//GEN-LAST:event_btnTransClearActionPerformed
-
-    private void btnTransCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransCancelActionPerformed
+    private void btnEsterCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsterCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnTransCancelActionPerformed
-
-    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
-        ItemTreatment.speedRoll(roll);
-    }//GEN-LAST:event_rollMouseWheelMoved
+    }//GEN-LAST:event_btnEsterCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEsterCancel;
+    private javax.swing.JButton btnEsterClear;
+    private javax.swing.JButton btnEsterSave;
     private javax.swing.JButton btnMatterTransAdd;
     private javax.swing.JButton btnMatterTransRmv;
     private javax.swing.JButton btnReactTransAdd;
     private javax.swing.JButton btnReactTransRmv;
-    private javax.swing.JButton btnTransCancel;
-    private javax.swing.JButton btnTransClear;
-    private javax.swing.JButton btnTransSave;
     private javax.swing.JComboBox<Object> cbxTank;
+    private javax.swing.JLabel lblEsterAmount;
+    private javax.swing.JLabel lblEsterProduced;
+    private javax.swing.JLabel lblEsterTrash;
     private javax.swing.JLabel lblTank;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblTransAmount;
-    private javax.swing.JLabel lblTransProduced;
-    private javax.swing.JLabel lblTransTrash;
     private javax.swing.JPanel pnlMatterTrans;
     private javax.swing.JPanel pnlReactTrans;
     private javax.swing.JPanel pnlTrans;
     private javax.swing.JScrollPane roll;
-    private javax.swing.JFormattedTextField txtTransAmount;
-    private javax.swing.JFormattedTextField txtTransProduced;
-    private javax.swing.JFormattedTextField txtTransTrash;
+    private javax.swing.JFormattedTextField txtAmount;
+    private javax.swing.JFormattedTextField txtProduced;
+    private javax.swing.JFormattedTextField txtTrash;
     // End of variables declaration//GEN-END:variables
 
     private void initPanelMatter() {
@@ -410,7 +382,7 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
     }
 
     private void addPanelMatter() {
-        MatterPanel panel = new MatterPanel(txtTransAmount, countMatter++);
+        MatterPanel panel = new MatterPanel(txtAmount, countMatter++);
         this.pnlMatterTrans.setLayout(layoutMatter);
         this.pnlMatter.add(panel);
         this.pnlMatterTrans.add(panel).setVisible(true);
@@ -451,5 +423,12 @@ public class MakeBiodieselFrame extends javax.swing.JInternalFrame {
 
     private boolean checkReact() {
         return pnlReact.stream().anyMatch(pnl -> TxtTreatment.isTextFieldEmpty(pnl.getNamePanel()) && ComboBoxTreatment.isCbxEmpty(pnl.getNamePanel()) && DateChooserTreatment.isDateChooserNull(pnl.getNamePanel()));
+    }
+
+    public Tank getTank() {
+        if (cbxTank.getSelectedIndex() > 0) {
+            return (Tank) cbxTank.getSelectedItem();
+        }
+        return null;
     }
 }

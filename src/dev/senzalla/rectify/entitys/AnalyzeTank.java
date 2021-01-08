@@ -20,6 +20,13 @@ public class AnalyzeTank extends DateTreatment {
     private Time timeAnalyzeTank;
     private Tank tank;
 
+    public AnalyzeTank() {
+    }
+
+    public AnalyzeTank(Tank tank) {
+        this.tank = tank;
+    }
+
     public Long getIdAnalyzeTank() {
         return idAnalyzeTank;
     }

@@ -172,7 +172,7 @@ public class StockTankTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new StockFilterFrame(tbl));
+        Access.goToFrame(new StockFilterFrame(tbl, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed

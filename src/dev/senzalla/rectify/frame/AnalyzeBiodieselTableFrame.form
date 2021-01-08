@@ -85,7 +85,8 @@
                       <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="roll" pref="594" max="32767" attributes="0"/>
+                  <Component id="roll" pref="588" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

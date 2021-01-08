@@ -20,7 +20,7 @@ public class ReactionMakeBiodieselRequest extends ConectionMySql {
     public void insert(ReactionMakeBiodiesel reactionMakeBiodiesel) {
         try {
         super.connection();
-            final String sql = "INSERT INTO `tbl_reaction_biodiesel` (`fkAnalyzeTank`, `methanolMakeBiodiesel`, `methylateMakeBiodiesel, `dateReactionMakeBiodiesel`, `timeStart`, `timeFinal`) VALUES (?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_reaction_biodiesel` (`fkAnalyzeTank`, `methanolMakeBiodiesel`, `methylateMakeBiodiesel`, `dateReactionMakeBiodiesel`, `timeStart`, `timeFinal`) VALUES (?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
             stmt.setLong(1, reactionMakeBiodiesel.getAnalyzeTank().getIdAnalyzeTank());
             stmt.setInt(2, reactionMakeBiodiesel.getMethanolMakeBiodiesel());

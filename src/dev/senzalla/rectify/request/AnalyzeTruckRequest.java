@@ -1,6 +1,7 @@
 package dev.senzalla.rectify.request;
 
 import dev.senzalla.rectify.entitys.AnalyzeTruck;
+import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.exception.DataBaseException;
 import dev.senzalla.rectify.setting.ConectionMySql;
 import dev.senzalla.rectify.treatments.QueryTreatment;
@@ -19,13 +20,14 @@ public class AnalyzeTruckRequest extends ConectionMySql {
     public void insert(AnalyzeTruck analyzeTruck) {
         try {
             super.connection();
-            final String sql = "INSERT INTO `tbl_analyze_truck` (`trashTruck`, `collect`, `acidityTruck`, `saponityTruck`, `densityTruck`) VALUES (?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_analyze_truck` (`trashTruck`, `collect`, `acidityTruck`, `saponityTruck`, `densityTruck`, `fkProduct`) VALUES (?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
             stmt.setInt(1, analyzeTruck.getTrashTruck());
             stmt.setInt(2, analyzeTruck.getCollect().getValor());
             stmt.setDouble(3, analyzeTruck.getAcidityTruck());
             stmt.setDouble(4, analyzeTruck.getSaponityTruck());
             stmt.setDouble(5, analyzeTruck.getDensityTruck());
+            stmt.setLong(6, analyzeTruck.getProduct().getIdProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             DataBaseException.MsgErrorDataBase(ex.getMessage());
@@ -49,7 +51,7 @@ public class AnalyzeTruckRequest extends ConectionMySql {
 
 
     public List<AnalyzeTruck> select(List<String> query, AnalyzeTruck analyzeTruck) {
-        String SELECT_QUERY = QueryTreatment.createQuery("tbl_analyze_truck", query);
+        String SELECT_QUERY = QueryTreatment.createQuery("view_analyze_truck", query);
         return selectAll(SELECT_QUERY, analyzeTruck);
     }
 
@@ -70,6 +72,7 @@ public class AnalyzeTruckRequest extends ConectionMySql {
                 analyzeTruck.setDensityTruck(rs.getDouble("densityTruck"));
                 analyzeTruck.setDateAnalyzeTruck(rs.getDate("dateAnalyzeTruck"));
                 analyzeTruck.setTimeAnalyzeTruck(rs.getTime("timeAnalyzeTruck"));
+                analyzeTruck.setProduct(new Product(rs.getString("nameProduct")));
                 analyzeTrucks.add(analyzeTruck);
             }
         } catch (SQLException ex) {

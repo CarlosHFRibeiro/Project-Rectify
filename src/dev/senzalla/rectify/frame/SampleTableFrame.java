@@ -95,7 +95,7 @@ public class SampleTableFrame extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Leilão", "Empresa", "Fabrica", "Petrobras", "Cliente", "Data"
+                "Leilão", "Amostra Comprador", "Amostra Fabrica", "Amostra Petrobras", "Cliente", "Data"
             }
         ) {
             boolean[] canEdit = new boolean [] {

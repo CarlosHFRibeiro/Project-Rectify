@@ -90,7 +90,7 @@ public class StockTankRequest extends ConectionMySql {
     public int selectSum(Product product) {
         int sumProduct = 0;
         try {
-            String query = "SELECT * FROM db_rectify.view_sum_product" + (product != null ? " WHERE fkProduct = ?" : ";");
+            String query = "SELECT SUM(literProduct) AS sumLiter FROM tbl_stock_tank " + (product != null ? "WHERE fkProduct = ?" : "");
             super.connection();
             super.prepareStatement(query);
             this.prepareStatement(product);

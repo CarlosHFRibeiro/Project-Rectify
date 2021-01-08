@@ -156,7 +156,7 @@
                     <Column editable="false" title="AGT." type="java.lang.Object"/>
                     <Column editable="false" title="Borra" type="java.lang.Object"/>
                     <Column editable="false" title="Glicerina" type="java.lang.Object"/>
-                    <Column editable="false" title="Impureza" type="java.lang.Object"/>
+                    <Column editable="false" title="Impureza %" type="java.lang.Object"/>
                     <Column editable="true" title="Data" type="java.lang.Object"/>
                     <Column editable="false" title="Hora" type="java.lang.Object"/>
                   </Table>

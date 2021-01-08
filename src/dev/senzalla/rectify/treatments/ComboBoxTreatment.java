@@ -21,7 +21,16 @@ public class ComboBoxTreatment {
         }
     }
 
+
     public static boolean isCbxEmpty(JPanel panel) {
+        return comboBox(panel).stream().noneMatch(cbx -> (cbx == 0));
+    }
+
+    public static boolean isCbxFilterEmpty(JPanel panel) {
+        return comboBox(panel).stream().noneMatch(cbx -> (cbx > 0));
+    }
+
+    private static List<Integer> comboBox(JPanel panel) {
         List<Integer> cbxComponent = new ArrayList<>();
         for (Component c : panel.getComponents()) {
             if (c instanceof JComboBox) {
@@ -29,6 +38,6 @@ public class ComboBoxTreatment {
                 cbxComponent.add(cbx.getSelectedIndex());
             }
         }
-        return cbxComponent.stream().noneMatch(cbx -> (cbx == 0));
+        return cbxComponent;
     }
 }

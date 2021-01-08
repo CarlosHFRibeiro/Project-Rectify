@@ -1,11 +1,13 @@
 package dev.senzalla.rectify.frame;
 
 import dev.senzalla.rectify.entitys.Discharge;
+import dev.senzalla.rectify.frame.detail.TransportDetailFrame;
 import dev.senzalla.rectify.frame.filter.TransportFilterFrame;
 import dev.senzalla.rectify.print.DchargePrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.DischargeTreatment;
 import dev.senzalla.rectify.treatments.IconTable;
+import dev.senzalla.rectify.treatments.ItemTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -40,7 +42,6 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnDetail = new javax.swing.JButton();
         pnlDcharge = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
@@ -48,8 +49,6 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
         btnFilter = new javax.swing.JButton();
         roll = new javax.swing.JScrollPane();
         tbl = new javax.swing.JTable();
-
-        btnDetail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/baseline_remove_red_eye_black_18dp.png"))); // NOI18N
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -60,7 +59,7 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
         pnlDcharge.setMinimumSize(new java.awt.Dimension(998, 658));
         pnlDcharge.setPreferredSize(new java.awt.Dimension(998, 658));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Descarregamento");
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/add.png"))); // NOI18N
@@ -87,6 +86,14 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
+
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -103,6 +110,13 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
+        tbl.setShowGrid(true);
+        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMouseClicked(evt);
+            }
+        });
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(3).setPreferredWidth(200);
@@ -116,9 +130,9 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
         pnlDchargeLayout.setHorizontalGroup(
             pnlDchargeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDchargeLayout.createSequentialGroup()
-                .addGap(0, 401, Short.MAX_VALUE)
+                .addGap(0, 373, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(235, 235, 235)
+                .addGap(208, 208, 208)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,7 +153,8 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,10 +189,20 @@ public class DeschargeTableFrame extends javax.swing.JInternalFrame {
         Access.goToInternalFrame(this, new DeschargeFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+       ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
+
+    private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
+        if (tbl.getSelectedColumn() == 6) {
+            new TransportDetailFrame((Long) tbl.getValueAt(tbl.getSelectedRow(), 0), true).setVisible(true);
+            tbl.clearSelection();
+        }
+    }//GEN-LAST:event_tblMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDetail;
     private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;

@@ -3,7 +3,6 @@ package dev.senzalla.rectify.treatments;
 import dev.senzalla.rectify.entitys.MakeBiodiesel;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.frame.MakeBiodieselTableFrame;
-import dev.senzalla.rectify.frame.panel.ReactionBiodieselPanel;
 import dev.senzalla.rectify.request.MakeBiodieselRequest;
 
 import javax.swing.*;
@@ -17,7 +16,7 @@ import java.util.List;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class MakeTransTreatment {
+public class MakeBiodieselTreatment {
 
     public static void initTable(JTable tableMakeBiodiesel) {
         fillTable(tableMakeBiodiesel, new MakeBiodieselRequest().select(null, null));
@@ -27,22 +26,22 @@ public class MakeTransTreatment {
         List<String> clause = new ArrayList<>();
         MakeBiodiesel makeBiodiesel = new MakeBiodiesel();
         if (idMakeBiodiesel > 0) {
-            clause.add("idTrans =");
+            clause.add("idMakeBiodiesel =");
             makeBiodiesel.setIdMakeBiodiesel(idMakeBiodiesel);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtTrans between");
+            clause.add("dateMakeBiodiesel between");
             makeBiodiesel.setDateMakeBiodiesel(dateOf);
             clause.add("");
             makeBiodiesel.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtTrans =");
+                clause.add("dateMakeBiodiesel =");
                 makeBiodiesel.setDateMakeBiodiesel(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtTrans =");
+                clause.add("dateMakeBiodiesel =");
                 makeBiodiesel.setDateMakeBiodiesel(dateUntil);
             }
         }
@@ -64,7 +63,7 @@ public class MakeTransTreatment {
         MakeBiodieselTableFrame.query(makeBiodiesels);
         makeBiodiesels.forEach(make ->
                 tableModel.addRow(new Object[]{
-                        make.getIdMakeBiodiesel(),
+                        make,
                         DateTreatment.convertDateUtil(make.getDateMakeBiodiesel()),
                         make.getTank(),
                         make.getProducedMakeBiodiesel(),
@@ -72,9 +71,9 @@ public class MakeTransTreatment {
                 }));
     }
 
-    private void saveReact(List<ReactionBiodieselPanel> pnlReact) {
-        pnlReact.forEach(ReactionBiodieselPanel::saveReact);
-    }
+//    private void saveReact(List<ReactionBiodieselPanel> pnlReact) {
+//        pnlReact.forEach(ReactionBiodieselPanel::saveReact);
+//    }
 
     public void saveMakeBiodiesel(Tank tank, String amount, String produced, String trash, Date dateMakeBiodiesel) {
         MakeBiodiesel makeBiodiesel = new MakeBiodiesel();

@@ -24,6 +24,7 @@ public class FrmRectify extends JFrame {
         Access.setDktMain(dktMain);
         ItemTreatment.visiblePanel(pnlMenu);
         Access.checkFrame(new StockTankViewFrame());
+//        new MockFake();
     }
 
     /**

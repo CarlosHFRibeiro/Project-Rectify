@@ -174,6 +174,11 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
         lblProduct.setText("Produto");
 
         cbxProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxProduct.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cbxProductFocusLost(evt);
+            }
+        });
 
         lblanalyzeTruck.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblanalyzeTruck.setText("Analise");
@@ -434,6 +439,10 @@ public class ChargeFrame extends javax.swing.JInternalFrame {
             txtLitter.setText(String.valueOf(litter));
         }
     }//GEN-LAST:event_txtBurdenFocusLost
+
+    private void cbxProductFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbxProductFocusLost
+        AnalyzeTruckTreatment.initComboBoxAnalyze(cbxanalyzeTruck);
+    }//GEN-LAST:event_cbxProductFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

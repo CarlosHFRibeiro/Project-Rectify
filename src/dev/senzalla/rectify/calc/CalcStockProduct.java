@@ -10,8 +10,8 @@ import dev.senzalla.rectify.request.StockTankRequest;
  */
 public class CalcStockProduct {
     private int litters;
-    private int percent;
-    private Product product;
+    private double percent;
+    private final Product product;
 
     public CalcStockProduct(Product product) {
         this.product = product;
@@ -24,15 +24,16 @@ public class CalcStockProduct {
     }
 
     private void setPercent() {
-        int total = new StockTankRequest().selectSum(null);
+        double total = new StockTankRequest().selectSum(null);
         percent = (100 * litters / total);
+        System.out.println(percent);
     }
 
     public int getLitters() {
         return litters;
     }
 
-    public int getPercent() {
+    public double getPercent() {
         return percent;
     }
 }

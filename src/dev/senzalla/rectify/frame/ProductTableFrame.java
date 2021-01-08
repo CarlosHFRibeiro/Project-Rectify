@@ -80,7 +80,6 @@ public class ProductTableFrame extends javax.swing.JInternalFrame {
             }
         });
         tblProduct.setShowGrid(true);
-        tblProduct.setShowVerticalLines(false);
         rollProduct.setViewportView(tblProduct);
         if (tblProduct.getColumnModel().getColumnCount() > 0) {
             tblProduct.getColumnModel().getColumn(0).setResizable(false);

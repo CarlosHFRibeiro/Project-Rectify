@@ -59,16 +59,21 @@ public class ReactionEsterPanel extends javax.swing.JPanel {
         cbxAnalyzeTankFinal = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(550, 174));
-        setMinimumSize(new java.awt.Dimension(550, 174));
-        setPreferredSize(new java.awt.Dimension(550, 174));
+        setMaximumSize(new java.awt.Dimension(700, 220));
+        setMinimumSize(new java.awt.Dimension(700, 220));
+        setPreferredSize(new java.awt.Dimension(700, 220));
 
-        lblDate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pnlReact.setMaximumSize(new java.awt.Dimension(698, 218));
+        pnlReact.setMinimumSize(new java.awt.Dimension(698, 218));
+        pnlReact.setPreferredSize(new java.awt.Dimension(698, 218));
+
+        lblDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblDate.setText("Data");
 
         dtcDate.setDateFormatString("dd/MM/yyyy");
+        dtcDate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        lblTimeInitial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTimeInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTimeInitial.setText("Hora Inicial");
 
         try {
@@ -77,57 +82,57 @@ public class ReactionEsterPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
         txtTimeInitial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTimeInitial.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTimeInitial.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtTimeInitial.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTimeInitial.setPreferredSize(new java.awt.Dimension(120, 32));
 
-        lblAnalyzeInitial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAnalyzeInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAnalyzeInitial.setText("Cod Analise");
 
-        cbxAnalyzeTankInitial.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbxAnalyzeTankInitial.setPreferredSize(new java.awt.Dimension(120, 27));
+        cbxAnalyzeTankInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxAnalyzeTankInitial.setPreferredSize(new java.awt.Dimension(120, 32));
         cbxAnalyzeTankInitial.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cbxAnalyzeTankInitialFocusGained(evt);
             }
         });
 
-        lblSulfuric.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblSulfuric.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblSulfuric.setText("Sufurico");
 
         txtSulfuric.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtSulfuric.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtSulfuric.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtSulfuric.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSulfuric.setPreferredSize(new java.awt.Dimension(120, 32));
         txtSulfuric.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSulfuricKeyTyped(evt);
             }
         });
 
-        lblMethanolPure.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMethanolPure.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMethanolPure.setText("Metanol Puro");
 
         txtMethanolPure.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtMethanolPure.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtMethanolPure.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtMethanolPure.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMethanolPure.setPreferredSize(new java.awt.Dimension(120, 32));
         txtMethanolPure.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtMethanolPureKeyTyped(evt);
             }
         });
 
-        lblMethanolRecover.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblMethanolRecover.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMethanolRecover.setText("Metanol Recuperado");
 
         txtMethanolRecover.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtMethanolRecover.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtMethanolRecover.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtMethanolRecover.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMethanolRecover.setPreferredSize(new java.awt.Dimension(120, 32));
         txtMethanolRecover.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtMethanolRecoverKeyTyped(evt);
             }
         });
 
-        lblTimeFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblTimeFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTimeFinal.setText("Hora Final");
 
         try {
@@ -136,93 +141,95 @@ public class ReactionEsterPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
         txtTimeFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTimeFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTimeFinal.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtTimeFinal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTimeFinal.setPreferredSize(new java.awt.Dimension(120, 32));
 
-        lblAnalyzeFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblAnalyzeFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAnalyzeFinal.setText("Cod Analise Final");
 
-        cbxAnalyzeTankFinal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbxAnalyzeTankFinal.setPreferredSize(new java.awt.Dimension(120, 27));
+        cbxAnalyzeTankFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxAnalyzeTankFinal.setPreferredSize(new java.awt.Dimension(120, 32));
 
         javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
         pnlReact.setLayout(pnlReactLayout);
         pnlReactLayout.setHorizontalGroup(
-            pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlReactLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblTimeFinal)
-                    .addComponent(lblMethanolPure)
-                    .addComponent(lblAnalyzeInitial)
-                    .addComponent(lblDate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlReactLayout.createSequentialGroup()
-                        .addComponent(txtTimeFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAnalyzeFinal))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
-                        .addComponent(dtcDate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTimeInitial))
-                    .addGroup(pnlReactLayout.createSequentialGroup()
-                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cbxAnalyzeTankInitial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMethanolPure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMethanolRecover, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSulfuric, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTimeInitial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSulfuric, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtMethanolRecover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxAnalyzeTankFinal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblTimeFinal)
+                                        .addComponent(lblMethanolPure)
+                                        .addComponent(lblAnalyzeInitial)
+                                        .addComponent(lblDate))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(pnlReactLayout.createSequentialGroup()
+                                                .addComponent(txtTimeFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblAnalyzeFinal))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
+                                                .addComponent(dtcDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblTimeInitial))
+                                        .addGroup(pnlReactLayout.createSequentialGroup()
+                                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(cbxAnalyzeTankInitial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(txtMethanolPure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblMethanolRecover, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(lblSulfuric, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtTimeInitial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtSulfuric, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtMethanolRecover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbxAnalyzeTankFinal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlReactLayout.setVerticalGroup(
-            pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlReactLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTimeInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTimeInitial)
-                    .addComponent(lblDate)
-                    .addComponent(dtcDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAnalyzeInitial)
-                    .addComponent(cbxAnalyzeTankInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSulfuric)
-                    .addComponent(txtSulfuric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMethanolPure)
-                    .addComponent(txtMethanolPure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMethanolRecover)
-                    .addComponent(txtMethanolRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTimeFinal)
-                    .addComponent(txtTimeFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAnalyzeFinal)
-                    .addComponent(cbxAnalyzeTankFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlReactLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtTimeInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblTimeInitial)
+                                        .addComponent(lblDate)
+                                        .addComponent(dtcDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblAnalyzeInitial)
+                                        .addComponent(cbxAnalyzeTankInitial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblSulfuric)
+                                        .addComponent(txtSulfuric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblMethanolPure)
+                                        .addComponent(txtMethanolPure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMethanolRecover)
+                                        .addComponent(txtMethanolRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblTimeFinal)
+                                        .addComponent(lblAnalyzeFinal)
+                                        .addComponent(cbxAnalyzeTankFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTimeFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlReact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 696, Short.MAX_VALUE)
+                                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 216, Short.MAX_VALUE)
+                                .addGap(0, 0, 0))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,10 +248,8 @@ public class ReactionEsterPanel extends javax.swing.JPanel {
     private void cbxAnalyzeTankInitialFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbxAnalyzeTankInitialFocusGained
         Tank tank = ester.getTank();
         if (tank != null) {
-            AnalyzeTank analyzeTank = new AnalyzeTank();
-            analyzeTank.setTank(tank);
-            AnalyzeTankTreatment.initComboBox(cbxAnalyzeTankInitial, analyzeTank);
-            AnalyzeTankTreatment.initComboBox(cbxAnalyzeTankFinal, analyzeTank);
+            AnalyzeTankTreatment.initComboBox(cbxAnalyzeTankInitial, new AnalyzeTank(tank));
+            AnalyzeTankTreatment.initComboBox(cbxAnalyzeTankFinal, new AnalyzeTank(tank));
         }
     }//GEN-LAST:event_cbxAnalyzeTankInitialFocusGained
 

@@ -39,10 +39,11 @@ public class SampleRequest extends ConectionMySql {
         List<Sample> samples = new ArrayList<>();
         try {
             super.connection();
-            String selectQuery = QueryTreatment.createQuery("view_seal", clause);
+            String selectQuery = QueryTreatment.createQuery("view_sample", clause);
             super.prepareStatement(selectQuery);
             this.prepareStatement(parameter);
             super.resultSet();
+            System.out.println(stmt);
             while (rs.next()) {
                 Sample sample = new Sample();
                 sample.setAuctionNumber(rs.getInt("auctionNumber"));

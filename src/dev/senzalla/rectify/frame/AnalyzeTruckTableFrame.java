@@ -80,11 +80,11 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cod.", "Acidez", "Saponidade", "Impureza", "Densidade", "Data", "Hora"
+                "Cod.", "Produto", "Acidez", "Saponidade", "Impureza %", "Densidade", "Data", "Hora"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, false
+                false, true, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -94,15 +94,18 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
         tbl.setRowHeight(20);
         tbl.setShowGrid(true);
         roll.setViewportView(tbl);
+        if (tbl.getColumnModel().getColumnCount() > 0) {
+            tbl.getColumnModel().getColumn(1).setPreferredWidth(200);
+        }
 
         javax.swing.GroupLayout pnlanalyzeTruckLayout = new javax.swing.GroupLayout(pnlanalyzeTruck);
         pnlanalyzeTruck.setLayout(pnlanalyzeTruckLayout);
         pnlanalyzeTruckLayout.setHorizontalGroup(
             pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlanalyzeTruckLayout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
+                .addContainerGap(370, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(305, 305, 305)
+                .addGap(260, 260, 260)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,7 +123,8 @@ public class AnalyzeTruckTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTitle))
                 .addGap(18, 18, 18)
-                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

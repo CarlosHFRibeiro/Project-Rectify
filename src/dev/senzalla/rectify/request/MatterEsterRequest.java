@@ -42,7 +42,7 @@ public class MatterEsterRequest extends ConectionMySql {
             super.resultSet();
             while (rs.next()) {
                 MatterMake matterester = new MatterMake();
-                matterester.setIdMatterMake(rs.getLong("idMatterMake"));
+                matterester.setIdMatterMake(rs.getLong("idMatterEster"));
                 matterester.setLiterMatterMake(rs.getInt("literMatterEster"));
                 matterester.setProduct(new Product(rs.getString("nameProduct")));
                 matterMakes.add(matterester);

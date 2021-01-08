@@ -15,7 +15,7 @@ import java.util.Set;
  * @e-mail bomsalvez@gmail.com
  * @github github.com/Bomsalvez
  */
-public class MatterTransRequest extends ConectionMySql {
+public class MatterBiodieselRequest extends ConectionMySql {
 
     public void insert(MatterMake matterMake) {
         try {

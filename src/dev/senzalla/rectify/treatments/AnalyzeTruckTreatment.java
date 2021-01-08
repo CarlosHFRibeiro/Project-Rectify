@@ -3,6 +3,7 @@ package dev.senzalla.rectify.treatments;
 import dev.senzalla.rectify.entitys.AnalyzeSplit;
 import dev.senzalla.rectify.entitys.AnalyzeTruck;
 import dev.senzalla.rectify.entitys.AnalyzeTruckSplit;
+import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.enuns.Collect;
 import dev.senzalla.rectify.request.AnalyzeTruckRequest;
 import dev.senzalla.rectify.request.AnalyzeTruckSplitRequest;
@@ -78,6 +79,7 @@ public class AnalyzeTruckTreatment {
         analyzeTrucks.forEach(analyzeTruck
                 -> tableModel.addRow(new Object[]{
             analyzeTruck.getIdAnalyzeTruck(),
+            analyzeTruck.getProduct().getNameProduct(),
             analyzeTruck.getAcidityTruck(),
             analyzeTruck.getSaponityTruck(),
             analyzeTruck.getTrashTruck(),
@@ -87,13 +89,14 @@ public class AnalyzeTruckTreatment {
         }));
     }
 
-    public void saveAnalyzeTruck(String acidity, String Saponity, String density, String trash, int collect) {
+    public void saveAnalyzeTruck(String acidity, String Saponity, String density, String trash, int collect, Product product) {
         AnalyzeTruck analyzeTruck = new AnalyzeTruck();
         analyzeTruck.setAcidityTruck(Double.parseDouble(acidity));
         analyzeTruck.setSaponityTruck(Double.parseDouble(Saponity));
         analyzeTruck.setDensityTruck(Double.parseDouble(density));
         analyzeTruck.setTrashTruck(Integer.parseInt(trash));
         analyzeTruck.setCollect(collect);
+        analyzeTruck.setProduct(product);
         new AnalyzeTruckRequest().insert(analyzeTruck);
     }
 

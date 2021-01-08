@@ -33,22 +33,27 @@ public class StockTankPanel extends javax.swing.JPanel {
         lblLiter = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setMaximumSize(new java.awt.Dimension(148, 140));
+        setMaximumSize(new java.awt.Dimension(192, 140));
+        setMinimumSize(new java.awt.Dimension(192, 140));
+        setPreferredSize(new java.awt.Dimension(192, 140));
 
-        pnlStockTank.setMaximumSize(new java.awt.Dimension(148, 138));
-        pnlStockTank.setMinimumSize(new java.awt.Dimension(148, 138));
-        pnlStockTank.setPreferredSize(new java.awt.Dimension(148, 138));
+        pnlStockTank.setMaximumSize(new java.awt.Dimension(190, 138));
+        pnlStockTank.setMinimumSize(new java.awt.Dimension(190, 138));
+        pnlStockTank.setPreferredSize(new java.awt.Dimension(190, 138));
 
         iconTank.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconTank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/static/img/gas.png"))); // NOI18N
         iconTank.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        lblTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTank.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTank.setText("Tanque");
 
+        lblProduct.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProduct.setText("Produto");
 
+        lblLiter.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblLiter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLiter.setText("Litros");
 
@@ -58,14 +63,14 @@ public class StockTankPanel extends javax.swing.JPanel {
             pnlStockTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblLiter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblTank, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(iconTank, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-            .addComponent(lblProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(iconTank, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         pnlStockTankLayout.setVerticalGroup(
             pnlStockTankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlStockTankLayout.createSequentialGroup()
                 .addComponent(iconTank, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(lblTank)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblProduct)
@@ -79,7 +84,6 @@ public class StockTankPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(pnlStockTank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );

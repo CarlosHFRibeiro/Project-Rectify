@@ -75,7 +75,6 @@ public class TankTableFrame extends javax.swing.JInternalFrame {
             }
         ));
         tblTank.setShowGrid(true);
-        tblTank.setShowVerticalLines(false);
         rollTank.setViewportView(tblTank);
         if (tblTank.getColumnModel().getColumnCount() > 0) {
             tblTank.getColumnModel().getColumn(0).setPreferredWidth(500);

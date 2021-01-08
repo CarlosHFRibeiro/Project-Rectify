@@ -82,6 +82,7 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        tblStockProduct.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tblStockProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -98,8 +99,8 @@ public class StockProductTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblStockProduct.setRowHeight(20);
         tblStockProduct.setShowGrid(true);
-        tblStockProduct.setShowVerticalLines(false);
         rollStockProduct.setViewportView(tblStockProduct);
         if (tblStockProduct.getColumnModel().getColumnCount() > 0) {
             tblStockProduct.getColumnModel().getColumn(0).setPreferredWidth(350);

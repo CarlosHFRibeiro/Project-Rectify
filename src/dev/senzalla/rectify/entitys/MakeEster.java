@@ -20,6 +20,17 @@ public class MakeEster extends DateTreatment {
     private Set<MatterMake> matterMake;
     private Set<ReactionMakeEster> reactionMakeEster;
 
+    public MakeEster() {
+    }
+
+    public MakeEster(int amountMatterMakeEster, int producedMakeEster, int trashMakeEster, java.util.Date dateMakeEster, Tank tank) {
+        this.amountMatterMakeEster = amountMatterMakeEster;
+        this.producedMakeEster = producedMakeEster;
+        this.trashMakeEster = trashMakeEster;
+        this.dateMakeEster = convertDateSql(dateMakeEster);
+        this.tank = tank;
+    }
+
     public Long getIdMakeEster() {
         return idMakeEster;
     }

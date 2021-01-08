@@ -36,7 +36,7 @@ public class MakeBiodieselRequest extends ConectionMySql {
     }
 
     public MakeBiodiesel select(MakeBiodiesel makeBiodiesel) {
-        makeBiodiesel = new MatterTransRequest().select(makeBiodiesel);
+        makeBiodiesel = new MatterBiodieselRequest().select(makeBiodiesel);
         makeBiodiesel = new ReactionMakeBiodieselRequest().select(makeBiodiesel);
         return makeBiodiesel;
     }

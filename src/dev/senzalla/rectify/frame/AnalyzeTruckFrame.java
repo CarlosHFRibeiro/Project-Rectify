@@ -1,5 +1,6 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.entitys.Product;
 import dev.senzalla.rectify.treatments.*;
 import dev.senzalla.theme.TreatmentTheme;
 
@@ -46,6 +47,8 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         btnSave = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        lblProduct = new javax.swing.JLabel();
+        cbxProduct = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -157,6 +160,11 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        lblProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblProduct.setText("Produto");
+
+        cbxProduct.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout pnlanalyzeTruckLayout = new javax.swing.GroupLayout(pnlanalyzeTruck);
         pnlanalyzeTruck.setLayout(pnlanalyzeTruckLayout);
         pnlanalyzeTruckLayout.setHorizontalGroup(
@@ -180,7 +188,8 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
                                     .addComponent(lblCollect)
                                     .addComponent(lblSplit)
                                     .addComponent(lblDens)
-                                    .addComponent(lblAcid))
+                                    .addComponent(lblAcid)
+                                    .addComponent(lblProduct))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
@@ -194,7 +203,8 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
                                     .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                                         .addComponent(txtAcid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(btnAcid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbxProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                                 .addGap(38, 38, 38)
                                 .addComponent(lblTitle)))))
@@ -205,7 +215,11 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
             .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(29, 29, 29)
+                .addGap(41, 41, 41)
+                .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProduct))
+                .addGap(26, 26, 26)
                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblSplit)
                     .addGroup(pnlanalyzeTruckLayout.createSequentialGroup()
@@ -229,13 +243,13 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
                         .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTrash))
-                        .addGap(36, 36, 36)
+                        .addGap(33, 33, 33)
                         .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cbxCollect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCollect))
                         .addGap(36, 36, 36)
                         .addComponent(cbxSplit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(107, 107, 107)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(pnlanalyzeTruckLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +305,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         if (TxtTreatment.isTextFieldEmpty(pnlanalyzeTruck) && cbxCollect.getSelectedIndex() > 0) {
-            new AnalyzeTruckTreatment().saveAnalyzeTruck(txtAcid.getText(), txtSoap.getText(), txtDens.getText(), txtTrash.getText(), cbxCollect.getSelectedIndex());
+            new AnalyzeTruckTreatment().saveAnalyzeTruck(txtAcid.getText(), txtSoap.getText(), txtDens.getText(), txtTrash.getText(), cbxCollect.getSelectedIndex(),(Product) cbxProduct.getSelectedItem());
             if (cbxSplit.getSelectedIndex() > 0) {
                 new AnalyzeTruckTreatment().saveAnalyzeTruckSplit(Long.valueOf(cbxSplit.getSelectedItem().toString()));
             }
@@ -319,10 +333,12 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSoap;
     private javax.swing.JComboBox<Object> cbxCollect;
+    private javax.swing.JComboBox<Object> cbxProduct;
     private javax.swing.JComboBox<Object> cbxSplit;
     private javax.swing.JLabel lblAcid;
     private javax.swing.JLabel lblCollect;
     private javax.swing.JLabel lblDens;
+    private javax.swing.JLabel lblProduct;
     private javax.swing.JLabel lblSoap;
     private javax.swing.JLabel lblSplit;
     private javax.swing.JLabel lblTitle;
@@ -338,6 +354,7 @@ public class AnalyzeTruckFrame extends javax.swing.JInternalFrame {
         TreatmentTheme.initTheme(pnlanalyzeTruck);
         AnalyzeTruckTreatment.initComboBoxCollect(cbxCollect);
         AnalyzeSplitTreatment.initComboBoxSplit(cbxSplit);
+        ProductTreatment.initComboBox(cbxProduct);
         TreatmentTheme.iconDefine(btnAcid, "static/img/calculadora_white.png");
         TreatmentTheme.iconDefine(btnSoap, "static/img/calculadora_white.png");
     }

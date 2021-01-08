@@ -1,5 +1,6 @@
 package dev.senzalla.rectify.frame;
 
+import dev.senzalla.rectify.entitys.MakeEster;
 import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.frame.panel.MatterPanel;
 import dev.senzalla.rectify.frame.panel.ReactionEsterPanel;
@@ -41,7 +42,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        roll = new javax.swing.JScrollPane();
         pnlEster = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTank = new javax.swing.JLabel();
@@ -67,7 +68,14 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(1000, 680));
         setPreferredSize(new java.awt.Dimension(1000, 680));
 
-        lblTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        roll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                rollMouseWheelMoved(evt);
+            }
+        });
+
+        lblTitle.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         lblTitle.setText("Esterificação");
 
         lblTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -78,7 +86,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         pnlMatterEster.setMinimumSize(new java.awt.Dimension(0, 0));
         pnlMatterEster.setLayout(new javax.swing.BoxLayout(pnlMatterEster, javax.swing.BoxLayout.Y_AXIS));
 
-        btnMatterEsterAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMatterEsterAdd.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnMatterEsterAdd.setText("Adicionar Produto");
         btnMatterEsterAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +94,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnMatterEsterRmv.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnMatterEsterRmv.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnMatterEsterRmv.setText("Eliminar Produto");
         btnMatterEsterRmv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,17 +105,16 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         lblEsterAmount.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblEsterAmount.setText("Quantidade Total");
 
+        txtEsterAmount.setEditable(false);
+        txtEsterAmount.setBackground(new java.awt.Color(69, 73, 74));
         txtEsterAmount.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtEsterAmount.setPreferredSize(new java.awt.Dimension(120, 27));
-        txtEsterAmount.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtEsterAmountFocusGained(evt);
-            }
-        });
+        txtEsterAmount.setFocusable(false);
+        txtEsterAmount.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtEsterAmount.setPreferredSize(new java.awt.Dimension(120, 32));
 
         pnlReactEster.setLayout(new javax.swing.BoxLayout(pnlReactEster, javax.swing.BoxLayout.LINE_AXIS));
 
-        btnReactEsterAdd.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnReactEsterAdd.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnReactEsterAdd.setText("Adicionar Reação");
         btnReactEsterAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +122,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnReactEsterRmv.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnReactEsterRmv.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnReactEsterRmv.setText("Eliminar Reação");
         btnReactEsterRmv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,17 +134,17 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         lblEsterTrash.setText("Residuo");
 
         txtEsterTrash.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtEsterTrash.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtEsterTrash.setPreferredSize(new java.awt.Dimension(100, 23));
+        txtEsterTrash.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtEsterTrash.setPreferredSize(new java.awt.Dimension(100, 32));
 
         lblEsterProduced.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblEsterProduced.setText("Total Produzido");
 
         txtEsterProduced.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtEsterProduced.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtEsterProduced.setPreferredSize(new java.awt.Dimension(100, 23));
+        txtEsterProduced.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtEsterProduced.setPreferredSize(new java.awt.Dimension(100, 32));
 
-        btnEsterSave.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnEsterSave.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEsterSave.setText("Salvar");
         btnEsterSave.setPreferredSize(new java.awt.Dimension(120, 60));
         btnEsterSave.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +153,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEsterClear.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnEsterClear.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEsterClear.setText("Limpar");
         btnEsterClear.setPreferredSize(new java.awt.Dimension(120, 60));
         btnEsterClear.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +162,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEsterCancel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        btnEsterCancel.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         btnEsterCancel.setText("Cancelar");
         btnEsterCancel.setPreferredSize(new java.awt.Dimension(120, 60));
         btnEsterCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -169,51 +176,53 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         pnlEsterLayout.setHorizontalGroup(
             pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEsterLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnlMatterEster, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlReactEster, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEsterLayout.createSequentialGroup()
-                        .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlEsterLayout.createSequentialGroup()
-                                        .addComponent(lblEsterAmount)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtEsterAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnlEsterLayout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(lblEsterTrash)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtEsterTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(113, 113, 113)
-                                        .addComponent(lblEsterProduced)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtEsterProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(pnlEsterLayout.createSequentialGroup()
-                                    .addComponent(btnEsterSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(62, 62, 62)
-                                    .addComponent(btnEsterClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(62, 62, 62)
-                                    .addComponent(btnEsterCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEsterLayout.createSequentialGroup()
-                                .addComponent(btnMatterEsterAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(btnMatterEsterRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEsterLayout.createSequentialGroup()
-                                .addComponent(btnReactEsterAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(btnReactEsterRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEsterLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(lblTank)
+                .addGap(171, 171, 171)
+                .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlEsterLayout.createSequentialGroup()
+                                .addComponent(lblEsterAmount)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 263, Short.MAX_VALUE))))
+                                .addComponent(txtEsterAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlEsterLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(lblEsterTrash)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEsterTrash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107)
+                                .addComponent(lblEsterProduced)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEsterProduced, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlEsterLayout.createSequentialGroup()
+                            .addComponent(btnEsterSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(62, 62, 62)
+                            .addComponent(btnEsterClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(62, 62, 62)
+                            .addComponent(btnEsterCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlEsterLayout.createSequentialGroup()
+                        .addComponent(btnReactEsterAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                        .addComponent(btnReactEsterRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEsterLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(lblTank)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxTank, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEsterLayout.createSequentialGroup()
+                        .addComponent(btnMatterEsterAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMatterEsterRmv, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(309, 309, 309))
             .addGroup(pnlEsterLayout.createSequentialGroup()
-                .addGap(426, 426, 426)
+                .addGap(405, 405, 405)
                 .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEsterLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addGroup(pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pnlReactEster, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+                    .addComponent(pnlMatterEster, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(239, 239, 239))
         );
         pnlEsterLayout.setVerticalGroup(
             pnlEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,20 +260,20 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnEsterClear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEsterCancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEsterSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addGap(35, 35, 35))
         );
 
-        jScrollPane1.setViewportView(pnlEster);
+        roll.setViewportView(pnlEster);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
+            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 998, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
+            .addComponent(roll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
         );
 
         pack();
@@ -289,9 +298,6 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         pnlMatter.get(countMatter).setVisible(false);
         pnlMatter.remove(countMatter);
     }//GEN-LAST:event_btnMatterEsterRmvActionPerformed
-
-    private void txtEsterAmountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEsterAmountFocusGained
-    }//GEN-LAST:event_txtEsterAmountFocusGained
 
     private void btnReactEsterAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReactEsterAddActionPerformed
         if (countReact <= 1) {
@@ -335,6 +341,10 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnEsterCancelActionPerformed
 
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEsterCancel;
@@ -345,7 +355,6 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnReactEsterAdd;
     private javax.swing.JButton btnReactEsterRmv;
     private javax.swing.JComboBox<Object> cbxTank;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEsterAmount;
     private javax.swing.JLabel lblEsterProduced;
     private javax.swing.JLabel lblEsterTrash;
@@ -354,6 +363,7 @@ public class MakeEsterFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlEster;
     private javax.swing.JPanel pnlMatterEster;
     private javax.swing.JPanel pnlReactEster;
+    private javax.swing.JScrollPane roll;
     private javax.swing.JFormattedTextField txtEsterAmount;
     private javax.swing.JFormattedTextField txtEsterProduced;
     private javax.swing.JFormattedTextField txtEsterTrash;

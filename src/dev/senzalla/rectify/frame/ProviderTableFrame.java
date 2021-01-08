@@ -90,7 +90,6 @@ public class ProviderTableFrame extends javax.swing.JInternalFrame {
             }
         });
         tblProvider.setShowGrid(true);
-        tblProvider.setShowVerticalLines(false);
         rollProvider.setViewportView(tblProvider);
         if (tblProvider.getColumnModel().getColumnCount() > 0) {
             tblProvider.getColumnModel().getColumn(0).setResizable(false);

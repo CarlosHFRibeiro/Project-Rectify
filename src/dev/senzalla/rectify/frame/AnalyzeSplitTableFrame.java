@@ -80,7 +80,7 @@ public class AnalyzeSplitTableFrame extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cod.", "AGT.", "Borra", "Glicerina", "Impureza", "Data", "Hora"
+                "Cod.", "AGT.", "Borra", "Glicerina", "Impureza %", "Data", "Hora"
             }
         ) {
             boolean[] canEdit = new boolean [] {

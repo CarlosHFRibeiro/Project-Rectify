@@ -13,7 +13,7 @@ import java.sql.Date;
 public class StockProduct extends DateTreatment {
     private Long idStockProduct;
     private int literProduct;
-    private int percentProduct;
+    private double percentProduct;
     private Date dateStockProduct;
     private Product product;
 
@@ -33,11 +33,11 @@ public class StockProduct extends DateTreatment {
         this.literProduct = literProduct;
     }
 
-    public int getPercentProduct() {
+    public double getPercentProduct() {
         return percentProduct;
     }
 
-    public void setPercentProduct(int percentProduct) {
+    public void setPercentProduct(double percentProduct) {
         this.percentProduct = percentProduct;
     }
 

@@ -47,8 +47,8 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
         btnAdd = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
         btnFilter = new javax.swing.JButton();
-        rollMakeEster = new javax.swing.JScrollPane();
-        tblMakeEster = new javax.swing.JTable();
+        roll = new javax.swing.JScrollPane();
+        tbl = new javax.swing.JTable();
 
         setClosable(true);
         setMaximumSize(new java.awt.Dimension(1000, 680));
@@ -86,18 +86,14 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        rollMakeEster.setBorder(null);
-        rollMakeEster.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        rollMakeEster.setMaximumSize(new java.awt.Dimension(990, 600));
-        rollMakeEster.setMinimumSize(new java.awt.Dimension(990, 600));
-        rollMakeEster.setPreferredSize(new java.awt.Dimension(990, 600));
-        rollMakeEster.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+        roll.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                rollMakeEsterMouseWheelMoved(evt);
+                rollMouseWheelMoved(evt);
             }
         });
 
-        tblMakeEster.setModel(new javax.swing.table.DefaultTableModel(
+        tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -113,24 +109,22 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblMakeEster.setMaximumSize(new java.awt.Dimension(990, 578));
-        tblMakeEster.setMinimumSize(new java.awt.Dimension(990, 578));
-        tblMakeEster.setPreferredSize(new java.awt.Dimension(990, 578));
-        tblMakeEster.setShowGrid(true);
-        tblMakeEster.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl.setRowHeight(20);
+        tbl.setShowGrid(true);
+        tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblMakeEsterMouseClicked(evt);
+                tblMouseClicked(evt);
             }
         });
-        rollMakeEster.setViewportView(tblMakeEster);
-        if (tblMakeEster.getColumnModel().getColumnCount() > 0) {
-            tblMakeEster.getColumnModel().getColumn(0).setPreferredWidth(50);
-            tblMakeEster.getColumnModel().getColumn(2).setPreferredWidth(200);
-            tblMakeEster.getColumnModel().getColumn(3).setPreferredWidth(50);
-            tblMakeEster.getColumnModel().getColumn(4).setPreferredWidth(50);
-            tblMakeEster.getColumnModel().getColumn(5).setResizable(false);
-            tblMakeEster.getColumnModel().getColumn(5).setPreferredWidth(1);
-            tblMakeEster.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
+        roll.setViewportView(tbl);
+        if (tbl.getColumnModel().getColumnCount() > 0) {
+            tbl.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(1).setPreferredWidth(100);
+            tbl.getColumnModel().getColumn(2).setPreferredWidth(300);
+            tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(5).setPreferredWidth(1);
+            tbl.getColumnModel().getColumn(5).setCellRenderer(new IconTable());
         }
 
         javax.swing.GroupLayout pnlMakeEsterLayout = new javax.swing.GroupLayout(pnlMakeEster);
@@ -138,7 +132,7 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
         pnlMakeEsterLayout.setHorizontalGroup(
             pnlMakeEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMakeEsterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(407, Short.MAX_VALUE)
                 .addComponent(lblTitle)
                 .addGap(241, 241, 241)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,8 +142,9 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
             .addGroup(pnlMakeEsterLayout.createSequentialGroup()
-                .addComponent(rollMakeEster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(roll)
+                .addContainerGap())
         );
         pnlMakeEsterLayout.setVerticalGroup(
             pnlMakeEsterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,8 +155,9 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rollMakeEster, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(roll, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,23 +185,23 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
-        Access.goToFrame(new MakeFilterFrame(tblMakeEster, true));
+        Access.goToFrame(new MakeFilterFrame(tbl, true));
     }//GEN-LAST:event_btnFilterActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Access.goToInternalFrame(this, new MakeEsterFrame());
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void tblMakeEsterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMakeEsterMouseClicked
-        if (tblMakeEster.getSelectedColumn() == 5) {
-            new MakeEsterDetailFrame((MakeEster) tblMakeEster.getValueAt(tblMakeEster.getSelectedRow(), 0)).setVisible(true);
-            tblMakeEster.clearSelection();
-        }
-    }//GEN-LAST:event_tblMakeEsterMouseClicked
+    private void rollMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMouseWheelMoved
+        ItemTreatment.speedRoll(roll);
+    }//GEN-LAST:event_rollMouseWheelMoved
 
-    private void rollMakeEsterMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_rollMakeEsterMouseWheelMoved
-        ItemTreatment.speedRoll(rollMakeEster);
-    }//GEN-LAST:event_rollMakeEsterMouseWheelMoved
+    private void tblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMouseClicked
+        if (tbl.getSelectedColumn() == 5) {
+            new MakeEsterDetailFrame((MakeEster) tbl.getValueAt(tbl.getSelectedRow(), 0)).setVisible(true);
+            tbl.clearSelection();
+        }
+    }//GEN-LAST:event_tblMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,15 +210,16 @@ public class MakeEsterTableFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnlMakeEster;
-    private javax.swing.JScrollPane rollMakeEster;
-    private javax.swing.JTable tblMakeEster;
+    private javax.swing.JScrollPane roll;
+    private javax.swing.JTable tbl;
     // End of variables declaration//GEN-END:variables
 
     private void initPanel() {
         TreatmentTheme.initTheme(pnlMakeEster);
-        TreatmentTheme.initTableTheme(tblMakeEster);
-        MakeEsterTreatment.initTable(tblMakeEster);
+        TreatmentTheme.initTableTheme(tbl);
+        MakeEsterTreatment.initTable(tbl);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
+        TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
     }
 

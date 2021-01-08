@@ -19,7 +19,7 @@ public class StockTankAddFrame extends javax.swing.JInternalFrame {
         initComponents();
         TreatmentTheme.initTheme(pnlStk);
         TreatmentTheme.initTableTheme(tbl);
-        new ProductTreatment().initComboBox(cbxProduct);
+         ProductTreatment.initComboBox(cbxProduct);
         new StockTankTreatment().initTableAddStock(tbl);
     }
 

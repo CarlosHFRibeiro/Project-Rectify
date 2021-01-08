@@ -13,7 +13,7 @@ CREATE TRIGGER tr_matter_ester
     SET new.fkMakeEster = (SELECT MAX(idMakeEster)
                            FROM tbl_make_ester);
 
-CREATE TRIGGER tr_reacester
+CREATE TRIGGER tr_react_ester
     BEFORE INSERT
     ON tbl_reaction_make_ester
     FOR EACH ROW

@@ -60,13 +60,16 @@ CREATE TABLE IF NOT EXISTS tbl_analyze_truck
 (
     idAnalyzeTruck   INT    NOT NULL AUTO_INCREMENT,
     collect          INT    NOT NULL,
+    fkProduct        INT    NOT NULL,
     trashTruck       INT    NOT NULL DEFAULT 0,
     acidityTruck     DOUBLE NOT NULL DEFAULT 0,
     densityTruck     DOUBLE NOT NULL,
     saponityTruck    DOUBLE NOT NULL DEFAULT 0,
     dateAnalyzeTruck DATE   NOT NULL DEFAULT (CURRENT_DATE()),
     timeAnalyzeTruck TIME   NOT NULL DEFAULT (CURRENT_TIME()),
-    PRIMARY KEY (idAnalyzeTruck)
+    PRIMARY KEY (idAnalyzeTruck),
+    CONSTRAINT `FK_PRODUTO_ANALISADO` FOREIGN KEY (fkProduct)
+        REFERENCES tbl_product (idProduct)
 );
 
 DROP TABLE IF EXISTS `tbl_analyze_truck_split`;
@@ -194,7 +197,7 @@ CREATE TABLE IF NOT EXISTS tbl_stock_product
     idStockProduct   INT  NOT NULL AUTO_INCREMENT,
     fkProduct        INT  NOT NULL,
     literProduct     INT  NOT NULL,
-    percentProduct   INT  NOT NULL,
+    percentProduct   DOUBLE  NOT NULL,
     dateStockProduct DATE NOT NULL DEFAULT (curdate()),
     PRIMARY KEY (idStockProduct),
     CONSTRAINT `FK_PRODUTO_ESTOCADO` FOREIGN KEY (fkProduct)
@@ -300,14 +303,14 @@ CREATE TABLE IF NOT EXISTS tbl_matter_biodiesel
 DROP TABLE IF EXISTS `tbl_reaction_biodiesel`;
 CREATE TABLE IF NOT EXISTS tbl_reaction_biodiesel
 (
-    idReactionMakeBiodiesel          INT  NOT NULL AUTO_INCREMENT,
-    fkAnalyzeTank                    INT  NOT NULL,
-    fkMakeBiodiesel                  INT  NOT NULL,
-    methanolMakeBiodiesel            INT  NOT NULL,
-    methylateMakeBiodiesel           INT  NOT NULL,
-    dateReactionMakeBiodiesel        DATE NOT NULL,
-    timeStart TIME NOT NULL,
-    timeFinal   TIME NOT NULL,
+    idReactionMakeBiodiesel   INT  NOT NULL AUTO_INCREMENT,
+    fkAnalyzeTank             INT  NOT NULL,
+    fkMakeBiodiesel           INT  NOT NULL,
+    methanolMakeBiodiesel     INT  NOT NULL,
+    methylateMakeBiodiesel    INT  NOT NULL,
+    dateReactionMakeBiodiesel DATE NOT NULL,
+    timeStart                 TIME NOT NULL,
+    timeFinal                 TIME NOT NULL,
     PRIMARY KEY (idReactionMakeBiodiesel),
     CONSTRAINT `FK_ANALISE_TRASESTERIFICACAO` FOREIGN KEY (fkAnalyzeTank)
         REFERENCES tbl_analyze_tank (idAnalyzeTank),
@@ -318,7 +321,7 @@ CREATE TABLE IF NOT EXISTS tbl_reaction_biodiesel
 DROP TABLE IF EXISTS `tbl_naoh`;
 CREATE TABLE IF NOT EXISTS tbl_naoh
 (
-    idNaoh    INT    NOT NULL AUTO_INCREMENT,
+    idNaoh            INT    NOT NULL AUTO_INCREMENT,
     concentrationNaoh DOUBLE NOT NULL,
     PRIMARY KEY (idNaoh),
     CONSTRAINT `CONCENTRACAO_NAOH` UNIQUE (concentrationNaoh)
@@ -327,7 +330,7 @@ CREATE TABLE IF NOT EXISTS tbl_naoh
 DROP TABLE IF EXISTS `tbl_hcl`;
 CREATE TABLE IF NOT EXISTS tbl_hcl
 (
-    idHcl    INT    NOT NULL AUTO_INCREMENT,
+    idHcl            INT    NOT NULL AUTO_INCREMENT,
     concentrationHcl DOUBLE NOT NULL,
     PRIMARY KEY (idHcl),
     CONSTRAINT `CONCENTRACAO_HCL` UNIQUE (concentrationHcl)

@@ -26,22 +26,22 @@ public class MakeEsterTreatment {
         List<String> clause = new ArrayList<>();
         MakeEster makeEster = new MakeEster();
         if (idMakeEster > 0) {
-            clause.add("idEster =");
+            clause.add("idMakeEster =");
             makeEster.setIdMakeEster(idMakeEster);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtEster between");
+            clause.add("dateMakeEster between");
             makeEster.setDateMakeEster(dateOf);
             clause.add("");
             makeEster.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtEster =");
+                clause.add("dateMakeEster =");
                 makeEster.setDateMakeEster(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtEster =");
+                clause.add("dateMakeEster =");
                 makeEster.setDateMakeEster(dateUntil);
             }
         }
@@ -63,11 +63,11 @@ public class MakeEsterTreatment {
         tableModel.setNumRows(0);
         makeEsters.forEach(makeEster
                 -> tableModel.addRow(new Object[]{
-            makeEster,
-            DateTreatment.convertDateUtil(makeEster.getDateMakeEster()),
-            makeEster.getTank(),
-            makeEster.getProducedMakeEster(),
-            makeEster.getTrashMakeEster()
+                makeEster,
+                DateTreatment.convertDateUtil(makeEster.getDateMakeEster()),
+                makeEster.getTank(),
+                makeEster.getProducedMakeEster(),
+                makeEster.getTrashMakeEster()
         }));
     }
 

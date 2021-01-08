@@ -20,6 +20,7 @@ public class AnalyzeTruck extends DateTreatment {
     private Collect collect;
     private Date dateAnalyzeTruck;
     private Time timeAnalyzeTruck;
+    private Product product;
 
     public Long getIdAnalyzeTruck() {
         return idAnalyzeTruck;
@@ -102,6 +103,13 @@ public class AnalyzeTruck extends DateTreatment {
         this.timeAnalyzeTruck = timeAnalyzeTruck;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     @Override
     public String toString() {

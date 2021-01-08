@@ -24,7 +24,7 @@ public class StockProductRequest extends ConectionMySql {
             super.prepareStatement(sql);
             stmt.setLong(1, stockProduct.getProduct().getIdProduct());
             stmt.setInt(2, stockProduct.getLiterProduct());
-            stmt.setInt(3, stockProduct.getPercentProduct());
+            stmt.setDouble(3, stockProduct.getPercentProduct());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             DataBaseException.MsgErrorDataBase("Stock Product: " + ex.getMessage());
@@ -57,7 +57,7 @@ public class StockProductRequest extends ConectionMySql {
                 stockProduct.setDateStockProduct(rs.getDate("dateStockProduct"));
                 stockProduct.setLiterProduct(rs.getInt("literProduct"));
                 stockProduct.setProduct(new Product(rs.getString("nameProduct")));
-                stockProduct.setPercentProduct(rs.getInt("percentProduct"));
+                stockProduct.setPercentProduct(rs.getDouble("percentProduct"));
                 stockProducts.add(stockProduct);
             }
         } catch (SQLException ex) {

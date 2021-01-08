@@ -13,6 +13,20 @@ FROM tbl_analyze_tank
      tbl_tank ON fkTank = idTank
 ORDER BY idAnalyzeTank DESC;
 
+CREATE OR REPLACE VIEW view_analyze_truck AS
+SELECT acidityTruck,
+       collect,
+       dateAnalyzeTruck,
+       densityTruck,
+       idAnalyzeTruck,
+       nameProduct,
+       saponityTruck,
+       timeAnalyzeTruck,
+       trashTruck
+FROM tbl_analyze_truck
+         JOIN tbl_product ON idProduct = fkProduct
+ORDER BY idAnalyzeTruck DESC;
+
 CREATE OR REPLACE VIEW view_sample AS
 SELECT auctionNumber,
        clientSample,
@@ -159,8 +173,7 @@ FROM tbl_matter_biodiesel tm
 
 
 CREATE OR REPLACE VIEW view_reaction_biodiesel AS
-SELECT
-       acidityTank,
+SELECT acidityTank,
        dateReactionMakeBiodiesel,
        fkMakeBiodiesel,
        methanolMakeBiodiesel,
@@ -173,4 +186,5 @@ FROM tbl_reaction_biodiesel
          join tbl_analyze_tank on fkAnalyzeTank = idAnalyzeTank;
 
 CREATE OR REPLACE view view_sum_product AS
-    SELECT SUM(literProduct) AS sumLiter, fkProduct FROM  tbl_stock_tank;
+SELECT SUM(literProduct) AS sumLiter, fkProduct
+FROM tbl_stock_tank;

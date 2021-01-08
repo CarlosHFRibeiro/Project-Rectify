@@ -23,19 +23,19 @@ public class SampleTreatment {
     public static void initComboBox(JComboBox<Object> comboBoxSample) {
         comboBoxSample.removeAllItems();
         comboBoxSample.addItem("Leilão");
-        new SampleRequest().select(null,null).forEach(comboBoxSample::addItem);
+        new SampleRequest().select(null, null).forEach(comboBoxSample::addItem);
     }
 
     public static void initTable(JTable tableSample) {
-        fillTable(tableSample, new SampleRequest().select(null,null));
+        fillTable(tableSample, new SampleRequest().select(null, null));
 
     }
 
     public static void setTableFilters(JTable tableSample, Integer sale, Object provider, Date dateOf, Date dateUntil) {
         List<String> clause = new ArrayList<>();
         Sample sample = new Sample();
-        if (sale > 0) {
-            clause.add("saleSeal =");
+        if (sale != null) {
+            clause.add("auctionNumber =");
             sample.setAuctionNumber(sale);
         }
         if (!provider.equals("Fornecedor")) {
@@ -43,17 +43,17 @@ public class SampleTreatment {
             sample.setProvider((Provider) provider);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtSeal between");
+            clause.add("dateSampleCollection between");
             sample.setDateSampleCollection(dateOf);
             clause.add("");
             sample.setDateBetween(dateUntil);
         } else {
             if (dateOf != null) {
-                clause.add("dtSeal =");
+                clause.add("dateSampleCollection =");
                 sample.setDateSampleCollection(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtSeal =");
+                clause.add("dateSampleCollection =");
                 sample.setDateSampleCollection(dateUntil);
             }
 

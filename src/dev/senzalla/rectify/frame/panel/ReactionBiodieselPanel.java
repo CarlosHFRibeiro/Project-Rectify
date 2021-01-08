@@ -1,12 +1,14 @@
 package dev.senzalla.rectify.frame.panel;
 
 import dev.senzalla.rectify.entitys.AnalyzeTank;
+import dev.senzalla.rectify.entitys.Tank;
 import dev.senzalla.rectify.frame.MakeBiodieselFrame;
 import dev.senzalla.rectify.treatments.AnalyzeTankTreatment;
 import dev.senzalla.rectify.treatments.ReactionBiodieselTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Date;
 
 /**
@@ -15,11 +17,14 @@ import java.util.Date;
  * @github github.com/Bomsalvez
  */
 public class ReactionBiodieselPanel extends javax.swing.JPanel {
+    private final MakeBiodieselFrame trans;
+
 
     public ReactionBiodieselPanel(MakeBiodieselFrame trans) {
         initComponents();
         TreatmentTheme.initTheme(pnlReact);
         AnalyzeTankTreatment.initComboBox(cbxAnalyzeTank, null);
+        this.trans = trans;
     }
 
     /**
@@ -46,9 +51,9 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
         txtTimeFinal = new javax.swing.JFormattedTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setMaximumSize(new java.awt.Dimension(614, 148));
-        setMinimumSize(new java.awt.Dimension(614, 148));
-        setPreferredSize(new java.awt.Dimension(614, 148));
+        setMaximumSize(new java.awt.Dimension(700, 160));
+        setMinimumSize(new java.awt.Dimension(700, 160));
+        setPreferredSize(new java.awt.Dimension(700, 160));
 
         pnlReact.setMaximumSize(new java.awt.Dimension(610, 144));
         pnlReact.setMinimumSize(new java.awt.Dimension(610, 144));
@@ -58,6 +63,8 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
         lblDate.setText("Data");
 
         dtcDate.setDateFormatString("dd/MM/yyyy");
+        dtcDate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        dtcDate.setPreferredSize(new java.awt.Dimension(119, 32));
 
         lblTimeInitial.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTimeInitial.setText("Hora Inicial");
@@ -68,28 +75,33 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
         txtTimeInitial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTimeInitial.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTimeInitial.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtTimeInitial.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTimeInitial.setPreferredSize(new java.awt.Dimension(120, 32));
 
         lblAnalyze.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAnalyze.setText("Cod Analise");
 
-        cbxAnalyzeTank.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbxAnalyzeTank.setPreferredSize(new java.awt.Dimension(120, 27));
+        cbxAnalyzeTank.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cbxAnalyzeTank.setPreferredSize(new java.awt.Dimension(120, 32));
+        cbxAnalyzeTank.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cbxAnalyzeTankFocusGained(evt);
+            }
+        });
 
         lblMethylate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMethylate.setText("Metilato");
 
         txtMethiylate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtMethiylate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtMethiylate.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtMethiylate.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMethiylate.setPreferredSize(new java.awt.Dimension(120, 32));
 
         lblMethanol.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMethanol.setText("Metanol");
 
         txtMethanol.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtMethanol.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtMethanol.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtMethanol.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMethanol.setPreferredSize(new java.awt.Dimension(120, 32));
 
         lblTimeFinal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTimeFinal.setText("Hora Final");
@@ -100,25 +112,26 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
             ex.printStackTrace();
         }
         txtTimeFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTimeFinal.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txtTimeFinal.setPreferredSize(new java.awt.Dimension(120, 27));
+        txtTimeFinal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTimeFinal.setPreferredSize(new java.awt.Dimension(120, 32));
 
         javax.swing.GroupLayout pnlReactLayout = new javax.swing.GroupLayout(pnlReact);
         pnlReact.setLayout(pnlReactLayout);
         pnlReactLayout.setHorizontalGroup(
             pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlReactLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(36, 36, 36)
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAnalyze)
                     .addComponent(lblDate)
                     .addComponent(lblMethanol))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMethanol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxAnalyzeTank, 0, 130, Short.MAX_VALUE)
-                    .addComponent(dtcDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtMethanol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbxAnalyzeTank, 0, 130, Short.MAX_VALUE))
+                    .addComponent(dtcDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlReactLayout.createSequentialGroup()
@@ -133,7 +146,7 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
                         .addComponent(lblTimeFinal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtTimeFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
+                .addGap(38, 38, 38))
         );
         pnlReactLayout.setVerticalGroup(
             pnlReactLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,20 +170,32 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
                         .addComponent(lblTimeFinal)
                         .addComponent(txtMethanol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblMethanol)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlReact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlReact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlReact, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbxAnalyzeTankFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbxAnalyzeTankFocusGained
+        Tank tank = trans.getTank();
+        if (tank != null) {
+            AnalyzeTankTreatment.initComboBox(cbxAnalyzeTank, new AnalyzeTank(tank));
+        }
+    }//GEN-LAST:event_cbxAnalyzeTankFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -198,7 +223,7 @@ public class ReactionBiodieselPanel extends javax.swing.JPanel {
     }
 
     public void saveReact() {
-       new ReactionBiodieselTreatment(). saveReact(txtMethiylate.getText(),txtMethanol.getText(),dtcDate.getDate(),txtTimeInitial.getText(),txtTimeFinal.getText(),(AnalyzeTank) cbxAnalyzeTank.getSelectedItem());
-       
+        new ReactionBiodieselTreatment().saveReact(txtMethiylate.getText(), txtMethanol.getText(), dtcDate.getDate(), txtTimeInitial.getText(), txtTimeFinal.getText(), (AnalyzeTank) cbxAnalyzeTank.getSelectedItem());
+
     }
 }

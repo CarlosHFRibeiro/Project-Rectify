@@ -28,31 +28,31 @@ public class DischargeTreatment {
         List<String> clause = new ArrayList<>();
         Discharge dcharge = new Discharge();
         if (id > 0) {
-            clause.add("id =");
+            clause.add("idDcharge =");
             dcharge.setId(id);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtOf between");
+            clause.add("dateEntryDcharge between");
             dcharge.setDateEntry(dateOf);
             clause.add("");
             dcharge.setDateBetween(dateUntil);
 
         } else {
             if (dateOf != null) {
-                clause.add("dtOf =");
+                clause.add("dateEntryDcharge =");
                 dcharge.setDateEntry(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtOf =");
+                clause.add("dateEntryDcharge =");
                 dcharge.setDateEntry(dateUntil);
             }
         }
         if (ticket > 0) {
-            clause.add("ticket =");
+            clause.add("ticketDcharge =");
             dcharge.setTicket(ticket);
         }
         if (note > 0) {
-            clause.add("note =");
+            clause.add("noteDcharge =");
             dcharge.setNote(note);
         }
         if (!provider.equals("Fornecedor")) {

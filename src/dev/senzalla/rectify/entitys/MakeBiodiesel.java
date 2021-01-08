@@ -91,4 +91,9 @@ public class MakeBiodiesel extends DateTreatment {
     public void setReactTrans(Set<ReactionMakeBiodiesel> reactTrans) {
         this.reactTrans = reactTrans;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getIdMakeBiodiesel());
+    }
 }

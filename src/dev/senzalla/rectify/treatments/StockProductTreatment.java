@@ -26,7 +26,7 @@ public class StockProductTreatment {
         fillTable(tableStockProduct, new StockProductRequest().select(null, null));
     }
 
-    public static void initTableWithFilter(JTable tableStockProduct, Object product, Date dateOf, Date dateUntil) {
+    public static void setTableFilters(JTable tableStockProduct, Object product, Date dateOf, Date dateUntil) {
         List<String> clause = new ArrayList<>();
         StockProduct stockProduct = new StockProduct();
         if (!product.equals("Produto")) {

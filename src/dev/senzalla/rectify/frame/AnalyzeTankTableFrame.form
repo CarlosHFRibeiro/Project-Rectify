@@ -90,7 +90,8 @@
                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="roll" pref="594" max="32767" attributes="0"/>
+                  <Component id="roll" pref="588" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -153,7 +154,7 @@
                     <Column editable="false" title="Cod." type="java.lang.Object"/>
                     <Column editable="false" title="Acidez" type="java.lang.Object"/>
                     <Column editable="false" title="Saponidade" type="java.lang.Object"/>
-                    <Column editable="false" title="Impureza" type="java.lang.Object"/>
+                    <Column editable="false" title="Impureza %" type="java.lang.Object"/>
                     <Column editable="false" title="Tanque" type="java.lang.Object"/>
                     <Column editable="false" title="Data" type="java.lang.Object"/>
                     <Column editable="false" title="Hora" type="java.lang.Object"/>

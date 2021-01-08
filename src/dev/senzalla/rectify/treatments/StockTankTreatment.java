@@ -21,7 +21,7 @@ import java.util.List;
 public class StockTankTreatment {
 
     public static void initTable(JTable tableStockTank) {
-        List<StockTank> stockTanks = new StockTankRequest().select(null,null);
+        List<StockTank> stockTanks = new StockTankRequest().select(null, null);
         fillTable(tableStockTank, stockTanks);
     }
 
@@ -37,17 +37,17 @@ public class StockTankTreatment {
             stockTank.setProduct((Product) product);
         }
         if (dateOf != null && dateUntil != null) {
-            clause.add("dtStkTq between");
+            clause.add("dateStockTank between");
             stockTank.setDateStockTank(dateOf);
             clause.add("");
             stockTank.setDateBetween(dateUntil);
         } else {
             if (dateOf != null) {
-                clause.add("dtStkTq =");
+                clause.add("dateStockTank =");
                 stockTank.setDateStockTank(dateOf);
             }
             if (dateUntil != null) {
-                clause.add("dtStkTq =");
+                clause.add("dateStockTank =");
                 stockTank.setDateStockTank(dateUntil);
             }
         }
@@ -76,14 +76,20 @@ public class StockTankTreatment {
         for (int i = 0; i < tableStockTank.getRowCount(); i++) {
             if (!tableStockTank.getValueAt(i, colummProduct).equals("Produto")) {
                 Tank tank = (Tank) (tableStockTank.getValueAt(i, 0));
-                StockTank stockTank = new StockTank();
-                stockTank.setTank(tank);
-                stockTank.setProduct((Product) (tableStockTank.getValueAt(i, 1)));
-                stockTank.setLiterProduct(litter(tableStockTank, i, tank));
-                new StockTankRequest().insert(stockTank);
+                Product product = (Product) (tableStockTank.getValueAt(i, 1));
+                int liter = litter(tableStockTank, i, tank);
+                saveStockTank(tank, product, liter);
             }
         }
         this.initTableAddStock(tableStockTank);
+    }
+
+    private void saveStockTank(Tank tank, Product product, int liter) {
+        StockTank stockTank = new StockTank();
+        stockTank.setTank(tank);
+        stockTank.setProduct(product);
+        stockTank.setLiterProduct(liter);
+        new StockTankRequest().insert(stockTank);
     }
 
     public void initTableAddStock(JTable tableStockTankAdd) {

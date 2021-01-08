@@ -20,7 +20,7 @@ public class ReactionMakeEsterRequest extends ConectionMySql {
     public void insert(ReactionMakeEster reactionMakeEster) {
         try {
         super.connection();
-            final String sql = "INSERT INTO `tbl_reaction_make_ester` (`fkInitialAnalysys`, `fkMakeEster`, `sulfuricAcid`, `methanolPure`, `methanolRecover`, `fkFinalAnalysis`, `dateReaction`, `timeStart`, `timeFinal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            final String sql = "INSERT INTO `tbl_reaction_make_ester` (`fkInitialAnalysys`, `sulfuricAcid`, `methanolPure`, `methanolRecover`, `fkFinalAnalysis`, `dateReaction`, `timeStart`, `timeFinal`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             super.prepareStatement(sql);
             stmt.setLong(1, reactionMakeEster.getInitialAnalysysReactionMakeEster().getIdAnalyzeTank());
             stmt.setInt(2, reactionMakeEster.getSulfuricAcidMakeEster());
@@ -56,14 +56,14 @@ public class ReactionMakeEsterRequest extends ConectionMySql {
                 reactionMakeEster.setTimeStartReactionMakeEster(rs.getTime("timeStart"));
 
                 AnalyzeTank analyzeTank = new AnalyzeTank();
-                analyzeTank.setAcidityAnalyzeTank(rs.getDouble("acidInitial"));
-                analyzeTank.setSaponityTank(rs.getDouble("soapInitial"));
+                analyzeTank.setAcidityAnalyzeTank(rs.getDouble("acidityInitial"));
+                analyzeTank.setSaponityTank(rs.getDouble("saponityInitial"));
                 analyzeTank.setTrashTank(rs.getInt("trashInitial"));
                 reactionMakeEster.setInitialAnalysysReactionMakeEster(analyzeTank);
 
                 analyzeTank = new AnalyzeTank();
-                analyzeTank.setAcidityAnalyzeTank(rs.getDouble("acidFinal"));
-                analyzeTank.setSaponityTank(rs.getDouble("soapFinal"));
+                analyzeTank.setAcidityAnalyzeTank(rs.getDouble("acidityFinal"));
+                analyzeTank.setSaponityTank(rs.getDouble("saponityFinal"));
                 analyzeTank.setTrashTank(rs.getInt("trashFinal"));
                 reactionMakeEster.setFinalAnalysisReactionMakeEster(analyzeTank);
 

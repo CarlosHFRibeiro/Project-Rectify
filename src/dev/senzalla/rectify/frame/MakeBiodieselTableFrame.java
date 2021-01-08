@@ -6,7 +6,7 @@ import dev.senzalla.rectify.frame.filter.MakeFilterFrame;
 import dev.senzalla.rectify.print.MakeTransPrint;
 import dev.senzalla.rectify.treatments.Access;
 import dev.senzalla.rectify.treatments.IconTable;
-import dev.senzalla.rectify.treatments.MakeTransTreatment;
+import dev.senzalla.rectify.treatments.MakeBiodieselTreatment;
 import dev.senzalla.theme.TreatmentTheme;
 
 import java.util.List;
@@ -89,41 +89,7 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
         tbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Cod", "Data", "Tanque", "Produzido", "Residuo", ""
@@ -137,8 +103,8 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl.setRowHeight(20);
         tbl.setShowGrid(true);
-        tbl.setShowVerticalLines(false);
         tbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblMouseClicked(evt);
@@ -147,7 +113,7 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
         roll.setViewportView(tbl);
         if (tbl.getColumnModel().getColumnCount() > 0) {
             tbl.getColumnModel().getColumn(0).setPreferredWidth(50);
-            tbl.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbl.getColumnModel().getColumn(1).setPreferredWidth(100);
             tbl.getColumnModel().getColumn(2).setPreferredWidth(300);
             tbl.getColumnModel().getColumn(3).setPreferredWidth(50);
             tbl.getColumnModel().getColumn(4).setPreferredWidth(50);
@@ -242,7 +208,7 @@ public class MakeBiodieselTableFrame extends javax.swing.JInternalFrame {
     private void initPanel() {
         TreatmentTheme.initTheme(pnlMake);
         TreatmentTheme.initTableTheme(tbl);
-        MakeTransTreatment.initTable(tbl);
+        MakeBiodieselTreatment.initTable(tbl);
         TreatmentTheme.iconDefine(btnAdd, "/static/img/add_white.png");
         TreatmentTheme.iconDefine(btnPrint, "/static/img/pdf_white.png");
         TreatmentTheme.iconDefine(btnFilter, "/static/img/filter_white.png");
